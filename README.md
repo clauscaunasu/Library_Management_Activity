@@ -40,11 +40,12 @@ The Use Case Diagram will provide a basic overview of the online library applica
 6.2 Screen Images</br>
 ![WelcomePage](https://user-images.githubusercontent.com/59791852/112338466-7e489a80-8cc7-11eb-9edc-c960a8f51e54.PNG)
 ![LoginPage](https://user-images.githubusercontent.com/59791852/112338475-7f79c780-8cc7-11eb-8bf7-06f3735b2e72.PNG)
-![MenuAdmin](https://user-images.githubusercontent.com/59791852/112338476-7f79c780-8cc7-11eb-8aea-a667b84d9999.PNG)
-![MenuMember](https://user-images.githubusercontent.com/59791852/112338480-80125e00-8cc7-11eb-95b8-47b604782878.PNG)
+![MenuMember](https://user-images.githubusercontent.com/59791852/112342550-fcf30700-8cca-11eb-93f5-82fea4146745.PNG)
+![MenuAdmin](https://user-images.githubusercontent.com/59791852/112342554-fd8b9d80-8cca-11eb-817a-b909d43dfbde.PNG)
 ![RegisterPage](https://user-images.githubusercontent.com/59791852/112338484-81438b00-8cc7-11eb-93e0-e96d45467c82.PNG)
 ![SearchAfterTitle](https://user-images.githubusercontent.com/59791852/112338461-7c7ed700-8cc7-11eb-84dd-4e2ec3c43b86.PNG)
 ![SearcPageAdmin](https://user-images.githubusercontent.com/59791852/112338465-7db00400-8cc7-11eb-9ae0-91d42a407433.PNG)
+![Results](https://user-images.githubusercontent.com/59791852/112343141-81458a00-8ccb-11eb-9e8b-4d6566e1aafd.PNG)
 ![branchMember](https://user-images.githubusercontent.com/59791852/112338470-7ee13100-8cc7-11eb-963a-d1949ecb3df3.PNG)
 
 
