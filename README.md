@@ -36,14 +36,13 @@ The Use Case Diagram will provide a basic overview of the online library applica
 7.Return book - the members have also the option of returning a book they have in possession. After they successfully log in, they can choose to see the books they borrowed. Then, a list of borrowed books at this time will be available. The member can choose to return by clicking on the “Return” button beside the book. If everything works fine, the book will appear as returned in the borrowed books report and the number of available books of that type will be updated. The member will be redirected to the report page.
 ![MemberReturnBook](https://user-images.githubusercontent.com/59791852/112337823-f06caf80-8cc6-11eb-99eb-f259312f7f03.png)</br>
 11.User search - Both member and staff users can search a book, but only after they are successfully logged in. After that step they have to select the filter. They have 3 possible filters: title, author, genre and branch . After selecting one of these filters, the user must introduce the information regarding the filter and select the “Search” button. If the book is found, then it will be displayed, otherwise the user will be asked to introduce again the data which will be searched.  </br>
-
+![UserSearchActivity](https://user-images.githubusercontent.com/59791852/112338131-36c20e80-8cc7-11eb-982d-fc1627425fb2.png) </br>
 6.2 Screen Images</br>
 ![WelcomePage](https://user-images.githubusercontent.com/59791852/112338466-7e489a80-8cc7-11eb-9edc-c960a8f51e54.PNG)
 ![LoginPage](https://user-images.githubusercontent.com/59791852/112338475-7f79c780-8cc7-11eb-8bf7-06f3735b2e72.PNG)
 ![MenuAdmin](https://user-images.githubusercontent.com/59791852/112338476-7f79c780-8cc7-11eb-8aea-a667b84d9999.PNG)
 ![MenuMember](https://user-images.githubusercontent.com/59791852/112338480-80125e00-8cc7-11eb-95b8-47b604782878.PNG)
 ![RegisterPage](https://user-images.githubusercontent.com/59791852/112338484-81438b00-8cc7-11eb-93e0-e96d45467c82.PNG)
-![UserSearchActivity](https://user-images.githubusercontent.com/59791852/112338131-36c20e80-8cc7-11eb-982d-fc1627425fb2.png)
 ![SearchAfterTitle](https://user-images.githubusercontent.com/59791852/112338461-7c7ed700-8cc7-11eb-84dd-4e2ec3c43b86.PNG)
 ![SearcPageAdmin](https://user-images.githubusercontent.com/59791852/112338465-7db00400-8cc7-11eb-9ae0-91d42a407433.PNG)
 ![branchMember](https://user-images.githubusercontent.com/59791852/112338470-7ee13100-8cc7-11eb-963a-d1949ecb3df3.PNG)
