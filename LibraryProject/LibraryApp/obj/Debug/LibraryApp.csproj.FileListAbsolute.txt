@@ -1,0 +1,15 @@
+E:\C# projects\LibraryProject\LibraryApp\bin\Debug\LibraryApp.exe.config
+E:\C# projects\LibraryProject\LibraryApp\bin\Debug\LibraryApp.exe
+E:\C# projects\LibraryProject\LibraryApp\bin\Debug\LibraryApp.pdb
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csprojAssemblyReference.cache
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\MainWindow.g.cs
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\App.g.cs
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\LibraryApp_MarkupCompile.cache
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\LibraryApp_MarkupCompile.lref
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\MainWindow.baml
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\LibraryApp.g.resources
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\LibraryApp.Properties.Resources.resources
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csproj.GenerateResource.cache
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csproj.CoreCompileInputs.cache
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\LibraryApp.exe
+E:\C# projects\LibraryProject\LibraryApp\obj\Debug\LibraryApp.pdb
