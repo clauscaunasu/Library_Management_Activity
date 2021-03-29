@@ -23,7 +23,9 @@ public interface IService
 // Use a data contract as illustrated in the sample below to add composite types to service operations.
 [DataContract]
 public class CompositeType
-{
+{	
+    //this is another comment
+
 	bool boolValue = true;
 	string stringValue = "Hello ";
 
