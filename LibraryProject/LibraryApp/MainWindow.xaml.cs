@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
 using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp
@@ -14,6 +16,23 @@ namespace LibraryApp
             var serviceClient = new ServiceClient();
             var result = serviceClient.GetBranches();
 
+        }
+
+        private void BtnLogin_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        private void BtnExit_OnClick(object sender, RoutedEventArgs e)
+        {
+
+            Application.Current.Shutdown();
+        }
+
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }
