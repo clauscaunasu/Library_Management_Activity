@@ -23,7 +23,7 @@ public class CompositeType
     //this is another comment
 
 	bool boolValue = true;
-	string stringValue = "Hello World!";
+	string stringValue = "Hello World!!";
 
 	[DataMember]
 	public bool BoolValue
