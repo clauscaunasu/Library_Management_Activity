@@ -33,7 +33,7 @@ public class CompositeType
 		get { return boolValue; }
 		set { boolValue = value; }
 	}
-
+	//this is a comment
 	[DataMember]
 	public string StringValue
 	{
