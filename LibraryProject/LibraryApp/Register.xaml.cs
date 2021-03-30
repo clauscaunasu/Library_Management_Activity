@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp
 {
@@ -10,6 +11,7 @@ namespace LibraryApp
     /// </summary>
     public partial class Register : UserControl
     {
+        private ServiceClient _serviceClient = new ServiceClient();
         public Register()
         {
             InitializeComponent();
@@ -17,7 +19,9 @@ namespace LibraryApp
 
         private void BtnRegister_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var result = _serviceClient.Register(TxtFirstname.Text, TxtLastname.Text, TxtAddress.Text, TxtPhone.Text,
+                   TxtUsername.Text, TxtPassword.Password);
+            MessageBox.Show(result ? "success" : "failed");
         }
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)

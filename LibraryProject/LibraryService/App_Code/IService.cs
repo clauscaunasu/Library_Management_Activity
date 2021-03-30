@@ -16,6 +16,10 @@ public interface IService
     [OperationContract]
     bool LogIn(string username, string password);
 
+    [OperationContract]
+    bool Register(string firstName, string lastName, string address, string telephone, string username,
+        string password);
+
     // TODO: Add your service operations here
 }
 

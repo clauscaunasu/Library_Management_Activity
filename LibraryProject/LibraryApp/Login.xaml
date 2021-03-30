@@ -41,7 +41,6 @@
                                 Background="#8bbdd9" Foreground="AliceBlue" ToolTip="Login" x:Name="BtnLogin" Click="BtnLogin_OnClick" Content="Login"></Button>
 
                     </StackPanel>
-
                 </StackPanel>
             </StackPanel>
             <StackPanel Width="100">

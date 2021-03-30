@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using LibraryApp.LibraryServiceReference;
 using MaterialDesignThemes.Wpf;
+
 
 namespace LibraryApp
 {
@@ -19,15 +19,19 @@ namespace LibraryApp
         private void BtnGoToLogin_OnClick(object sender, RoutedEventArgs e)
         {
 
-            Login loginWindow = new Login();
-            loginWindow.ShowDialog(true);
+            var login = new Login();
+            this.Close();
+            
+            
+            
+            
 
         }
 
         private void BtnRegister_OnClick(object sender, RoutedEventArgs e)
         {
-            Register registerWindow = new Register();
-            registerWindow.ShowDialog(true);
+            var registerWindow = new Register();
+            
 
         }
 

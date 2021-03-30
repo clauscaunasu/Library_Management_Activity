@@ -23,7 +23,7 @@ public class Service : IService
         }
 	}
 
-    public void Register()
+    public bool Register(string firstName, string lastName, string address, string telephone, string username, string password)
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
 
@@ -31,6 +31,12 @@ public class Service : IService
         {
             var command = new SqlCommand(string.Empty, connection);
             command.Connection.Open();
+            command.CommandText = "INSERT INTO Client(FirstName, LastName, Address, Telephone, Username, Password)" +
+                                  " VALUES ('" + firstName + "' , '" + lastName + "' , '" +
+                                  address + "' , '" + telephone +
+                                  "' , '" + username + "' , '" + password + "')";
+
+            return command.ExecuteNonQuery() == 1;
         }
     }
 

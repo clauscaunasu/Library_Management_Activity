@@ -87,3 +87,5 @@ C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProje
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csproj.CopyComplete
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.exe
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.pdb
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\Login.g.cs
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\Login.baml

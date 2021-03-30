@@ -95,6 +95,12 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/LogIn", ReplyAction="http://tempuri.org/IService/LogInResponse")]
         System.Threading.Tasks.Task<bool> LogInAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Register", ReplyAction="http://tempuri.org/IService/RegisterResponse")]
+        bool Register(string firstName, string lastName, string address, string telephone, string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Register", ReplyAction="http://tempuri.org/IService/RegisterResponse")]
+        System.Threading.Tasks.Task<bool> RegisterAsync(string firstName, string lastName, string address, string telephone, string username, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -146,6 +152,14 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<bool> LogInAsync(string username, string password) {
             return base.Channel.LogInAsync(username, password);
+        }
+        
+        public bool Register(string firstName, string lastName, string address, string telephone, string username, string password) {
+            return base.Channel.Register(firstName, lastName, address, telephone, username, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegisterAsync(string firstName, string lastName, string address, string telephone, string username, string password) {
+            return base.Channel.RegisterAsync(firstName, lastName, address, telephone, username, password);
         }
     }
 }
