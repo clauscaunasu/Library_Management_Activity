@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using LibraryApp.LibraryServiceReference;
+using MaterialDesignThemes.Wpf;
 
 namespace LibraryApp
 {
@@ -15,11 +16,19 @@ namespace LibraryApp
             
         }
 
-        private void BtnLogin_OnClick(object sender, RoutedEventArgs e)
+        private void BtnGoToLogin_OnClick(object sender, RoutedEventArgs e)
         {
-            var result = _serviceClient.LogIn(TxtUsername.Text, TxtPassword.Password);
 
-            MessageBox.Show(result ? "success" : "Failed");
+            Login loginWindow = new Login();
+            loginWindow.ShowDialog(true);
+
+        }
+
+        private void BtnRegister_OnClick(object sender, RoutedEventArgs e)
+        {
+            Register registerWindow = new Register();
+            registerWindow.ShowDialog(true);
+
         }
 
 
