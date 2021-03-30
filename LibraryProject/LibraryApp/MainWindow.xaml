@@ -40,6 +40,7 @@
                                 materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="AliceBlue"
                                 Background="#8bbdd9" Foreground="AliceBlue" ToolTip="Register" x:Name="BtnRegister" Click="BtnRegister_OnClick" Content="Register" FontSize="20"></Button>
                     </StackPanel>
+                    
                 </StackPanel>
             </StackPanel>
             <StackPanel Width="100">
@@ -49,5 +50,7 @@
                 </Button>
             </StackPanel>
         </StackPanel>
+        
     </Grid>
+
 </Window>
