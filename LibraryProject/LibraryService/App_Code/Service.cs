@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
 public class Service : IService
 {
-	public List<string> GetBranches()
+
+    public List<string> GetBranches()
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+
 
         using (var connection = new SqlConnection(connectionString))
         {
@@ -25,6 +22,33 @@ public class Service : IService
             return new List<string>();
         }
 	}
+
+    public void Register()
+    {
+        var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            var command = new SqlCommand(string.Empty, connection);
+            command.Connection.Open();
+        }
+    }
+
+    public bool LogIn(string username, string password)
+    {
+        var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            var command = new SqlCommand(string.Empty, connection);
+            command.Connection.Open();
+            command.CommandText = "SELECT COUNT(1) FROM Client WHERE Username = '" +
+                                  username + "' AND Password ='" +
+                                  password + "'";
+            var result = (int)command.ExecuteScalar();
+            return result == 1;
+        }
+    }
 
 	public CompositeType GetDataUsingDataContract(CompositeType composite)
 	{

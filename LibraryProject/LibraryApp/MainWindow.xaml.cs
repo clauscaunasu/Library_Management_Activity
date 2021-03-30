@@ -5,22 +5,22 @@ using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
+        private ServiceClient _serviceClient = new ServiceClient();
         public MainWindow()
         {
             InitializeComponent();
-            var serviceClient = new ServiceClient();
-            var result = serviceClient.GetBranches();
+            var result = _serviceClient.GetBranches();
 
         }
 
         private void BtnLogin_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var result = _serviceClient.LogIn(TxtUsername.Text, TxtPassword.Password);
+
+            MessageBox.Show(result ? "success" : "Failed");
         }
 
 

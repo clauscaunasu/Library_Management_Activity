@@ -9,15 +9,19 @@
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None"
         ResizeMode="NoResize">
     <Grid MouseDown="UIElement_OnMouseDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="379*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
                 <GradientStop Color="#8bbdd9" Offset="1"/>
                 <GradientStop Color="#fff" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="390" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="#004a7c">
+        <Border Height="390" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="#004a7c" Grid.ColumnSpan="2">
         </Border>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Column="0">
             <StackPanel Width="350">
                 <Image Source="pack://application:,,,/Image/ReadingBook.png" Width="300" VerticalAlignment="Top" Margin="30" Stretch="Fill" OpacityMask="Black"/>
             </StackPanel>
@@ -46,11 +50,7 @@
                         ToolTip="Close" x:Name="BtnExit" Click="BtnExit_OnClick">
                     <materialDesign:PackIcon Kind="Close" Foreground="AliceBlue" Width="30" Height="30"/>
                 </Button>
-
             </StackPanel>
-
         </StackPanel>
-
-
     </Grid>
 </Window>

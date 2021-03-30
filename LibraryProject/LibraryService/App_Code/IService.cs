@@ -13,7 +13,10 @@ public interface IService
 	[OperationContract]
 	CompositeType GetDataUsingDataContract(CompositeType composite);
 
-	// TODO: Add your service operations here
+    [OperationContract]
+    bool LogIn(string username, string password);
+
+    // TODO: Add your service operations here
 }
 
 // Use a data contract as illustrated in the sample below to add composite types to service operations.
@@ -23,7 +26,7 @@ public class CompositeType
     //this is another comment
 
 	bool boolValue = true;
-	string stringValue = "Hello World!!";
+	string stringValue = "Hello";
 
 	[DataMember]
 	public bool BoolValue

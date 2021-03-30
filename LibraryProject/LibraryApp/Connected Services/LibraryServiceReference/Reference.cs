@@ -89,6 +89,12 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<LibraryApp.LibraryServiceReference.CompositeType> GetDataUsingDataContractAsync(LibraryApp.LibraryServiceReference.CompositeType composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/LogIn", ReplyAction="http://tempuri.org/IService/LogInResponse")]
+        bool LogIn(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/LogIn", ReplyAction="http://tempuri.org/IService/LogInResponse")]
+        System.Threading.Tasks.Task<bool> LogInAsync(string username, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -132,6 +138,14 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<LibraryApp.LibraryServiceReference.CompositeType> GetDataUsingDataContractAsync(LibraryApp.LibraryServiceReference.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
+        }
+        
+        public bool LogIn(string username, string password) {
+            return base.Channel.LogIn(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LogInAsync(string username, string password) {
+            return base.Channel.LogInAsync(username, password);
         }
     }
 }
