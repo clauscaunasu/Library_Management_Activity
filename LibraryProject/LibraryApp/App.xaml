@@ -11,6 +11,66 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/materialdesigncolor.blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="Border" x:Key="StartupPagesStyle"> 
+                <Setter Property="Height" Value="390"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
+                <Setter Property="CornerRadius" Value="0 0 180 0"/>
+                <Setter Property="Background" Value="#004a7c"/>
+            </Style>
+            <!--style homepage admin-->
+
+            <Style TargetType="TextBox" x:Key="SearchBoxStyle">
+                <Setter Property="Width" Value="400"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="10, 0, 20, 0"/>
+            </Style>
+
+            <Style TargetType="TextBlock" x:Key="TitleStyle">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="0, 20"/>
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="Foreground" Value="#fafafa"/>
+                <Setter Property="FontFamily" Value="Georgia"/>
+            </Style>
+
+            <Style TargetType="Button" x:Key="ActionBtnBase">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Margin" Value="20, 10"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Foreground" Value="#fafafa"/>
+            </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource ActionBtnBase}" x:Key="PrimaryActionBtn">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Width" Value="220"/>
+            </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource ActionBtnBase}" x:Key="SecondaryActionBtn">
+                <Setter Property="Background" Value="#004a7c"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Width" Value="160"/>
+                <Setter Property="Height" Value="30"/>
+            </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource ActionBtnBase}" x:Key="FilterActionBtn">
+                <Setter Property="Background" Value="#004a7c"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+
+            <Style TargetType="Expander" x:Key="ExpanderStyle">
+                <Setter Property="Foreground" Value="#fafafa"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

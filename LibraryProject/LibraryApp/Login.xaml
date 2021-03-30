@@ -18,7 +18,9 @@
                 <GradientStop Color="#fff" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="390" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="#004a7c" Grid.ColumnSpan="2">
+        <Border 
+            Style="{StaticResource StartupPagesStyle}"  
+            Grid.ColumnSpan="2">
         </Border>
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Column="0">
             <StackPanel Width="350">
