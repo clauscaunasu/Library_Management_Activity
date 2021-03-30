@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LibraryApp"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -11,12 +12,58 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/materialdesigncolor.blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
             <Style TargetType="Border" x:Key="StartupPagesStyle"> 
                 <Setter Property="Height" Value="390"/>
                 <Setter Property="VerticalAlignment" Value="Top"/>
                 <Setter Property="CornerRadius" Value="0 0 180 0"/>
                 <Setter Property="Background" Value="#004a7c"/>
             </Style>
+
+            <Style TargetType="StackPanel" x:Key="PrimaryStackPanel">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+
+            <Style TargetType="StackPanel" x:Key="PrimaryStackPanelLogin">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+            </Style>
+
+            <Style TargetType="StackPanel" x:Key="PrimaryStackPanelRegister">
+                <Setter Property="Margin" Value="5 2.5"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+            </Style>
+
+            <Style TargetType="TextBox" x:Key="TextBoxField">
+                <Setter Property="Margin" Value="10 0"/>
+                <Setter Property="Width" Value="250"/>
+                <Setter Property="Foreground" Value="AliceBlue"/>
+                <Setter Property="BorderBrush" Value="AliceBlue"/>
+                <Setter Property="CaretBrush" Value="AliceBlue"/>
+                <Setter Property="SelectionBrush" Value="AliceBlue"/>
+            </Style>
+
+
+            <Style TargetType="TextBlock" x:Key="MainMessage">
+                <Setter Property="Margin" Value="20 40"/>
+                <Setter Property="Foreground" Value="AliceBlue"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontFamily" Value="Snap ITC"/>
+            </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}" x:Key="GoToPageBtn">
+                <Setter Property="Background" Value="#8bbdd9"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="60"/>
+                <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="10"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="BorderBrush" Value="AliceBlue"/>
+                <Setter Property="Foreground" Value="AliceBlue"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+
             <!--style homepage admin-->
 
             <Style TargetType="TextBox" x:Key="SearchBoxStyle">
