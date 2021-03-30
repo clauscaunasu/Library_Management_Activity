@@ -27,7 +27,7 @@
                 <Image Source="pack://application:,,,/Image/ReadingBook.png" Width="300" VerticalAlignment="Top" Margin="30" Stretch="Fill" OpacityMask="Black"/>
             </StackPanel>
             <StackPanel Width="350">
-                <StackPanel Margin="20 40">
+                <StackPanel Margin="20 30">
                     <TextBlock Text="Register" Margin="10" Foreground="AliceBlue" TextAlignment="Center" FontSize="32" FontFamily="Snap ITC"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5 2.5">
@@ -57,7 +57,7 @@
                 </Button>
             </StackPanel>
             <StackPanel Width="100">
-                <Button Margin="10 20" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
+                <Button Margin="10 10" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
                         ToolTip="Close" x:Name="BtnExit" Click="BtnExit_OnClick">
                     <materialDesign:PackIcon Kind="Close" Foreground="AliceBlue" Width="30" Height="30"/>
                 </Button>

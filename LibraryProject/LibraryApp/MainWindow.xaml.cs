@@ -12,8 +12,7 @@ namespace LibraryApp
         public MainWindow()
         {
             InitializeComponent();
-            var result = _serviceClient.GetBranches();
-
+            
         }
 
         private void BtnLogin_OnClick(object sender, RoutedEventArgs e)
