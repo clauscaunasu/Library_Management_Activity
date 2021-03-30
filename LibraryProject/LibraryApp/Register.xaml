@@ -20,35 +20,35 @@
                 <GradientStop Color="#fff" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="390" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="#004a7c" Grid.ColumnSpan="3">
+        <Border Style="{StaticResource StartupPagesStyle}" Grid.ColumnSpan="3">
         </Border>
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="3" Grid.Column="0">
             <StackPanel Width="350">
                 <Image Source="pack://application:,,,/Image/ReadingBook.png" Width="300" VerticalAlignment="Top" Margin="30" Stretch="Fill" OpacityMask="Black"/>
             </StackPanel>
             <StackPanel Width="350">
-                <StackPanel Margin="20 30">
-                    <TextBlock Text="Register" Margin="10" Foreground="AliceBlue" TextAlignment="Center" FontSize="32" FontFamily="Snap ITC"/>
+                <StackPanel Margin="20 3">
+                    <TextBlock Text="Register" Style="{StaticResource MainMessage}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5 2.5">
-                    <TextBox x:Name="TxtFirstname" Margin="10 0" materialDesign:HintAssist.Hint="Enter firstname" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
+                <StackPanel Style="{StaticResource PrimaryStackPanelRegister}">
+                    <TextBox x:Name="TxtFirstname"  Margin="10 0" materialDesign:HintAssist.Hint="Enter firstname" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5 2.5">
+                <StackPanel Style="{StaticResource PrimaryStackPanelRegister}">
                     <TextBox x:Name="TxtLastname" Margin="10 0" materialDesign:HintAssist.Hint="Enter Lastname" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5 2.5">
+                <StackPanel Style="{StaticResource PrimaryStackPanelRegister}">
                     <TextBox x:Name="TxtEmail" Margin="10 0" materialDesign:HintAssist.Hint="example@gmail.com" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5 2.5">
+                <StackPanel Style="{StaticResource PrimaryStackPanelRegister}">
                     <TextBox x:Name="TxtUsername" Margin="10 0" materialDesign:HintAssist.Hint="Enter username" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5 2.5">
+                <StackPanel Style="{StaticResource PrimaryStackPanelRegister}">
                     <PasswordBox x:Name="TxtPassword" Margin="10 0" materialDesign:HintAssist.Hint="******" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5 2.5">
+                <StackPanel Style="{StaticResource PrimaryStackPanelRegister}">
                     <TextBox x:Name="TxtPhone" Margin="10 0" materialDesign:HintAssist.Hint="+4079512829" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5 2.5">
+                <StackPanel Style="{StaticResource PrimaryStackPanelRegister}">
                     <TextBox x:Name="TxtAddress" Margin="10 0" materialDesign:HintAssist.Hint="Personal address" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                 </StackPanel>
                 <Button Width="100" Height="40" Margin="0, 10, 60, 0" Style="{StaticResource MaterialDesignRaisedButton}"

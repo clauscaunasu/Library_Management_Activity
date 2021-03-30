@@ -19,7 +19,7 @@
                 <GradientStop Color="#fff" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="390" VerticalAlignment="Top" CornerRadius="180 0 180 0" Background="#004a7c" Grid.ColumnSpan="2">
+        <Border Style="{StaticResource StartupPagesStyle}"  Grid.ColumnSpan="2">
         </Border>
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Column="0">
             <StackPanel Width="350">
@@ -27,20 +27,21 @@
             </StackPanel>
             <StackPanel Width="350">
                 <StackPanel Margin="20 40">
-                    <TextBlock Text="All booked up!" Margin="20 40" Foreground="AliceBlue" TextAlignment="Center" FontSize="32" FontFamily="Snap ITC"/>
-                    
-                    
-                    <StackPanel Margin="10" HorizontalAlignment="Center">
-                        <Button Width="150" Height="60" Style="{StaticResource MaterialDesignRaisedButton}"
-                                materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="AliceBlue"
-                                Background="#8bbdd9" Foreground="AliceBlue" ToolTip="Login" x:Name="BtnLogin" Click="BtnGoToLogin_OnClick" Content="Login" FontSize="20"></Button>
+                    <TextBlock Text="All booked up!" Style="{StaticResource MainMessage}"/>
+                    <StackPanel Style="{StaticResource PrimaryStackPanel}">
+                        <Button Style="{StaticResource GoToPageBtn}"
+                               ToolTip="Login" 
+                               x:Name="BtnLogin"
+                               Click="BtnGoToLogin_OnClick" 
+                               Content="Login" />
                     </StackPanel>
-                    <StackPanel Margin="10" HorizontalAlignment="Center">
-                        <Button Width="150" Height="60" Style="{StaticResource MaterialDesignRaisedButton}"
-                                materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="AliceBlue"
-                                Background="#8bbdd9" Foreground="AliceBlue" ToolTip="Register" x:Name="BtnRegister" Click="BtnRegister_OnClick" Content="Register" FontSize="20"></Button>
+                    <StackPanel Style="{StaticResource PrimaryStackPanel}">
+                        <Button Style="{StaticResource GoToPageBtn}"
+                                ToolTip="Register" 
+                                x:Name="BtnRegister" 
+                                Click="BtnRegister_OnClick" 
+                                Content="Register" ></Button>
                     </StackPanel>
-                    
                 </StackPanel>
             </StackPanel>
             <StackPanel Width="100">
