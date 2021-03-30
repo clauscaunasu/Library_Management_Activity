@@ -42,7 +42,6 @@ namespace LibraryApp
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-           
         }
     }
 }

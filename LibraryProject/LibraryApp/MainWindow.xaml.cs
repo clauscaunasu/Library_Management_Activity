@@ -18,20 +18,14 @@ namespace LibraryApp
 
         private void BtnGoToLogin_OnClick(object sender, RoutedEventArgs e)
         {
-
-            var login = new Login();
-            this.Close();
-            
-            
-            
-            
-
+            var loginWindow = new Login();
+            this.Content = loginWindow;
         }
 
         private void BtnRegister_OnClick(object sender, RoutedEventArgs e)
         {
             var registerWindow = new Register();
-            
+            this.Content = registerWindow;
 
         }
 
