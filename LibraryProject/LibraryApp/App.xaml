@@ -132,7 +132,45 @@
                 <Setter Property="Margin" Value="5 20"/>
                 <Setter Property="VerticalAlignment" Value="Top"/>
             </Style>
-            
+
+            <!-- add book style -->
+
+            <Style TargetType="Label" x:Key="LabelStyle">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                
+
+            </Style>
+
+            <Style TargetType="TextBox" x:Key="TextBoxStyle">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+
+            <Style TargetType="Button" x:Key="ActionBtnBaseStyle">
+                <Setter Property="Margin" Value="10 5"/>
+                <Setter Property="Width" Value="80"/>
+            </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource GoToPageBtn}" x:Key="MainActionBtnStyle">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Height" Value="Auto"/>
+                <Setter Property="Margin" Value="5 10"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Width" Value="120"/>
+            </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource GoToPageBtn}" x:Key="SecondaryActionBtnStyle">
+                <Setter Property="Background" Value="#004a7c"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Height" Value="Auto"/>
+                <Setter Property="Margin" Value="5 10"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Width" Value="90"/>
+
+
+            </Style>
 
 
         </ResourceDictionary>
