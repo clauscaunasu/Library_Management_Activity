@@ -11,6 +11,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.35*"/>
+            <ColumnDefinition Width="0.2*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Background="#005691">
@@ -20,8 +21,12 @@
             </Grid.RowDefinitions>
             <TextBlock Text="All Booked Up" Style="{StaticResource TitleStyle}"/>
             <StackPanel Grid.Row="1">
-                <Button x:Name="AddBookBtn" Content="Add New Book" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="10"
-                        BorderThickness="2" BorderBrush="AliceBlue" Click="AddBookBtn_Click" Width="200"/>
+                <Button x:Name="HelpBtn" Content="Help" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="AddBookBtn_Click"/>
+                <Button x:Name="AddBookBtn" Content="Add New Book" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="AddBookBtn_Click"/>
 
                 <Expander Header="Manage Members" Style="{StaticResource ExpanderStyle}">
                     <StackPanel>
@@ -33,24 +38,30 @@
         </Grid>
         <Grid Grid.Column="1" Background="#e8f1f5">
             <Grid.RowDefinitions>
+                <RowDefinition Height="0.27*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Expander Header="Filter" Style="{StaticResource ExpanderStyle}"  VerticalAlignment="Top" Foreground="Black"  Margin="20 20 0 0" >
+                <StackPanel>
+                    <Button x:Name="TitleFilterBtn" Content="Title" Style="{StaticResource FilterActionBtn}" />
+                    <Button x:Name="AuthorFilterBtn" Content="Author" Style="{StaticResource FilterActionBtn}" />
+                    <Button x:Name="GenreFilterBtn" Content="Genre" Style="{StaticResource FilterActionBtn}" />
+                    <Button x:Name="BranchFilterBtn" Content="Branch" Style="{StaticResource FilterActionBtn}" />
+                </StackPanel>
+            </Expander>
+        </Grid>
+        <Grid Grid.Column="2" Background="#e8f1f5">
+            <Grid.RowDefinitions>
                 <RowDefinition Height="0.20*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Expander Header="Filter" Style="{StaticResource ExpanderStyle}" VerticalAlignment="Top" Foreground="Black"  Margin="20 20" >
-                    <StackPanel>
-                        <Button x:Name="TitleFilterBtn" Content="Title" Style="{StaticResource FilterActionBtn}" />
-                        <Button x:Name="AuthorFilterBtn" Content="Author" Style="{StaticResource FilterActionBtn}" />
-                        <Button x:Name="GenreFilterBtn" Content="Genre" Style="{StaticResource FilterActionBtn}" />
-                        <Button x:Name="BranchFilterBtn" Content="Branch" Style="{StaticResource FilterActionBtn}" />
-                    </StackPanel>
-                </Expander>
+           
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                
                 <TextBox Style="{StaticResource SearchBoxStyle}" VerticalAlignment="Top" Margin="5 20"/>
-                <Button Content="Search" Style="{StaticResource MaterialDesignRaisedButton}"
-                        materialDesign:ButtonAssist.CornerRadius="10"
-                        BorderThickness="2" BorderBrush="AliceBlue"
-                        Width="100" Height="45"
-                        VerticalAlignment="Top" Margin="5 20"/>
+                <Button Content="Search" 
+                        Style="{StaticResource SearchBtnStyle}"
+                        />
             </StackPanel>
 
         </Grid>

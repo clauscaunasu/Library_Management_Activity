@@ -15,19 +15,18 @@ using System.Windows.Shapes;
 namespace LibraryApp.View
 {
     /// <summary>
-    /// Interaction logic for AdminHome.xaml
+    /// Interaction logic for AddBook.xaml
     /// </summary>
-    public partial class AdminHome : Window
+    public partial class AddBook : Window
     {
-        public AdminHome()
+        public AddBook()
         {
             InitializeComponent();
         }
 
-        private void AddBookBtn_Click(object sender, RoutedEventArgs e)
+        private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            var addBookPage = new AddBook();
-            addBookPage.Show();
+            this.Close();
         }
     }
 }

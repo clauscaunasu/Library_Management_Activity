@@ -91,3 +91,5 @@ C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProje
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\LoginUser.baml
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\MainWindow.baml
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\RegisterUser.baml
+C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\AddBook.g.cs
+C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\AddBook.baml
