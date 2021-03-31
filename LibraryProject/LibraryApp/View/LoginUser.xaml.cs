@@ -10,19 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LibraryApp.LibraryServiceReference;
 
-namespace LibraryApp
+namespace LibraryApp.View
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for LoginUser.xaml
     /// </summary>
-    public partial class Login : UserControl
+    public partial class LoginUser : Window
     {
         private ServiceClient _serviceClient = new ServiceClient();
-        public Login()
+        public LoginUser()
         {
             InitializeComponent();
         }
@@ -42,6 +41,8 @@ namespace LibraryApp
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
+            this.DragMove();
         }
     }
 }
+

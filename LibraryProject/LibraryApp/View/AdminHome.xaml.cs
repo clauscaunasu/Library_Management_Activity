@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LibraryApp
+namespace LibraryApp.View
 {
     /// <summary>
-    /// Interaction logic for HomeAdmin.xaml
+    /// Interaction logic for AdminHome.xaml
     /// </summary>
-    public partial class HomeAdmin : UserControl
+    public partial class AdminHome : Window
     {
-        public HomeAdmin()
+        public AdminHome()
         {
             InitializeComponent();
         }
