@@ -19,15 +19,15 @@ namespace LibraryApp.View
         private void BtnGoToLogin_OnClick(object sender, RoutedEventArgs e)
         {
             var loginWindow = new LoginUser();
-            this.Visibility = Visibility.Hidden;
             loginWindow.Show();
+            this.Close();
         }
 
         private void BtnRegister_OnClick(object sender, RoutedEventArgs e)
         {
             var registerWindow = new RegisterUser();
-            this.Visibility = Visibility.Hidden;
             registerWindow.Show();
+            this.Close();
 
         }
 

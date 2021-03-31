@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
@@ -32,13 +34,20 @@ public class Service : IService
             var command = new SqlCommand(string.Empty, connection);
             command.Connection.Open();
             command.CommandText = "INSERT INTO Client(FirstName, LastName, Address, Telephone, Username, Password)" +
-                                  " VALUES ('" + firstName + "' , '" + lastName + "' , '" +
-                                  address + "' , '" + telephone +
-                                  "' , '" + username + "' , '" + password + "')";
+                                  " VALUES (@firstName, @lastName, @address, @telephone, @username, @password)";
+
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@telephone", telephone);
+            command.Parameters.AddWithValue("@address", address);
+            command.Parameters.AddWithValue("@lastName", lastName);
+            command.Parameters.AddWithValue("@firstName", firstName);
+
 
             return command.ExecuteNonQuery() == 1;
         }
     }
+
 
     public bool LogIn(string username, string password)
     {
@@ -48,9 +57,11 @@ public class Service : IService
         {
             var command = new SqlCommand(string.Empty, connection);
             command.Connection.Open();
-            command.CommandText = "SELECT COUNT(1) FROM Client WHERE Username = '" +
-                                  username + "' AND Password ='" +
-                                  password + "'";
+            command.CommandText = "SELECT COUNT(1) FROM Client WHERE Username = @Username " +
+                                   "AND Password = @Password";
+            command.Parameters.AddWithValue("@Username", username);
+            command.Parameters.AddWithValue("@Password", password);
+
             var result = (int)command.ExecuteScalar();
             return result == 1;
         }

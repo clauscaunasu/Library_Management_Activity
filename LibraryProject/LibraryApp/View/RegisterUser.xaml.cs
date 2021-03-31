@@ -21,6 +21,7 @@ namespace LibraryApp.View
     public partial class RegisterUser : Window
     {
         private ServiceClient _serviceClient = new ServiceClient();
+        private Encrypter enc = new Encrypter();
         public RegisterUser()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace LibraryApp.View
         private void BtnRegister_OnClick(object sender, RoutedEventArgs e)
         {
             var result = _serviceClient.Register(TxtFirstname.Text, TxtLastname.Text, TxtAddress.Text, TxtPhone.Text,
-                TxtUsername.Text, TxtPassword.Password);
+                TxtUsername.Text, enc.Encrypt(TxtPassword.Password));
             MessageBox.Show(result ? "success" : "failed");
         }
 
@@ -42,6 +43,13 @@ namespace LibraryApp.View
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void BackButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }
