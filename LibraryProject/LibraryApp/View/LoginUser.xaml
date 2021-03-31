@@ -32,7 +32,7 @@
                     <TextBlock Text="Login" Style="{StaticResource MainMessage}"/>
                     <StackPanel Style="{StaticResource PrimaryStackPanelLogin}">
                         <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground =" AliceBlue"/>
-                        <TextBox x:Name="TxtUsername" Margin="10 0" materialDesign:HintAssist.Hint="Enter username" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
+                        <TextBox x:Name="TxtUsername"  Margin="10 0" materialDesign:HintAssist.Hint="Enter username" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                     </StackPanel>
                     <StackPanel Style="{StaticResource PrimaryStackPanelLogin}">
                         <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground =" AliceBlue"/>
