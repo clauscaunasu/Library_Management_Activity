@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\App.xaml
-41435638859
+4-254797414
 
-101399465507
+10511629406
 17-716507123
-HomeAdmin.xaml;Login.xaml;MainWindow.xaml;Register.xaml;
+View\AdminHome.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;
 
 True
 
