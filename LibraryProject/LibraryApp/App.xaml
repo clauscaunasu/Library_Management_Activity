@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LibraryApp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="View/MainWindow.xaml">
+             StartupUri="View/AddBook.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -145,6 +145,38 @@
 
             <Style TargetType="TextBox" x:Key="TextBoxStyle">
                 <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Padding" Value="7"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Width" Value="270"/>
+                <Setter Property="FontSize" Value="15"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border x:Name="border"
+                                    CornerRadius="10"
+                                    BorderBrush="#000"
+                                    BorderThickness="2"
+                                    Background="#fff"
+                            >
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                              Focusable="false"
+                                              HorizontalScrollBarVisibility="Hidden"
+                                              VerticalScrollBarVisibility="Hidden"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#004a7c"/>
+                                    <Setter Property="Foreground" Value="#004a7c" />
+                                </Trigger>
+                                <Trigger Property="IsFocused" Value="true">
+                                    <Setter Property="Foreground" Value="#004a7c" />
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#004a7c"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
             <Style TargetType="Button" x:Key="ActionBtnBaseStyle">
