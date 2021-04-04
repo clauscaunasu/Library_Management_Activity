@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace LibraryApp.View
 {
     /// <summary>
-    /// Interaction logic for DeleteBook.xaml
+    /// Interaction logic for BorrowBook.xaml
     /// </summary>
-    public partial class DeleteBook : Window
+    public partial class BorrowBook : Window
     {
-        public DeleteBook()
+        public BorrowBook()
         {
             InitializeComponent();
         }
@@ -27,9 +27,12 @@ namespace LibraryApp.View
         {
             this.Close();
         }
-        private void ComboBox_SelectionChanged(object sender, RoutedEventArgs e)
+
+        private void BorrowBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            var confirmationWindow = new BorrowConfirmation();
+            confirmationWindow.Show();
+            this.Close();
         }
     }
 }
