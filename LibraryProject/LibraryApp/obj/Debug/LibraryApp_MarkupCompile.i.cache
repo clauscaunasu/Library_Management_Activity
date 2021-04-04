@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\
 LibraryApp
 none
 false
 DEBUG;TRACE
-C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\App.xaml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\App.xaml
 7-662162566
 
 19461046338
-17-1244908789
+171024497448
 View\AddBook.xaml;View\AdminHome.xaml;View\BorrowBook.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;View\UserHome.xaml;
 
-False
+True
 
