@@ -177,7 +177,6 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-
             </Style>
 
             <Style TargetType="Button" x:Key="ActionBtnBaseStyle">

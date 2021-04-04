@@ -57,7 +57,7 @@ namespace LibraryApp {
             _contentLoaded = true;
             
             #line 6 "..\..\App.xaml"
-            this.StartupUri = new System.Uri("View/MainWindow.xaml", System.UriKind.Relative);
+            this.StartupUri = new System.Uri("View/AddBook.xaml", System.UriKind.Relative);
             
             #line default
             #line hidden
