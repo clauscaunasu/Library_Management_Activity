@@ -92,14 +92,22 @@
     <Compile Include="View\AdminHome.xaml.cs">
       <DependentUpon>AdminHome.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="View\BorrowBook.xaml.cs">
       <DependentUpon>BorrowBook.xaml</DependentUpon>
+=======
+    <Compile Include="View\DeleteBook.xaml.cs">
+      <DependentUpon>DeleteBook.xaml</DependentUpon>
+>>>>>>> main
     </Compile>
     <Compile Include="View\LoginUser.xaml.cs">
       <DependentUpon>LoginUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RegisterUser.xaml.cs">
       <DependentUpon>RegisterUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateBook.xaml.cs">
+      <DependentUpon>UpdateBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserHome.xaml.cs">
       <DependentUpon>UserHome.xaml</DependentUpon>
@@ -112,7 +120,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="View\BorrowBook.xaml">
+=======
+    <Page Include="View\DeleteBook.xaml">
+>>>>>>> main
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,6 +150,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\RegisterUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UpdateBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

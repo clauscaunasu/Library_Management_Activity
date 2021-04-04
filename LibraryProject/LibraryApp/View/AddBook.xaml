@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
         mc:Ignorable="d"
-        Title="Add new book" Height="350" Width="400"
-         WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid Background="#004a7c">
-   <Grid Margin="10" Background="#e8f1f5" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.35*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        Title="Add new book" Height="450" Width="400"
+         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="#004a7c" >
+        <Grid Margin="10" Background="#e8f1f5" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.35*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -20,18 +20,21 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
         <Label Content="ID" Style="{StaticResource LabelStyle}"/>
-        <TextBox Grid.Column="1"  Height="20" Width="100"  TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" />
+        <TextBox Grid.Column="1"   TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" />
         <Label Grid.Row="1" Content="Title" Style="{StaticResource LabelStyle}"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Height="35" Width="270"  Style="{StaticResource TextBoxStyle}" />
+        <TextBox Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
         <Label Grid.Row="3" Content="Author(s)" Style="{StaticResource LabelStyle}"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Height="35" Width="270" TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}" />
+        <TextBox Grid.Row="3" Grid.Column="1"  TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}" />
         <Label Grid.Row="2" Content="ISBN" Style="{StaticResource LabelStyle}"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Height="20" Width="150" Style="{StaticResource TextBoxStyle}" />
-        <Label Grid.Row="4" Content="Total Copies" Style="{StaticResource LabelStyle}"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Height="20" Width="100" Style="{StaticResource TextBoxStyle}" />
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5" Grid.ColumnSpan="2">
+        <TextBox Grid.Row="2" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+        <Label Grid.Row="5" Content="Total Copies" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+            <Label Grid.Row="4" Content="Branch" Style="{StaticResource LabelStyle}"/>
+        <TextBox Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="2">
             <Button Content="Add Book" Style="{StaticResource MainActionBtnStyle}"  />
             <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />
         </StackPanel>
