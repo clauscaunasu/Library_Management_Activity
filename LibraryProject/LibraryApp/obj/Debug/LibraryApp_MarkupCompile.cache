@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\App.xaml
-14-1289619975
+12470968397
 
-201269875854
+181147027461
 171024497448
-View\AddBook.xaml;View\AdminHome.xaml;View\BorrowBook.xaml;View\BorrowConfirmation.xaml;View\DeleteBook.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;View\RenewBook.xaml;View\ReturnBook.xaml;View\UpdateBook.xaml;View\UserHome.xaml;View\ViewBorrowedBooks.xaml;View\ViewUsers.xaml;
+View\AddBook.xaml;View\AdminHome.xaml;View\DeleteBook.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;View\RenewBook.xaml;View\ReturnBook.xaml;View\UpdateBook.xaml;View\UserHome.xaml;View\ViewBorrowedBooks.xaml;View\ViewUsers.xaml;
 
 True
 
