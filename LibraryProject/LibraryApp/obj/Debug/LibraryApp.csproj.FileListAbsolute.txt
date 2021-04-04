@@ -99,3 +99,5 @@ C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryA
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\RegisterUser.baml
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UserHome.g.cs
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UserHome.baml
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\BorrowBook.g.cs
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\BorrowBook.baml

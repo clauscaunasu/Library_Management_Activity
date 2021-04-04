@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LibraryApp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="View/MainWindow.xaml">
+             StartupUri="View/BorrowBook.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -169,6 +169,14 @@
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="Width" Value="90"/>
 
+
+            </Style>
+
+            <Style TargetType="Label" x:Key="SingleElementOnPageStyle">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
 
             </Style>
 

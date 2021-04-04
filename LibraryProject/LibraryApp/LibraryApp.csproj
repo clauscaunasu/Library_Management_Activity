@@ -81,11 +81,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Ecrypter.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Branch.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\LibraryFile.cs" />
     <Compile Include="View\AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AdminHome.xaml.cs">
       <DependentUpon>AdminHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BorrowBook.xaml.cs">
+      <DependentUpon>BorrowBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginUser.xaml.cs">
       <DependentUpon>LoginUser.xaml</DependentUpon>
@@ -101,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdminHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BorrowBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,6 +181,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

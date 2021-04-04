@@ -101,6 +101,12 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Register", ReplyAction="http://tempuri.org/IService/RegisterResponse")]
         System.Threading.Tasks.Task<bool> RegisterAsync(string firstName, string lastName, string address, string telephone, string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BranchListLoarder", ReplyAction="http://tempuri.org/IService/BranchListLoarderResponse")]
+        System.Collections.Generic.List<string> BranchListLoarder();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BranchListLoarder", ReplyAction="http://tempuri.org/IService/BranchListLoarderResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<string>> BranchListLoarderAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -160,6 +166,14 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<bool> RegisterAsync(string firstName, string lastName, string address, string telephone, string username, string password) {
             return base.Channel.RegisterAsync(firstName, lastName, address, telephone, username, password);
+        }
+        
+        public System.Collections.Generic.List<string> BranchListLoarder() {
+            return base.Channel.BranchListLoarder();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> BranchListLoarderAsync() {
+            return base.Channel.BranchListLoarderAsync();
         }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\App.xaml
-6867070385
+7-662162566
 
-121267263621
+181303405705
 17-1244908789
-View\AddBook.xaml;View\AdminHome.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;View\UserHome.xaml;
+View\AddBook.xaml;View\AdminHome.xaml;View\BorrowBook.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;View\UserHome.xaml;
 
 True
 

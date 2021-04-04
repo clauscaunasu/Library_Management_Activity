@@ -1,26 +1,78 @@
-﻿<Window x:Class="LibraryApp.View.UserHome"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:LibraryApp"
-        mc:Ignorable="d" 
-        d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        ResizeMode="NoResize">
+﻿<Window      x:Class="LibraryApp.View.UserHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:LibraryApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
+             ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width ="0.35*"/>
-            <ColumnDefinition Width ="0.2*"/>
-            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width="0.35*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Background="#005691">
+        <Grid Grid.Column="0" Background="#005691">
             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="All Booked Up" Style="{StaticResource TitleStyle}"/>
-            <StackPanel Grid.Row="1"></StackPanel>
+            <StackPanel Grid.Row="1">
+                <Button x:Name="ProfileBtn" Content="My Profile" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="MyProfileBtn_Click"/>
+                <Button x:Name="BookHistoryBtn" Content="Book History" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="BookHistoryBtn_OnClick"/>
+                <Button x:Name="BorrowedBooksBtn" Content="Borrowed Books" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="BorrowedBooksBtn_OnClick"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                <Button x:Name="HelpBtn" Content="Help" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="HelpBtn_OnClick"/>
+                <Button x:Name="LogoutBtn" Content="Logout" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="LogoutBtn_OnClick"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Background="#e8f1f5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.27*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Expander Header="Filter" Style="{StaticResource ExpanderStyle}"  VerticalAlignment="Top" Foreground="Black"  Margin="20 20 0 0"  >
+                <StackPanel >
+                    <Button x:Name="TitleFilterBtn" Content="Title" Style="{StaticResource FilterActionBtn}" />
+                    <Button x:Name="AuthorFilterBtn" Content="Author" Style="{StaticResource FilterActionBtn}" />
+                    <Button x:Name="GenreFilterBtn" Content="Genre" Style="{StaticResource FilterActionBtn}" />
+                    <Button x:Name="BranchFilterBtn" Content="Branch" Style="{StaticResource FilterActionBtn}" />
+                </StackPanel>
+            </Expander>
+        </Grid>
+        <Grid Grid.Column="2" Background="#e8f1f5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.27*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Margin="10 10" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
+                    ToolTip="Close" x:Name="BtnExit" Click="BtnExit_OnClick" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <materialDesign:PackIcon Kind="Close" Foreground="#005691" Width="30" Height="30"/>
+            </Button>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal"  >
+
+                <TextBox Style="{StaticResource SearchBoxStyle}" VerticalAlignment="Top" Margin="5 20"/>
+                <Button Content="Search" 
+                        Style="{StaticResource SearchBtnStyle}"
+                        />
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

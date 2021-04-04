@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Security.Cryptography;
-using System.Text;
+using System.Windows.Controls;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
+
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
 public class Service : IService
@@ -65,6 +66,29 @@ public class Service : IService
             var result = (int)command.ExecuteScalar();
             return result == 1;
         }
+    }
+
+    public List<string> BranchListLoarder()
+    {
+        var branchesNames = new List<string>();
+        var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            var command = new SqlCommand(string.Empty, connection);
+            command.Connection.Open();
+            command.CommandText = "SELECT * FROM Branch";
+            command.ExecuteNonQuery();
+            var da = new SqlDataAdapter(command);
+            var dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                branchesNames.Add(dr["Name"].ToString());
+            }
+        }
+
+        return branchesNames;
     }
 
 	public CompositeType GetDataUsingDataContract(CompositeType composite)
