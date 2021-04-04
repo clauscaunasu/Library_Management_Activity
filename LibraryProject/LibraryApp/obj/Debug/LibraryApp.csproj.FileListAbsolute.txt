@@ -46,14 +46,10 @@ C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryA
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csprojAssemblyReference.cache
-C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\MainWindow.g.cs
-C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\Register.g.cs
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\App.g.cs
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp_MarkupCompile.cache
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp_MarkupCompile.lref
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\App.baml
-C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\MainWindow.baml
-C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\Register.baml
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.g.resources
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.Properties.Resources.resources
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csproj.GenerateResource.cache
@@ -81,8 +77,6 @@ C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProje
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csproj.CopyComplete
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.exe
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\LibraryApp.pdb
-C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\Login.g.cs
-C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\Login.baml
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\AdminHome.g.cs
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\LoginUser.g.cs
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\MainWindow.g.cs
@@ -93,3 +87,47 @@ C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProje
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\RegisterUser.baml
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\AddBook.g.cs
 C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\AddBook.baml
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\AddBook.g.cs
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\AdminHome.g.cs
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\LoginUser.g.cs
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\MainWindow.g.cs
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\RegisterUser.g.cs
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\AddBook.baml
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\AdminHome.baml
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\LoginUser.baml
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\MainWindow.baml
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\RegisterUser.baml
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UserHome.g.cs
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UserHome.baml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\LibraryApp.exe.config
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\LibraryApp.exe
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\LibraryApp.pdb
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\MaterialDesignColors.dll
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csprojAssemblyReference.cache
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\AddBook.g.cs
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\AdminHome.g.cs
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\LoginUser.g.cs
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\MainWindow.g.cs
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\RegisterUser.g.cs
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\UserHome.g.cs
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\App.g.cs
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp_MarkupCompile.cache
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp_MarkupCompile.lref
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\App.baml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\AddBook.baml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\AdminHome.baml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\LoginUser.baml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\MainWindow.baml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\RegisterUser.baml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\View\UserHome.baml
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.g.resources
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.Properties.Resources.resources
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csproj.GenerateResource.cache
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csproj.CoreCompileInputs.cache
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csproj.CopyComplete
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.exe
+C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.pdb

@@ -21,13 +21,14 @@ namespace LibraryApp.View
     public partial class LoginUser : Window
     {
         private ServiceClient _serviceClient = new ServiceClient();
+        private Encrypter enc = new Encrypter();
         public LoginUser()
         {
             InitializeComponent();
         }
         private void BtnLogin_OnClick(object sender, RoutedEventArgs e)
         {
-            var result = _serviceClient.LogIn(TxtUsername.Text, TxtPassword.Password);
+            var result = _serviceClient.LogIn(TxtUsername.Text, enc.Encrypt(TxtPassword.Password));
 
             MessageBox.Show(result ? "success" : "Failed");
         }
@@ -42,6 +43,13 @@ namespace LibraryApp.View
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void BackButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

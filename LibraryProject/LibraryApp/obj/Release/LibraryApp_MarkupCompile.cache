@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\obj\Release\
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Release\
 LibraryApp
 none
 false
 TRACE
-C:\Users\Claudia\Desktop\New folder (2)\Library_Management_Activity\LibraryProject\LibraryApp\App.xaml
-3-630875497
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\App.xaml
+6867070385
 
-8-645364754
-17-716507123
-Login.xaml;MainWindow.xaml;Register.xaml;
+121267263621
+17-1244908789
+View\AddBook.xaml;View\AdminHome.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;View\UserHome.xaml;
 
 True
 
