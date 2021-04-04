@@ -15,21 +15,13 @@ using System.Windows.Shapes;
 namespace LibraryApp.View
 {
     /// <summary>
-    /// Interaction logic for DeleteBook.xaml
+    /// Interaction logic for ViewBorrowedBooks.xaml
     /// </summary>
-    public partial class DeleteBook : Window
+    public partial class ViewBorrowedBooks : Window
     {
-        public DeleteBook()
+        public ViewBorrowedBooks()
         {
             InitializeComponent();
-        }
-        private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-        private void ComboBox_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

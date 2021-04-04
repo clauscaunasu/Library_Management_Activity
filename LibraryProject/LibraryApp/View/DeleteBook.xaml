@@ -18,8 +18,11 @@
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Branch ID" Style="{StaticResource SingleElementOnPageStyle}"/>
-            <TextBox Grid.Column="1"  Style="{StaticResource TextBoxStyle}" Width="250" HorizontalAlignment="Center"/>
+        <Label Content="Branch name:" Style="{StaticResource SingleElementOnPageStyle}"/>
+        <ComboBox Grid.Row="0" Grid.Column="1" 
+                  SelectedItem="0" 
+                  Style="{StaticResource ComboBoxStyle}"
+                  SelectionChanged="ComboBox_SelectionChanged"/>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Delete Book" Style="{StaticResource MainActionBtnStyle}"  />

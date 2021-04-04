@@ -1,0 +1,27 @@
+﻿<Window x:Class="LibraryApp.View.BorrowConfirmation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryApp.View"
+        mc:Ignorable="d"
+        Title="Borrow confirmation" Height="200" Width="450"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+        <Grid Background="#004a7c">
+            <Grid Margin="10" Background="#e8f1f5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="10">
+                <Label Content="The book is waiting for you!" Style="{StaticResource SingleElementOnPageStyle}" />
+                <Label Content="Come tomorrow to pick it up" Style="{StaticResource SingleElementOnPageStyle}" />
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Ok"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="OkBtn" Click="OkBtn_OnClick" Height="50"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

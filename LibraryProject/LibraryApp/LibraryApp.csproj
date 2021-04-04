@@ -87,6 +87,12 @@
     <Compile Include="View\AdminHome.xaml.cs">
       <DependentUpon>AdminHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\BorrowBook.xaml.cs">
+      <DependentUpon>BorrowBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BorrowConfirmation.xaml.cs">
+      <DependentUpon>BorrowConfirmation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DeleteBook.xaml.cs">
       <DependentUpon>DeleteBook.xaml</DependentUpon>
     </Compile>
@@ -96,17 +102,37 @@
     <Compile Include="View\RegisterUser.xaml.cs">
       <DependentUpon>RegisterUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RenewBook.xaml.cs">
+      <DependentUpon>RenewBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReturnBook.xaml.cs">
+      <DependentUpon>ReturnBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UpdateBook.xaml.cs">
       <DependentUpon>UpdateBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserHome.xaml.cs">
       <DependentUpon>UserHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewBorrowedBooks.xaml.cs">
+      <DependentUpon>ViewBorrowedBooks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewUsers.xaml.cs">
+      <DependentUpon>ViewUsers.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\AddBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdminHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BorrowBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BorrowConfirmation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,11 +165,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\RenewBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReturnBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\UpdateBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewBorrowedBooks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
