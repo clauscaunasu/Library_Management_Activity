@@ -29,5 +29,20 @@ namespace LibraryApp.View
             var addBookPage = new AddBook();
             addBookPage.Show();
         }
+
+        private void BtnExit_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

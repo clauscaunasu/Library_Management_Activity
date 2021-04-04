@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.Windows.Controls;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService" in both code and config file together.
 [ServiceContract]
@@ -19,6 +21,9 @@ public interface IService
     [OperationContract]
     bool Register(string firstName, string lastName, string address, string telephone, string username,
         string password);
+
+    [OperationContract]
+    List<string> BranchListLoarder();
 
     // TODO: Add your service operations here
 }
