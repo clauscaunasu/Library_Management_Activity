@@ -87,12 +87,6 @@
     <Compile Include="View\AdminHome.xaml.cs">
       <DependentUpon>AdminHome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BorrowBook.xaml.cs">
-      <DependentUpon>BorrowBook.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\BorrowConfirmation.xaml.cs">
-      <DependentUpon>BorrowConfirmation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\DeleteBook.xaml.cs">
       <DependentUpon>DeleteBook.xaml</DependentUpon>
     </Compile>
@@ -125,14 +119,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdminHome.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\BorrowBook.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\BorrowConfirmation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
