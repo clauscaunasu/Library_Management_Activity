@@ -13,6 +13,5 @@ namespace LibraryApp.Models
         public int ClientId { get; set; }
         public DateTime BorrowDate { get; set; }
         public DateTime ReturnDate { get; set; }
-
     }
 }

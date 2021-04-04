@@ -4,33 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\
 LibraryApp
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
-C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\App.xaml
-=======
-<<<<<<< HEAD
-C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\App.xaml
->>>>>>> 797d3c5b943e0745f1488bbd278efbd8d0eb9967
-7-662162566
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\App.xaml
+9665359703
 
-181303405705
-171024497448
-View\AddBook.xaml;View\AdminHome.xaml;View\BorrowBook.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;View\UserHome.xaml;
-=======
-C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\App.xaml
-8-2100374642
+201691163766
+17-953407279
+View\AddBook.xaml;View\AdminHome.xaml;View\BorrowBook.xaml;View\DeleteBook.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;View\UpdateBook.xaml;View\UserHome.xaml;
 
-<<<<<<< HEAD
-=======
-141655021682
-171024497448
-View\AddBook.xaml;View\AdminHome.xaml;View\DeleteBook.xaml;View\LoginUser.xaml;View\MainWindow.xaml;View\RegisterUser.xaml;View\UpdateBook.xaml;View\UserHome.xaml;
->>>>>>> main
-
->>>>>>> 797d3c5b943e0745f1488bbd278efbd8d0eb9967
-True
+False
 

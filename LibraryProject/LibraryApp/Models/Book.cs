@@ -12,6 +12,5 @@ namespace LibraryApp.Models
         public string UniqueCode { get; set; }
         public string Author { get; set; }
         public string Editure { get; set; }
-
     }
 }

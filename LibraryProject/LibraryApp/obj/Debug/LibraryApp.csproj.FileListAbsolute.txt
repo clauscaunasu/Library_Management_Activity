@@ -136,3 +136,7 @@ C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryAp
 C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.exe
 C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.pdb
 >>>>>>> main
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\DeleteBook.g.cs
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UpdateBook.g.cs
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\DeleteBook.baml
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UpdateBook.baml

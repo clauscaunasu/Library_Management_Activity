@@ -16,6 +16,5 @@ namespace LibraryApp.Models
         public string Duty { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-
     }
 }
