@@ -99,6 +99,10 @@ C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryA
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\RegisterUser.baml
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UserHome.g.cs
 C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UserHome.baml
+<<<<<<< HEAD
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\BorrowBook.g.cs
+C:\Users\Cristi\source\repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\BorrowBook.baml
+=======
 C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\LibraryApp.exe.config
 C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\LibraryApp.exe
 C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\bin\Debug\LibraryApp.pdb
@@ -131,3 +135,8 @@ C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryAp
 C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.csproj.CopyComplete
 C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.exe
 C:\Users\Claudia\Desktop\GitFolder\LibraryProject\LibraryApp\obj\Debug\LibraryApp.pdb
+>>>>>>> main
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\DeleteBook.g.cs
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UpdateBook.g.cs
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\DeleteBook.baml
+C:\Users\Cristi\Source\Repos\Library_Management_Activity\LibraryProject\LibraryApp\obj\Debug\View\UpdateBook.baml

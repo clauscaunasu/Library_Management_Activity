@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LibraryApp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="View/MainWindow.xaml">
+             StartupUri="View/BorrowBook.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -209,7 +209,6 @@
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="FontWeight" Value="Bold"/>
-
             </Style>
 
             <!-- delete book style-->
