@@ -25,6 +25,9 @@ public interface IService
     [OperationContract]
     List<string> BranchListLoarder();
 
+    [OperationContract]
+    bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);
+
     // TODO: Add your service operations here
 }
 
@@ -36,6 +39,7 @@ public class CompositeType
 
 	bool boolValue = true;
 	string stringValue = "Hello";
+	int intValue = 1;
 
 	[DataMember]
 	public bool BoolValue
@@ -50,4 +54,11 @@ public class CompositeType
 		get { return stringValue; }
 		set { stringValue = value; }
 	}
+
+    [DataMember]
+    public int IntValue
+    {
+        get { return intValue; }
+        set { intValue = value; }
+    }
 }

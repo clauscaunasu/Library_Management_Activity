@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
 {
@@ -19,6 +20,7 @@ namespace LibraryApp.View
     /// </summary>
     public partial class AddBook : Window
     {
+        private ServiceClient _serviceClient = new ServiceClient();
         public AddBook()
         {
             InitializeComponent();
@@ -27,6 +29,14 @@ namespace LibraryApp.View
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+
+        private void BtnAddBook_OnClick(object sender, RoutedEventArgs e)
+        {
+            var result = _serviceClient.AddBook(TxtTitle.Text, TxtIsbn.Text, TxtAuthors.Text, TxtEditure.Text,
+                TxtBranch.Text, int.Parse(TxtCopies.Text));
+            MessageBox.Show(result ? "success" : "failed");
         }
     }
 }
