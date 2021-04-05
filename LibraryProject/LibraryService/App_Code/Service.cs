@@ -91,7 +91,66 @@ public class Service : IService
         return branchesNames;
     }
 
-	public CompositeType GetDataUsingDataContract(CompositeType composite)
+    public bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies)
+    {
+        var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+        var branchID = 0;
+        var bookID = 0;
+
+        using (var connection = new SqlConnection(connectionString))
+        {
+            var command = new SqlCommand(string.Empty, connection);
+            command.Connection.Open();
+            command.CommandText = "INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
+                                  " VALUES (@title, @uniqueCode, @authors, @editure)";
+
+            command.Parameters.AddWithValue("@title", title);
+            command.Parameters.AddWithValue("@uniqueCode", isbn);
+            command.Parameters.AddWithValue("@authors", authors);
+            command.Parameters.AddWithValue("@editure", editure);
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                command.CommandText = "SELECT ID FROM Book WHERE UniqueCode = @uniqueCode1";
+                command.Parameters.AddWithValue("@uniqueCode1", isbn);
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    bookID = reader.GetInt32(0);
+                }
+
+                reader.Close();
+
+                command.CommandText = "select ID from Branch where Name = @branchName1";
+                command.Parameters.AddWithValue("@branchName1", branch);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    branchID = reader.GetInt32(0);
+                }
+
+                reader.Close();
+
+
+                if (branchID != 0 && bookID != 0)
+                {
+                    command.CommandText = "INSERT INTO BranchXBook(LibraryID, BookId, BookQuantity)" +
+                                          " VALUES (@libraryID, @bookId, @bookQuantity)";
+                    command.Parameters.AddWithValue("@libraryId", branchID);
+                    command.Parameters.AddWithValue("@bookId", bookID);
+                    command.Parameters.AddWithValue("@bookQuantity", copies);
+                }
+            }
+
+
+            return command.ExecuteNonQuery() == 1;
+        }
+    }
+
+
+    public CompositeType GetDataUsingDataContract(CompositeType composite)
 	{
 		if (composite == null)
 		{
