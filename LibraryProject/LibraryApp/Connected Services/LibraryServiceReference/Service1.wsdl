@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/LibraryApp_BAL" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_GetBranches_InputMessage">
@@ -44,6 +45,12 @@
   <wsdl:message name="IService_AddBook_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddBookResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_MemberRegister_InputMessage">
+    <wsdl:part name="parameters" element="tns:MemberRegister" />
+  </wsdl:message>
+  <wsdl:message name="IService_MemberRegister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MemberRegisterResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetBranches">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBranches" message="tns:IService_GetBranches_InputMessage" />
@@ -68,6 +75,10 @@
     <wsdl:operation name="AddBook">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddBook" message="tns:IService_AddBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/AddBookResponse" message="tns:IService_AddBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberRegister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/MemberRegister" message="tns:IService_MemberRegister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/MemberRegisterResponse" message="tns:IService_MemberRegister_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -119,6 +130,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddBook">
       <soap:operation soapAction="http://tempuri.org/IService/AddBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberRegister">
+      <soap:operation soapAction="http://tempuri.org/IService/MemberRegister" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -129,6 +129,12 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
         System.Threading.Tasks.Task<bool> AddBookAsync(string title, string isbn, string authors, string editure, string branch, int copies);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberRegister", ReplyAction="http://tempuri.org/IService/MemberRegisterResponse")]
+        int MemberRegister(LibraryApp_BAL.BClient client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberRegister", ReplyAction="http://tempuri.org/IService/MemberRegisterResponse")]
+        System.Threading.Tasks.Task<int> MemberRegisterAsync(LibraryApp_BAL.BClient client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -204,6 +210,14 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<bool> AddBookAsync(string title, string isbn, string authors, string editure, string branch, int copies) {
             return base.Channel.AddBookAsync(title, isbn, authors, editure, branch, copies);
+        }
+        
+        public int MemberRegister(LibraryApp_BAL.BClient client) {
+            return base.Channel.MemberRegister(client);
+        }
+        
+        public System.Threading.Tasks.Task<int> MemberRegisterAsync(LibraryApp_BAL.BClient client) {
+            return base.Channel.MemberRegisterAsync(client);
         }
     }
 }

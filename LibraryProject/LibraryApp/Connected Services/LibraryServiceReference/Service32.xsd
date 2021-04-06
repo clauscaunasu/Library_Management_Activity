@@ -2,6 +2,7 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
+  <xs:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/LibraryApp_BAL" />
   <xs:element name="GetBranches">
     <xs:complexType>
       <xs:sequence />
@@ -90,6 +91,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="AddBookResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MemberRegister">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LibraryApp_BAL" minOccurs="0" name="client" nillable="true" type="q5:BClient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MemberRegisterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MemberRegisterResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

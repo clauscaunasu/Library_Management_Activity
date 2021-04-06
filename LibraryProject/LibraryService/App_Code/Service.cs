@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Controls;
+using System.Windows.Markup.Localizer;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
+using bal = LibraryApp_BAL; 
+using dal = LibraryApp_DAL;
 
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
-public class Service : IService
+public partial class Service : IService
 {
 
     public List<string> GetBranches()
@@ -25,6 +28,11 @@ public class Service : IService
             return new List<string>();
         }
 	}
+
+    public CompositeType GetDataUsingDataContract(CompositeType composite)
+    {
+        throw new NotImplementedException();
+    }
 
     public bool Register(string firstName, string lastName, string address, string telephone, string username, string password)
     {
@@ -150,15 +158,10 @@ public class Service : IService
     }
 
 
-    public CompositeType GetDataUsingDataContract(CompositeType composite)
-	{
-		if (composite == null)
-		{
-			throw new ArgumentNullException("composite");
-		}
-		{
-			composite.StringValue += "Suffix";
-		}
-		return composite;
-	}
+    public int MemberRegister(bal.BClient client)
+    {
+        var dMember = new dal.DMember();
+        return dMember.register(client);
+        
+    }
 }

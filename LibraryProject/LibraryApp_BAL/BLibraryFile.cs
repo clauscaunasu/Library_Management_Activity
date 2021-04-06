@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LibraryApp.Models
+namespace LibraryApp_BAL
 {
-    class LibraryFile
+    class BLibraryFile
     {
         public int ID { get; set; }
         public int InventoryId { get; set; }

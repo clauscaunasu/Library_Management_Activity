@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LibraryApp.LibraryServiceReference;
+using bal = LibraryApp_BAL;
 
 namespace LibraryApp.View
 {
@@ -22,6 +23,9 @@ namespace LibraryApp.View
     {
         private ServiceClient _serviceClient = new ServiceClient();
         private Encrypter enc = new Encrypter();
+        private bal.BClient client = new bal.BClient();
+        
+
         public RegisterUser()
         {
             InitializeComponent();
@@ -29,9 +33,20 @@ namespace LibraryApp.View
 
         private void BtnRegister_OnClick(object sender, RoutedEventArgs e)
         {
-            var result = _serviceClient.Register(TxtFirstname.Text, TxtLastname.Text, TxtAddress.Text, TxtPhone.Text,
+            /*var result = _serviceClient.Register(TxtFirstname.Text, TxtLastname.Text, TxtAddress.Text, TxtPhone.Text,
                 TxtUsername.Text, enc.Encrypt(TxtPassword.Password));
-            MessageBox.Show(result ? "success" : "failed");
+            MessageBox.Show(result ? "success" : "failed");*/
+
+            client.FirstName = TxtFirstname.Text;
+            client.LastName = TxtLastname.Text;
+            client.Address = TxtAddress.Text;
+            client.Telephone = TxtPhone.Text;
+            client.Username = TxtUsername.Text;
+            client.Password = enc.Encrypt(TxtPassword.Password);
+
+            _serviceClient.MemberRegister(client);
+
+
         }
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)
