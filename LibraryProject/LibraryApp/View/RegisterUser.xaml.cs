@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
-using bal = LibraryApp_BAL;
 
 namespace LibraryApp.View
 {
@@ -23,8 +23,8 @@ namespace LibraryApp.View
     {
         private ServiceClient _serviceClient = new ServiceClient();
         private Encrypter enc = new Encrypter();
-        private bal.BClient client = new bal.BClient();
-        
+        private  Client client = new Client();
+         
 
         public RegisterUser()
         {
@@ -42,9 +42,13 @@ namespace LibraryApp.View
             client.Address = TxtAddress.Text;
             client.Telephone = TxtPhone.Text;
             client.Username = TxtUsername.Text;
-            client.Password = enc.Encrypt(TxtPassword.Password);
+            client.Password = TxtPassword.Password;
 
-            _serviceClient.MemberRegister(client);
+            if (!_serviceClient.MemberRegister(client)) return;
+            MessageBox.Show("Account created successfully!");
+            var main = new MainWindow();
+            this.Close();
+            main.Show();
 
 
         }

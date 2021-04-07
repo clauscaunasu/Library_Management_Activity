@@ -5,15 +5,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using bal = LibraryApp_BAL;
-
 
 
 namespace LibraryApp_DAL
 {
     public class DConectivity
     {
-        private string connection = "Server=DESKTOP-CG65E95;Database=Library;Trusted_Connection=True;";
+        private readonly string connection = "Server=DESKTOP-CG65E95;Database=Library;Trusted_Connection=True;";
         SqlConnection dbConnection()
         {
             SqlConnection sqlConnect = new SqlConnection(connection);
@@ -27,5 +25,6 @@ namespace LibraryApp_DAL
             sqlCmd.CommandType = CommandType.Text;
             return sqlCmd;
         }
+
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
@@ -22,15 +23,39 @@ namespace LibraryApp.View
     {
         private ServiceClient _serviceClient = new ServiceClient();
         private Encrypter enc = new Encrypter();
+        private Client client = new Client();
         public LoginUser()
         {
             InitializeComponent();
         }
         private void BtnLogin_OnClick(object sender, RoutedEventArgs e)
         {
-            var result = _serviceClient.LogIn(TxtUsername.Text, enc.Encrypt(TxtPassword.Password));
+            var username = TxtUsername.Text;
+            var password = TxtPassword.Password;
 
-            MessageBox.Show(result ? "success" : "Failed");
+            if (username == "" && password == "")
+            {
+                MessageBox.Show("Must enter username and password");
+                TxtPassword.Focus();
+                TxtPassword.Focus();
+            }
+            else
+            {
+                client.Username = username;
+                client.Password = password;
+                if (_serviceClient.MemberLogin(client) != null)
+                {
+                    UserHome userHome = new UserHome();
+                    userHome.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Username or password incorrect");
+                }
+            }
+
+
         }
 
 

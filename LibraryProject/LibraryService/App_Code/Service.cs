@@ -37,10 +37,6 @@ public partial class Service : IService
         }
 	}
 
-    public CompositeType GetDataUsingDataContract(CompositeType composite)
-    {
-        throw new NotImplementedException();
-    }
 
     public bool Register(string firstName, string lastName, string address, string telephone, string username, string password)
     {
@@ -84,7 +80,7 @@ public partial class Service : IService
         }
     }
 
-    public List<string> BranchListLoarder()
+    public List<string> BranchListLoader()
     {
         var branchesNames = new List<string>();
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
@@ -166,9 +162,16 @@ public partial class Service : IService
     }
 
 
-    public void MemberRegister(Client client)
+    public bool MemberRegister(Client client)
     {
         var userRepository = GetUserRepository();
-        userRepository.Add(client);
+        return userRepository.Add(client);
+    }
+
+    public Client MemberLogin(Client client)
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.GetUserByNameAndPassword(client.Username, client.Password);
+
     }
 }

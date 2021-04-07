@@ -201,16 +201,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\LibraryServiceReference\LibraryApp.LibraryServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\LibraryServiceReference\Service.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\LibraryServiceReference\Service1.wsdl" />
-    <None Include="Connected Services\LibraryServiceReference\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\LibraryServiceReference\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -220,6 +214,7 @@
     <None Include="Connected Services\LibraryServiceReference\Service32.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="LibraryApp.DataModel.Client.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -266,9 +261,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibraryApp_BAL\LibraryApp_BAL.csproj">
-      <Project>{be6a8524-fb6c-43a1-baef-951574d5a513}</Project>
-      <Name>LibraryApp_BAL</Name>
+    <ProjectReference Include="..\LibraryApp.DataModel\LibraryApp.DataModel.csproj">
+      <Project>{F4659519-452F-48F2-B156-42D8A8006449}</Project>
+      <Name>LibraryApp.DataModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryApp_DAL\LibraryApp_DAL.csproj">
       <Project>{9c2b645f-f679-4c54-9187-f4ba8b0e4a76}</Project>

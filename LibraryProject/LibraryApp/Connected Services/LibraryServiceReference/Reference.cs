@@ -9,86 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace LibraryApp.LibraryServiceReference {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IntValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IntValue {
-            get {
-                return this.IntValueField;
-            }
-            set {
-                if ((this.IntValueField.Equals(value) != true)) {
-                    this.IntValueField = value;
-                    this.RaisePropertyChanged("IntValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LibraryServiceReference.IService")]
@@ -99,12 +20,6 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBranches", ReplyAction="http://tempuri.org/IService/GetBranchesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> GetBranchesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        LibraryApp.LibraryServiceReference.CompositeType GetDataUsingDataContract(LibraryApp.LibraryServiceReference.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<LibraryApp.LibraryServiceReference.CompositeType> GetDataUsingDataContractAsync(LibraryApp.LibraryServiceReference.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/LogIn", ReplyAction="http://tempuri.org/IService/LogInResponse")]
         bool LogIn(string username, string password);
@@ -131,10 +46,16 @@ namespace LibraryApp.LibraryServiceReference {
         System.Threading.Tasks.Task<bool> AddBookAsync(string title, string isbn, string authors, string editure, string branch, int copies);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberRegister", ReplyAction="http://tempuri.org/IService/MemberRegisterResponse")]
-        int MemberRegister(LibraryApp_BAL.BClient client);
+        bool MemberRegister(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberRegister", ReplyAction="http://tempuri.org/IService/MemberRegisterResponse")]
-        System.Threading.Tasks.Task<int> MemberRegisterAsync(LibraryApp_BAL.BClient client);
+        System.Threading.Tasks.Task<bool> MemberRegisterAsync(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberLogin", ReplyAction="http://tempuri.org/IService/MemberLoginResponse")]
+        LibraryApp.DataModel.Client MemberLogin(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberLogin", ReplyAction="http://tempuri.org/IService/MemberLoginResponse")]
+        System.Threading.Tasks.Task<LibraryApp.DataModel.Client> MemberLoginAsync(LibraryApp.DataModel.Client client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -172,14 +93,6 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.GetBranchesAsync();
         }
         
-        public LibraryApp.LibraryServiceReference.CompositeType GetDataUsingDataContract(LibraryApp.LibraryServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<LibraryApp.LibraryServiceReference.CompositeType> GetDataUsingDataContractAsync(LibraryApp.LibraryServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
-        }
-        
         public bool LogIn(string username, string password) {
             return base.Channel.LogIn(username, password);
         }
@@ -212,12 +125,20 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.AddBookAsync(title, isbn, authors, editure, branch, copies);
         }
         
-        public int MemberRegister(LibraryApp_BAL.BClient client) {
+        public bool MemberRegister(LibraryApp.DataModel.Client client) {
             return base.Channel.MemberRegister(client);
         }
         
-        public System.Threading.Tasks.Task<int> MemberRegisterAsync(LibraryApp_BAL.BClient client) {
+        public System.Threading.Tasks.Task<bool> MemberRegisterAsync(LibraryApp.DataModel.Client client) {
             return base.Channel.MemberRegisterAsync(client);
+        }
+        
+        public LibraryApp.DataModel.Client MemberLogin(LibraryApp.DataModel.Client client) {
+            return base.Channel.MemberLogin(client);
+        }
+        
+        public System.Threading.Tasks.Task<LibraryApp.DataModel.Client> MemberLoginAsync(LibraryApp.DataModel.Client client) {
+            return base.Channel.MemberLoginAsync(client);
         }
     }
 }
