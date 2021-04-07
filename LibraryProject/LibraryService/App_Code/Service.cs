@@ -4,15 +4,23 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Controls;
 using System.Windows.Markup.Localizer;
+using LibraryApp.BusinessLogic.Abstractions;
+using LibraryApp.DataModel;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
-using bal = LibraryApp_BAL; 
-using dal = LibraryApp_DAL;
+using LibraryApp_DAL;
+
 
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
 public partial class Service : IService
 {
 
+    private IUserRepository GetUserRepository()
+    {
+        return new UserRepository(new DConectivity());
+    }
+
+    
     public List<string> GetBranches()
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
@@ -158,10 +166,9 @@ public partial class Service : IService
     }
 
 
-    public int MemberRegister(bal.BClient client)
+    public void MemberRegister(Client client)
     {
-        var dMember = new dal.DMember();
-        return dMember.register(client);
-        
+        var userRepository = GetUserRepository();
+        userRepository.Add(client);
     }
 }

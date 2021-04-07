@@ -3,7 +3,8 @@ using System.Data;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Windows.Controls;
-using bal = LibraryApp_BAL;
+using LibraryApp.DataModel;
+
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService" in both code and config file together.
 [ServiceContract]
@@ -30,7 +31,7 @@ public interface IService
     bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);
 
     [OperationContract]
-    int MemberRegister(bal.BClient client);
+    int MemberRegister(Client client);
 
     // TODO: Add your service operations here
 }

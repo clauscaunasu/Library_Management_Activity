@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LibraryService", "LibraryService\", "{052FF1F0-80EF-457E-AD53-0FCC2AF61422}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
-		ProjectReferences = "{be6a8524-fb6c-43a1-baef-951574d5a513}|LibraryApp_BAL.dll;{9c2b645f-f679-4c54-9187-f4ba8b0e4a76}|LibraryApp_DAL.dll;"
+		ProjectReferences = "{9c2b645f-f679-4c54-9187-f4ba8b0e4a76}|LibraryApp_DAL.dll;{21a35fa9-c378-426e-b7c6-0e00141ce14f}|LibraryApp.BusinessLogic.dll;{f4659519-452f-48f2-b156-42d8a8006449}|LibraryApp.DataModel.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_55459"
 		Debug.AspNetCompiler.PhysicalPath = "LibraryService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55459\"
@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp_DAL", "LibraryAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp_BAL", "LibraryApp_BAL\LibraryApp_BAL.csproj", "{BE6A8524-FB6C-43A1-BAEF-951574D5A513}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.BusinessLogic", "LibraryApp.BusinessLogic\LibraryApp.BusinessLogic.csproj", "{21A35FA9-C378-426E-B7C6-0E00141CE14F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.DataModel", "LibraryApp.DataModel\LibraryApp.DataModel.csproj", "{F4659519-452F-48F2-B156-42D8A8006449}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{BE6A8524-FB6C-43A1-BAEF-951574D5A513}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE6A8524-FB6C-43A1-BAEF-951574D5A513}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE6A8524-FB6C-43A1-BAEF-951574D5A513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21A35FA9-C378-426E-B7C6-0E00141CE14F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A35FA9-C378-426E-B7C6-0E00141CE14F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A35FA9-C378-426E-B7C6-0E00141CE14F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A35FA9-C378-426E-B7C6-0E00141CE14F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4659519-452F-48F2-B156-42D8A8006449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4659519-452F-48F2-B156-42D8A8006449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4659519-452F-48F2-B156-42D8A8006449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4659519-452F-48F2-B156-42D8A8006449}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,7 @@ using bal = LibraryApp_BAL;
 
 namespace LibraryApp_DAL
 {
-    class DConectivity
+    public class DConectivity
     {
         private string connection = "Server=DESKTOP-CG65E95;Database=Library;Trusted_Connection=True;";
         SqlConnection dbConnection()
