@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LibraryApp.Models
+﻿namespace LibraryApp_BAL
 {
-    class Client
+    public class BClient
     {
         public int ID { get; set; }
         public string FirstName { get; set; }

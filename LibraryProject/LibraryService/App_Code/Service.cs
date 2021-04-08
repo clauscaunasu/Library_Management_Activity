@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Controls;
+using System.Windows.Markup.Localizer;
+using LibraryApp.BusinessLogic.Abstractions;
+using LibraryApp.DataModel;
 using ConfigurationManager = System.Configuration.ConfigurationManager;
+using LibraryApp_DAL;
+
 
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
-public class Service : IService
+public partial class Service : IService
 {
 
+    private IUserRepository GetUserRepository()
+    {
+        return new UserRepository(new DConectivity());
+    }
+
+    
     public List<string> GetBranches()
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
@@ -25,6 +36,7 @@ public class Service : IService
             return new List<string>();
         }
 	}
+
 
     public bool Register(string firstName, string lastName, string address, string telephone, string username, string password)
     {
@@ -68,7 +80,7 @@ public class Service : IService
         }
     }
 
-    public List<string> BranchListLoarder()
+    public List<string> BranchListLoader()
     {
         var branchesNames = new List<string>();
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
@@ -150,15 +162,16 @@ public class Service : IService
     }
 
 
-    public CompositeType GetDataUsingDataContract(CompositeType composite)
-	{
-		if (composite == null)
-		{
-			throw new ArgumentNullException("composite");
-		}
-		{
-			composite.StringValue += "Suffix";
-		}
-		return composite;
-	}
+    public bool MemberRegister(Client client)
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.Add(client);
+    }
+
+    public Client MemberLogin(Client client)
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.GetUserByNameAndPassword(client.Username, client.Password);
+
+    }
 }
