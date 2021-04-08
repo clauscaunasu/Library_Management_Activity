@@ -25,7 +25,7 @@ namespace LibraryApp.View
         public BorrowBook()
         {
             InitializeComponent();
-            LoadingData();
+           // LoadingData();
         }
 
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
@@ -33,7 +33,7 @@ namespace LibraryApp.View
             this.Close();
         }
 
-        private void LoadingData()
+        /*private void LoadingData()
         {
             var branchesNames = _serviceClient.BranchListLoarder();
             foreach (var name in branchesNames)
@@ -41,7 +41,7 @@ namespace LibraryApp.View
                 Console.WriteLine(name);
                 BranchList.Items.Add(name);
             }
-        }
+        }*/
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             

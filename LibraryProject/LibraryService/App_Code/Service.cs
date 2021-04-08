@@ -21,6 +21,7 @@ public partial class Service : IService
     }
 
     
+    /*
     public List<string> GetBranches()
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
@@ -160,6 +161,7 @@ public partial class Service : IService
             return command.ExecuteNonQuery() == 1;
         }
     }
+    */
 
 
     public bool MemberRegister(Client client)
@@ -168,7 +170,7 @@ public partial class Service : IService
         return userRepository.Add(client);
     }
 
-    public Client MemberLogin(Client client)
+    public int MemberLogin(Client client)
     {
         var userRepository = GetUserRepository();
         return userRepository.GetUserByNameAndPassword(client.Username, client.Password);

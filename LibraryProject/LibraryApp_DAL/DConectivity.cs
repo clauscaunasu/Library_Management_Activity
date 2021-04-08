@@ -14,14 +14,14 @@ namespace LibraryApp_DAL
         private readonly string connection = "Server=DESKTOP-CG65E95;Database=Library;Trusted_Connection=True;";
         SqlConnection dbConnection()
         {
-            SqlConnection sqlConnect = new SqlConnection(connection);
+            var sqlConnect = new SqlConnection(connection);
             sqlConnect.Open();
             return sqlConnect;
         }
 
         public SqlCommand dbCommand(String strProcedure)
         {
-            SqlCommand sqlCmd = new SqlCommand(strProcedure, dbConnection());
+            var sqlCmd = new SqlCommand(strProcedure, dbConnection());
             sqlCmd.CommandType = CommandType.Text;
             return sqlCmd;
         }

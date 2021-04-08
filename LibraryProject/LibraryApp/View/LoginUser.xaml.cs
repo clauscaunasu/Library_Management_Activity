@@ -43,11 +43,21 @@ namespace LibraryApp.View
             {
                 client.Username = username;
                 client.Password = password;
-                if (_serviceClient.MemberLogin(client) != null)
+                if (_serviceClient.MemberLogin(client) >= 0)
                 {
-                    UserHome userHome = new UserHome();
-                    userHome.Show();
-                    this.Close();
+                    if (_serviceClient.MemberLogin(client) == 0)
+                    {
+                        var userHome = new UserHome();
+                        userHome.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        var adminHome = new AdminHome();
+                        adminHome.Show();
+                        this.Close();
+                        
+                    }
                 }
                 else
                 {

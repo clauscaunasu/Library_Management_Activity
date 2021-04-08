@@ -11,6 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.35*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Background="#005691">
             <Grid.RowDefinitions>
@@ -33,6 +34,16 @@
                         VerticalAlignment="Center"
                 />
             </StackPanel>
+
+            <!--<StackPanel Grid.Row="1" Margin="10">
+                <ListView x:Name="MembersListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <local:ClientControl Client="{Binding}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>-->
 
         </Grid>
     </Grid>
