@@ -10,10 +10,12 @@ using LibraryApp.DataModel;
 
 namespace LibraryApp_DAL
 {
-    class BookRepository : IBookRepository
+    public class BookRepository : IBookRepository
     {
         private readonly DConectivity _connection;
         private readonly List<Book> _listOfBooks = new List<Book>();
+        private List<Book> books;
+
         public BookRepository(DConectivity connection)
         {
             this._connection = connection;
@@ -72,7 +74,7 @@ namespace LibraryApp_DAL
         }
         
 
-        public List<Book> ShowListOfBooks(DataTable dt)
+        public List<Book> ListOfBooks(DataTable dt)
         {
             for (var i = 0; i < dt.Rows.Count; i++)
             {
@@ -86,6 +88,16 @@ namespace LibraryApp_DAL
             }
 
             return _listOfBooks;
+        }
+
+        public List<Book> GetBooks()
+        {
+            var command = _connection.dbCommand("SELECT * FROM Book");
+            var reader = command.ExecuteReader();
+            var dt = new DataTable();
+            dt.Load(reader);
+            ListOfBooks(dt);
+            return books;
         }
 
         public Book GetBookById(int id)

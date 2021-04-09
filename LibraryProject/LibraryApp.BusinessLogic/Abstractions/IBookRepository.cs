@@ -13,7 +13,8 @@ namespace LibraryApp.BusinessLogic.Abstractions
     {
         bool AddBookInBranch(Book book, string branchName, int copies);
         Book GetBookById(int id);
-        List<Book> ShowListOfBooks(DataTable dt);
+        List<Book> ListOfBooks(DataTable dt);
+        List<Book> GetBooks();
 
 
     }

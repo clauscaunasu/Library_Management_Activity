@@ -20,7 +20,12 @@ public partial class Service : IService
         return new UserRepository(new DConectivity());
     }
 
-    
+    private IBookRepository GetBookRepository()
+    {
+        return new BookRepository(new DConectivity());
+    }
+
+
     public List<string> GetBranches()
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
@@ -173,5 +178,11 @@ public partial class Service : IService
         var userRepository = GetUserRepository();
         return userRepository.GetUserByNameAndPassword(client.Username, client.Password);
 
+    }
+
+    public List<Book> BooksList()
+    {
+        var bookRepository = GetBookRepository();
+        return bookRepository.GetBooks();
     }
 }

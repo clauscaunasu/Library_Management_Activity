@@ -75,7 +75,7 @@
                         Style="{StaticResource SearchBtnStyle}"
                         />
             </StackPanel>
-            <StackPanel Grid.Row="1">
+            <StackPanel Height="630" Margin="0,0,0.4,0" Grid.RowSpan="2" VerticalAlignment="Bottom">
                 <ListView x:Name="BooksView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -87,19 +87,18 @@
 
                                     <Button Content="Delete"  Margin="0, 0, 55, 0" Background="#27496d"/>
 
-                                    <Button Content="Update" Style="{StaticResource bookActionBtnBase}" Background="#085f63"/>
+                                    <Button Content="Update" Style="{StaticResource PrimaryActionBtn}" />
 
-                                    <Button Content="Check In" Style="{StaticResource bookActionBtnBase}" Margin="15, 0" Background="#70416d"/>
+                                    <Button Content="Delete" Style="{StaticResource PrimaryActionBtn}" Margin="15, 0" Background="#70416d"/>
 
-                                    <Button Content="Check Out" Style="{StaticResource bookActionBtnBase}" Background="#cf1b1b"/>
-
-                                    <Button Content="History" Style="{StaticResource bookActionBtnBase}" Margin="55, 0, 35, 0" Background="#420000"
-                                        />
+                                    <Button Content="History" Style="{StaticResource PrimaryActionBtn}" Margin="55, 0, 35, 0" Background="#420000"
+                                    />
                                 </StackPanel>
                             </Expander>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                
             </StackPanel>
         </Grid>
     </Grid>

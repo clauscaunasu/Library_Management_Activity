@@ -48,15 +48,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="BranchListLoarder">
+  <xs:element name="BranchListLoader">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="BranchListLoarderResponse">
+  <xs:element name="BranchListLoaderResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BranchListLoarderResult" nillable="true" type="q2:ArrayOfstring" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BranchListLoaderResult" nillable="true" type="q2:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -104,6 +104,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="MemberLoginResult" nillable="true" type="q5:Client" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BooksList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BooksListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="BooksListResult" nillable="true" type="q6:ArrayOfBook" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

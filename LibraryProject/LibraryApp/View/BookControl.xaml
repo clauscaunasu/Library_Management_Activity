@@ -5,17 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LibraryApp.View"
              mc:Ignorable="d" 
-             d:DesignHeight="90" d:DesignWidth="300">
+             d:DesignHeight="100" d:DesignWidth="300">
     <Grid Background="#004a7c">
         <StackPanel Margin="5">
-            <TextBlock x:Name="NameTextBlock"
-                       Text="Name Lastname" FontSize="20"
+            <TextBlock x:Name="TitleTextBlock"
+                       Text="Title" FontSize="20"
                        FontWeight="Bold"/>
-            <TextBlock x:Name="emailTextBlock"
-                       Text="example@domain.com" FontSize="15"
+            <TextBlock x:Name="IsbnTextBlock"
+                       Text="87-23-90157-8 " FontSize="15"
                        Foreground="Black"/>
-            <TextBlock x:Name="phoneTextBlock"
-                       Text="(123) 456 7890" FontSize="15"
+            <TextBlock x:Name="AuthorTextBlock"
+                       Text="Firstname Lastname" FontSize="15"
+                       FontStyle="Italic"/>
+            <TextBlock x:Name="EditureTextBlock"
+                       Text="Publisher" FontSize="15"
                        FontStyle="Italic"/>
         </StackPanel>
     </Grid>

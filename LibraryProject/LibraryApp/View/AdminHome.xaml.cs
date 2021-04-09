@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.DataModel;
+using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
 {
@@ -19,9 +21,15 @@ namespace LibraryApp.View
     /// </summary>
     public partial class AdminHome : Window
     {
+        private List<LibraryApp.LibraryServiceReference.Book> books;
+        private readonly ServiceClient _serviceClient = new ServiceClient();
         public AdminHome()
         {
             InitializeComponent();
+            books = _serviceClient.BooksList();
+            BooksView.ItemsSource = books;
+
+
         }
 
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
