@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
 {
@@ -19,9 +9,26 @@ namespace LibraryApp.View
     /// </summary>
     public partial class ViewUsers : Window
     {
+        private readonly ServiceClient _serviceClient = new ServiceClient();
+
         public ViewUsers()
         {
             InitializeComponent();
+
+            var clients = _serviceClient.ClientList();
+
+            MembersListView.ItemsSource = clients;
+
+        }
+
+        private void BtnExit_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

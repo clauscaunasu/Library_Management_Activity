@@ -26,6 +26,12 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberLogin", ReplyAction="http://tempuri.org/IService/MemberLoginResponse")]
         System.Threading.Tasks.Task<int> MemberLoginAsync(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ClientList", ReplyAction="http://tempuri.org/IService/ClientListResponse")]
+        System.Collections.Generic.List<LibraryApp.DataModel.Client> ClientList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ClientList", ReplyAction="http://tempuri.org/IService/ClientListResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Client>> ClientListAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<int> MemberLoginAsync(LibraryApp.DataModel.Client client) {
             return base.Channel.MemberLoginAsync(client);
+        }
+        
+        public System.Collections.Generic.List<LibraryApp.DataModel.Client> ClientList() {
+            return base.Channel.ClientList();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Client>> ClientListAsync() {
+            return base.Channel.ClientListAsync();
         }
     }
 }

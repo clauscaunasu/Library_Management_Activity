@@ -176,4 +176,10 @@ public partial class Service : IService
         return userRepository.GetUserByNameAndPassword(client.Username, client.Password);
 
     }
+
+    public List<Client> ClientList()
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.GetClients();
+    }
 }

@@ -29,4 +29,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ClientList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="ClientListResult" nillable="true" type="q3:ArrayOfClient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

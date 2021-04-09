@@ -41,7 +41,7 @@ namespace LibraryApp.View
 
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
+            var main = new MainWindow();
             this.Close();
             main.Show();
         }
