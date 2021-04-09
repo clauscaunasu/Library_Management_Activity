@@ -222,6 +222,13 @@
                 <Setter Property="Margin" Value="10"/>
 
             </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource PrimaryActionBtn}" x:Key="OptionsBtn">
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

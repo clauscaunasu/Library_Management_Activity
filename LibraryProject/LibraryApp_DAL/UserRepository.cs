@@ -11,7 +11,7 @@ namespace LibraryApp_DAL
     public class UserRepository : IUserRepository
     {
         private readonly DConectivity _connection;
-        private List<Client> clients = new List<Client>();
+        private readonly List<Client> _clients = new List<Client>();
         public UserRepository(DConectivity connection)
         {
             this._connection = connection;
@@ -29,27 +29,25 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@lastName", client.LastName);
             command.Parameters.AddWithValue("@firstName", client.FirstName);
 
-
             return command.ExecuteNonQuery() == 1;
            
         }
 
         public List<Client> GetUserById(int id)
         {
-            var client = new Client();
-            
             var command = _connection.dbCommand( "SELECT COUNT(1) FROM Client WHERE ID = @ID");
             command.Parameters.AddWithValue("@ID", id);
             var dt = new DataTable();
             var reader = command.ExecuteReader();
             dt.Load(reader);
             ClientList(dt);
-            return clients;
+            command.Connection.Close();
+            return _clients;
+            
         }
 
         public int GetUserByNameAndPassword(string username, string password)
         {
-            var client = new Client();
             var command = _connection.dbCommand("SELECT Duty FROM Client WHERE Username = @Username " +
                                                 "AND Password = @Password");
             command.Parameters.AddWithValue("@Username", username);
@@ -57,36 +55,26 @@ namespace LibraryApp_DAL
             var reader = command.ExecuteReader();
             var dt = new DataTable();
             dt.Load(reader);
+            command.Connection.Close();
             return dt.Rows.Count > 0 ? dt.Rows[0]["Duty"].ToString() == "Client" ? 0 : 1 : -1;
+        }
 
-            /*while (reader.Read())
-            {
-                client.ID = Int32.Parse(reader["ID"].ToString());
-                client.FirstName = reader["FirstName"].ToString();
-                client.LastName = reader["LastName"].ToString();
-                client.Address = reader["Address"].ToString();
-                client.Telephone = reader["Telephone"].ToString();
-                client.Duty = reader["Duty"].ToString();
-                client.Username = reader["Username"].ToString();
-                client.Password = reader["Password"].ToString();
-                client.Desired = Parse(reader["Desired"].ToString());
-
-                /*client.FirstName = reader.GetString(1);
-                client.LastName = reader.GetString(2);
-                client.Address = reader.GetString(3);
-                client.Duty = reader.GetString(4);
-                client.Username = reader.GetString(5);
-                client.Password = reader.GetString(6);
-                client.Desired = Parse(reader.GetString(7));#1#
-                
-            }*/
+        public List<Client> GetClients()
+        {
+            var command = _connection.dbCommand("SELECT * FROM CLIENT");
+            var reader = command.ExecuteReader();
+            var dt = new DataTable();
+            dt.Load(reader);
+            ClientList(dt);
+            command.Connection.Close();
+            return _clients;
         }
 
         private void ClientList(DataTable dt)
         {
             for (var i = 0; i < dt.Rows.Count; i++)
             {
-                var client = new Client
+                var client = new Client()
                 {
                     ID = Int32.Parse(dt.Rows[i]["ID"].ToString()),
                     FirstName = dt.Rows[i]["FirstName"].ToString(),
@@ -99,7 +87,7 @@ namespace LibraryApp_DAL
                     Desired = Parse(dt.Rows[i]["Desired"].ToString())
                 };
 
-                clients.Add(client);
+                _clients.Add(client);
             }
         }
     }

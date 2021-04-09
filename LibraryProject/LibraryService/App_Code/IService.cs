@@ -33,6 +33,9 @@ public interface IService
     [OperationContract]
     int MemberLogin(Client client);
 
+    [OperationContract]
+    List<Client> ClientList();
+
     // TODO: Add your service operations here
 }
 

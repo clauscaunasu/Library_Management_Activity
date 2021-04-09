@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
         ResizeMode="NoResize">
-    <Grid>
+    <Grid MouseDown="UIElement_OnMouseDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.35*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Background="#005691">
             <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
             </Grid.RowDefinitions>
             <TextBlock Text="All Booked Up" Style="{StaticResource TitleStyle}"/>
         </Grid>
-        <Grid Grid.Column="2" Background="#e8f1f5">
+        <Grid Grid.Column="1" Background="#e8f1f5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.20*"/>
                 <RowDefinition Height="*"/>
@@ -31,20 +31,44 @@
                 <TextBox Style="{StaticResource SearchBoxStyle}" Margin="5 20"/>
                 <Button Content="Search" 
                         Style="{StaticResource SearchBtnStyle}"
-                        VerticalAlignment="Center"
-                />
+                        VerticalAlignment="Center"/>
             </StackPanel>
-
-            <!--<StackPanel Grid.Row="1" Margin="10">
-                <ListView x:Name="MembersListView">
-                    <ListView.ItemTemplate>
+            <Button Grid.Row="0" Margin="10 10" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    ToolTip="Close" x:Name="BtnExit" Click="BtnExit_OnClick">
+                <materialDesign:PackIcon Kind="Close" Foreground="#005691" Width="30" Height="30"/>
+            </Button>
+            <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                <StackPanel Grid.Row="1" VerticalAlignment="Top" Width="auto" HorizontalAlignment="Center">
+                    <ListView x:Name="UserView">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate >
                         <DataTemplate>
-                            <local:ClientControl Client="{Binding}"/>
+                            <Expander Background="#e8f1f5" Width="700" >
+                                <Expander.Header >
+                                    <local:ClientControl Client="{Binding}"/>
+                                </Expander.Header>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+
+                                    <Button Content="Delete" Style="{StaticResource OptionsBtn}"  Background="#27496d" Click="ButtonDelete_OnClick"/>
+
+                                    <Button Content="Update" Style="{StaticResource OptionsBtn}" Click="ButtonUpdate_OnClick" />
+
+                                    <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#70416d"/>
+
+                                    <Button Content="History" Style="{StaticResource OptionsBtn}" Background="#420000" />
+                                </StackPanel>
+                            </Expander>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </StackPanel>-->
-
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>

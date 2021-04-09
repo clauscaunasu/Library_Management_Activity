@@ -1,7 +1,4 @@
-﻿using System.ServiceModel;
-using System.ServiceModel.Security;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using LibraryApp.DataModel;
 
 namespace LibraryApp.View
@@ -11,8 +8,6 @@ namespace LibraryApp.View
     /// </summary>
     public partial class ClientControl : System.Windows.Controls.UserControl
     {
-        private Client _client;
-
         public Client Client
         {
             get => (Client) GetValue(ContactProperty);
@@ -25,13 +20,11 @@ namespace LibraryApp.View
 
         private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var clientControl = d as ClientControl;
-
-            if (clientControl != null)
+            if (d is ClientControl clientControl)
             {
-                clientControl.NameTextBlock.Text = (e.NewValue as Client).FirstName;
-                clientControl.EmailTextBlock.Text = (e.NewValue as Client).Address;
-                clientControl.PhoneTextBlock.Text = (e.NewValue as Client).Telephone;
+                clientControl.NameTextBlock.Text = (e.NewValue as Client)?.FirstName;
+                clientControl.EmailTextBlock.Text = (e.NewValue as Client)?.Address;
+                clientControl.PhoneTextBlock.Text = (e.NewValue as Client)?.Telephone;
             }
         }
 
