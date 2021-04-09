@@ -21,7 +21,7 @@ namespace LibraryApp.View
     /// </summary>
     public partial class AdminHome : Window
     {
-        private List<LibraryApp.LibraryServiceReference.Book> books;
+        private List<Book> books;
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public AdminHome()
         {

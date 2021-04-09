@@ -108,7 +108,7 @@ public partial class Service : IService
         return branchesNames;
     }
 
-    public bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies)
+   /* public bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies)
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
         var branchID = 0;
@@ -165,6 +165,7 @@ public partial class Service : IService
             return command.ExecuteNonQuery() == 1;
         }
     }
+   */
 
 
     public bool MemberRegister(Client client)
@@ -185,4 +186,10 @@ public partial class Service : IService
         var bookRepository = GetBookRepository();
         return bookRepository.GetBooks();
     }
+
+    //public bool AddBook(Book book, string branchName, int copies)
+    //{
+    //    var bookRepository = GetBookRepository();
+    //    return 
+    //}
 }

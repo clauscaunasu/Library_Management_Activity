@@ -14,12 +14,13 @@ namespace LibraryApp_DAL
     {
         private readonly DConectivity _connection;
         private readonly List<Book> _listOfBooks = new List<Book>();
-        private List<Book> books;
 
         public BookRepository(DConectivity connection)
         {
             this._connection = connection;
         }
+
+        // despartim AddBookInBranch in 2 AddBook si folosim in inventory
         public bool AddBookInBranch(Book book, string branchName, int copies)
         {
             var branchID = 0;
@@ -97,7 +98,7 @@ namespace LibraryApp_DAL
             var dt = new DataTable();
             dt.Load(reader);
             ListOfBooks(dt);
-            return books;
+            return _listOfBooks;
         }
 
         public Book GetBookById(int id)

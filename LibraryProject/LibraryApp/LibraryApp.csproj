@@ -208,12 +208,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\LibraryServiceReference\LibraryApp.LibraryServiceReference.Book.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\LibraryServiceReference\LibraryApp.LibraryServiceReference.Client.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\LibraryServiceReference\Service.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -227,7 +221,11 @@
     <None Include="Connected Services\LibraryServiceReference\Service32.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="LibraryApp.DataModel.Book.datasource" />
+    <None Include="LibraryApp.DataModel.Book1.datasource" />
     <None Include="LibraryApp.DataModel.Client.datasource" />
+    <None Include="LibraryApp.DataModel.Client1.datasource" />
+    <None Include="LibraryApp.DataModel.Client2.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

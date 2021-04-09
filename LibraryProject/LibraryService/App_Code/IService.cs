@@ -24,8 +24,8 @@ public interface IService
     [OperationContract]
     List<string> BranchListLoader();
 
-    [OperationContract]
-    bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);
+   /* [OperationContract]
+    bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);*/
 
     [OperationContract]
     bool MemberRegister(Client client);
