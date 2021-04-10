@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LibraryApp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="View/AddBook.xaml">
+             StartupUri="View/AdminHome.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -94,6 +94,12 @@
             <Style TargetType="Button" BasedOn="{StaticResource ActionBtnBase}" x:Key="PrimaryActionBtn">
                 <Setter Property="Background" Value="Black"/>
                 <Setter Property="Width" Value="220"/>
+            </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource PrimaryActionBtn}" x:Key="OptionsBtn">
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
             </Style>
 
             <Style TargetType="Button" BasedOn="{StaticResource ActionBtnBase}" x:Key="SecondaryActionBtn">

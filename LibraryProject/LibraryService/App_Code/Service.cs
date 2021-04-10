@@ -187,9 +187,16 @@ public partial class Service : IService
         return bookRepository.GetBooks();
     }
 
+    public bool EditBook(Book book)
+    {
+        var bookRepository = GetBookRepository();
+        return bookRepository.UpdateBook(book);
+    }
+
     //public bool AddBook(Book book, string branchName, int copies)
     //{
     //    var bookRepository = GetBookRepository();
     //    return 
     //}
+
 }

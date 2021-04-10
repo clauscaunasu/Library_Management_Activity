@@ -52,5 +52,18 @@ namespace LibraryApp.View
         {
             throw new NotImplementedException();
         }
+
+        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
+        {
+            var deleteBookPage = new DeleteBook();
+            deleteBookPage.Show();
+        }
+
+        private void ButtonUpdate_OnClick(object sender, RoutedEventArgs e)
+        {
+            var selectedBook = BooksView.SelectedItem as Book;
+            var updateBookPage = new UpdateBook(selectedBook);
+            updateBookPage.Show();
+        }
     }
 }

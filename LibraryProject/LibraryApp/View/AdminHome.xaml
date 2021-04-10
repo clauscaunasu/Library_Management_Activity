@@ -75,24 +75,23 @@
                         Style="{StaticResource SearchBtnStyle}"
                         />
             </StackPanel>
-            <StackPanel Height="630" Margin="0,0,0.4,0" Grid.RowSpan="2" VerticalAlignment="Bottom">
-                <ListView x:Name="BooksView">
+            <StackPanel Grid.Row ="1" VerticalAlignment="Top" Width="Auto">
+                <ListView x:Name="BooksView" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Expander>
+                            <Expander Background="#e8f1f5" Width="700">
                                 <Expander.Header>
                                     <view:BookControl Book="{Binding}"/>
                                 </Expander.Header>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 5, 0, 15">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
 
-                                    <Button Content="Delete"  Margin="0, 0, 55, 0" Background="#27496d"/>
+                                    <Button Content="Delete" Style="{StaticResource OptionsBtn}"  Background="#27496d" Click="ButtonDelete_OnClick"/>
 
-                                    <Button Content="Update" Style="{StaticResource PrimaryActionBtn}" />
+                                    <Button Content="Update" Style="{StaticResource OptionsBtn}" Click="ButtonUpdate_OnClick" />
 
-                                    <Button Content="Delete" Style="{StaticResource PrimaryActionBtn}" Margin="15, 0" Background="#70416d"/>
+                                    <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#70416d"/>
 
-                                    <Button Content="History" Style="{StaticResource PrimaryActionBtn}" Margin="55, 0, 35, 0" Background="#420000"
-                                    />
+                                    <Button Content="History" Style="{StaticResource OptionsBtn}" Background="#420000" />
                                 </StackPanel>
                             </Expander>
                         </DataTemplate>

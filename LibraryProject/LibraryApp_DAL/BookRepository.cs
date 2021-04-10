@@ -101,6 +101,13 @@ namespace LibraryApp_DAL
             return _listOfBooks;
         }
 
+        public bool DeleteBook(Book book)
+        {
+            var command = _connection.dbCommand("DELETE FROM Book WHERE ID=@ID");
+            command.Parameters.AddWithValue("@ID", book.ID);
+            return command.ExecuteNonQuery() == 1;
+        }
+
         public Book GetBookById(int id)
         {
             var book = new Book();
@@ -109,5 +116,18 @@ namespace LibraryApp_DAL
             return book;
         }
 
+        public bool UpdateBook(Book book)
+        {
+            var command = _connection.dbCommand("UPDATE Book SET(Title, UniqueCode, Author, Editure)" +
+                                                " VALUES (@title, @uniqueCode, @authors, @editure) WHERE @ID=ID");
+
+            command.Parameters.AddWithValue("@ID",book.ID);
+            command.Parameters.AddWithValue("@title", book.Title);
+            command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode);
+            command.Parameters.AddWithValue("@authors", book.Author);
+            command.Parameters.AddWithValue("@editure", book.Editure);
+
+            return command.ExecuteNonQuery() == 1;
+        }
     }
 }

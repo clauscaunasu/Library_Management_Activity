@@ -15,6 +15,8 @@ namespace LibraryApp.BusinessLogic.Abstractions
         Book GetBookById(int id);
         List<Book> ListOfBooks(DataTable dt);
         List<Book> GetBooks();
+        bool DeleteBook(Book book);
+        bool UpdateBook(Book book);
 
 
     }

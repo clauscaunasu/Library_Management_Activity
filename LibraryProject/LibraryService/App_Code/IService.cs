@@ -36,6 +36,9 @@ public interface IService
     [OperationContract]
     List<Book> BooksList();
 
+    [OperationContract]
+    bool EditBook(Book book);
+
     // TODO: Add your service operations here
 }
 
