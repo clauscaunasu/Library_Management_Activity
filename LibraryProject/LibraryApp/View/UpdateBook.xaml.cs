@@ -21,12 +21,12 @@ namespace LibraryApp.View
     /// </summary>
     public partial class UpdateBook : Window
     {
-        private readonly Book _book;
+        private readonly Book _book = new Book();
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public UpdateBook(Book book)
         {
-            _book = book;
             InitializeComponent();
+            _book = book;
             NewTitle.Text = book.Title;
             NewAuthors.Text = book.Author;
             NewEditure.Text = book.Editure;

@@ -25,6 +25,11 @@ public partial class Service : IService
         return new BookRepository(new DConectivity());
     }
 
+    private IBranchRepository GetBranchRepository()
+    {
+        return new BranchRepository(new DConectivity());
+    }
+
 
     public List<string> GetBranches()
     {
@@ -191,6 +196,12 @@ public partial class Service : IService
     {
         var bookRepository = GetBookRepository();
         return bookRepository.UpdateBook(book);
+    }
+
+    public bool AddBranch(Branch branch)
+    {
+        var branchRepository = GetBranchRepository();
+        return branchRepository.AddBranch(branch);
     }
 
     //public bool AddBook(Book book, string branchName, int copies)

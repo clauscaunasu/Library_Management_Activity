@@ -84,6 +84,9 @@
     <Compile Include="View\AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddBranch.xaml.cs">
+      <DependentUpon>AddBranch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminHome.xaml.cs">
       <DependentUpon>AdminHome.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <DependentUpon>ViewUsers.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AddBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddBranch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

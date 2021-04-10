@@ -39,6 +39,9 @@ public interface IService
     [OperationContract]
     bool EditBook(Book book);
 
+    [OperationContract]
+    bool AddBranch(Branch branch);
+
     // TODO: Add your service operations here
 }
 

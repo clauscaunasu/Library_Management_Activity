@@ -62,6 +62,12 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EditBook", ReplyAction="http://tempuri.org/IService/EditBookResponse")]
         System.Threading.Tasks.Task<bool> EditBookAsync(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBranch", ReplyAction="http://tempuri.org/IService/AddBranchResponse")]
+        bool AddBranch(LibraryApp.DataModel.Branch branch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBranch", ReplyAction="http://tempuri.org/IService/AddBranchResponse")]
+        System.Threading.Tasks.Task<bool> AddBranchAsync(LibraryApp.DataModel.Branch branch);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -153,6 +159,14 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<bool> EditBookAsync(LibraryApp.DataModel.Book book) {
             return base.Channel.EditBookAsync(book);
+        }
+        
+        public bool AddBranch(LibraryApp.DataModel.Branch branch) {
+            return base.Channel.AddBranch(branch);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddBranchAsync(LibraryApp.DataModel.Branch branch) {
+            return base.Channel.AddBranchAsync(branch);
         }
     }
 }
