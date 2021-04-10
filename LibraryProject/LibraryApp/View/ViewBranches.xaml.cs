@@ -60,5 +60,13 @@ namespace LibraryApp.View
             var branchPage = new AddBranch();
             branchPage.Show();
         }
+
+        private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedBranch = BranchesView.SelectedItem as Branch;
+            var updateBranchPage = new UpdateBranch(selectedBranch);
+            updateBranchPage.Show();
+
+        }
     }
 }

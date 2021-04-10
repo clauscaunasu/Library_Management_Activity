@@ -210,6 +210,12 @@ public partial class Service : IService
         return branchRepository.GetBranches();
     }
 
+    public bool EditBranch(Branch branch)
+    {
+        var branchRepository = GetBranchRepository();
+        return branchRepository.UpdateBranch(branch);
+    }
+
     //public bool AddBook(Book book, string branchName, int copies)
     //{
     //    var bookRepository = GetBookRepository();

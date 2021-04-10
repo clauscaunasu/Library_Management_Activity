@@ -117,6 +117,9 @@
     <Compile Include="View\UpdateBook.xaml.cs">
       <DependentUpon>UpdateBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UpdateBranch.xaml.cs">
+      <DependentUpon>UpdateBranch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserHome.xaml.cs">
       <DependentUpon>UserHome.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UpdateBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UpdateBranch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

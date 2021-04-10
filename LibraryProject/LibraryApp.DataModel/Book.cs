@@ -1,4 +1,6 @@
-﻿namespace LibraryApp.DataModel
+﻿using System;
+
+namespace LibraryApp.DataModel
 {
     public class Book
     {
@@ -7,5 +9,7 @@
         public string UniqueCode { get; set; }
         public string Author { get; set; }
         public string Editure { get; set; }
+
+       
     }
 }

@@ -17,22 +17,18 @@ using LibraryApp.LibraryServiceReference;
 namespace LibraryApp.View
 {
     /// <summary>
-    /// Interaction logic for UpdateBook.xaml
+    /// Interaction logic for UpdateBranch.xaml
     /// </summary>
-    public partial class UpdateBook : Window
+    public partial class UpdateBranch : Window
     {
-        private readonly Book _book = new Book();
+        private readonly Branch _branch = new Branch();
         private readonly ServiceClient _serviceClient = new ServiceClient();
-        public UpdateBook(Book book)
+        public UpdateBranch(Branch branch)
         {
-            
-            _book = book;
             InitializeComponent();
-            NewTitle.Text = book.Title;
-            NewAuthors.Text = book.Author;
-            NewEditure.Text = book.Editure;
-            NewUniqueCode.Text = book.UniqueCode;
-
+            _branch = branch;
+            NewName.Text = branch.Name;
+            NewAddress.Text = branch.Address;
         }
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
         {
@@ -45,9 +41,9 @@ namespace LibraryApp.View
 
         private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
         {
-            bool isSaved = _serviceClient.EditBook(_book);
-            if (!isSaved) return;
-            MessageBox.Show("The book was successfully updated!");
+            bool isSaved = _serviceClient.EditBranch(_branch);
+            if (isSaved) return;
+            MessageBox.Show("The branch was successfully updated!");
         }
     }
 }

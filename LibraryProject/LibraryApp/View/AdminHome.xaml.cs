@@ -29,7 +29,6 @@ namespace LibraryApp.View
             books = _serviceClient.BooksList();
             BooksView.ItemsSource = books;
 
-
         }
 
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
@@ -61,7 +60,7 @@ namespace LibraryApp.View
 
         private void ButtonUpdate_OnClick(object sender, RoutedEventArgs e)
         {
-            var selectedBook = BooksView.SelectedItem as Book;
+            var selectedBook = (Book)BooksView.Items[0];
             var updateBookPage = new UpdateBook(selectedBook);
             updateBookPage.Show();
         }

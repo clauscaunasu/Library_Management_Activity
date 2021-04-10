@@ -45,6 +45,10 @@ public interface IService
     [OperationContract]
     List<Branch> ViewBranches();
 
+    [OperationContract]
+    bool EditBranch(Branch branch);
+
+
     // TODO: Add your service operations here
 }
 

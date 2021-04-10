@@ -118,8 +118,8 @@ namespace LibraryApp_DAL
 
         public bool UpdateBook(Book book)
         {
-            var command = _connection.dbCommand("UPDATE Book SET(Title, UniqueCode, Author, Editure)" +
-                                                " VALUES (@title, @uniqueCode, @authors, @editure) WHERE @ID=ID");
+            var command = _connection.dbCommand("UPDATE Book SET Title=@title, UniqueCode=@uniqueCode, Author=@authors" +
+                ", Editure=@editure WHERE ID=@ID"); 
 
             command.Parameters.AddWithValue("@ID",book.ID);
             command.Parameters.AddWithValue("@title", book.Title);

@@ -13,6 +13,7 @@ namespace LibraryApp.BusinessLogic.Abstractions
         bool AddBranch(Branch branch);
         List<Branch> ListOfBranches(DataTable dt);
         List<Branch> GetBranches();
+        bool UpdateBranch(Branch branch);
 
     }
 }

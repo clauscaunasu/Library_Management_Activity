@@ -66,7 +66,7 @@
                                     <local:BranchControl Branch="{Binding}"/>
                                 </Expander.Header>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
-                                    <Button Content="Update" Style="{StaticResource OptionsBtn}"  Background="#70416d"/>
+                                    <Button Content="Update" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonUpdate_Click"/>
                                     <Button Content="Delete" Style="{StaticResource OptionsBtn}" Background="#420000" />
                                 </StackPanel>
                             </Expander>
