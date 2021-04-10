@@ -96,6 +96,9 @@
     <Compile Include="View\BorrowBook.xaml.cs">
       <DependentUpon>BorrowBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\BranchControl.xaml.cs">
+      <DependentUpon>BranchControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DeleteBook.xaml.cs">
       <DependentUpon>DeleteBook.xaml</DependentUpon>
     </Compile>
@@ -120,6 +123,9 @@
     <Compile Include="View\ViewBorrowedBooks.xaml.cs">
       <DependentUpon>ViewBorrowedBooks.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewBranches.xaml.cs">
+      <DependentUpon>ViewBranches.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewUsers.xaml.cs">
       <DependentUpon>ViewUsers.xaml</DependentUpon>
     </Compile>
@@ -142,6 +148,10 @@
     <Page Include="View\BorrowBook.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\BranchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DeleteBook.xaml">
       <SubType>Designer</SubType>
@@ -189,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewBorrowedBooks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewBranches.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
