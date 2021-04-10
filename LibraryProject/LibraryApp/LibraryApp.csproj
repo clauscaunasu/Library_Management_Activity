@@ -244,6 +244,7 @@
     </None>
     <None Include="LibraryApp.DataModel.Book.datasource" />
     <None Include="LibraryApp.DataModel.Book1.datasource" />
+    <None Include="LibraryApp.DataModel.Branch.datasource" />
     <None Include="LibraryApp.DataModel.Client.datasource" />
     <None Include="LibraryApp.DataModel.Client1.datasource" />
     <None Include="LibraryApp.DataModel.Client2.datasource" />

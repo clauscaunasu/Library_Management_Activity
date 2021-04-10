@@ -128,4 +128,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ViewBranches">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewBranchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="ViewBranchesResult" nillable="true" type="q9:ArrayOfBranch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

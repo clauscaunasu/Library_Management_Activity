@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.DataModel;
+using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
 {
@@ -19,9 +21,44 @@ namespace LibraryApp.View
     /// </summary>
     public partial class ViewBranches : Window
     {
+        private List<Branch> branches;
+        private readonly ServiceClient _serviceClient = new ServiceClient();
         public ViewBranches()
         {
             InitializeComponent();
+            branches = _serviceClient.ViewBranches();
+            BranchesView.ItemsSource = branches;
+        }
+        private void AddBookBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var addBookPage = new AddBook();
+            addBookPage.Show();
+        }
+
+        private void BtnExit_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var branchPage = new AddBranch();
+            branchPage.Show();
         }
     }
 }

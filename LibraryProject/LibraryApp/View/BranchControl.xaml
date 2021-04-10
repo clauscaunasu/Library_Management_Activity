@@ -9,10 +9,10 @@
     <Border BorderBrush="#27496d" BorderThickness="2">
         <Grid Background="#e8f1f5" >
             <StackPanel Margin="5" >
-                <TextBlock x:Name="TitleTextBlock"
+                <TextBlock x:Name="NameTextBlock"
                        Text="Name" FontSize="20"
                        FontWeight="Bold"/>
-                <TextBlock x:Name="IsbnTextBlock"
+                <TextBlock x:Name="AddressTextBlock"
                        Text="Address " FontSize="15"
                        Foreground="Black"/>
             </StackPanel>

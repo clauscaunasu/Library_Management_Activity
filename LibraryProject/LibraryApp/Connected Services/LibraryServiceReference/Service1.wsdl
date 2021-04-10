@@ -62,6 +62,12 @@
   <wsdl:message name="IService_AddBranch_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddBranchResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_ViewBranches_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewBranches" />
+  </wsdl:message>
+  <wsdl:message name="IService_ViewBranches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewBranchesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetBranches">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBranches" message="tns:IService_GetBranches_InputMessage" />
@@ -98,6 +104,10 @@
     <wsdl:operation name="AddBranch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/AddBranch" message="tns:IService_AddBranch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/AddBranchResponse" message="tns:IService_AddBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewBranches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ViewBranches" message="tns:IService_ViewBranches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ViewBranchesResponse" message="tns:IService_ViewBranches_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -176,6 +186,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddBranch">
       <soap:operation soapAction="http://tempuri.org/IService/AddBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewBranches">
+      <soap:operation soapAction="http://tempuri.org/IService/ViewBranches" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

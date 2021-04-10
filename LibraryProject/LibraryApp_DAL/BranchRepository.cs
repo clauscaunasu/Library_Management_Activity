@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
+using System.Data;
 
 namespace LibraryApp_DAL
 {
@@ -27,5 +28,31 @@ namespace LibraryApp_DAL
 
             return command.ExecuteNonQuery() == 1;
         }
+
+        public List<Branch> GetBranches()
+        {
+            var command = _connection.dbCommand("SELECT * FROM Book");
+            var reader = command.ExecuteReader();
+            var dt = new DataTable();
+            dt.Load(reader);
+            ListOfBranches(dt);
+            return _listOfBranches;
+        }
+
+        public List<Branch> ListOfBranches(DataTable dt)
+        {
+            for (var i = 0; i < dt.Rows.Count; i++)
+            {
+                var branch = new Branch();
+                branch.ID = Int32.Parse(dt.Rows[i]["ID"].ToString());
+                branch.Name = dt.Rows[i]["Name"].ToString();
+                branch.Address = dt.Rows[i]["Address"].ToString();
+                _listOfBranches.Add(branch);
+            }
+
+            return _listOfBranches;
+        }
     }
+
+   
 }
