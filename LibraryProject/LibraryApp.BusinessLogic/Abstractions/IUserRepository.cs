@@ -13,5 +13,6 @@ namespace LibraryApp.BusinessLogic.Abstractions
         bool Add(Client client);
         Client GetUserById(int id);
         Client GetUserByNameAndPassword(string name, string password);
+        bool EditMember(Client client);
     }
 }

@@ -37,7 +37,6 @@ public partial class Service : IService
         }
 	}
 
-
     public bool Register(string firstName, string lastName, string address, string telephone, string username, string password)
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
@@ -60,7 +59,6 @@ public partial class Service : IService
             return command.ExecuteNonQuery() == 1;
         }
     }
-
 
     public bool LogIn(string username, string password)
     {
@@ -159,6 +157,12 @@ public partial class Service : IService
 
             return command.ExecuteNonQuery() == 1;
         }
+    }
+
+    public bool EditMember(Client client)
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.EditMember(client);
     }
 
 
