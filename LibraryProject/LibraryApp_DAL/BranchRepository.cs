@@ -57,12 +57,12 @@ namespace LibraryApp_DAL
 
         public bool UpdateBranch(Branch branch)
         {
-            var command = _connection.dbCommand("UPDATE Branch SET(Name, Address)" +
-                                                " VALUES (@name, @address) WHERE @ID=ID");
+            var command = _connection.dbCommand("UPDATE Branch SET Name=@name, Address=@address" +
+                                                " WHERE ID=@ID");
 
             command.Parameters.AddWithValue("@ID", branch.ID);
-            command.Parameters.AddWithValue("@title", branch.Name);
-            command.Parameters.AddWithValue("@uniqueCode", branch.Address);
+            command.Parameters.AddWithValue("@name", branch.Name);
+            command.Parameters.AddWithValue("@address", branch.Address);
 
             return command.ExecuteNonQuery() == 1;
         }

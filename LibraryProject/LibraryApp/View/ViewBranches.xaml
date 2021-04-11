@@ -59,6 +59,11 @@
             </StackPanel>
             <StackPanel Grid.Row ="1" VerticalAlignment="Top" Width="Auto">
                 <ListView x:Name="BranchesView" >
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Expander Background="#e8f1f5" Width="700">

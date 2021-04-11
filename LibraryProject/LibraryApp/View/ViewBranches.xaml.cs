@@ -68,5 +68,10 @@ namespace LibraryApp.View
             updateBranchPage.Show();
 
         }
+        private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem lvi = (ListViewItem)sender;
+            BranchesView.SelectedItem = lvi.DataContext;
+        }
     }
 }

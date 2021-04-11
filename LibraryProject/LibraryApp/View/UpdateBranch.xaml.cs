@@ -41,9 +41,10 @@ namespace LibraryApp.View
 
         private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
         {
+            _branch.Name = NewName.Text;
+            _branch.Address = NewAddress.Text;
             bool isSaved = _serviceClient.EditBranch(_branch);
-            if (isSaved) return;
-            MessageBox.Show("The branch was successfully updated!");
+            
         }
     }
 }
