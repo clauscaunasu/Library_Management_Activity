@@ -28,8 +28,8 @@ namespace LibraryApp.View
             InitializeComponent();
             books = _serviceClient.BooksList();
             BooksView.ItemsSource = books;
-
         }
+
 
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -60,7 +60,7 @@ namespace LibraryApp.View
 
         private void ButtonUpdate_OnClick(object sender, RoutedEventArgs e)
         {
-            var selectedBook = (Book)BooksView.Items[0];
+            var selectedBook = BooksView.SelectedItem as Book;
             var updateBookPage = new UpdateBook(selectedBook);
             updateBookPage.Show();
         }
@@ -70,5 +70,12 @@ namespace LibraryApp.View
             var branchPage = new AddBranch();
             branchPage.Show();
         }
+
+        private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem lvi = (ListViewItem)sender;
+            BooksView.SelectedItem = lvi.DataContext;
+        }
+
     }
 }

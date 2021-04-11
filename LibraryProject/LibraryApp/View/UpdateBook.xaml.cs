@@ -45,9 +45,14 @@ namespace LibraryApp.View
 
         private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
         {
+            _book.Title = NewTitle.Text;
+            _book.UniqueCode = NewUniqueCode.Text;
+            _book.Editure = NewEditure.Text;
+            _book.Author = NewAuthors.Text;
             bool isSaved = _serviceClient.EditBook(_book);
             if (!isSaved) return;
             MessageBox.Show("The book was successfully updated!");
+            this.Close();
         }
     }
 }

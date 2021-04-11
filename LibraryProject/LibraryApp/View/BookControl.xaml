@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="400">
     <Border BorderBrush="#27496d" BorderThickness="2">
-    <Grid Background="#e8f1f5" >
+    <Grid Background="#e8f1f5">
         <StackPanel Margin="5" >
             <TextBlock x:Name="TitleTextBlock"
                        Text="Title" FontSize="20"
