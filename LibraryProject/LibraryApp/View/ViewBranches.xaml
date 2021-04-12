@@ -60,30 +60,31 @@
                         VerticalAlignment="Center"
                 />
             </StackPanel>
-            <StackPanel Grid.Row ="1" VerticalAlignment="Top" Width="Auto">
-                <ListView x:Name="BranchesView" >
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Expander Background="#e8f1f5" Width="700">
-                                <Expander.Header>
-                                    <local:BranchControl Branch="{Binding}"/>
-                                </Expander.Header>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
-                                    <Button Content="Update" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonUpdate_Click"/>
-                                    <Button Content="Delete" Style="{StaticResource OptionsBtn}" Background="#420000" Click="ButtonDelete_Click"/>
-                                </StackPanel>
-                            </Expander>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+            <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                <StackPanel Grid.Row ="1" VerticalAlignment="Top" Width="Auto">
+                    <ListView x:Name="BranchesView" >
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Expander Background="#e8f1f5" Width="700">
+                                    <Expander.Header>
+                                        <local:BranchControl Branch="{Binding}"/>
+                                    </Expander.Header>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                                        <Button Content="Update" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonUpdate_Click"/>
+                                        <Button Content="Delete" Style="{StaticResource OptionsBtn}" Background="#420000" Click="ButtonDelete_Click"/>
+                                    </StackPanel>
+                                </Expander>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
 
-            </StackPanel>
-
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>

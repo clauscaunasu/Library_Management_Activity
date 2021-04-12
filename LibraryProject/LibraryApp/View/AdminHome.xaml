@@ -81,35 +81,37 @@
                         Style="{StaticResource SearchBtnStyle}"
                         />
             </StackPanel>
-            <StackPanel Grid.Row ="1" VerticalAlignment="Top" Width="Auto">
-                <ListView x:Name="BooksView">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemTemplate >
-                        <DataTemplate>
-                            <Expander Background="#e8f1f5" Width="700" >
-                                <Expander.Header >
-                                    <view:BookControl Book="{Binding}"/>
-                                </Expander.Header>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+            <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                <StackPanel Grid.Row ="1" VerticalAlignment="Top" Width="Auto">
+                    <ListView x:Name="BooksView">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <Expander Background="#e8f1f5" Width="700" >
+                                    <Expander.Header >
+                                        <view:BookControl Book="{Binding}"/>
+                                    </Expander.Header>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
 
-                                    <Button Content="Delete" Style="{StaticResource OptionsBtn}"  Background="#27496d" Click="ButtonDelete_OnClick"/>
+                                        <Button Content="Delete" Style="{StaticResource OptionsBtn}"  Background="#27496d" Click="ButtonDelete_OnClick"/>
 
-                                    <Button Content="Update" Style="{StaticResource OptionsBtn}" Click="ButtonUpdate_OnClick" />
+                                        <Button Content="Update" Style="{StaticResource OptionsBtn}" Click="ButtonUpdate_OnClick" />
 
-                                    <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#70416d"/>
+                                        <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#70416d"/>
 
-                                    <Button Content="History" Style="{StaticResource OptionsBtn}" Background="#420000" />
-                                </StackPanel>
-                            </Expander>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                
-            </StackPanel>
+                                        <Button Content="History" Style="{StaticResource OptionsBtn}" Background="#420000" />
+                                    </StackPanel>
+                                </Expander>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>
