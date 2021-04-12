@@ -5,9 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="400">
-    <Border BorderBrush="#27496d" BorderThickness="2">
-    <Grid Background="#e8f1f5">
+             d:DesignHeight="100" d:DesignWidth="300">
+    <Grid Background="#005691">
         <StackPanel Margin="5">
             <TextBlock x:Name="NameTextBlock"
                        Text="Name Lastname" FontSize="25"
@@ -23,5 +22,4 @@
                        TextAlignment="Center"/>
         </StackPanel>
     </Grid>
-    </Border>
 </UserControl>
