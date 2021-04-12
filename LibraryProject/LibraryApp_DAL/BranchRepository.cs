@@ -29,7 +29,6 @@ namespace LibraryApp_DAL
             return command.ExecuteNonQuery() == 1;
         }
 
-        
 
         public List<Branch> GetBranches()
         {

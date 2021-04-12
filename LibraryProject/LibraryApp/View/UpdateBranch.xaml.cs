@@ -44,7 +44,13 @@ namespace LibraryApp.View
             _branch.Name = NewName.Text;
             _branch.Address = NewAddress.Text;
             bool isSaved = _serviceClient.EditBranch(_branch);
-            
+            if(isSaved)
+            {
+                MessageBox.Show("Branch updated successfully!");
+                var viewBranchesP = new ViewBranches();
+                this.Close();
+                viewBranchesP.Show();
+            }
         }
     }
 }

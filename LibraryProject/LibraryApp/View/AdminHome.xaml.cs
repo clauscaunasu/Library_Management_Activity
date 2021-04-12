@@ -77,5 +77,10 @@ namespace LibraryApp.View
             BooksView.SelectedItem = lvi.DataContext;
         }
 
+        private void ViewBranchesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var viewBranchesPage = new ViewBranches();
+            viewBranchesPage.Show();
+        }
     }
 }

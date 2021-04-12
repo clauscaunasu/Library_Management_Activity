@@ -29,12 +29,15 @@
                 <Button x:Name="AddBookBtn" Content="Add New Book" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
                         Click="AddBookBtn_Click"/>
-                <Button x:Name="AddBranchBtn" Content="Add New Branch" 
-                        Style="{StaticResource OptionAdminBtnStyle}" 
-                        Click="AddBranchBtn_Click"/>
                 <Button x:Name="ViewMembersBtn" Content="View Members"
                         Style="{StaticResource OptionAdminBtnStyle}"
                         Click="ViewMembersBtn_OnClick"></Button>
+                <Expander Header="Manage Branches" Style="{StaticResource ExpanderStyle}">
+                    <StackPanel>
+                        <Button x:Name="AddBranchBtn" Content="Add new branch" Style="{StaticResource SecondaryActionBtn}" Click="AddBranchBtn_Click"/>
+                        <Button x:Name="ViewBranchesBtn" Content="View branches" Style="{StaticResource SecondaryActionBtn}" Click="ViewBranchesBtn_Click"/>
+                    </StackPanel>
+                </Expander>
 
             </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Bottom">

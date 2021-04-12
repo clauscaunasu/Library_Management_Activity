@@ -107,6 +107,7 @@
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="Width" Value="160"/>
                 <Setter Property="Height" Value="30"/>
+                <Setter Property="Margin" Value="0"/>
             </Style>
 
             <Style TargetType="Button" BasedOn="{StaticResource ActionBtnBase}" x:Key="FilterActionBtn">
@@ -126,7 +127,7 @@
             <Style TargetType="Button"  BasedOn="{StaticResource MaterialDesignRaisedButton}" x:Key="OptionAdminBtnStyle">
                 <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="10"/>
                 <Setter Property="Width" Value="200"/>
-                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Margin" Value="3"/>
                 <Setter Property="BorderThickness" Value="2"/>
                 <Setter Property="BorderBrush" Value="AliceBlue"/>
 

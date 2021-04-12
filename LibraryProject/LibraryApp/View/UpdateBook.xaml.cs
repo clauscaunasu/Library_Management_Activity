@@ -50,9 +50,13 @@ namespace LibraryApp.View
             _book.Editure = NewEditure.Text;
             _book.Author = NewAuthors.Text;
             bool isSaved = _serviceClient.EditBook(_book);
-            if (!isSaved) return;
-            MessageBox.Show("The book was successfully updated!");
-            this.Close();
+            if (isSaved)
+            {
+                MessageBox.Show("Book updated successfully!");
+                var adminPage = new AdminHome();
+                this.Close();
+                adminPage.Show();
+            }
         }
     }
 }
