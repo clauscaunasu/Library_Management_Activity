@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -13,10 +14,11 @@ namespace LibraryApp.BusinessLogic
         {
             try
             {
-                var addr = new System.Net.Mail.MailAddress(s);
-                return addr.Address == s;
+                var m = new MailAddress(s);
+
+                return true;
             }
-            catch
+            catch (FormatException)
             {
                 return false;
             }

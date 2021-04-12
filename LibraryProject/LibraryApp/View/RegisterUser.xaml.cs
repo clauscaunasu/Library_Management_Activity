@@ -41,25 +41,32 @@ namespace LibraryApp.View
 
             client.FirstName = TxtFirstname.Text;
             client.LastName = TxtLastname.Text;
-            client.Address = TxtAddress.Text;
             client.Telephone = TxtPhone.Text;
             client.Username = TxtUsername.Text;
+            client.Address = TxtEmail.Text;
             client.Password = enc.Encrypt(TxtPassword.Password);
 
-            if (Regex.IsMatch(client.Address,
-                @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
-                RegexOptions.IgnoreCase))
+
+            if (string.IsNullOrEmpty(TxtFirstname.Text) || string.IsNullOrEmpty(TxtLastname.Text) || string.IsNullOrEmpty(TxtEmail.Text) ||
+                string.IsNullOrEmpty(TxtPhone.Text) || string.IsNullOrEmpty(TxtUsername.Text) || string.IsNullOrEmpty(TxtPassword.Password))
             {
-                MessageBox.Show("password is wrong");
+                MessageBox.Show("Please fill all fields", "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
-
-            if (!_serviceClient.MemberRegister(client)) return;
-            MessageBox.Show("Account created successfully!");
-            var main = new MainWindow();
-            this.Close();
-            main.Show();
-
-
+            else
+            {
+                if (ValidatorExtensions.IsValidEmailAddress(TxtEmail.Text))
+                {
+                    if (!_serviceClient.MemberRegister(client)) return;
+                    MessageBox.Show("Account created successfully!");
+                    var main = new MainWindow();
+                    this.Close();
+                    main.Show();
+                }
+                else
+                {
+                    MessageBox.Show("E-Mail expected", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)
@@ -80,15 +87,5 @@ namespace LibraryApp.View
             this.Close();
         }
 
-
-
-        private void TxtEmail_OnPreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            var result = ValidatorExtensions.IsValidEmailAddress(TxtAddress.Text);
-            if (result != true) return;
-            e.Handled = true;
-            MessageBox.Show("E-Mail expected", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            TxtAddress.Focus();
-        }
     }
 }
