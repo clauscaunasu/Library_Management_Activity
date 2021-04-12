@@ -48,6 +48,9 @@ public interface IService
     [OperationContract]
     bool EditBranch(Branch branch);
 
+    [OperationContract]
+    bool DeleteBranch(Branch branch);
+
 
     // TODO: Add your service operations here
 }

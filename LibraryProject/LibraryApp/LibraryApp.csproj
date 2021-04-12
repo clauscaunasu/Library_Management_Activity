@@ -102,6 +102,9 @@
     <Compile Include="View\DeleteBook.xaml.cs">
       <DependentUpon>DeleteBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DeleteBranch.xaml.cs">
+      <DependentUpon>DeleteBranch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginUser.xaml.cs">
       <DependentUpon>LoginUser.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DeleteBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeleteBranch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

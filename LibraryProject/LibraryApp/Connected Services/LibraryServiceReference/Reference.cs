@@ -80,6 +80,12 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EditBranch", ReplyAction="http://tempuri.org/IService/EditBranchResponse")]
         System.Threading.Tasks.Task<bool> EditBranchAsync(LibraryApp.DataModel.Branch branch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteBranch", ReplyAction="http://tempuri.org/IService/DeleteBranchResponse")]
+        bool DeleteBranch(LibraryApp.DataModel.Branch branch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteBranch", ReplyAction="http://tempuri.org/IService/DeleteBranchResponse")]
+        System.Threading.Tasks.Task<bool> DeleteBranchAsync(LibraryApp.DataModel.Branch branch);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -195,6 +201,14 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<bool> EditBranchAsync(LibraryApp.DataModel.Branch branch) {
             return base.Channel.EditBranchAsync(branch);
+        }
+        
+        public bool DeleteBranch(LibraryApp.DataModel.Branch branch) {
+            return base.Channel.DeleteBranch(branch);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteBranchAsync(LibraryApp.DataModel.Branch branch) {
+            return base.Channel.DeleteBranchAsync(branch);
         }
     }
 }

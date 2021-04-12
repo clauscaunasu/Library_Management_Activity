@@ -29,6 +29,25 @@ namespace LibraryApp_DAL
             return command.ExecuteNonQuery() == 1;
         }
 
+        public bool DeleteBranch(Branch branch)
+        {
+            var command = _connection.dbCommand("SELECT * FROM BranchXBook INNER JOIN Branch ON BranchXBook.LibraryID=Branch.ID" +
+                " AND Branch.ID=@ID");
+            command.Parameters.AddWithValue("@ID", branch.ID);
+            Object result = command.ExecuteScalar();
+            if (result!=null)
+            {
+                return false;
+            }
+            else
+            {
+                command = _connection.dbCommand("DELETE FROM Branch WHERE ID=@ID");
+                command.Parameters.AddWithValue("@ID", branch.ID);
+
+                return command.ExecuteNonQuery() > 0;
+            }
+            
+        }
 
         public List<Branch> GetBranches()
         {

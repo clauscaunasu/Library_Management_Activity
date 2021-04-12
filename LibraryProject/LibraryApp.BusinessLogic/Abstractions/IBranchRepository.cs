@@ -14,6 +14,7 @@ namespace LibraryApp.BusinessLogic.Abstractions
         List<Branch> ListOfBranches(DataTable dt);
         List<Branch> GetBranches();
         bool UpdateBranch(Branch branch);
+        bool DeleteBranch(Branch branch);
 
     }
 }

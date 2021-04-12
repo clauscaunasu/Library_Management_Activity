@@ -75,7 +75,7 @@
                                 </Expander.Header>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
                                     <Button Content="Update" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonUpdate_Click"/>
-                                    <Button Content="Delete" Style="{StaticResource OptionsBtn}" Background="#420000" />
+                                    <Button Content="Delete" Style="{StaticResource OptionsBtn}" Background="#420000" Click="ButtonDelete_Click"/>
                                 </StackPanel>
                             </Expander>
                         </DataTemplate>

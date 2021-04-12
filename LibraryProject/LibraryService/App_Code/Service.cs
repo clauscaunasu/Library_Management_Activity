@@ -216,6 +216,12 @@ public partial class Service : IService
         return branchRepository.UpdateBranch(branch);
     }
 
+    public bool DeleteBranch(Branch branch)
+    {
+        var branchRepository = GetBranchRepository();
+        return branchRepository.DeleteBranch(branch);
+    }
+
     //public bool AddBook(Book book, string branchName, int copies)
     //{
     //    var bookRepository = GetBookRepository();

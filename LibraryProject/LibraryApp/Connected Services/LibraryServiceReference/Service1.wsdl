@@ -74,6 +74,12 @@
   <wsdl:message name="IService_EditBranch_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditBranchResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_DeleteBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBranchResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetBranches">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBranches" message="tns:IService_GetBranches_InputMessage" />
@@ -118,6 +124,10 @@
     <wsdl:operation name="EditBranch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/EditBranch" message="tns:IService_EditBranch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/EditBranchResponse" message="tns:IService_EditBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteBranch" message="tns:IService_DeleteBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteBranchResponse" message="tns:IService_DeleteBranch_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -214,6 +224,15 @@
     </wsdl:operation>
     <wsdl:operation name="EditBranch">
       <soap:operation soapAction="http://tempuri.org/IService/EditBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/DeleteBranch" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

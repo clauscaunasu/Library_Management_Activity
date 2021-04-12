@@ -50,11 +50,6 @@ namespace LibraryApp.View
             throw new NotImplementedException();
         }
 
-        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
         {
             var branchPage = new AddBranch();
@@ -72,6 +67,13 @@ namespace LibraryApp.View
         {
             ListViewItem lvi = (ListViewItem)sender;
             BranchesView.SelectedItem = lvi.DataContext;
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedBranch = BranchesView.SelectedItem as Branch;
+            var deleteBranchPage = new DeleteBranch(selectedBranch);
+            deleteBranchPage.Show();
         }
     }
 }
