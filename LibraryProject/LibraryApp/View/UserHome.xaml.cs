@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.DataModel;
 
 namespace LibraryApp.View
 {
@@ -19,8 +20,10 @@ namespace LibraryApp.View
     /// </summary>
     public partial class UserHome : Window
     {
-        public UserHome()
+        private Client client;
+        public UserHome(Client client)
         {
+            this.client = client;
             InitializeComponent();
         }
 
@@ -41,9 +44,18 @@ namespace LibraryApp.View
 
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            var main = new MainWindow();
-            this.Close();
-            main.Show();
+            MessageBoxResult messageBoxResult =
+                System.Windows.MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                var main = new MainWindow();
+                this.Close();
+                main.Show();
+            }
+            else
+            {
+            }
         }
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)

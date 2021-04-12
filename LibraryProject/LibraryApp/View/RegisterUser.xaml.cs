@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.BusinessLogic;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
@@ -42,7 +44,14 @@ namespace LibraryApp.View
             client.Address = TxtAddress.Text;
             client.Telephone = TxtPhone.Text;
             client.Username = TxtUsername.Text;
-            client.Password = TxtPassword.Password;
+            client.Password = enc.Encrypt(TxtPassword.Password);
+
+            if (Regex.IsMatch(client.Address,
+                @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
+                RegexOptions.IgnoreCase))
+            {
+                MessageBox.Show("password is wrong");
+            }
 
             if (!_serviceClient.MemberRegister(client)) return;
             MessageBox.Show("Account created successfully!");
@@ -69,6 +78,17 @@ namespace LibraryApp.View
             var mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+
+
+        private void TxtEmail_OnPreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            var result = ValidatorExtensions.IsValidEmailAddress(TxtAddress.Text);
+            if (result != true) return;
+            e.Handled = true;
+            MessageBox.Show("E-Mail expected", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            TxtAddress.Focus();
         }
     }
 }

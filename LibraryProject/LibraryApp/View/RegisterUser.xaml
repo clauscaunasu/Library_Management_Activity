@@ -44,7 +44,7 @@
                     <TextBox x:Name="TxtLastname" Margin="10 0" materialDesign:HintAssist.Hint="Enter Lastname" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                 </StackPanel>
                 <StackPanel Style="{StaticResource PrimaryStackPanelRegister}">
-                    <TextBox x:Name="TxtEmail" Margin="10 0" materialDesign:HintAssist.Hint="example@gmail.com" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
+                    <TextBox x:Name="TxtEmail" Margin="10 0" materialDesign:HintAssist.Hint="example@gmail.com" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue" PreviewLostKeyboardFocus="TxtEmail_OnPreviewLostKeyboardFocus" />
                 </StackPanel>
                 <StackPanel Style="{StaticResource PrimaryStackPanelRegister}">
                     <TextBox x:Name="TxtUsername" Margin="10 0" materialDesign:HintAssist.Hint="Enter username" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>

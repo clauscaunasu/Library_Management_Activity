@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using LibraryApp.DataModel;
 
-namespace LibraryApp.View
+namespace LibraryApp.Controls
 {
     /// <summary>
     /// Interaction logic for ClientControl.xaml

@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace LibraryApp
+namespace LibraryApp.BusinessLogic
 {
-    class Encrypter
+    public class Encrypter
     {
         public string Encrypt(string password)
         {

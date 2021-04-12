@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.DataModel;
 
 namespace LibraryApp.View
 {
@@ -19,8 +20,10 @@ namespace LibraryApp.View
     /// </summary>
     public partial class AdminHome : Window
     {
-        public AdminHome()
+        private Client client;
+        public AdminHome(Client client)
         {
+            this.client = client;
             InitializeComponent();
         }
 
