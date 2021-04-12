@@ -11,6 +11,11 @@ namespace LibraryApp.BusinessLogic.Abstractions
     public interface IUserRepository
     {
         bool Add(Client client);
+        List<Client> GetUserById(int id);
+        int GetUserByNameAndPassword(string name, string password);
+
+        List<Client> GetClients();
+
         Client GetUserById(int id);
         Client GetUserByNameAndPassword(string name, string password);
         bool EditMember(Client client);

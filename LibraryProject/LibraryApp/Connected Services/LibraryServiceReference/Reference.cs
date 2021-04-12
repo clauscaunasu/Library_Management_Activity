@@ -52,7 +52,7 @@ namespace LibraryApp.LibraryServiceReference {
         System.Threading.Tasks.Task<bool> MemberRegisterAsync(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberLogin", ReplyAction="http://tempuri.org/IService/MemberLoginResponse")]
-        LibraryApp.DataModel.Client MemberLogin(LibraryApp.DataModel.Client client);
+        int MemberLogin(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberLogin", ReplyAction="http://tempuri.org/IService/MemberLoginResponse")]
         System.Threading.Tasks.Task<LibraryApp.DataModel.Client> MemberLoginAsync(LibraryApp.DataModel.Client client);
@@ -145,11 +145,11 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.MemberRegisterAsync(client);
         }
         
-        public LibraryApp.DataModel.Client MemberLogin(LibraryApp.DataModel.Client client) {
+        public int MemberLogin(LibraryApp.DataModel.Client client) {
             return base.Channel.MemberLogin(client);
         }
         
-        public System.Threading.Tasks.Task<LibraryApp.DataModel.Client> MemberLoginAsync(LibraryApp.DataModel.Client client) {
+        public System.Threading.Tasks.Task<int> MemberLoginAsync(LibraryApp.DataModel.Client client) {
             return base.Channel.MemberLoginAsync(client);
         }
         

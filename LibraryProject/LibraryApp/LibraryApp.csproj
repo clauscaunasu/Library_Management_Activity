@@ -90,6 +90,9 @@
     <Compile Include="View\BorrowBook.xaml.cs">
       <DependentUpon>BorrowBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ClientControl.xaml.cs">
+      <DependentUpon>ClientControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DeleteBook.xaml.cs">
       <DependentUpon>DeleteBook.xaml</DependentUpon>
     </Compile>
@@ -134,6 +137,10 @@
     <Page Include="View\BorrowBook.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ClientControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DeleteBook.xaml">
       <SubType>Designer</SubType>
@@ -215,9 +222,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\LibraryServiceReference\Service.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\LibraryServiceReference\Service1.wsdl" />
     <None Include="Connected Services\LibraryServiceReference\Service3.xsd">
       <SubType>Designer</SubType>
@@ -284,6 +288,7 @@
       <Name>LibraryApp_DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

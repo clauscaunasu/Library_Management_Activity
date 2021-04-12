@@ -11,7 +11,7 @@ using LibraryApp.DataModel;
 public interface IService
 {
 
-	[OperationContract]
+	/*[OperationContract]
 	List<string> GetBranches();
 
     [OperationContract]
@@ -24,13 +24,16 @@ public interface IService
     List<string> BranchListLoader();
 
     [OperationContract]
-    bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);
+    bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);*/
 
     [OperationContract]
     bool MemberRegister(Client client);
 
     [OperationContract]
-    Client MemberLogin(Client client);
+    int MemberLogin(Client client);
+
+    [OperationContract]
+    List<Client> ClientList();
 
     [OperationContract]
     bool EditMember(Client client);
