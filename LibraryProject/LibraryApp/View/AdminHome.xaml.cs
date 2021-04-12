@@ -45,7 +45,9 @@ namespace LibraryApp.View
 
         private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var viewUsers = new ViewUsers();
+            viewUsers.Show();
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
@@ -40,12 +41,21 @@ namespace LibraryApp.View
 
         private void ButtonUpdate_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            var selectedMember = UserView.SelectedItem as Client;
+            var updatedMember = new EditMember(selectedMember);
+            updatedMember.Show();
         }
 
         private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            var selectedMember = UserView.SelectedItem as Client;
+            var messageBoxResult =
+                MessageBox.Show("Are you sure", "Delete confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                bool isDeleted = _serviceClient.DeleteMember(selectedMember);
+            }
+
         }
     }
 }
