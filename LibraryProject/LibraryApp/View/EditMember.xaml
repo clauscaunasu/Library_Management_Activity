@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
         mc:Ignorable="d"
-        Title="Add new book" Height="450" Width="400"
-         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
-    <Grid Background="#004a7c" >
+        Title="Edit member" Height="350" Width="400"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="#004a7c" MouseDown="UIElement_OnMouseDown">
         <Grid Margin="10" Background="#e8f1f5" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.35*"/>
@@ -21,23 +21,20 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Content="First Name" Style="{StaticResource LabelStyle}" x:Name="TxtFirstname"/>
-            <TextBox Grid.Column="1"   TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" />
-            <Label Grid.Row="1" Content="Last Name" Style="{StaticResource LabelStyle}" x:Name="TxtLastname"/>
-            <TextBox Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
-            <Label Grid.Row="2" Content="Email" Style="{StaticResource LabelStyle}" x:Name="TxtEmail"/>
-            <TextBox Grid.Row="2" Grid.Column="1"  TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}" />
-            <Label Grid.Row="3" Content="Username" Style="{StaticResource LabelStyle}" x:Name="TxtUsername"/>
-            <TextBox Grid.Row="3" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
-            <Label Grid.Row="4" Content="Password" Style="{StaticResource LabelStyle}" x:Name="TxtPassword"/>
-            <TextBox Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
-            <Label Grid.Row="5" Content="Phone" Style="{StaticResource LabelStyle}" x:Name="TxtPhone"/>
-            <TextBox Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
-            <Label Grid.Row="6" Content="Address" Style="{StaticResource LabelStyle}" x:Name="TxtAddress"/>
-            <TextBox Grid.Row="6" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="7" Grid.ColumnSpan="2">
+            <Label Content="First Name" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1"   TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" x:Name="NewTxtFirstname"/>
+            <Label Grid.Row="1" Content="Last Name" Style="{StaticResource LabelStyle}" />
+            <TextBox Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtLastname"/>
+            <Label Grid.Row="2" Content="Email" Style="{StaticResource LabelStyle}" />
+            <TextBox Grid.Row="2" Grid.Column="1"  TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtEmail"/>
+            <Label Grid.Row="3" Content="Username" Style="{StaticResource LabelStyle}" />
+            <TextBox Grid.Row="3" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtUsername"/>
+            <Label Grid.Row="4" Content="Password" Style="{StaticResource LabelStyle}" />
+            <TextBox Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtPassword"/>
+            <Label Grid.Row="5" Content="Phone" Style="{StaticResource LabelStyle}" />
+            <TextBox Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtPhone"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="2">
                 <Button Content="Edit Info" Style="{StaticResource MainActionBtnStyle}"  Click="Edit_Button_Click"/>
                 <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_Click" />
             </StackPanel>

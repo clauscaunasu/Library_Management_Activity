@@ -31,74 +31,20 @@
   </xs:element>
   <xs:element name="ClientList">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RegisterResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="BranchListLoader">
-    <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="BranchListLoaderResponse">
+  <xs:element name="ClientListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BranchListLoaderResult" nillable="true" type="q2:ArrayOfstring" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddBook">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="isbn" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="authors" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="editure" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="branch" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="copies" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddBookResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="AddBookResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MemberRegister">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q3:Client" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MemberRegisterResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="MemberRegisterResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MemberLogin">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q4:Client" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MemberLoginResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="MemberLoginResult" nillable="true" type="q5:Client" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="ClientListResult" nillable="true" type="q3:ArrayOfClient" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditMember">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q6:Client" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q4:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -112,7 +58,7 @@
   <xs:element name="DeleteMember">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q7:Client" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q5:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Delete member" Height="200" Width="450"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
-    <Grid Background="#004a7c">
+    <Grid Background="#004a7c" MouseDown="UIElement_OnMouseDown">
         <Grid Margin="10" Background="#e8f1f5" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.6*"/>

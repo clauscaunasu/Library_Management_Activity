@@ -16,8 +16,6 @@ namespace LibraryApp.BusinessLogic.Abstractions
 
         List<Client> GetClients();
 
-        Client GetUserById(int id);
-        Client GetUserByNameAndPassword(string name, string password);
         bool EditMember(Client client);
 
         bool DeleteMember(Client client);

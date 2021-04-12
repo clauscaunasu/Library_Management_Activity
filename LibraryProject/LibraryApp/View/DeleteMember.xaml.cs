@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibraryApp.DataModel;
+using LibraryApp.LibraryServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,30 @@ namespace LibraryApp.View
     /// </summary>
     public partial class DeleteMember : Window
     {
-        public DeleteMember()
+        private readonly Client _client = new Client();
+        private readonly ServiceClient _serviceClient = new ServiceClient();
+
+        public DeleteMember(Client client)
         {
+            _client = client;
             InitializeComponent();
+        }
+
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            bool isDeleted = _serviceClient.DeleteMember(_client);
+            if (isDeleted)
+            {
+                MessageBox.Show("Member deleted successfully!");
+                var viewMembers = new ViewUsers();
+                this.Close();
+                viewMembers.Show();
+            }
         }
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
