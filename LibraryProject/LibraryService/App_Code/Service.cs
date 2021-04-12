@@ -165,6 +165,12 @@ public partial class Service : IService
         return userRepository.EditMember(client);
     }
 
+    public bool DeleteMember(Client client)
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.DeleteMember(client);
+    }
+
 
     public bool MemberRegister(Client client)
     {

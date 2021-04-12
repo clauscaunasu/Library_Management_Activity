@@ -23,5 +23,15 @@ namespace LibraryApp.View
         {
             InitializeComponent();
         }
+
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

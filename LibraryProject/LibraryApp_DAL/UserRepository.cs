@@ -38,6 +38,13 @@ namespace LibraryApp_DAL
             return command.ExecuteNonQuery() == 1;
 
         }
+
+        public bool DeleteMember(Client client)
+        {
+            var command = _connection.dbCommand("DELETE Client WHERE (ID= @id)");
+
+            return command.ExecuteNonQuery() == 1;
+        }
         public bool Add(Client client)
         {
            var command = _connection.dbCommand(

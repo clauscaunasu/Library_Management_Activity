@@ -33,11 +33,11 @@ namespace LibraryApp.LibraryServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Register", ReplyAction="http://tempuri.org/IService/RegisterResponse")]
         System.Threading.Tasks.Task<bool> RegisterAsync(string firstName, string lastName, string address, string telephone, string username, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BranchListLoarder", ReplyAction="http://tempuri.org/IService/BranchListLoarderResponse")]
-        System.Collections.Generic.List<string> BranchListLoarder();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BranchListLoader", ReplyAction="http://tempuri.org/IService/BranchListLoaderResponse")]
+        System.Collections.Generic.List<string> BranchListLoader();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BranchListLoarder", ReplyAction="http://tempuri.org/IService/BranchListLoarderResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<string>> BranchListLoarderAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BranchListLoader", ReplyAction="http://tempuri.org/IService/BranchListLoaderResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<string>> BranchListLoaderAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
         bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);
@@ -56,6 +56,18 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberLogin", ReplyAction="http://tempuri.org/IService/MemberLoginResponse")]
         System.Threading.Tasks.Task<LibraryApp.DataModel.Client> MemberLoginAsync(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EditMember", ReplyAction="http://tempuri.org/IService/EditMemberResponse")]
+        bool EditMember(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EditMember", ReplyAction="http://tempuri.org/IService/EditMemberResponse")]
+        System.Threading.Tasks.Task<bool> EditMemberAsync(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteMember", ReplyAction="http://tempuri.org/IService/DeleteMemberResponse")]
+        bool DeleteMember(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteMember", ReplyAction="http://tempuri.org/IService/DeleteMemberResponse")]
+        System.Threading.Tasks.Task<bool> DeleteMemberAsync(LibraryApp.DataModel.Client client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -109,12 +121,12 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.RegisterAsync(firstName, lastName, address, telephone, username, password);
         }
         
-        public System.Collections.Generic.List<string> BranchListLoarder() {
-            return base.Channel.BranchListLoarder();
+        public System.Collections.Generic.List<string> BranchListLoader() {
+            return base.Channel.BranchListLoader();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> BranchListLoarderAsync() {
-            return base.Channel.BranchListLoarderAsync();
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> BranchListLoaderAsync() {
+            return base.Channel.BranchListLoaderAsync();
         }
         
         public bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies) {
@@ -139,6 +151,22 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<LibraryApp.DataModel.Client> MemberLoginAsync(LibraryApp.DataModel.Client client) {
             return base.Channel.MemberLoginAsync(client);
+        }
+        
+        public bool EditMember(LibraryApp.DataModel.Client client) {
+            return base.Channel.EditMember(client);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EditMemberAsync(LibraryApp.DataModel.Client client) {
+            return base.Channel.EditMemberAsync(client);
+        }
+        
+        public bool DeleteMember(LibraryApp.DataModel.Client client) {
+            return base.Channel.DeleteMember(client);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteMemberAsync(LibraryApp.DataModel.Client client) {
+            return base.Channel.DeleteMemberAsync(client);
         }
     }
 }

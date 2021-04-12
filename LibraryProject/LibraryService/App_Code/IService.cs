@@ -34,6 +34,9 @@ public interface IService
 
     [OperationContract]
     bool EditMember(Client client);
+
+    [OperationContract]
+    bool DeleteMember(Client client);
     // TODO: Add your service operations here
 }
 

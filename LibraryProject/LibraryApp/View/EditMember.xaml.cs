@@ -26,19 +26,19 @@ namespace LibraryApp.View
 
         public EditMember(Client client)
         {
+            _client = client;
+            InitializeComponent();
 
         }
 
-        private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
+        private void Edit_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
-        private void Button_Edit_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-
     }
 }

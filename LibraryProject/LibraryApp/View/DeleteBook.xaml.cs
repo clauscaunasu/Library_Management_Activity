@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.DataModel;
+using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
 {
@@ -19,8 +21,12 @@ namespace LibraryApp.View
     /// </summary>
     public partial class DeleteBook : Window
     {
-        public DeleteBook()
+        private readonly Client _client = new Client();
+        private readonly ServiceClient _serviceClient = new ServiceClient();
+
+        public DeleteBook(Client client)
         {
+            _client = client;
             InitializeComponent();
         }
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
