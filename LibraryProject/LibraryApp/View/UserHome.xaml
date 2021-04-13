@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:LibraryApp"
+             xmlns:view="clr-namespace:LibraryApp.View"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
              ResizeMode="NoResize">
@@ -73,6 +74,29 @@
                         Style="{StaticResource SearchBtnStyle}"
                         />
             </StackPanel>
+            <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                <StackPanel Grid.Row ="1" VerticalAlignment="Top" >
+                    <ListView x:Name="BooksView" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Expander Background="#e8f1f5" Width="700">
+                                    <Expander.Header>
+                                        <view:BookControl Book="{Binding}"/>
+                                    </Expander.Header>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+
+                                        <Button Content="Borrow" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonBorrow_OnClick"/>
+
+                                        <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#420000"/>
+
+                                    </StackPanel>
+                                </Expander>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>

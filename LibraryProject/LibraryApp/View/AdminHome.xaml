@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:LibraryApp"
+             xmlns:view="clr-namespace:LibraryApp.View"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
              ResizeMode="NoResize">
@@ -31,13 +32,13 @@
                 <Button x:Name="ViewMembersBtn" Content="View Members"
                         Style="{StaticResource OptionAdminBtnStyle}"
                         Click="ViewMembersBtn_OnClick"></Button>
-
-                <Expander Header="Manage Members" Style="{StaticResource ExpanderStyle}">
+                <Expander Header="Manage Branches" Style="{StaticResource ExpanderStyle}">
                     <StackPanel>
-                        <Button x:Name="UpdateCustomerBtn" Content="View personal report" Style="{StaticResource SecondaryActionBtn}" />
-                        <Button x:Name="DeleteCustomerBtn" Content="View books report" Style="{StaticResource SecondaryActionBtn}" />
+                        <Button x:Name="AddBranchBtn" Content="Add new branch" Style="{StaticResource SecondaryActionBtn}" Click="AddBranchBtn_Click"/>
+                        <Button x:Name="ViewBranchesBtn" Content="View branches" Style="{StaticResource SecondaryActionBtn}" Click="ViewBranchesBtn_Click"/>
                     </StackPanel>
                 </Expander>
+
             </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
                 <Button x:Name="HelpBtn" Content="Help" 
@@ -80,6 +81,37 @@
                         Style="{StaticResource SearchBtnStyle}"
                         />
             </StackPanel>
+            <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                <StackPanel Grid.Row ="1" VerticalAlignment="Top" Width="Auto">
+                    <ListView x:Name="BooksView">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <Expander Background="#e8f1f5" Width="700" >
+                                    <Expander.Header >
+                                        <view:BookControl Book="{Binding}"/>
+                                    </Expander.Header>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+
+                                        <Button Content="Delete" Style="{StaticResource OptionsBtn}"  Background="#27496d" Click="ButtonDelete_OnClick"/>
+
+                                        <Button Content="Update" Style="{StaticResource OptionsBtn}" Click="ButtonUpdate_OnClick" />
+
+                                        <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#70416d"/>
+
+                                        <Button Content="History" Style="{StaticResource OptionsBtn}" Background="#420000" />
+                                    </StackPanel>
+                                </Expander>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>

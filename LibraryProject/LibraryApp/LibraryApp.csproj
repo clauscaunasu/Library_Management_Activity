@@ -84,14 +84,22 @@
     <Compile Include="View\AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddBranch.xaml.cs">
+      <DependentUpon>AddBranch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminHome.xaml.cs">
       <DependentUpon>AdminHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BookControl.xaml.cs">
+      <DependentUpon>BookControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BorrowBook.xaml.cs">
       <DependentUpon>BorrowBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ClientControl.xaml.cs">
       <DependentUpon>ClientControl.xaml</DependentUpon>
+    <Compile Include="View\BranchControl.xaml.cs">
+      <DependentUpon>BranchControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DeleteBook.xaml.cs">
       <DependentUpon>DeleteBook.xaml</DependentUpon>
@@ -101,6 +109,8 @@
     </Compile>
     <Compile Include="View\EditMember.xaml.cs">
       <DependentUpon>EditMember.xaml</DependentUpon>
+    <Compile Include="View\DeleteBranch.xaml.cs">
+      <DependentUpon>DeleteBranch.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginUser.xaml.cs">
       <DependentUpon>LoginUser.xaml</DependentUpon>
@@ -117,11 +127,17 @@
     <Compile Include="View\UpdateBook.xaml.cs">
       <DependentUpon>UpdateBook.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UpdateBranch.xaml.cs">
+      <DependentUpon>UpdateBranch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserHome.xaml.cs">
       <DependentUpon>UserHome.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewBorrowedBooks.xaml.cs">
       <DependentUpon>ViewBorrowedBooks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewBranches.xaml.cs">
+      <DependentUpon>ViewBranches.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewUsers.xaml.cs">
       <DependentUpon>ViewUsers.xaml</DependentUpon>
@@ -130,7 +146,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddBranch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AdminHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BookControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,6 +163,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\ClientControl.xaml">
+    <Page Include="View\BranchControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,6 +176,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditMember.xaml">
+    <Page Include="View\DeleteBranch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,11 +217,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\UpdateBranch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\UserHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewBorrowedBooks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewBranches.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -232,7 +266,12 @@
     <None Include="Connected Services\LibraryServiceReference\Service32.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="LibraryApp.DataModel.Book.datasource" />
+    <None Include="LibraryApp.DataModel.Book1.datasource" />
+    <None Include="LibraryApp.DataModel.Branch.datasource" />
     <None Include="LibraryApp.DataModel.Client.datasource" />
+    <None Include="LibraryApp.DataModel.Client1.datasource" />
+    <None Include="LibraryApp.DataModel.Client2.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

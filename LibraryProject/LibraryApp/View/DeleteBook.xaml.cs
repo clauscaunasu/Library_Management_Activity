@@ -37,5 +37,10 @@ namespace LibraryApp.View
         {
             
         }
+
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

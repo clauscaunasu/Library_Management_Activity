@@ -40,6 +40,24 @@ public interface IService
 
     [OperationContract]
     bool DeleteMember(Client client);
+    List<Book> BooksList();
+
+    [OperationContract]
+    bool EditBook(Book book);
+
+    [OperationContract]
+    bool AddBranch(Branch branch);
+
+    [OperationContract]
+    List<Branch> ViewBranches();
+
+    [OperationContract]
+    bool EditBranch(Branch branch);
+
+    [OperationContract]
+    bool DeleteBranch(Branch branch);
+
+
     // TODO: Add your service operations here
 }
 

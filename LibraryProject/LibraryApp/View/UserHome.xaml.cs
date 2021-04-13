@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryApp.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
 {
@@ -19,9 +21,13 @@ namespace LibraryApp.View
     /// </summary>
     public partial class UserHome : Window
     {
+        private List<Book> books;
+        private readonly ServiceClient _serviceClient = new ServiceClient();
         public UserHome()
         {
             InitializeComponent();
+            books = _serviceClient.BooksList();
+            BooksView.ItemsSource = books;
         }
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
@@ -54,6 +60,12 @@ namespace LibraryApp.View
         private void BorrowedBooksBtn_OnClick(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void ButtonBorrow_OnClick(object sender, RoutedEventArgs e)
+        {
+            var borrowBookPage = new BorrowBook();
+            borrowBookPage.Show();
         }
     }
 }
