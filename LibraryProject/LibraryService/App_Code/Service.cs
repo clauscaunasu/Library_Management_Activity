@@ -20,6 +20,8 @@ public partial class Service : IService
         return new UserRepository(new DConectivity());
     }
 
+    
+    
     private IBookRepository GetBookRepository()
     {
         return new BookRepository(new DConectivity());
@@ -30,7 +32,7 @@ public partial class Service : IService
         return new BranchRepository(new DConectivity());
     }
 
-
+/*
     public List<string> GetBranches()
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
@@ -46,7 +48,6 @@ public partial class Service : IService
             return new List<string>();
         }
 	}
-
 
     public bool Register(string firstName, string lastName, string address, string telephone, string username, string password)
     {
@@ -70,7 +71,6 @@ public partial class Service : IService
             return command.ExecuteNonQuery() == 1;
         }
     }
-
 
     public bool LogIn(string username, string password)
     {
@@ -170,7 +170,19 @@ public partial class Service : IService
             return command.ExecuteNonQuery() == 1;
         }
     }
-   */
+    */
+
+    public bool EditMember(Client client)
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.EditMember(client);
+    }
+
+    public bool DeleteMember(Client client)
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.DeleteMember(client);
+    }
 
 
     public bool MemberRegister(Client client)
@@ -179,13 +191,18 @@ public partial class Service : IService
         return userRepository.Add(client);
     }
 
-    public Client MemberLogin(Client client)
+    public int MemberLogin(Client client)
     {
         var userRepository = GetUserRepository();
         return userRepository.GetUserByNameAndPassword(client.Username, client.Password);
 
     }
 
+    public List<Client> ClientList()
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.GetClients();
+    }
     public List<Book> BooksList()
     {
         var bookRepository = GetBookRepository();

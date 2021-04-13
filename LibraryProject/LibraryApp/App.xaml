@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:LibraryApp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="View/ViewBranches.xaml">
+
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

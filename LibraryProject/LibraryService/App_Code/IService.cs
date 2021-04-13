@@ -11,29 +11,35 @@ using LibraryApp.DataModel;
 public interface IService
 {
 
-	[OperationContract]
+	/*[OperationContract]
 	List<string> GetBranches();
 
     [OperationContract]
     bool LogIn(string username, string password);
 
     [OperationContract]
-    bool Register(string firstName, string lastName, string address, string telephone, string username,
-        string password);
+    bool Register(string firstName, string lastName, string address, string telephone, string username,string password);
 
     [OperationContract]
     List<string> BranchListLoader();
 
-   /* [OperationContract]
+    [OperationContract]
     bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);*/
 
     [OperationContract]
     bool MemberRegister(Client client);
 
     [OperationContract]
-    Client MemberLogin(Client client);
+    int MemberLogin(Client client);
 
     [OperationContract]
+    List<Client> ClientList();
+
+    [OperationContract]
+    bool EditMember(Client client);
+
+    [OperationContract]
+    bool DeleteMember(Client client);
     List<Book> BooksList();
 
     [OperationContract]

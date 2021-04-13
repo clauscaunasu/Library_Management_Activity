@@ -44,7 +44,6 @@
     <Compile Include="Abstractions\IBookRepository.cs" />
     <Compile Include="Abstractions\IBranchRepository.cs" />
     <Compile Include="Abstractions\IUserRepository.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
