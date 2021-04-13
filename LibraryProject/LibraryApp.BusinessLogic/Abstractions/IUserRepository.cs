@@ -16,5 +16,8 @@ namespace LibraryApp.BusinessLogic.Abstractions
 
         List<Client> GetClients();
 
+        bool EditMember(Client client);
+
+        bool DeleteMember(Client client);
     }
 }

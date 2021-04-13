@@ -10,13 +10,13 @@ namespace LibraryApp.Controls
     {
         public Client Client
         {
-            get => (Client) GetValue(ContactProperty);
+            get => (Client)GetValue(ContactProperty);
             set => SetValue(ContactProperty, value);
         }
 
-        public static readonly DependencyProperty ContactProperty 
+        public static readonly DependencyProperty ContactProperty
             = DependencyProperty.Register("Client", typeof(Client), typeof(ClientControl), new PropertyMetadata(new Client()
-            {Username = "Firstname Lastname", Telephone = "(123) 4567890", Address = "Email@YAhoo.com"}, SetText));
+            { Username = "Firstname Lastname", Telephone = "(123) 4567890", Address = "Email@YAhoo.com" }, SetText));
 
         private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

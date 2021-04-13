@@ -14,29 +14,21 @@ using System.Windows.Shapes;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
-
 namespace LibraryApp.View
 {
     /// <summary>
-    /// Interaction logic for AdminHome.xaml
+    /// Interaction logic for ViewBranches.xaml
     /// </summary>
-    public partial class AdminHome : Window
+    public partial class ViewBranches : Window
     {
-        private Client client;
-        public AdminHome(Client client)
-
-        private List<Book> books;
+        private List<Branch> branches;
         private readonly ServiceClient _serviceClient = new ServiceClient();
-        public AdminHome()
-
+        public ViewBranches()
         {
-            this.client = client;
             InitializeComponent();
-            books = _serviceClient.BooksList();
-            BooksView.ItemsSource = books;
+            branches = _serviceClient.ViewBranches();
+            BranchesView.ItemsSource = branches;
         }
-
-
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
         {
             var addBookPage = new AddBook();
@@ -55,22 +47,7 @@ namespace LibraryApp.View
 
         private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            var viewUsers = new ViewUsers();
-            viewUsers.Show();
-
-        }
-
-        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
-        {
-            var deleteBookPage = new DeleteBook();
-            deleteBookPage.Show();
-        }
-
-        private void ButtonUpdate_OnClick(object sender, RoutedEventArgs e)
-        {
-            var selectedBook = BooksView.SelectedItem as Book;
-            var updateBookPage = new UpdateBook(selectedBook);
-            updateBookPage.Show();
+            throw new NotImplementedException();
         }
 
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
@@ -79,16 +56,24 @@ namespace LibraryApp.View
             branchPage.Show();
         }
 
+        private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedBranch = BranchesView.SelectedItem as Branch;
+            var updateBranchPage = new UpdateBranch(selectedBranch);
+            updateBranchPage.Show();
+
+        }
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ListViewItem lvi = (ListViewItem)sender;
-            BooksView.SelectedItem = lvi.DataContext;
+            BranchesView.SelectedItem = lvi.DataContext;
         }
 
-        private void ViewBranchesBtn_Click(object sender, RoutedEventArgs e)
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-            var viewBranchesPage = new ViewBranches();
-            viewBranchesPage.Show();
+            var selectedBranch = BranchesView.SelectedItem as Branch;
+            var deleteBranchPage = new DeleteBranch(selectedBranch);
+            deleteBranchPage.Show();
         }
     }
 }

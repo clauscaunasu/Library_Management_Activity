@@ -35,7 +35,7 @@ namespace LibraryApp.View
 
         /*private void LoadingData()
         {
-            var branchesNames = _serviceClient.BranchListLoarder();
+            var branchesNames = _serviceClient.BranchListLoader();
             foreach (var name in branchesNames)
             {
                 Console.WriteLine(name);

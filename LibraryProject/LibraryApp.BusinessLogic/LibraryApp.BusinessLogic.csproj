@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\IBookRepository.cs" />
+    <Compile Include="Abstractions\IBranchRepository.cs" />
     <Compile Include="Abstractions\IUserRepository.cs" />
     <Compile Include="Ecrypter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

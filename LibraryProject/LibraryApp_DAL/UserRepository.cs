@@ -18,6 +18,32 @@ namespace LibraryApp_DAL
         {
             this._connection = connection;
         }
+
+
+        public bool EditMember(Client client)
+        {
+
+            var command = _connection.dbCommand("UPDATE Client SET FirstName=@firstName, LastName=@lastName, Email=@email, Username=@username, Password=@password" +
+                " Telephone=@telephone, Address=@address) WHERE (ID= @id)");
+
+            command.Parameters.AddWithValue("@firstName", client.FirstName);
+            command.Parameters.AddWithValue("@lastName", client.LastName);
+            command.Parameters.AddWithValue("@username", client.Username);
+            command.Parameters.AddWithValue("@password", client.Password);
+            command.Parameters.AddWithValue("@telephone", client.Telephone);
+            command.Parameters.AddWithValue("@address", client.Address);
+
+
+            return command.ExecuteNonQuery() == 1;
+
+        }
+
+        public bool DeleteMember(Client client)
+        {
+            var command = _connection.dbCommand("DELETE Client WHERE (ID= @id)");
+
+            return command.ExecuteNonQuery() == 1;
+        }
         public bool Add(Client client)
         {
            var command = _connection.dbCommand(
@@ -93,4 +119,6 @@ namespace LibraryApp_DAL
             }
         }
     }
+
+
 }

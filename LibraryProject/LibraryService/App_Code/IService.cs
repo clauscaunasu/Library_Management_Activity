@@ -18,8 +18,7 @@ public interface IService
     bool LogIn(string username, string password);
 
     [OperationContract]
-    bool Register(string firstName, string lastName, string address, string telephone, string username,
-        string password);
+    bool Register(string firstName, string lastName, string address, string telephone, string username,string password);
 
     [OperationContract]
     List<string> BranchListLoader();
@@ -35,6 +34,29 @@ public interface IService
 
     [OperationContract]
     List<Client> ClientList();
+
+    [OperationContract]
+    bool EditMember(Client client);
+
+    [OperationContract]
+    bool DeleteMember(Client client);
+    List<Book> BooksList();
+
+    [OperationContract]
+    bool EditBook(Book book);
+
+    [OperationContract]
+    bool AddBranch(Branch branch);
+
+    [OperationContract]
+    List<Branch> ViewBranches();
+
+    [OperationContract]
+    bool EditBranch(Branch branch);
+
+    [OperationContract]
+    bool DeleteBranch(Branch branch);
+
 
     // TODO: Add your service operations here
 }
