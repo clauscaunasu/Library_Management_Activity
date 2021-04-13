@@ -12,7 +12,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
+using LibraryApp.DataModel;
+
 using LibraryApp.LibraryServiceReference;
+
 
 namespace LibraryApp.View
 {
@@ -21,10 +25,16 @@ namespace LibraryApp.View
     /// </summary>
     public partial class UserHome : Window
     {
+
+        private Client client;
+        public UserHome(Client client)
+
         private List<Book> books;
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public UserHome()
+
         {
+            this.client = client;
             InitializeComponent();
             books = _serviceClient.BooksList();
             BooksView.ItemsSource = books;
@@ -47,9 +57,18 @@ namespace LibraryApp.View
 
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            var main = new MainWindow();
-            this.Close();
-            main.Show();
+            MessageBoxResult messageBoxResult =
+                System.Windows.MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                var main = new MainWindow();
+                this.Close();
+                main.Show();
+            }
+            else
+            {
+            }
         }
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)

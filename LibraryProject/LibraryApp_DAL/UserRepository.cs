@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using LibraryApp.BusinessLogic;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
 using static System.Boolean;
@@ -11,7 +12,8 @@ namespace LibraryApp_DAL
     public class UserRepository : IUserRepository
     {
         private readonly DConectivity _connection;
-        private List<Client> clients = new List<Client>();
+        private readonly List<Client> _clients = new List<Client>();
+        private Encrypter encrypter = new Encrypter();
         public UserRepository(DConectivity connection)
         {
             this._connection = connection;
@@ -55,27 +57,25 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@lastName", client.LastName);
             command.Parameters.AddWithValue("@firstName", client.FirstName);
 
-
             return command.ExecuteNonQuery() == 1;
            
         }
 
         public List<Client> GetUserById(int id)
         {
-            var client = new Client();
-            
             var command = _connection.dbCommand( "SELECT COUNT(1) FROM Client WHERE ID = @ID");
             command.Parameters.AddWithValue("@ID", id);
             var dt = new DataTable();
             var reader = command.ExecuteReader();
             dt.Load(reader);
             ClientList(dt);
-            return clients;
+            command.Connection.Close();
+            return _clients;
+            
         }
 
         public int GetUserByNameAndPassword(string username, string password)
         {
-            var client = new Client();
             var command = _connection.dbCommand("SELECT Duty FROM Client WHERE Username = @Username " +
                                                 "AND Password = @Password");
             command.Parameters.AddWithValue("@Username", username);
@@ -83,6 +83,7 @@ namespace LibraryApp_DAL
             var reader = command.ExecuteReader();
             var dt = new DataTable();
             dt.Load(reader);
+            command.Connection.Close();
             return dt.Rows.Count > 0 ? dt.Rows[0]["Duty"].ToString() == "Client" ? 0 : 1 : -1;
         }
 
@@ -93,7 +94,8 @@ namespace LibraryApp_DAL
             var dt = new DataTable();
             dt.Load(reader);
             ClientList(dt);
-            return clients;
+            command.Connection.Close();
+            return _clients;
         }
 
         private void ClientList(DataTable dt)
@@ -113,7 +115,7 @@ namespace LibraryApp_DAL
                     Desired = Parse(dt.Rows[i]["Desired"].ToString())
                 };
 
-                clients.Add(client);
+                _clients.Add(client);
             }
         }
     }

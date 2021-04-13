@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
+
 namespace LibraryApp.View
 {
     /// <summary>
@@ -21,10 +22,15 @@ namespace LibraryApp.View
     /// </summary>
     public partial class AdminHome : Window
     {
+        private Client client;
+        public AdminHome(Client client)
+
         private List<Book> books;
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public AdminHome()
+
         {
+            this.client = client;
             InitializeComponent();
             books = _serviceClient.BooksList();
             BooksView.ItemsSource = books;
@@ -49,7 +55,9 @@ namespace LibraryApp.View
 
         private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var viewUsers = new ViewUsers();
+            viewUsers.Show();
+
         }
 
         private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)

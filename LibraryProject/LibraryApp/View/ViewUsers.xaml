@@ -57,15 +57,17 @@
                                     </Expander.Header>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 
-                                        <Button Content="Delete" Style="{StaticResource OptionAdminBtnStyle}"
+
+                                        <Button Content="Delete" Style="{StaticResource OptionsBtn}"
                                                 Background="#27496d" Click="ButtonDelete_OnClick" />
 
-                                        <Button Content="Update" Style="{StaticResource OptionAdminBtnStyle}"
+                                        <Button Content="Update" Style="{StaticResource OptionsBtn}"
                                                 Click="ButtonUpdate_OnClick" />
 
-                                        <Button Content="More" Style="{StaticResource OptionAdminBtnStyle}" Background="#70416d" />
+                                        <Button Content="More" Style="{StaticResource OptionsBtn}" Background="#70416d" />
 
-                                        <Button Content="History" Style="{StaticResource OptionAdminBtnStyle}"
+                                        <Button Content="History" Style="{StaticResource OptionsBtn}"
+
                                                 Background="#420000" />
                                     </StackPanel>
                                 </Expander>

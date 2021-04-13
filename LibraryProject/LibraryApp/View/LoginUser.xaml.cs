@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using LibraryApp.BusinessLogic;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
@@ -21,9 +11,9 @@ namespace LibraryApp.View
     /// </summary>
     public partial class LoginUser : Window
     {
-        private ServiceClient _serviceClient = new ServiceClient();
-        private Encrypter enc = new Encrypter();
-        private Client client = new Client();
+        private readonly ServiceClient _serviceClient = new ServiceClient();
+        private readonly Encrypter _enc = new Encrypter();
+        private readonly Client _client = new Client();
         public LoginUser()
         {
             InitializeComponent();
@@ -31,7 +21,7 @@ namespace LibraryApp.View
         private void BtnLogin_OnClick(object sender, RoutedEventArgs e)
         {
             var username = TxtUsername.Text;
-            var password = TxtPassword.Password;
+            var password = _enc.Encrypt(TxtPassword.Password);
 
             if (username == "" && password == "")
             {
@@ -41,19 +31,19 @@ namespace LibraryApp.View
             }
             else
             {
-                client.Username = username;
-                client.Password = password;
-                if (_serviceClient.MemberLogin(client) >= 0)
+                _client.Username = username;
+                _client.Password = password;
+                if (_serviceClient.MemberLogin(_client) >= 0)
                 {
-                    if (_serviceClient.MemberLogin(client) == 0)
+                    if (_serviceClient.MemberLogin(_client) == 0)
                     {
-                        var userHome = new UserHome();
+                        var userHome = new UserHome(_client);
                         userHome.Show();
                         this.Close();
                     }
                     else
                     {
-                        var adminHome = new AdminHome();
+                        var adminHome = new AdminHome(_client);
                         adminHome.Show();
                         this.Close();
                         

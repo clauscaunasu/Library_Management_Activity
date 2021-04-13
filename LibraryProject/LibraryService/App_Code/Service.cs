@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Windows.Controls;
-using System.Windows.Markup.Localizer;
+﻿using System.Collections.Generic;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
-using ConfigurationManager = System.Configuration.ConfigurationManager;
 using LibraryApp_DAL;
 
 

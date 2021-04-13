@@ -80,7 +80,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Ecrypter.cs" />
     <Compile Include="View\AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
@@ -318,6 +317,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibraryApp.BusinessLogic\LibraryApp.BusinessLogic.csproj">
+      <Project>{21A35FA9-C378-426E-B7C6-0E00141CE14F}</Project>
+      <Name>LibraryApp.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibraryApp.DataModel\LibraryApp.DataModel.csproj">
       <Project>{F4659519-452F-48F2-B156-42D8A8006449}</Project>
       <Name>LibraryApp.DataModel</Name>

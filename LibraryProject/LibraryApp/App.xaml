@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LibraryApp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="View/ViewBranches.xaml">
+
+             StartupUri="View/MainWindow.xaml">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -230,6 +231,13 @@
                 <Setter Property="Margin" Value="10"/>
 
             </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource PrimaryActionBtn}" x:Key="OptionsBtn">
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
