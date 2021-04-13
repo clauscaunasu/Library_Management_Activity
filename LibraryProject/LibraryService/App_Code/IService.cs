@@ -24,14 +24,33 @@ public interface IService
     [OperationContract]
     List<string> BranchListLoader();
 
-    [OperationContract]
-    bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);
+   /* [OperationContract]
+    bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);*/
 
     [OperationContract]
     bool MemberRegister(Client client);
 
     [OperationContract]
     Client MemberLogin(Client client);
+
+    [OperationContract]
+    List<Book> BooksList();
+
+    [OperationContract]
+    bool EditBook(Book book);
+
+    [OperationContract]
+    bool AddBranch(Branch branch);
+
+    [OperationContract]
+    List<Branch> ViewBranches();
+
+    [OperationContract]
+    bool EditBranch(Branch branch);
+
+    [OperationContract]
+    bool DeleteBranch(Branch branch);
+
 
     // TODO: Add your service operations here
 }

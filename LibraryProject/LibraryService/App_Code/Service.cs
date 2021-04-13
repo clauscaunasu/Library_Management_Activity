@@ -20,7 +20,17 @@ public partial class Service : IService
         return new UserRepository(new DConectivity());
     }
 
-    
+    private IBookRepository GetBookRepository()
+    {
+        return new BookRepository(new DConectivity());
+    }
+
+    private IBranchRepository GetBranchRepository()
+    {
+        return new BranchRepository(new DConectivity());
+    }
+
+
     public List<string> GetBranches()
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
@@ -103,7 +113,7 @@ public partial class Service : IService
         return branchesNames;
     }
 
-    public bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies)
+   /* public bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies)
     {
         var connectionString = ConfigurationManager.AppSettings["ConnectionString"];
         var branchID = 0;
@@ -160,6 +170,7 @@ public partial class Service : IService
             return command.ExecuteNonQuery() == 1;
         }
     }
+   */
 
 
     public bool MemberRegister(Client client)
@@ -174,4 +185,47 @@ public partial class Service : IService
         return userRepository.GetUserByNameAndPassword(client.Username, client.Password);
 
     }
+
+    public List<Book> BooksList()
+    {
+        var bookRepository = GetBookRepository();
+        return bookRepository.GetBooks();
+    }
+
+    public bool EditBook(Book book)
+    {
+        var bookRepository = GetBookRepository();
+        return bookRepository.UpdateBook(book);
+    }
+
+    public bool AddBranch(Branch branch)
+    {
+        var branchRepository = GetBranchRepository();
+        return branchRepository.AddBranch(branch);
+    }
+
+    public List<Branch> ViewBranches()
+    {
+        var branchRepository = GetBranchRepository();
+        return branchRepository.GetBranches();
+    }
+
+    public bool EditBranch(Branch branch)
+    {
+        var branchRepository = GetBranchRepository();
+        return branchRepository.UpdateBranch(branch);
+    }
+
+    public bool DeleteBranch(Branch branch)
+    {
+        var branchRepository = GetBranchRepository();
+        return branchRepository.DeleteBranch(branch);
+    }
+
+    //public bool AddBook(Book book, string branchName, int copies)
+    //{
+    //    var bookRepository = GetBookRepository();
+    //    return 
+    //}
+
 }

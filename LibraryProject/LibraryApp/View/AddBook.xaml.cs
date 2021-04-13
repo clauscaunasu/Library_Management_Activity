@@ -34,9 +34,9 @@ namespace LibraryApp.View
 
         private void BtnAddBook_OnClick(object sender, RoutedEventArgs e)
         {
-            var result = _serviceClient.AddBook(TxtTitle.Text, TxtIsbn.Text, TxtAuthors.Text, TxtEditure.Text,
-                TxtBranch.Text, int.Parse(TxtCopies.Text));
-            MessageBox.Show(result ? "success" : "failed");
+            //var result = _serviceClient.AddBook(TxtTitle.Text, TxtIsbn.Text, TxtAuthors.Text, TxtEditure.Text,
+            //    TxtBranch.Text, int.Parse(TxtCopies.Text));
+            //MessageBox.Show(result ? "success" : "failed");
         }
     }
 }
