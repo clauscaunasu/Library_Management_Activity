@@ -14,7 +14,7 @@ namespace LibraryApp_DAL
     public class BookRepository : IBookRepository
     {
         private readonly DConectivity _connection;
-        private readonly ObservableCollection<Book> _listOfBooks = new ObservableCollection<Book>();
+        private readonly List<Book> _listOfBooks = new List<Book>();
 
         public BookRepository(DConectivity connection)
         {
@@ -76,7 +76,7 @@ namespace LibraryApp_DAL
         }
         
 
-        public ObservableCollection<Book> ListOfBooks(DataTable dt)
+        private List<Book> ListOfBooks(DataTable dt)
         {
             for (var i = 0; i < dt.Rows.Count; i++)
             {
@@ -92,7 +92,7 @@ namespace LibraryApp_DAL
             return _listOfBooks;
         }
 
-        public ObservableCollection<Book> GetBooks()
+        public List<Book> GetBooks()
         {
             var command = _connection.dbCommand("SELECT * FROM Book");
             var reader = command.ExecuteReader();

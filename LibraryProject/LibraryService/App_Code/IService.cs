@@ -43,7 +43,7 @@ public interface IService
     bool DeleteMember(Client client);
 
     [OperationContract]
-    ObservableCollection<Book> BooksList();
+    List<Book> BooksList();
 
     [OperationContract]
     bool EditBook(Book book);

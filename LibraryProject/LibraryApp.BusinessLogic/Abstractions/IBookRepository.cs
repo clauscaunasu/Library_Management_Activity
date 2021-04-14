@@ -14,8 +14,7 @@ namespace LibraryApp.BusinessLogic.Abstractions
     {
         bool AddBookInBranch(Book book, string branchName, int copies);
         Book GetBookById(int id);
-        ObservableCollection<Book> ListOfBooks(DataTable dt);
-        ObservableCollection<Book> GetBooks();
+        List<Book> GetBooks();
         bool DeleteBook(Book book);
         bool UpdateBook(Book book);
 

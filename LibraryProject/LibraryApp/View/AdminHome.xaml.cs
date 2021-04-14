@@ -26,7 +26,7 @@ namespace LibraryApp.View
     public partial class AdminHome : Window
     {
         private Client _client;
-        private ObservableCollection<Book> _books;
+        private List<Book> _books;
         private readonly ServiceClient _serviceClient = new ServiceClient();
 
         public AdminHome(Client client)
