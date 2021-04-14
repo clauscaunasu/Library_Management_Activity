@@ -89,7 +89,7 @@
     <Compile Include="View\AdminHome.xaml.cs">
       <DependentUpon>AdminHome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\BookControl.xaml.cs">
+    <Compile Include="Controls\BookControl.xaml.cs">
       <DependentUpon>BookControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BorrowBook.xaml.cs">
@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Controls\ClientControl.xaml.cs">
       <DependentUpon>ClientControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\BranchControl.xaml.cs">
       <DependentUpon>BranchControl.xaml</DependentUpon>
     </Compile>
@@ -108,6 +109,7 @@
     </Compile>
     <Compile Include="View\EditMember.xaml.cs">
       <DependentUpon>EditMember.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DeleteBranch.xaml.cs">
       <DependentUpon>DeleteBranch.xaml</DependentUpon>
     </Compile>
@@ -153,7 +155,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\BookControl.xaml">
+    <Page Include="Controls\BookControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +164,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\ClientControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\BranchControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +180,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditMember.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DeleteBranch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -267,10 +275,13 @@
     </None>
     <None Include="LibraryApp.DataModel.Book.datasource" />
     <None Include="LibraryApp.DataModel.Book1.datasource" />
+    <None Include="LibraryApp.DataModel.Book2.datasource" />
     <None Include="LibraryApp.DataModel.Branch.datasource" />
+    <None Include="LibraryApp.DataModel.Branch1.datasource" />
     <None Include="LibraryApp.DataModel.Client.datasource" />
     <None Include="LibraryApp.DataModel.Client1.datasource" />
     <None Include="LibraryApp.DataModel.Client2.datasource" />
+    <None Include="LibraryApp.DataModel.Client3.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

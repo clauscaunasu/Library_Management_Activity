@@ -1,6 +1,7 @@
 ﻿using LibraryApp.DataModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using LibraryApp.DataModel;
 
 using LibraryApp.LibraryServiceReference;
 
@@ -27,18 +27,17 @@ namespace LibraryApp.View
     {
 
         private Client client;
+
         public UserHome(Client client)
-
-        private List<Book> books;
-        private readonly ServiceClient _serviceClient = new ServiceClient();
-        public UserHome()
-
         {
             this.client = client;
             InitializeComponent();
             books = _serviceClient.BooksList();
             BooksView.ItemsSource = books;
         }
+
+        private List<Book> books;
+        private readonly ServiceClient _serviceClient = new ServiceClient();
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -65,9 +64,6 @@ namespace LibraryApp.View
                 var main = new MainWindow();
                 this.Close();
                 main.Show();
-            }
-            else
-            {
             }
         }
 

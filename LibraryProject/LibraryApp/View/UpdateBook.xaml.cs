@@ -49,14 +49,15 @@ namespace LibraryApp.View
             _book.UniqueCode = NewUniqueCode.Text;
             _book.Editure = NewEditure.Text;
             _book.Author = NewAuthors.Text;
-            bool isSaved = _serviceClient.EditBook(_book);
+            var isSaved = _serviceClient.EditBook(_book);
+            this.DialogResult = true;
             if (isSaved)
             {
                 MessageBox.Show("Book updated successfully!");
-                var adminPage = new AdminHome();
                 this.Close();
-                adminPage.Show();
             }
+
+
         }
     }
 }

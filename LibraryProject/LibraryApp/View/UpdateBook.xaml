@@ -20,9 +20,6 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <!--<RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>-->
                 </Grid.RowDefinitions>
                 <Label Content="Editure" Style="{StaticResource LabelStyle}"/>
                 <TextBox Grid.Column="1"   TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" x:Name="NewEditure" />
@@ -32,13 +29,8 @@
                 <TextBox Grid.Row="3" Grid.Column="1"  TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}" x:Name="NewAuthors"/>
                 <Label Grid.Row="2" Content="ISBN" Style="{StaticResource LabelStyle}"/>
                 <TextBox Grid.Row="2" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewUniqueCode" />
-                <!--<Label Grid.Row="5" Content="Total Copies" Style="{StaticResource LabelStyle}"/>
-                <TextBox Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
-                <Label Grid.Row="4" Content="Branch" Style="{StaticResource LabelStyle}"/>
-                <TextBox Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
-                <Label Grid.Row="6" Content="Available" Style="{StaticResource LabelStyle}"/>
-                <TextBox Grid.Row="6" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2"
+                            Grid.Column="0">
                     <Button Content="Update Book" Style="{StaticResource MainActionBtnStyle}" Click="ButtonSave_OnClick"  />
                     <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />
                 </StackPanel>

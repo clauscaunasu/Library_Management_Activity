@@ -22,10 +22,10 @@ namespace LibraryApp.LibraryServiceReference {
         System.Threading.Tasks.Task<bool> MemberRegisterAsync(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberLogin", ReplyAction="http://tempuri.org/IService/MemberLoginResponse")]
-        int MemberLogin(LibraryApp.DataModel.Client client);
+        LibraryApp.DataModel.Client MemberLogin(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/MemberLogin", ReplyAction="http://tempuri.org/IService/MemberLoginResponse")]
-        System.Threading.Tasks.Task<int> MemberLoginAsync(LibraryApp.DataModel.Client client);
+        System.Threading.Tasks.Task<LibraryApp.DataModel.Client> MemberLoginAsync(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ClientList", ReplyAction="http://tempuri.org/IService/ClientListResponse")]
         System.Collections.Generic.List<LibraryApp.DataModel.Client> ClientList();
@@ -44,7 +44,6 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteMember", ReplyAction="http://tempuri.org/IService/DeleteMemberResponse")]
         System.Threading.Tasks.Task<bool> DeleteMemberAsync(LibraryApp.DataModel.Client client);
-        System.Threading.Tasks.Task<LibraryApp.DataModel.Client> MemberLoginAsync(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BooksList", ReplyAction="http://tempuri.org/IService/BooksListResponse")]
         System.Collections.Generic.List<LibraryApp.DataModel.Book> BooksList();
@@ -118,11 +117,11 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.MemberRegisterAsync(client);
         }
         
-        public int MemberLogin(LibraryApp.DataModel.Client client) {
+        public LibraryApp.DataModel.Client MemberLogin(LibraryApp.DataModel.Client client) {
             return base.Channel.MemberLogin(client);
         }
         
-        public System.Threading.Tasks.Task<int> MemberLoginAsync(LibraryApp.DataModel.Client client) {
+        public System.Threading.Tasks.Task<LibraryApp.DataModel.Client> MemberLoginAsync(LibraryApp.DataModel.Client client) {
             return base.Channel.MemberLoginAsync(client);
         }
         
@@ -132,12 +131,6 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Client>> ClientListAsync() {
             return base.Channel.ClientListAsync();
-        public System.Collections.Generic.List<string> BranchListLoader() {
-            return base.Channel.BranchListLoader();
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> BranchListLoaderAsync() {
-            return base.Channel.BranchListLoaderAsync();
         }
         
         public bool EditMember(LibraryApp.DataModel.Client client) {

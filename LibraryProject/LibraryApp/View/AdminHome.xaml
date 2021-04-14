@@ -1,11 +1,12 @@
 ﻿<Window      x:Class="LibraryApp.View.AdminHome"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:LibraryApp"
              xmlns:view="clr-namespace:LibraryApp.View"
+             xmlns:controls="clr-namespace:LibraryApp.Controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
              ResizeMode="NoResize">
@@ -82,7 +83,7 @@
                         />
             </StackPanel>
             <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
-                <StackPanel Grid.Row ="1" VerticalAlignment="Top" Width="Auto">
+                <StackPanel VerticalAlignment="Top" Width="Auto">
                     <ListView x:Name="BooksView">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
@@ -91,9 +92,9 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate >
                             <DataTemplate>
-                                <Expander Background="#e8f1f5" Width="700" >
+                                <Expander Background="#e8f1f5" Width="700">
                                     <Expander.Header >
-                                        <view:BookControl Book="{Binding}"/>
+                                        <controls:BookControl Book="{Binding  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=.}"/>
                                     </Expander.Header>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
 
@@ -109,7 +110,6 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-
                 </StackPanel>
             </ScrollViewer>
         </Grid>

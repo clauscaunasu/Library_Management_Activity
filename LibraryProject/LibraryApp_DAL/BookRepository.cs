@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -75,7 +76,7 @@ namespace LibraryApp_DAL
         }
         
 
-        public List<Book> ListOfBooks(DataTable dt)
+        private List<Book> ListOfBooks(DataTable dt)
         {
             for (var i = 0; i < dt.Rows.Count; i++)
             {

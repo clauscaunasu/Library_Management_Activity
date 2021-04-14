@@ -23,30 +23,23 @@ namespace LibraryApp.View
             var username = TxtUsername.Text;
             var password = _enc.Encrypt(TxtPassword.Password);
 
-            if (username == "" && password == "")
-            {
-                MessageBox.Show("Must enter username and password");
-                TxtPassword.Focus();
-                TxtPassword.Focus();
-            }
-            else
+            if (username != "" || password != "")
             {
                 _client.Username = username;
                 _client.Password = password;
-                if (_serviceClient.MemberLogin(_client) >= 0)
+                if (_serviceClient.MemberLogin(_client) != null)
                 {
-                    if (_serviceClient.MemberLogin(_client) == 0)
+                    if (_serviceClient.MemberLogin(_client).Duty == "Client")
                     {
-                        var userHome = new UserHome(_client);
+                        var userHome = new UserHome(_serviceClient.MemberLogin(_client));
                         userHome.Show();
                         this.Close();
                     }
                     else
                     {
-                        var adminHome = new AdminHome(_client);
+                        var adminHome = new AdminHome(_serviceClient.MemberLogin(_client));
                         adminHome.Show();
                         this.Close();
-                        
                     }
                 }
                 else
@@ -54,8 +47,12 @@ namespace LibraryApp.View
                     MessageBox.Show("Username or password incorrect");
                 }
             }
-
-
+            else
+            {
+                MessageBox.Show("Must enter username and password");
+                TxtPassword.Focus();
+                TxtPassword.Focus();
+            }
         }
 
 

@@ -11,7 +11,7 @@ namespace LibraryApp_DAL
 {
     public class DConectivity
     {
-        private readonly string connection = "Server=DESKTOP-P607G92;Database=Library;Trusted_Connection=True;";
+        private readonly string connection = "Server=DESKTOP-CG65E95;Database=Library;Trusted_Connection=True;";
         SqlConnection dbConnection()
         {
             var sqlConnect = new SqlConnection(connection);
@@ -21,8 +21,7 @@ namespace LibraryApp_DAL
 
         public SqlCommand dbCommand(String strProcedure)
         {
-            var sqlCmd = new SqlCommand(strProcedure, dbConnection());
-            sqlCmd.CommandType = CommandType.Text;
+            var sqlCmd = new SqlCommand(strProcedure, dbConnection()) {CommandType = CommandType.Text};
             return sqlCmd;
         }
 

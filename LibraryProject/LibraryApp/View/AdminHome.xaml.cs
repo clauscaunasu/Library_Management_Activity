@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,18 +25,16 @@ namespace LibraryApp.View
     /// </summary>
     public partial class AdminHome : Window
     {
-        private Client client;
-        public AdminHome(Client client)
-
-        private List<Book> books;
+        private Client _client;
+        private List<Book> _books;
         private readonly ServiceClient _serviceClient = new ServiceClient();
-        public AdminHome()
 
+        public AdminHome(Client client)
         {
-            this.client = client;
+            this._client = client;
             InitializeComponent();
-            books = _serviceClient.BooksList();
-            BooksView.ItemsSource = books;
+            _books = _serviceClient.BooksList();
+            BooksView.ItemsSource = _books;
         }
 
 
@@ -64,13 +65,26 @@ namespace LibraryApp.View
         {
             var deleteBookPage = new DeleteBook();
             deleteBookPage.Show();
+
         }
 
         private void ButtonUpdate_OnClick(object sender, RoutedEventArgs e)
         {
             var selectedBook = BooksView.SelectedItem as Book;
             var updateBookPage = new UpdateBook(selectedBook);
-            updateBookPage.Show();
+            updateBookPage.Closed += UpdateBookPage_Closed;
+            updateBookPage.ShowDialog();
+            BooksView.Items.Refresh();
+
+        }
+
+        private void UpdateBookPage_Closed(object sender, EventArgs e)
+        {
+            if ((sender as Window)?.DialogResult == true)
+            {
+                BooksView.ItemsSource = _books;
+            }
+
         }
 
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
@@ -81,7 +95,7 @@ namespace LibraryApp.View
 
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ListViewItem lvi = (ListViewItem)sender;
+            var lvi = (ListViewItem)sender;
             BooksView.SelectedItem = lvi.DataContext;
         }
 

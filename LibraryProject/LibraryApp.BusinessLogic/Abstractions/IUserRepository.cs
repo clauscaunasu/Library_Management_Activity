@@ -12,7 +12,7 @@ namespace LibraryApp.BusinessLogic.Abstractions
     {
         bool Add(Client client);
         List<Client> GetUserById(int id);
-        int GetUserByNameAndPassword(string name, string password);
+        Client GetUserByNameAndPassword(string name, string password);
 
         List<Client> GetClients();
 

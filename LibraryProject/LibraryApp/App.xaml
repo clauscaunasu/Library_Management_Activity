@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LibraryApp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-
              StartupUri="View/MainWindow.xaml">
-
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -14,8 +12,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/materialdesigncolor.blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
-            <Style TargetType="Border" x:Key="StartupPagesStyle"> 
+
+            <Style TargetType="Border" x:Key="StartupPagesStyle">
                 <Setter Property="Height" Value="390"/>
                 <Setter Property="VerticalAlignment" Value="Top"/>
                 <Setter Property="CornerRadius" Value="0 0 180 0"/>
@@ -148,7 +146,7 @@
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontWeight" Value="Bold"/>
-                
+
 
             </Style>
 
@@ -221,7 +219,7 @@
             </Style>
 
             <!-- delete book style-->
-            <Style TargetType="ComboBox" x:Key="ComboBoxStyle"> 
+            <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="HorizontalAlignment" Value="Stretch"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -231,13 +229,6 @@
                 <Setter Property="Margin" Value="10"/>
 
             </Style>
-
-            <Style TargetType="Button" BasedOn="{StaticResource PrimaryActionBtn}" x:Key="OptionsBtn">
-                <Setter Property="Width" Value="100"/>
-                <Setter Property="Height" Value="30"/>
-                <Setter Property="HorizontalAlignment" Value="Center"/>
-            </Style>
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>
