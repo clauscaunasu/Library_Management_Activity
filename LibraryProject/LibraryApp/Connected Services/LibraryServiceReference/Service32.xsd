@@ -25,12 +25,11 @@
   <xs:element name="MemberLoginResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="MemberLoginResult" type="xs:int" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="MemberLoginResult" nillable="true" type="q3:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ClientList">
-  <xs:element name="BranchListLoader">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -38,38 +37,14 @@
   <xs:element name="ClientListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="ClientListResult" nillable="true" type="q3:ArrayOfClient" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="ClientListResult" nillable="true" type="q4:ArrayOfClient" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditMember">
     <xs:complexType>
       <xs:sequence>
-  <xs:element name="BranchListLoaderResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BranchListLoaderResult" nillable="true" type="q2:ArrayOfstring" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MemberRegister">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q3:Client" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MemberRegisterResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="MemberRegisterResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="MemberLogin">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q4:Client" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q5:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -83,7 +58,7 @@
   <xs:element name="DeleteMember">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q5:Client" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q6:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -91,10 +66,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="DeleteMemberResult" type="xs:boolean" />
-  <xs:element name="MemberLoginResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="MemberLoginResult" nillable="true" type="q5:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -106,14 +77,14 @@
   <xs:element name="BooksListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="BooksListResult" nillable="true" type="q6:ArrayOfBook" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="BooksListResult" nillable="true" type="q7:ArrayOfBook" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditBook">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q7:Book" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q8:Book" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -127,7 +98,7 @@
   <xs:element name="AddBranch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="branch" nillable="true" type="q8:Branch" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="branch" nillable="true" type="q9:Branch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -146,14 +117,14 @@
   <xs:element name="ViewBranchesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="ViewBranchesResult" nillable="true" type="q9:ArrayOfBranch" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="ViewBranchesResult" nillable="true" type="q10:ArrayOfBranch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditBranch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="branch" nillable="true" type="q10:Branch" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="branch" nillable="true" type="q11:Branch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -167,7 +138,7 @@
   <xs:element name="DeleteBranch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="branch" nillable="true" type="q11:Branch" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="branch" nillable="true" type="q12:Branch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

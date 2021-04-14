@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,8 @@ namespace LibraryApp.BusinessLogic.Abstractions
     {
         bool AddBookInBranch(Book book, string branchName, int copies);
         Book GetBookById(int id);
-        List<Book> ListOfBooks(DataTable dt);
-        List<Book> GetBooks();
+        ObservableCollection<Book> ListOfBooks(DataTable dt);
+        ObservableCollection<Book> GetBooks();
         bool DeleteBook(Book book);
         bool UpdateBook(Book book);
 

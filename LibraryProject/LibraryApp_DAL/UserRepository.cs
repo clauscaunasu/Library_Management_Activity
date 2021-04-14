@@ -41,7 +41,7 @@ namespace LibraryApp_DAL
         public bool DeleteMember(Client client)
         {
             var command = _connection.dbCommand("DELETE Client WHERE (ID= @id)");
-
+            command.Parameters.AddWithValue("@id", client.ID);
             return command.ExecuteNonQuery() == 1;
         }
         public bool Add(Client client)
@@ -74,17 +74,18 @@ namespace LibraryApp_DAL
             
         }
 
-        public int GetUserByNameAndPassword(string username, string password)
+        public Client GetUserByNameAndPassword(string username, string password)
         {
-            var command = _connection.dbCommand("SELECT Duty FROM Client WHERE Username = @Username " +
+            var command = _connection.dbCommand("SELECT * FROM Client WHERE Username = @Username " +
                                                 "AND Password = @Password");
             command.Parameters.AddWithValue("@Username", username);
             command.Parameters.AddWithValue("@Password", password);
             var reader = command.ExecuteReader();
             var dt = new DataTable();
             dt.Load(reader);
+            ClientList(dt);
             command.Connection.Close();
-            return dt.Rows.Count > 0 ? dt.Rows[0]["Duty"].ToString() == "Client" ? 0 : 1 : -1;
+            return _clients[0];
         }
 
         public List<Client> GetClients()

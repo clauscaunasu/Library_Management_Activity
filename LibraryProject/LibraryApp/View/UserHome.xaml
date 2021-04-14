@@ -6,6 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:LibraryApp"
              xmlns:view="clr-namespace:LibraryApp.View"
+             xmlns:controls="clr-namespace:LibraryApp.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
              ResizeMode="NoResize">
@@ -81,7 +82,7 @@
                             <DataTemplate>
                                 <Expander Background="#e8f1f5" Width="700">
                                     <Expander.Header>
-                                        <view:BookControl Book="{Binding}"/>
+                                        <controls:BookControl Book="{Binding}"/>
                                     </Expander.Header>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
 

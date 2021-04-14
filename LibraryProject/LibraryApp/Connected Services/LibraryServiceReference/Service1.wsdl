@@ -7,30 +7,6 @@
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IService_GetBranches_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetBranches" />
-  </wsdl:message>
-  <wsdl:message name="IService_GetBranches_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetBranchesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_LogIn_InputMessage">
-    <wsdl:part name="parameters" element="tns:LogIn" />
-  </wsdl:message>
-  <wsdl:message name="IService_LogIn_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LogInResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_Register_InputMessage">
-    <wsdl:part name="parameters" element="tns:Register" />
-  </wsdl:message>
-  <wsdl:message name="IService_Register_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RegisterResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_BranchListLoader_InputMessage">
-    <wsdl:part name="parameters" element="tns:BranchListLoader" />
-  </wsdl:message>
-  <wsdl:message name="IService_BranchListLoader_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BranchListLoaderResponse" />
-  </wsdl:message>
   <wsdl:message name="IService_MemberRegister_InputMessage">
     <wsdl:part name="parameters" element="tns:MemberRegister" />
   </wsdl:message>
@@ -61,7 +37,6 @@
   <wsdl:message name="IService_DeleteMember_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteMemberResponse" />
   </wsdl:message>
-  <wsdl:portType name="IService">
   <wsdl:message name="IService_BooksList_InputMessage">
     <wsdl:part name="parameters" element="tns:BooksList" />
   </wsdl:message>
@@ -99,22 +74,6 @@
     <wsdl:part name="parameters" element="tns:DeleteBranchResponse" />
   </wsdl:message>
   <wsdl:portType name="IService">
-    <wsdl:operation name="GetBranches">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBranches" message="tns:IService_GetBranches_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBranchesResponse" message="tns:IService_GetBranches_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="LogIn">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/LogIn" message="tns:IService_LogIn_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/LogInResponse" message="tns:IService_LogIn_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Register">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/Register" message="tns:IService_Register_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/RegisterResponse" message="tns:IService_Register_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BranchListLoader">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/BranchListLoader" message="tns:IService_BranchListLoader_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/BranchListLoaderResponse" message="tns:IService_BranchListLoader_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="MemberRegister">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/MemberRegister" message="tns:IService_MemberRegister_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/MemberRegisterResponse" message="tns:IService_MemberRegister_OutputMessage" />
@@ -134,6 +93,7 @@
     <wsdl:operation name="DeleteMember">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteMember" message="tns:IService_DeleteMember_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteMemberResponse" message="tns:IService_DeleteMember_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="BooksList">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/BooksList" message="tns:IService_BooksList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/BooksListResponse" message="tns:IService_BooksList_OutputMessage" />
@@ -172,8 +132,6 @@
     </wsdl:operation>
     <wsdl:operation name="MemberLogin">
       <soap:operation soapAction="http://tempuri.org/IService/MemberLogin" style="document" />
-    <wsdl:operation name="BranchListLoader">
-      <soap:operation soapAction="http://tempuri.org/IService/BranchListLoader" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -183,8 +141,6 @@
     </wsdl:operation>
     <wsdl:operation name="ClientList">
       <soap:operation soapAction="http://tempuri.org/IService/ClientList" style="document" />
-    <wsdl:operation name="MemberRegister">
-      <soap:operation soapAction="http://tempuri.org/IService/MemberRegister" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -194,8 +150,6 @@
     </wsdl:operation>
     <wsdl:operation name="EditMember">
       <soap:operation soapAction="http://tempuri.org/IService/EditMember" style="document" />
-    <wsdl:operation name="MemberLogin">
-      <soap:operation soapAction="http://tempuri.org/IService/MemberLogin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -205,6 +159,13 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteMember">
       <soap:operation soapAction="http://tempuri.org/IService/DeleteMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="BooksList">
       <soap:operation soapAction="http://tempuri.org/IService/BooksList" style="document" />
       <wsdl:input>

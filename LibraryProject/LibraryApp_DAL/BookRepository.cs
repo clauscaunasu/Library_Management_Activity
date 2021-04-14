@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace LibraryApp_DAL
     public class BookRepository : IBookRepository
     {
         private readonly DConectivity _connection;
-        private readonly List<Book> _listOfBooks = new List<Book>();
+        private readonly ObservableCollection<Book> _listOfBooks = new ObservableCollection<Book>();
 
         public BookRepository(DConectivity connection)
         {
@@ -75,7 +76,7 @@ namespace LibraryApp_DAL
         }
         
 
-        public List<Book> ListOfBooks(DataTable dt)
+        public ObservableCollection<Book> ListOfBooks(DataTable dt)
         {
             for (var i = 0; i < dt.Rows.Count; i++)
             {
@@ -91,7 +92,7 @@ namespace LibraryApp_DAL
             return _listOfBooks;
         }
 
-        public List<Book> GetBooks()
+        public ObservableCollection<Book> GetBooks()
         {
             var command = _connection.dbCommand("SELECT * FROM Book");
             var reader = command.ExecuteReader();

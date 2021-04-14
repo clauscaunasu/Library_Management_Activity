@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -30,7 +31,7 @@ public interface IService
     bool MemberRegister(Client client);
 
     [OperationContract]
-    int MemberLogin(Client client);
+    Client MemberLogin(Client client);
 
     [OperationContract]
     List<Client> ClientList();
@@ -40,7 +41,9 @@ public interface IService
 
     [OperationContract]
     bool DeleteMember(Client client);
-    List<Book> BooksList();
+
+    [OperationContract]
+    ObservableCollection<Book> BooksList();
 
     [OperationContract]
     bool EditBook(Book book);

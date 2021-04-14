@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
 using LibraryApp_DAL;
@@ -185,7 +186,7 @@ public partial class Service : IService
         return userRepository.Add(client);
     }
 
-    public int MemberLogin(Client client)
+    public Client MemberLogin(Client client)
     {
         var userRepository = GetUserRepository();
         return userRepository.GetUserByNameAndPassword(client.Username, client.Password);
@@ -197,7 +198,7 @@ public partial class Service : IService
         var userRepository = GetUserRepository();
         return userRepository.GetClients();
     }
-    public List<Book> BooksList()
+    public ObservableCollection<Book> BooksList()
     {
         var bookRepository = GetBookRepository();
         return bookRepository.GetBooks();

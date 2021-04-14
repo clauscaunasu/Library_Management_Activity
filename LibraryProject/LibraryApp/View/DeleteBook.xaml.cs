@@ -24,9 +24,8 @@ namespace LibraryApp.View
         private readonly Client _client = new Client();
         private readonly ServiceClient _serviceClient = new ServiceClient();
 
-        public DeleteBook(Client client)
+        public DeleteBook()
         {
-            _client = client;
             InitializeComponent();
         }
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)

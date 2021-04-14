@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using LibraryApp.DataModel;
@@ -6,18 +7,16 @@ using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
 {
-    /// <summary>
-    /// Interaction logic for ViewUsers.xaml
-    /// </summary>
     public partial class ViewUsers : Window
     {
         private readonly ServiceClient _serviceClient = new ServiceClient();
+        private List<Client> clients;
 
         public ViewUsers()
         {
             InitializeComponent();
 
-            var clients = _serviceClient.ClientList();
+            clients = _serviceClient.ClientList();
 
             UserView.ItemsSource = clients;
 
@@ -53,9 +52,8 @@ namespace LibraryApp.View
                 MessageBox.Show("Are you sure", "Delete confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                bool isDeleted = _serviceClient.DeleteMember(selectedMember);
+                var isDeleted = _serviceClient.DeleteMember(selectedMember);
             }
-
         }
     }
 }

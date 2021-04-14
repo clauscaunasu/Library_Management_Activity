@@ -63,10 +63,12 @@ namespace LibraryApp_DAL
         {
             for (var i = 0; i < dt.Rows.Count; i++)
             {
-                var branch = new Branch();
-                branch.ID = Int32.Parse(dt.Rows[i]["ID"].ToString());
-                branch.Address = dt.Rows[i]["Address"].ToString();
-                branch.Name = dt.Rows[i]["Name"].ToString();
+                var branch = new Branch
+                {
+                    ID = Int32.Parse(dt.Rows[i]["ID"].ToString()),
+                    Address = dt.Rows[i]["Address"].ToString(),
+                    Name = dt.Rows[i]["Name"].ToString()
+                };
                 _listOfBranches.Add(branch);
             }
 
