@@ -198,7 +198,7 @@ public partial class Service : IService
         var userRepository = GetUserRepository();
         return userRepository.GetClients();
     }
-    public List<Book> BooksList()
+    public ObservableCollection<Book> BooksList()
     {
         var bookRepository = GetBookRepository();
         return bookRepository.GetBooks();
