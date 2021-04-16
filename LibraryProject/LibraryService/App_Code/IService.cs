@@ -60,6 +60,12 @@ public interface IService
     [OperationContract]
     bool DeleteBranch(Branch branch);
 
+    [OperationContract]
+    bool AddBook(Book book);
+
+    [OperationContract]
+    Client GetClient(Client client);
+
 
     // TODO: Add your service operations here
 }

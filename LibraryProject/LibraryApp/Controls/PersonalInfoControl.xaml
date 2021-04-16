@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="LibraryApp.Controls.PersonalInfoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LibraryApp.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    
+    <Grid Background="#e8f1f5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.45*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="ID:" Style="{StaticResource PersonalInfoLabel}"/>
+            <Label Content="Firstname:" Style="{StaticResource PersonalInfoLabel}"/>
+            <Label Content="Lastname:" Style="{StaticResource PersonalInfoLabel}"/>
+            <Label Content="Email:" Style="{StaticResource PersonalInfoLabel}"/>
+            <Label Content="Phone number:" Style="{StaticResource PersonalInfoLabel}"/>
+            <Label Content="Username:" Style="{StaticResource PersonalInfoLabel}"/>
+            <Label Content="Desired:" Style="{StaticResource PersonalInfoLabel}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBlock x:Name="IDTextBlock"
+                       Text="ID" 
+                       Style="{StaticResource PersonalInfoTextblock}"/>
+            <TextBlock x:Name="FirstnameTextBlock"
+                       Text="Firstname" 
+                       Style="{StaticResource PersonalInfoTextblock}"/>
+            <TextBlock x:Name="LastnameTextBlock"
+                       Text="Lastname"
+                       Style="{StaticResource PersonalInfoTextblock}"/>
+            <TextBlock x:Name="EmailTextBlock"
+                       Text="Email" 
+                       Style="{StaticResource PersonalInfoTextblock}"/>
+            <TextBlock x:Name="PhoneTextBlock"
+                       Text="Phone Number" 
+                       Style="{StaticResource PersonalInfoTextblock}"/>
+            <TextBlock x:Name="UsernameTextBlock"
+                       Text="Username" 
+                       Style="{StaticResource PersonalInfoTextblock}"/>
+            <TextBlock x:Name="StatusTextBlock"
+                       Text="True/False"
+                       Style="{StaticResource PersonalInfoTextblock}"/>
+            
+        </StackPanel>
+    </Grid>
+   
+</UserControl>

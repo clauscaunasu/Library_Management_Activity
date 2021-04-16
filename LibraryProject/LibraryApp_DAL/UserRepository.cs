@@ -12,6 +12,7 @@ namespace LibraryApp_DAL
     public class UserRepository : IUserRepository
     {
         private readonly DConectivity _connection;
+        private readonly Client _client;
         private readonly List<Client> _clients = new List<Client>();
         private Encrypter encrypter = new Encrypter();
         public UserRepository(DConectivity connection)
@@ -99,6 +100,26 @@ namespace LibraryApp_DAL
             return _clients;
         }
 
+        public Client GetClient(Client client)
+        {
+            var command = _connection.dbCommand("SELECT * FROM CLIENT WHERE ID=@id");
+            command.Parameters.AddWithValue("@id", client.ID);
+            var reader = command.ExecuteReader();
+            var dt = new DataTable();
+            dt.Load(reader);
+            _client.ID = Int32.Parse(dt.Rows[0]["ID"].ToString());
+            _client.FirstName = dt.Rows[0]["FirstName"].ToString();
+            _client.LastName = dt.Rows[0]["LastName"].ToString();
+            _client.Address = dt.Rows[0]["Address"].ToString();
+            _client.Telephone = dt.Rows[0]["Telephone"].ToString();
+            _client.Duty = dt.Rows[0]["Duty"].ToString();
+            _client.Username = dt.Rows[0]["Username"].ToString();
+            _client.Password = dt.Rows[0]["Password"].ToString();
+            _client.Desired = Parse(dt.Rows[0]["Desired"].ToString());
+
+            return _client;
+        }
+
         private void ClientList(DataTable dt)
         {
             for (var i = 0; i < dt.Rows.Count; i++)
@@ -119,6 +140,7 @@ namespace LibraryApp_DAL
                 _clients.Add(client);
             }
         }
+
     }
 
 

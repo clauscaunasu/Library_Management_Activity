@@ -234,10 +234,16 @@ public partial class Service : IService
         return branchRepository.DeleteBranch(branch);
     }
 
-    //public bool AddBook(Book book, string branchName, int copies)
-    //{
-    //    var bookRepository = GetBookRepository();
-    //    return 
-    //}
+    public bool AddBook(Book book)
+    {
+        var bookRepository = GetBookRepository();
+        return bookRepository.AddBook(book);
+    }
+
+    public Client GetClient(Client client)
+    {
+        var clientRep = GetUserRepository();
+        return clientRep.GetClient(client);
+    }
 
 }

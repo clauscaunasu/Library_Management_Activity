@@ -73,6 +73,18 @@
   <wsdl:message name="IService_DeleteBranch_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteBranchResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_AddBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBook" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClient" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="MemberRegister">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/MemberRegister" message="tns:IService_MemberRegister_InputMessage" />
@@ -117,6 +129,14 @@
     <wsdl:operation name="DeleteBranch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteBranch" message="tns:IService_DeleteBranch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteBranchResponse" message="tns:IService_DeleteBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddBook" message="tns:IService_AddBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddBookResponse" message="tns:IService_AddBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetClient" message="tns:IService_GetClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetClientResponse" message="tns:IService_GetClient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -213,6 +233,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteBranch">
       <soap:operation soapAction="http://tempuri.org/IService/DeleteBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBook">
+      <soap:operation soapAction="http://tempuri.org/IService/AddBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClient">
+      <soap:operation soapAction="http://tempuri.org/IService/GetClient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

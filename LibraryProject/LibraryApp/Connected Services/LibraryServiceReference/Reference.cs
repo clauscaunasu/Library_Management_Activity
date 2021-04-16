@@ -80,6 +80,18 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteBranch", ReplyAction="http://tempuri.org/IService/DeleteBranchResponse")]
         System.Threading.Tasks.Task<bool> DeleteBranchAsync(LibraryApp.DataModel.Branch branch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
+        bool AddBook(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
+        System.Threading.Tasks.Task<bool> AddBookAsync(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClient", ReplyAction="http://tempuri.org/IService/GetClientResponse")]
+        LibraryApp.DataModel.Client GetClient(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClient", ReplyAction="http://tempuri.org/IService/GetClientResponse")]
+        System.Threading.Tasks.Task<LibraryApp.DataModel.Client> GetClientAsync(LibraryApp.DataModel.Client client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -195,6 +207,22 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<bool> DeleteBranchAsync(LibraryApp.DataModel.Branch branch) {
             return base.Channel.DeleteBranchAsync(branch);
+        }
+        
+        public bool AddBook(LibraryApp.DataModel.Book book) {
+            return base.Channel.AddBook(book);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddBookAsync(LibraryApp.DataModel.Book book) {
+            return base.Channel.AddBookAsync(book);
+        }
+        
+        public LibraryApp.DataModel.Client GetClient(LibraryApp.DataModel.Client client) {
+            return base.Channel.GetClient(client);
+        }
+        
+        public System.Threading.Tasks.Task<LibraryApp.DataModel.Client> GetClientAsync(LibraryApp.DataModel.Client client) {
+            return base.Channel.GetClientAsync(client);
         }
     }
 }
