@@ -231,15 +231,9 @@
             </Style>
 
             <!-- personal information control style-->
-            <Style TargetType="Label" x:Key="PersonalInfoLabel">
-                <Setter Property="FontSize" Value="20"/>
-                <Setter Property="FontWeight" Value="ExtraBold"/>
-                <Setter Property="Margin" Value="12"/>
-                <Setter Property="Foreground" Value="#004a7c"/>
-            </Style>
 
             <Style TargetType="TextBlock" x:Key="PersonalInfoTextblock">
-                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontSize" Value="30"/>
                 <Setter Property="Margin" Value="17"/>
             </Style>
             <!-- personal information page style-->

@@ -36,7 +36,6 @@ namespace LibraryApp.Controls
         {
             if (d is PersonalInfoControl personalInfoControl)
             {
-                personalInfoControl.IDTextBlock.Text = (e.NewValue as Client)?.ID.ToString();
                 personalInfoControl.EmailTextBlock.Text = (e.NewValue as Client)?.Address;
                 personalInfoControl.PhoneTextBlock.Text = (e.NewValue as Client)?.Telephone;
                 personalInfoControl.FirstnameTextBlock.Text = (e.NewValue as Client)?.FirstName;

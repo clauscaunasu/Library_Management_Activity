@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:LibraryApp.Controls" 
+
         xmlns:local="clr-namespace:LibraryApp.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
          d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
@@ -61,8 +62,7 @@
             </Button>
             <ScrollViewer x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
                 <StackPanel Grid.Column="1">
-                    <Label Content="PERSONAL INFORMATION"
-                           Style="{StaticResource TitleLabel}"/>
+                    <Image Source="pack://application:,,,/Image/UserIcon.png" Width="250" VerticalAlignment="Top"  Stretch="Fill" OpacityMask="Black"/>
                     <controls:PersonalInfoControl Client="{Binding}"/>
                 </StackPanel>
 
