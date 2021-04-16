@@ -8,10 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using LibraryApp.DataModel;
-
 namespace LibraryApp.LibraryServiceReference {
     
     
@@ -50,10 +46,10 @@ namespace LibraryApp.LibraryServiceReference {
         System.Threading.Tasks.Task<bool> DeleteMemberAsync(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BooksList", ReplyAction="http://tempuri.org/IService/BooksListResponse")]
-        ObservableCollection<Book> BooksList();
+        System.Collections.Generic.List<LibraryApp.DataModel.Book> BooksList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BooksList", ReplyAction="http://tempuri.org/IService/BooksListResponse")]
-        Task<ObservableCollection<Book>> BooksListAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> BooksListAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EditBook", ReplyAction="http://tempuri.org/IService/EditBookResponse")]
         bool EditBook(LibraryApp.DataModel.Book book);
@@ -153,11 +149,11 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.DeleteMemberAsync(client);
         }
         
-        public ObservableCollection<Book> BooksList() {
+        public System.Collections.Generic.List<LibraryApp.DataModel.Book> BooksList() {
             return base.Channel.BooksList();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<LibraryApp.DataModel.Book>> BooksListAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> BooksListAsync() {
             return base.Channel.BooksListAsync();
         }
         

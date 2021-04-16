@@ -11,10 +11,10 @@ namespace LibraryApp_DAL
 {
     public class UserRepository : IUserRepository
     {
-        private readonly DConectivity _connection;
+        private readonly DConnectivity _connection;
         private readonly List<Client> _clients = new List<Client>();
         private Encrypter encrypter = new Encrypter();
-        public UserRepository(DConectivity connection)
+        public UserRepository(DConnectivity connection)
         {
             this._connection = connection;
         }
@@ -23,7 +23,7 @@ namespace LibraryApp_DAL
         public bool EditMember(Client client)
         {
 
-            var command = _connection.dbCommand("UPDATE Client SET FirstName=@firstName, LastName=@lastName, Username=@username, Password=@password," +
+            var command = _connection.DbCommand("UPDATE Client SET FirstName=@firstName, LastName=@lastName, Username=@username, Password=@password," +
                 " Telephone=@telephone, Address=@address WHERE ID= @id");
 
             command.Parameters.AddWithValue("@id", client.ID);
@@ -41,13 +41,13 @@ namespace LibraryApp_DAL
 
         public bool DeleteMember(Client client)
         {
-            var command = _connection.dbCommand("DELETE Client WHERE (ID= @id)");
+            var command = _connection.DbCommand("DELETE Client WHERE (ID= @id)");
             command.Parameters.AddWithValue("@id", client.ID);
             return command.ExecuteNonQuery() == 1;
         }
         public bool Add(Client client)
         {
-           var command = _connection.dbCommand(
+           var command = _connection.DbCommand(
                 "INSERT INTO Client(FirstName, LastName, Address, Telephone, Username, Password)" +
                 " VALUES (@firstName, @lastName, @address, @telephone, @username, @password)");
 
@@ -64,7 +64,7 @@ namespace LibraryApp_DAL
 
         public List<Client> GetUserById(int id)
         {
-            var command = _connection.dbCommand( "SELECT COUNT(1) FROM Client WHERE ID = @ID");
+            var command = _connection.DbCommand( "SELECT COUNT(1) FROM Client WHERE ID = @ID");
             command.Parameters.AddWithValue("@ID", id);
             var dt = new DataTable();
             var reader = command.ExecuteReader();
@@ -77,7 +77,7 @@ namespace LibraryApp_DAL
 
         public Client GetUserByNameAndPassword(string username, string password)
         {
-            var command = _connection.dbCommand("SELECT * FROM Client WHERE Username = @Username " +
+            var command = _connection.DbCommand("SELECT * FROM Client WHERE Username = @Username " +
                                                 "AND Password = @Password");
             command.Parameters.AddWithValue("@Username", username);
             command.Parameters.AddWithValue("@Password", password);
@@ -91,7 +91,7 @@ namespace LibraryApp_DAL
 
         public List<Client> GetClients()
         {
-            var command = _connection.dbCommand("SELECT * FROM CLIENT");
+            var command = _connection.DbCommand("SELECT * FROM CLIENT");
             var reader = command.ExecuteReader();
             var dt = new DataTable();
             dt.Load(reader);
