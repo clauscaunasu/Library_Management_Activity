@@ -104,6 +104,8 @@
 
                                         <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#70416d"/>
 
+                                        <Button Content="Add in branch" Style="{StaticResource OptionsBtn}" Background="#a2c8a2" Click="ButtonAddInBranch_Click"/>
+
                                         <Button Content="History" Style="{StaticResource OptionsBtn}" Background="#420000" />
                                     </StackPanel>
                                 </Expander>

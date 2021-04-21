@@ -66,6 +66,12 @@ public interface IService
     [OperationContract]
     Client GetClient(Client client);
 
+    [OperationContract]
+    bool AddBookInBranch(Book book, string branchName, int quantity);
+
+    [OperationContract]
+    bool DeleteBookFromBranch(Book book, string branchName);
+
 
     // TODO: Add your service operations here
 }

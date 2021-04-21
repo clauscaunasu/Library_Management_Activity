@@ -83,6 +83,9 @@
     <Compile Include="Controls\PersonalInfoControl.xaml.cs">
       <DependentUpon>PersonalInfoControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SelectBranchControl.xaml.cs">
+      <DependentUpon>SelectBranchControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,9 @@
     </Compile>
     <Compile Include="View\BranchControl.xaml.cs">
       <DependentUpon>BranchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChooseBranch.xaml.cs">
+      <DependentUpon>ChooseBranch.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DeleteBook.xaml.cs">
       <DependentUpon>DeleteBook.xaml</DependentUpon>
@@ -153,6 +159,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\SelectBranchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\BranchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChooseBranch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

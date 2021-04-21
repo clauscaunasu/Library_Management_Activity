@@ -105,5 +105,12 @@ namespace LibraryApp.View
             var viewBranchesPage = new ViewBranches();
             viewBranchesPage.Show();
         }
+
+        private void ButtonAddInBranch_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedBook = BooksView.SelectedItem as Book;
+            var selectBranchPage = new ChooseBranch(selectedBook);
+            selectBranchPage.Show();
+        }
     }
 }
