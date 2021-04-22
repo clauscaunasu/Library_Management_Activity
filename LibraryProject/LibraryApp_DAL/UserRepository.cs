@@ -91,7 +91,7 @@ namespace LibraryApp_DAL
 
         public List<Client> GetClients()
         {
-            var command = _connection.dbCommand("SELECT * FROM CLIENT");
+            var command = _connection.dbCommand("SELECT * FROM Client");
             var reader = command.ExecuteReader();
             var dt = new DataTable();
             dt.Load(reader);
@@ -102,7 +102,7 @@ namespace LibraryApp_DAL
 
         public Client GetClient(Client client)
         {
-            var command = _connection.dbCommand("SELECT * FROM CLIENT WHERE ID=@id");
+            var command = _connection.dbCommand("SELECT * FROM Client WHERE ID=@id");
             command.Parameters.AddWithValue("@id", client.ID);
             var reader = command.ExecuteReader();
             var dt = new DataTable();

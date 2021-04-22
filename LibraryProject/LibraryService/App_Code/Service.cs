@@ -16,7 +16,6 @@ public partial class Service : IService
     }
 
     
-    
     private IBookRepository GetBookRepository()
     {
         return new BookRepository(new DConectivity());

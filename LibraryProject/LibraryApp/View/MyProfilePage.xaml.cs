@@ -48,13 +48,6 @@ namespace LibraryApp.View
 
         }
 
-        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
-        {
-            var deleteBookPage = new DeleteBook();
-            deleteBookPage.Show();
-
-        }
-
 
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -30,6 +30,8 @@ namespace LibraryApp.View
         {
             InitializeComponent();
             _book = book;
+            branches = _serviceClient.ViewBranches();
+            SelectBranchComboBox.ItemsSource = branches;
         }
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
         {
