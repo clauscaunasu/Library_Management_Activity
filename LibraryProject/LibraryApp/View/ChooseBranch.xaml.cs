@@ -31,8 +31,7 @@ namespace LibraryApp.View
             InitializeComponent();
             branches = _serviceClient.ViewBranches();
             SelectBranchComboBox.ItemsSource = branches;
-            quantityStr = BooksQuantityTxt.Text;
-            quantity += short.Parse(quantityStr);
+            _book = book;
         }
 
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -43,6 +42,8 @@ namespace LibraryApp.View
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
+            quantityStr = BooksQuantityTxt.Text;
+            quantity += Int16.Parse(quantityStr);
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
             _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
         }
