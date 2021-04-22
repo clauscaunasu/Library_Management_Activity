@@ -21,25 +21,36 @@ namespace LibraryApp.View
     /// </summary>
     public partial class DeleteBook : Window
     {
+        private List<Branch> branches;
+        private Book _book;
         private readonly Client _client = new Client();
         private readonly ServiceClient _serviceClient = new ServiceClient();
 
-        public DeleteBook()
+        public DeleteBook(Book book)
         {
             InitializeComponent();
+            _book = book;
         }
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        private void ComboBox_SelectionChanged(object sender, RoutedEventArgs e)
+
+        private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+            ListViewItem lvi = (ListViewItem)sender;
+            SelectBranchComboBox.SelectedItem = lvi.DataContext;
         }
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
+            _serviceClient.DeleteBookFromBranch(_book, selectedBranch.Name);
         }
     }
 }

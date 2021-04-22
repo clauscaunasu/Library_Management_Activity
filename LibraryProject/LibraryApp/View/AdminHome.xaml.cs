@@ -64,7 +64,8 @@ namespace LibraryApp.View
 
         private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
-            var deleteBookPage = new DeleteBook();
+            var selectedBook = BooksView.SelectedItem as Book;
+            var deleteBookPage = new DeleteBook(selectedBook);
             deleteBookPage.Show();
 
         }

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
+        xmlns:local1="clr-namespace:LibraryApp.Controls"
         mc:Ignorable="d"
         Title="Add new book" Height="450" Width="400"
          WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
@@ -31,7 +32,16 @@
         <Label Grid.Row="4" Content="Editure" Style="{StaticResource LabelStyle}"/>
         <TextBox x:Name="TxtEditure" Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
         <Label Grid.Row="3" Content="Branch" Style="{StaticResource LabelStyle}"/>
-        <TextBox x:Name="TxtBranch" Grid.Row="3" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+        <!--<TextBox x:Name="TxtBranch" Grid.Row="3" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />-->
+            <ComboBox Grid.Row="3" Grid.Column="1" Name="SelectBranchComboBox" HorizontalAlignment="Center" Width="230">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <local1:SelectBranchControl Branch="{Binding}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         <Label Grid.Row="5" Content="Copies" Style="{StaticResource LabelStyle}"/>
         <TextBox x:Name="TxtCopies" Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="2">

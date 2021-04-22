@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
@@ -20,10 +21,22 @@ namespace LibraryApp.View
     /// </summary>
     public partial class AddBook : Window
     {
+        private List<Branch> branches;
+        private static int quantity = 0;
+        private string quantityStr;
+        private Book _book;
         private ServiceClient _serviceClient = new ServiceClient();
         public AddBook()
         {
             InitializeComponent();
+            branches = _serviceClient.ViewBranches();
+            SelectBranchComboBox.ItemsSource = branches;
+            quantityStr = TxtCopies.Text;
+            quantity += short.Parse(quantityStr);
+            _book.Title = TxtTitle.Text;
+            _book.Author = TxtAuthors.Text;
+            _book.Editure = TxtEditure.Text;
+            _book.UniqueCode = TxtIsbn.Text;
         }
 
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
@@ -31,12 +44,16 @@ namespace LibraryApp.View
             this.Close();
         }
 
+        private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem lvi = (ListViewItem)sender;
+            SelectBranchComboBox.SelectedItem = lvi.DataContext;
+        }
 
         private void BtnAddBook_OnClick(object sender, RoutedEventArgs e)
         {
-            /*var result = _serviceClient.AddBook(TxtTitle.Text, TxtIsbn.Text, TxtAuthors.Text, TxtEditure.Text,
-                TxtBranch.Text, int.Parse(TxtCopies.Text));
-            MessageBox.Show(result ? "success" : "failed");*/
+            var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
+            _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
         }
     }
 }
