@@ -14,7 +14,7 @@ namespace LibraryApp_DAL
     public class BookRepository : IBookRepository
     {
         private readonly DConectivity _connection;
-        private readonly List<Book> _listOfBooks = new List<Book>();
+        private  List<Book> _listOfBooks = new List<Book>();
 
         public BookRepository(DConectivity connection)
         {
@@ -133,13 +133,28 @@ namespace LibraryApp_DAL
 
         public bool AddBook(Book book)
         {
-            var command = _connection.dbCommand("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
-                                      " VALUES (@title, @uniqueCode, @authors, @editure)");
-
+            _listOfBooks = GetBooks();
+            var command = _connection.dbCommand("SELECT * FROM Book WHERE Title=@title AND UniqueCode=@uniqueCode AND Author=@authors AND Editure=@editure");
             command.Parameters.AddWithValue("@title", book.Title);
-            command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode); 
+            command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode);
             command.Parameters.AddWithValue("@authors", book.Author);
             command.Parameters.AddWithValue("@editure", book.Editure);
+            Object result = command.ExecuteScalar();
+            if (result == null)
+            {
+
+                command = _connection.dbCommand("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
+                                      " VALUES (@title, @uniqueCode, @authors, @editure)");
+
+                command.Parameters.AddWithValue("@title", book.Title);
+                command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode);
+                command.Parameters.AddWithValue("@authors", book.Author);
+                command.Parameters.AddWithValue("@editure", book.Editure);
+            }
+            else
+            {
+                return false;
+            }
 
             return command.ExecuteNonQuery() == 1;
         }

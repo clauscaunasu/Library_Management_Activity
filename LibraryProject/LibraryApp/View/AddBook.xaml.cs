@@ -24,19 +24,14 @@ namespace LibraryApp.View
         private List<Branch> branches;
         private static int quantity = 0;
         private string quantityStr;
-        private Book _book;
+        private Book _book = new Book();
         private ServiceClient _serviceClient = new ServiceClient();
         public AddBook()
         {
             InitializeComponent();
             branches = _serviceClient.ViewBranches();
             SelectBranchComboBox.ItemsSource = branches;
-            quantityStr = TxtCopies.Text;
-            quantity += short.Parse(quantityStr);
-            _book.Title = TxtTitle.Text;
-            _book.Author = TxtAuthors.Text;
-            _book.Editure = TxtEditure.Text;
-            _book.UniqueCode = TxtIsbn.Text;
+            
         }
 
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
@@ -52,6 +47,12 @@ namespace LibraryApp.View
 
         private void BtnAddBook_OnClick(object sender, RoutedEventArgs e)
         {
+            quantityStr = TxtCopies.Text;
+            quantity += Int16.Parse(quantityStr);
+            _book.Title = TxtTitle.Text;
+            _book.Author = TxtAuthors.Text;
+            _book.Editure = TxtEditure.Text;
+            _book.UniqueCode = TxtIsbn.Text;
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
             _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
         }
