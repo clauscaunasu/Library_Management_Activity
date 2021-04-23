@@ -52,7 +52,17 @@ namespace LibraryApp.View
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
-            _serviceClient.DeleteBookFromBranch(_book, selectedBranch.Name);
+            var isSuccessful = _serviceClient.DeleteBookFromBranch(_book, selectedBranch.Name);
+            if (isSuccessful)
+            {
+                MessageBox.Show("Book deleted successfully from branch!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong, please try again");
+                this.Close();
+            }
         }
     }
 }

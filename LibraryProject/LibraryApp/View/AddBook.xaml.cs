@@ -54,7 +54,17 @@ namespace LibraryApp.View
             _book.Editure = TxtEditure.Text;
             _book.UniqueCode = TxtIsbn.Text;
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
-            _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
+            var isSuccessful = _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
+            if(isSuccessful)
+            {
+                MessageBox.Show("Book added successfully!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong, please try again");
+                this.Close();
+            }
         }
     }
 }

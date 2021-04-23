@@ -45,7 +45,17 @@ namespace LibraryApp.View
             quantityStr = BooksQuantityTxt.Text;
             quantity += Int16.Parse(quantityStr);
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
-            _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
+            var isSuccessful = _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
+            if(isSuccessful)
+            {
+                MessageBox.Show("Book added successfully in branch!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong, please try again");
+                this.Close();
+            }
         }
     }
 }
