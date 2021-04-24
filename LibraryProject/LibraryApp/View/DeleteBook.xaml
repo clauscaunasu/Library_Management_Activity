@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
+        xmlns:local1="clr-namespace:LibraryApp.Controls"
         mc:Ignorable="d"
         Title="Delete book" Height="200" Width="450"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
@@ -19,13 +20,18 @@
         </Grid.RowDefinitions>
 
         <Label Content="Branch name:" Style="{StaticResource SingleElementOnPageStyle}"/>
-        <ComboBox Grid.Row="0" Grid.Column="1" 
-                  SelectedItem="0" 
-                  Style="{StaticResource ComboBoxStyle}"
-                  SelectionChanged="ComboBox_SelectionChanged"/>
+            <ComboBox Grid.Column="1" Name="SelectBranchComboBox" HorizontalAlignment="Center" Width="220">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <local1:SelectBranchControl Branch="{Binding}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Delete Book" Style="{StaticResource MainActionBtnStyle}"  />
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Delete Book" Style="{StaticResource MainActionBtnStyle}" Click="ButtonDelete_Click" />
             <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />
         </StackPanel>
         </Grid>

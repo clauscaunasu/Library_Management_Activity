@@ -229,6 +229,21 @@
                 <Setter Property="Margin" Value="10"/>
 
             </Style>
+
+            <!-- personal information control style-->
+
+            <Style TargetType="TextBlock" x:Key="PersonalInfoTextblock">
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="Margin" Value="17"/>
+            </Style>
+            <!-- personal information page style-->
+            <Style TargetType="Label" x:Key="TitleLabel">
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="FontWeight" Value="ExtraBold"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="#005691"/>
+                <Setter Property="Margin" Value="12"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

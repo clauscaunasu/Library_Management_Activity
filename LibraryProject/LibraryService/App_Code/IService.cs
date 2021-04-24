@@ -43,7 +43,7 @@ public interface IService
     bool DeleteMember(Client client);
 
     [OperationContract]
-    ObservableCollection<Book> BooksList();
+    List<Book> BooksList();
 
     [OperationContract]
     bool EditBook(Book book);
@@ -59,6 +59,21 @@ public interface IService
 
     [OperationContract]
     bool DeleteBranch(Branch branch);
+
+    [OperationContract]
+    bool AddBook(Book book);
+
+    [OperationContract]
+    Client GetClient(Client client);
+
+    [OperationContract]
+    bool AddBookInBranch(Book book, string branchName, int quantity);
+
+    [OperationContract]
+    bool DeleteBookFromBranch(Book book, string branchName);
+
+    [OperationContract]
+    int GetNoCopiesFromBranch(Branch branch, Book book);
 
 
     // TODO: Add your service operations here

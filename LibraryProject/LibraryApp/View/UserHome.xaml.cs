@@ -36,7 +36,7 @@ namespace LibraryApp.View
             BooksView.ItemsSource = books;
         }
 
-        private ObservableCollection<Book> books;
+        private List<Book> books;
         private readonly ServiceClient _serviceClient = new ServiceClient();
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)

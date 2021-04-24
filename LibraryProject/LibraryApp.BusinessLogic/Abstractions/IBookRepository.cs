@@ -12,12 +12,12 @@ namespace LibraryApp.BusinessLogic.Abstractions
 {
     public interface IBookRepository
     {
-        bool AddBookInBranch(Book book, string branchName, int copies);
+        //bool AddBookInBranch(Book book, string branchName, int copies);
         Book GetBookById(int id);
-        ObservableCollection<Book> ListOfBooks(DataTable dt);
-        ObservableCollection<Book> GetBooks();
+        List<Book> GetBooks();
         bool DeleteBook(Book book);
         bool UpdateBook(Book book);
+        bool AddBook(Book book);
 
 
     }

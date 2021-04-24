@@ -14,7 +14,7 @@ namespace LibraryApp_DAL
     public class BookRepository : IBookRepository
     {
         private readonly DConectivity _connection;
-        private readonly ObservableCollection<Book> _listOfBooks = new ObservableCollection<Book>();
+        private  List<Book> _listOfBooks = new List<Book>();
 
         public BookRepository(DConectivity connection)
         {
@@ -22,61 +22,61 @@ namespace LibraryApp_DAL
         }
 
         // despartim AddBookInBranch in 2 AddBook si folosim in inventory
-        public bool AddBookInBranch(Book book, string branchName, int copies)
-        {
-            var branchID = 0;
-            var bookID = 0;
+        //public bool AddBookInBranch(Book book, string branchName, int copies)
+        //{
+        //    var branchID = 0;
+        //    var bookID = 0;
 
 
-            var command = _connection.dbCommand ("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
-                                      " VALUES (@title, @uniqueCode, @authors, @editure)");
+        //    var command = _connection.dbCommand ("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
+        //                              " VALUES (@title, @uniqueCode, @authors, @editure)");
 
-            command.Parameters.AddWithValue("@title", book.Title);
-            command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode); 
-            command.Parameters.AddWithValue("@authors", book.Author);
-            command.Parameters.AddWithValue("@editure", book.Editure);
+        //    command.Parameters.AddWithValue("@title", book.Title);
+        //    command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode); 
+        //    command.Parameters.AddWithValue("@authors", book.Author);
+        //    command.Parameters.AddWithValue("@editure", book.Editure);
 
-            if (command.ExecuteNonQuery() == 1)
-            {
-                command.CommandText = "SELECT ID FROM Book WHERE UniqueCode = @uniqueCode1";
-                command.Parameters.AddWithValue("@uniqueCode1", book.UniqueCode);
-                var reader = command.ExecuteReader();
+        //    if (command.ExecuteNonQuery() == 1)
+        //    {
+        //        command.CommandText = "SELECT ID FROM Book WHERE UniqueCode = @uniqueCode1";
+        //        command.Parameters.AddWithValue("@uniqueCode1", book.UniqueCode);
+        //        var reader = command.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    bookID = reader.GetInt32(0);
-                }
+        //        while (reader.Read())
+        //        {
+        //            bookID = reader.GetInt32(0);
+        //        }
 
-                reader.Close();
+        //        reader.Close();
 
-                command.CommandText = "select ID from Branch where Name = @branchName1";
-                command.Parameters.AddWithValue("@branchName1", branchName);
-                reader = command.ExecuteReader();
+        //        command.CommandText = "select ID from Branch where Name = @branchName1";
+        //        command.Parameters.AddWithValue("@branchName1", branchName);
+        //        reader = command.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    branchID = reader.GetInt32(0);
-                }
+        //        while (reader.Read())
+        //        {
+        //            branchID = reader.GetInt32(0);
+        //        }
 
-                reader.Close();
-
-
-                if (branchID != 0 && bookID != 0)
-                {
-                    command.CommandText = "INSERT INTO BranchXBook(LibraryID, BookId, BookQuantity)" +
-                                              " VALUES (@libraryID, @bookId, @bookQuantity)";
-                    command.Parameters.AddWithValue("@libraryId", branchID);
-                    command.Parameters.AddWithValue("@bookId", bookID);
-                    command.Parameters.AddWithValue("@bookQuantity", copies);
-                }
-            }
+        //        reader.Close();
 
 
-            return command.ExecuteNonQuery() == 1;
-        }
+        //        if (branchID != 0 && bookID != 0)
+        //        {
+        //            command.CommandText = "INSERT INTO BranchXBook(LibraryID, BookId, BookQuantity)" +
+        //                                      " VALUES (@libraryID, @bookId, @bookQuantity)";
+        //            command.Parameters.AddWithValue("@libraryId", branchID);
+        //            command.Parameters.AddWithValue("@bookId", bookID);
+        //            command.Parameters.AddWithValue("@bookQuantity", copies);
+        //        }
+        //    }
+
+
+        //    return command.ExecuteNonQuery() == 1;
+        //}
         
 
-        public ObservableCollection<Book> ListOfBooks(DataTable dt)
+        private List<Book> ListOfBooks(DataTable dt)
         {
             for (var i = 0; i < dt.Rows.Count; i++)
             {
@@ -92,7 +92,7 @@ namespace LibraryApp_DAL
             return _listOfBooks;
         }
 
-        public ObservableCollection<Book> GetBooks()
+        public List<Book> GetBooks()
         {
             var command = _connection.dbCommand("SELECT * FROM Book");
             var reader = command.ExecuteReader();
@@ -127,6 +127,34 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode);
             command.Parameters.AddWithValue("@authors", book.Author);
             command.Parameters.AddWithValue("@editure", book.Editure);
+
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        public bool AddBook(Book book)
+        {
+            _listOfBooks = GetBooks();
+            var command = _connection.dbCommand("SELECT * FROM Book WHERE Title=@title AND UniqueCode=@uniqueCode AND Author=@authors AND Editure=@editure");
+            command.Parameters.AddWithValue("@title", book.Title);
+            command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode);
+            command.Parameters.AddWithValue("@authors", book.Author);
+            command.Parameters.AddWithValue("@editure", book.Editure);
+            Object result = command.ExecuteScalar();
+            if (result == null)
+            {
+
+                command = _connection.dbCommand("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
+                                      " VALUES (@title, @uniqueCode, @authors, @editure)");
+
+                command.Parameters.AddWithValue("@title", book.Title);
+                command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode);
+                command.Parameters.AddWithValue("@authors", book.Author);
+                command.Parameters.AddWithValue("@editure", book.Editure);
+            }
+            else
+            {
+                return false;
+            }
 
             return command.ExecuteNonQuery() == 1;
         }

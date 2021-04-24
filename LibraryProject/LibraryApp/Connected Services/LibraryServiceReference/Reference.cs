@@ -8,10 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using LibraryApp.DataModel;
-
 namespace LibraryApp.LibraryServiceReference {
     
     
@@ -50,10 +46,10 @@ namespace LibraryApp.LibraryServiceReference {
         System.Threading.Tasks.Task<bool> DeleteMemberAsync(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BooksList", ReplyAction="http://tempuri.org/IService/BooksListResponse")]
-        ObservableCollection<Book> BooksList();
+        System.Collections.Generic.List<LibraryApp.DataModel.Book> BooksList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BooksList", ReplyAction="http://tempuri.org/IService/BooksListResponse")]
-        Task<ObservableCollection<Book>> BooksListAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> BooksListAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/EditBook", ReplyAction="http://tempuri.org/IService/EditBookResponse")]
         bool EditBook(LibraryApp.DataModel.Book book);
@@ -84,6 +80,36 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteBranch", ReplyAction="http://tempuri.org/IService/DeleteBranchResponse")]
         System.Threading.Tasks.Task<bool> DeleteBranchAsync(LibraryApp.DataModel.Branch branch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
+        bool AddBook(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBook", ReplyAction="http://tempuri.org/IService/AddBookResponse")]
+        System.Threading.Tasks.Task<bool> AddBookAsync(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClient", ReplyAction="http://tempuri.org/IService/GetClientResponse")]
+        LibraryApp.DataModel.Client GetClient(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClient", ReplyAction="http://tempuri.org/IService/GetClientResponse")]
+        System.Threading.Tasks.Task<LibraryApp.DataModel.Client> GetClientAsync(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBookInBranch", ReplyAction="http://tempuri.org/IService/AddBookInBranchResponse")]
+        bool AddBookInBranch(LibraryApp.DataModel.Book book, string branchName, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddBookInBranch", ReplyAction="http://tempuri.org/IService/AddBookInBranchResponse")]
+        System.Threading.Tasks.Task<bool> AddBookInBranchAsync(LibraryApp.DataModel.Book book, string branchName, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteBookFromBranch", ReplyAction="http://tempuri.org/IService/DeleteBookFromBranchResponse")]
+        bool DeleteBookFromBranch(LibraryApp.DataModel.Book book, string branchName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteBookFromBranch", ReplyAction="http://tempuri.org/IService/DeleteBookFromBranchResponse")]
+        System.Threading.Tasks.Task<bool> DeleteBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetNoCopiesFromBranch", ReplyAction="http://tempuri.org/IService/GetNoCopiesFromBranchResponse")]
+        int GetNoCopiesFromBranch(LibraryApp.DataModel.Branch branch, LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetNoCopiesFromBranch", ReplyAction="http://tempuri.org/IService/GetNoCopiesFromBranchResponse")]
+        System.Threading.Tasks.Task<int> GetNoCopiesFromBranchAsync(LibraryApp.DataModel.Branch branch, LibraryApp.DataModel.Book book);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -153,11 +179,11 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.DeleteMemberAsync(client);
         }
         
-        public ObservableCollection<Book> BooksList() {
+        public System.Collections.Generic.List<LibraryApp.DataModel.Book> BooksList() {
             return base.Channel.BooksList();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<LibraryApp.DataModel.Book>> BooksListAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> BooksListAsync() {
             return base.Channel.BooksListAsync();
         }
         
@@ -199,6 +225,46 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<bool> DeleteBranchAsync(LibraryApp.DataModel.Branch branch) {
             return base.Channel.DeleteBranchAsync(branch);
+        }
+        
+        public bool AddBook(LibraryApp.DataModel.Book book) {
+            return base.Channel.AddBook(book);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddBookAsync(LibraryApp.DataModel.Book book) {
+            return base.Channel.AddBookAsync(book);
+        }
+        
+        public LibraryApp.DataModel.Client GetClient(LibraryApp.DataModel.Client client) {
+            return base.Channel.GetClient(client);
+        }
+        
+        public System.Threading.Tasks.Task<LibraryApp.DataModel.Client> GetClientAsync(LibraryApp.DataModel.Client client) {
+            return base.Channel.GetClientAsync(client);
+        }
+        
+        public bool AddBookInBranch(LibraryApp.DataModel.Book book, string branchName, int quantity) {
+            return base.Channel.AddBookInBranch(book, branchName, quantity);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddBookInBranchAsync(LibraryApp.DataModel.Book book, string branchName, int quantity) {
+            return base.Channel.AddBookInBranchAsync(book, branchName, quantity);
+        }
+        
+        public bool DeleteBookFromBranch(LibraryApp.DataModel.Book book, string branchName) {
+            return base.Channel.DeleteBookFromBranch(book, branchName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName) {
+            return base.Channel.DeleteBookFromBranchAsync(book, branchName);
+        }
+        
+        public int GetNoCopiesFromBranch(LibraryApp.DataModel.Branch branch, LibraryApp.DataModel.Book book) {
+            return base.Channel.GetNoCopiesFromBranch(branch, book);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetNoCopiesFromBranchAsync(LibraryApp.DataModel.Branch branch, LibraryApp.DataModel.Book book) {
+            return base.Channel.GetNoCopiesFromBranchAsync(branch, book);
         }
     }
 }

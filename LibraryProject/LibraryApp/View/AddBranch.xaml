@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
         mc:Ignorable="d"
-        Title="Add new branch" Height="250" Width="400"
+        Title="Add new branch" Height="200" Width="400"
          WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid Background="#004a7c" >
         <Grid Margin="10" Background="#e8f1f5" >

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibraryApp.DataModel;
+using LibraryApp.LibraryServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,31 +13,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using LibraryApp.DataModel;
-using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
 {
     /// <summary>
-    /// Interaction logic for DeleteBook.xaml
+    /// Interaction logic for ChooseBranch.xaml
     /// </summary>
-    public partial class DeleteBook : Window
+    public partial class ChooseBranch : Window
     {
         private List<Branch> branches;
+        private int quantity = 0;
+        private string quantityStr;
         private Book _book;
-        private readonly Client _client = new Client();
         private readonly ServiceClient _serviceClient = new ServiceClient();
-
-        public DeleteBook(Book book)
+        public ChooseBranch(Book book)
         {
             InitializeComponent();
-            _book = book;
             branches = _serviceClient.ViewBranches();
             SelectBranchComboBox.ItemsSource = branches;
-        }
-        private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            _book = book;
         }
 
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -44,18 +40,16 @@ namespace LibraryApp.View
             SelectBranchComboBox.SelectedItem = lvi.DataContext;
         }
 
-        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+        private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DragMove();
-        }
-
-        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
-        {
+            quantityStr = BooksQuantityTxt.Text;
+            quantity += Int16.Parse(quantityStr);
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
-            var isSuccessful = _serviceClient.DeleteBookFromBranch(_book, selectedBranch.Name);
-            if (isSuccessful)
+            quantity += _serviceClient.GetNoCopiesFromBranch(selectedBranch, _book);
+            var isSuccessful = _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
+            if(isSuccessful)
             {
-                MessageBox.Show("Book deleted successfully from branch!");
+                MessageBox.Show("Book added successfully in branch!");
                 this.Close();
             }
             else

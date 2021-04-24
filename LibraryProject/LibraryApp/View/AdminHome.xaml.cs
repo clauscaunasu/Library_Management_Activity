@@ -26,7 +26,7 @@ namespace LibraryApp.View
     public partial class AdminHome : Window
     {
         private Client _client;
-        private ObservableCollection<Book> _books;
+        private List<Book> _books;
         private readonly ServiceClient _serviceClient = new ServiceClient();
 
         public AdminHome(Client client)
@@ -41,7 +41,21 @@ namespace LibraryApp.View
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
         {
             var addBookPage = new AddBook();
-            addBookPage.Show();
+            addBookPage.Closed += AddBook_Close;
+            addBookPage.ShowDialog();
+            BooksView.Items.Refresh();
+
+        }
+
+        private void AddBook_Close(object sender, EventArgs e)
+        {
+            if ((sender as Window)?.DialogResult == true)
+            {
+                _books = _serviceClient.BooksList();
+                BooksView.ItemsSource = null;
+                BooksView.ItemsSource = _books;
+                
+            }
         }
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)
@@ -51,7 +65,8 @@ namespace LibraryApp.View
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var myProfilePage = new MyProfilePage(_client);
+            myProfilePage.Show();
         }
 
         private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
@@ -63,7 +78,8 @@ namespace LibraryApp.View
 
         private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
-            var deleteBookPage = new DeleteBook();
+            var selectedBook = BooksView.SelectedItem as Book;
+            var deleteBookPage = new DeleteBook(selectedBook);
             deleteBookPage.Show();
 
         }
@@ -103,6 +119,13 @@ namespace LibraryApp.View
         {
             var viewBranchesPage = new ViewBranches();
             viewBranchesPage.Show();
+        }
+
+        private void ButtonAddInBranch_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedBook = BooksView.SelectedItem as Book;
+            var selectBranchPage = new ChooseBranch(selectedBook);
+            selectBranchPage.Show();
         }
     }
 }
