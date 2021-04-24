@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
 
-namespace LibraryApp.BusinessLogic
+namespace LibraryApp.BusinessLogic.SearchFilters
 {
-    class SearchBookByAuthor : ISearchStrategy<Book>
+    public class SearchBookByAuthor : ISearchStrategy<Book>
     {
-        private List<Book> _booksList;
-        public SearchBookByAuthor(List<Book> books)
+        private readonly ICollection<Book> _booksList;
+        public SearchBookByAuthor(ICollection<Book> books)
         {
             _booksList = books;
         }
@@ -22,4 +19,4 @@ namespace LibraryApp.BusinessLogic
     }
 
 }
-}
+

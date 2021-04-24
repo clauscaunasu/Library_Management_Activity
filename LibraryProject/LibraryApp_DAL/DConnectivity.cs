@@ -17,7 +17,7 @@ namespace LibraryApp_DAL
             return sqlConnect;
         }
 
-        public SqlCommand DbCommand([NotNull] String strProcedure)
+        public SqlCommand DbCommand([NotNull] string strProcedure)
         {
             if (strProcedure == null) throw new ArgumentNullException(nameof(strProcedure));
             var sqlCmd = new SqlCommand(strProcedure, DbConnection()) {CommandType = CommandType.Text};

@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
 
-namespace LibraryApp.BusinessLogic
+namespace LibraryApp.BusinessLogic.SearchFilters
 {
     public class SearchBookByGenre : ISearchStrategy<Book>
     {
-        private List<Book> _booksList;
-        public SearchBookByGenre(List<Book> books)
+        private readonly ICollection<Book> _booksList;
+        public SearchBookByGenre(ICollection<Book> books)
         {
             _booksList = books;
         }

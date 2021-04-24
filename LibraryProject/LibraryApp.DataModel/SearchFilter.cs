@@ -2,7 +2,7 @@
 {
     public class SearchFilter
     {
-        public string Name { get; set; }
+        public Filters Name { get; set; }
         public  string Term { get; set; }
     }
 }

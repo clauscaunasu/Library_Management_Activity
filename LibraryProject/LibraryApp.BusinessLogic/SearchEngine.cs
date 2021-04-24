@@ -4,24 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryApp.BusinessLogic.Abstractions;
+using LibraryApp.BusinessLogic.SearchFilters;
 using LibraryApp.DataModel;
 
 namespace LibraryApp.BusinessLogic
 {
-    public class SearchEngine<T>
+    public class SearchEngine
     {
-        private IDictionary<string, ISearchStrategy<T>> searchStrategies = new Dictionary<string, ISearchStrategy<T>>();
+        private readonly IDictionary<Filters, ISearchStrategy<Book>> searchStrategies = new Dictionary<Filters, ISearchStrategy<Book>>();
 
-        public SearchEngine(ICollection<Book> collection)
+        public SearchEngine(ICollection<Book> books)
         {
-            searchStrategies["title"] = new SearchBookByTitle(collection); 
-            searchStrategies["author"] = new SearchBookByAuthor(collection);
-            searchStrategies["genre"] = new SearchBookByGenre(collection);
-        }
-
-        public void RegisterStrategy(string strategyName, ISearchStrategy<T> searchStrategy)
-        {
-            searchStrategies[strategyName] = searchStrategy;
+            searchStrategies[Filters.Title] = new SearchBookByTitle(books); 
+            searchStrategies[Filters.Author] = new SearchBookByAuthor(books);
+            searchStrategies[Filters.Genre] = new SearchBookByGenre(books);
         }
         public IReadOnlyCollection<Book> Search(SearchFilter filter)
         {
@@ -32,9 +28,8 @@ namespace LibraryApp.BusinessLogic
             }
             else
             {
-                new List<Book>().AsReadOnly();
+                return new List<Book>().AsReadOnly();
             }
         }
     }
-
 }

@@ -13,8 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
-
+using LibraryApp.BusinessLogic;
 using LibraryApp.LibraryServiceReference;
 
 
@@ -27,13 +26,14 @@ namespace LibraryApp.View
     {
 
         private Client client;
-
+        private readonly SearchEngine searchEngine;
         public UserHome(Client client)
         {
             this.client = client;
             InitializeComponent();
             books = _serviceClient.BooksList();
             BooksView.ItemsSource = books;
+            searchEngine = new SearchEngine(books);
         }
 
         private List<Book> books;
@@ -57,7 +57,7 @@ namespace LibraryApp.View
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult messageBoxResult =
-                System.Windows.MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+                MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
 
             if (messageBoxResult == MessageBoxResult.Yes)
             {
@@ -81,6 +81,23 @@ namespace LibraryApp.View
         {
             var borrowBookPage = new BorrowBook();
             borrowBookPage.Show();
+        }
+
+        private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)
+        {
+            var filterButton = (Filters) ComboBoxFilter.SelectedIndex;
+            if (filterButton < 0)
+            {
+                MessageBox.Show("Please select a filter");
+            }
+            else
+            {
+
+                var filter = new SearchFilter {Name = filterButton, Term = SearchTextBox.Text};
+                var results = searchEngine.Search(filter);
+                BooksView.ItemsSource = results;
+                BooksView.Items.Refresh();
+            }
         }
     }
 }

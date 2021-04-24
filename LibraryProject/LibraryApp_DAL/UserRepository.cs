@@ -86,7 +86,7 @@ namespace LibraryApp_DAL
             dt.Load(reader);
             ClientList(dt);
             command.Connection.Close();
-            return _clients[0];
+            return _clients.Count == 0 ? null : _clients[0];
         }
 
         public List<Client> GetClients()
@@ -106,7 +106,7 @@ namespace LibraryApp_DAL
             {
                 var client = new Client()
                 {
-                    ID = Int32.Parse(dt.Rows[i]["ID"].ToString()),
+                    ID = int.Parse(dt.Rows[i]["ID"].ToString()),
                     FirstName = dt.Rows[i]["FirstName"].ToString(),
                     LastName = dt.Rows[i]["LastName"].ToString(),
                     Address = dt.Rows[i]["Address"].ToString(),

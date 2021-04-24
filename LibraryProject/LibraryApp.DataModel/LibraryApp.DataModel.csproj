@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="Branch.cs" />
+    <Compile Include="Filters.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="LibraryFile.cs" />
     <Compile Include="Client.cs" />

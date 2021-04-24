@@ -30,6 +30,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Editure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Genre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UniqueCode" nillable="true" type="xs:string" />

@@ -14,20 +14,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.BusinessLogic;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
 
 namespace LibraryApp.View
 {
-    /// <summary>
-    /// Interaction logic for AdminHome.xaml
-    /// </summary>
     public partial class AdminHome : Window
     {
         private Client _client;
         private List<Book> _books;
         private readonly ServiceClient _serviceClient = new ServiceClient();
+        private SearchEngine searchEngine;
+        private Filters filterButton;
 
         public AdminHome(Client client)
         {
@@ -35,6 +35,7 @@ namespace LibraryApp.View
             InitializeComponent();
             _books = _serviceClient.BooksList();
             BooksView.ItemsSource = _books;
+            searchEngine = new SearchEngine(_books);
         }
 
 
@@ -103,6 +104,36 @@ namespace LibraryApp.View
         {
             var viewBranchesPage = new ViewBranches();
             viewBranchesPage.Show();
+        }
+
+        private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)
+        {
+            var filterButton = (Filters)ComboBoxFilter.SelectedIndex;
+            if (filterButton < 0)
+            {
+                MessageBox.Show("Please select a filter");
+            }
+            else
+            {
+
+                var filter = new SearchFilter { Name = filterButton, Term = SearchTextBox.Text };
+                var results = searchEngine.Search(filter);
+                BooksView.ItemsSource = results;
+                BooksView.Items.Refresh();
+            }
+        }
+
+        private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult =
+                System.Windows.MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                var main = new MainWindow();
+                this.Close();
+                main.Show();
+            }
         }
     }
 }
