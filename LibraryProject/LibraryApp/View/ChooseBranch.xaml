@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="2" Margin="15" >
 
-            <ComboBox Name="SelectBranchComboBox" HorizontalAlignment="Center" Width="200" Background="White" IsEditable="True" IsReadOnly="True" Text="Select branch" >
+            <ComboBox Name="SelectBranchComboBox" HorizontalAlignment="Center" Width="200" Background="White" IsReadOnly="True" Text="Select branch" >
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

@@ -41,7 +41,21 @@ namespace LibraryApp.View
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
         {
             var addBookPage = new AddBook();
-            addBookPage.Show();
+            addBookPage.Closed += AddBook_Close;
+            addBookPage.ShowDialog();
+            BooksView.Items.Refresh();
+
+        }
+
+        private void AddBook_Close(object sender, EventArgs e)
+        {
+            if ((sender as Window)?.DialogResult == true)
+            {
+                _books = _serviceClient.BooksList();
+                BooksView.ItemsSource = null;
+                BooksView.ItemsSource = _books;
+                
+            }
         }
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)

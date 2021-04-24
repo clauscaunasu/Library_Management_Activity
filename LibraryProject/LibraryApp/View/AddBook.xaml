@@ -33,7 +33,7 @@
         <TextBox x:Name="TxtEditure" Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
         <Label Grid.Row="3" Content="Branch" Style="{StaticResource LabelStyle}"/>
         <!--<TextBox x:Name="TxtBranch" Grid.Row="3" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />-->
-            <ComboBox Grid.Row="3" Grid.Column="1" Name="SelectBranchComboBox" HorizontalAlignment="Center" Width="230" IsEditable="True" 
+            <ComboBox Grid.Row="3" Grid.Column="1" Name="SelectBranchComboBox" HorizontalAlignment="Center" Width="230"  
                       IsReadOnly="True" Text="Select branch">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>

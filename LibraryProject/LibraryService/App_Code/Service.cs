@@ -262,4 +262,10 @@ public partial class Service : IService
         return branchXBookRep.DeleteBookFromBranch(book, branchName);
     }
 
+    public int GetNoCopiesFromBranch(Branch branch, Book book)
+    {
+        var branchXBookRep = GetBranchXBookRepository();
+        return branchXBookRep.GetNoCopiesFromBranch(branch, book);
+    }
+
 }

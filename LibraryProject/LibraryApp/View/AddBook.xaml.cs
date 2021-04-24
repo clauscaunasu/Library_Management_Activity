@@ -55,6 +55,7 @@ namespace LibraryApp.View
             _book.UniqueCode = TxtIsbn.Text;
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
             var isSuccessful = _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
+            this.DialogResult = true;
             if(isSuccessful)
             {
                 MessageBox.Show("Book added successfully!");

@@ -11,5 +11,6 @@ namespace LibraryApp.BusinessLogic.Abstractions
     {
         bool AddBookInBranch(Book book, string branchName,int quantity);
         bool DeleteBookFromBranch(Book book, string branchName);
+        int GetNoCopiesFromBranch(Branch branch, Book book);
     }
 }

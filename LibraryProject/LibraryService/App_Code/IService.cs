@@ -72,6 +72,9 @@ public interface IService
     [OperationContract]
     bool DeleteBookFromBranch(Book book, string branchName);
 
+    [OperationContract]
+    int GetNoCopiesFromBranch(Branch branch, Book book);
+
 
     // TODO: Add your service operations here
 }

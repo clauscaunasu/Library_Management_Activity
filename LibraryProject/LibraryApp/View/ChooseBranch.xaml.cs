@@ -22,7 +22,7 @@ namespace LibraryApp.View
     public partial class ChooseBranch : Window
     {
         private List<Branch> branches;
-        private static int quantity = 0;
+        private int quantity = 0;
         private string quantityStr;
         private Book _book;
         private readonly ServiceClient _serviceClient = new ServiceClient();
@@ -45,6 +45,7 @@ namespace LibraryApp.View
             quantityStr = BooksQuantityTxt.Text;
             quantity += Int16.Parse(quantityStr);
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
+            quantity += _serviceClient.GetNoCopiesFromBranch(selectedBranch, _book);
             var isSuccessful = _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
             if(isSuccessful)
             {

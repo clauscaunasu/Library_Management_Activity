@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,6 +91,20 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
 
             return command.ExecuteNonQuery() == 1;
+        }
+
+        public int GetNoCopiesFromBranch(Branch branch, Book book)
+        {
+            var command = _connection.dbCommand("SELECT BookQuantity FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
+            command.Parameters.AddWithValue("@bookId", book.ID);
+            command.Parameters.AddWithValue("@branchId", branch.ID);
+            SqlDataReader dr = command.ExecuteReader();
+            dr.Read();
+            int copies = dr.GetInt32(0);
+            dr.Close();
+            command.Connection.Close();
+            return copies;
+
         }
     }
 }
