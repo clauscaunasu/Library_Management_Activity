@@ -19,8 +19,7 @@
             </Grid.RowDefinitions>
 
             <Label Content="Branch List" Style="{StaticResource SingleElementOnPageStyle}"/>
-            <ComboBox Grid.Row="0" Grid.Column="1" 
-                      x:Name="BranchList"
+            <ComboBox Name="SelectBranchComboBox" Grid.Row="0" Grid.Column="1" 
                       SelectedItem="0" 
                       VerticalAlignment="Center"
                       HorizontalAlignment="Stretch"
@@ -33,7 +32,7 @@
                       DataContext=""/>
 
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Borrow Book" Style="{StaticResource MainActionBtnStyle}"/>
+                <Button Content="Borrow Book" Style="{StaticResource MainActionBtnStyle}" x:Name="BorrowBtn" Click="BorrowBtn_Click"/>
                 <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />
             </StackPanel>
         </Grid>

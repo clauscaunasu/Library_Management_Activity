@@ -103,6 +103,24 @@
   <wsdl:message name="IService_GetNoCopiesFromBranch_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNoCopiesFromBranchResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_BorrowBookFromBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:BorrowBookFromBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_BorrowBookFromBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BorrowBookFromBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RenewBookFromBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:RenewBookFromBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_RenewBookFromBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RenewBookFromBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ReturnBookFromBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBookFromBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_ReturnBookFromBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBookFromBranchResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="MemberRegister">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/MemberRegister" message="tns:IService_MemberRegister_InputMessage" />
@@ -167,6 +185,18 @@
     <wsdl:operation name="GetNoCopiesFromBranch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetNoCopiesFromBranch" message="tns:IService_GetNoCopiesFromBranch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetNoCopiesFromBranchResponse" message="tns:IService_GetNoCopiesFromBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BorrowBookFromBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BorrowBookFromBranch" message="tns:IService_BorrowBookFromBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BorrowBookFromBranchResponse" message="tns:IService_BorrowBookFromBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RenewBookFromBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RenewBookFromBranch" message="tns:IService_RenewBookFromBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RenewBookFromBranchResponse" message="tns:IService_RenewBookFromBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBookFromBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ReturnBookFromBranch" message="tns:IService_ReturnBookFromBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ReturnBookFromBranchResponse" message="tns:IService_ReturnBookFromBranch_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -308,6 +338,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetNoCopiesFromBranch">
       <soap:operation soapAction="http://tempuri.org/IService/GetNoCopiesFromBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BorrowBookFromBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/BorrowBookFromBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenewBookFromBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/RenewBookFromBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBookFromBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/ReturnBookFromBranch" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -75,7 +75,14 @@ public interface IService
     [OperationContract]
     int GetNoCopiesFromBranch(Branch branch, Book book);
 
+    [OperationContract]
+    bool BorrowBookFromBranch(Book book, string branchName);
 
+    [OperationContract]
+    bool RenewBookFromBranch(Book book, string branchName, Client client);
+
+    [OperationContract]
+    bool ReturnBookFromBranch(Book book, string branchName);
     // TODO: Add your service operations here
 }
 

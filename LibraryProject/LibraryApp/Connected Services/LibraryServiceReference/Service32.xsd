@@ -223,4 +223,50 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="BorrowBookFromBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q20:Book" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BorrowBookFromBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BorrowBookFromBranchResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RenewBookFromBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q21:Book" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q22:Client" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RenewBookFromBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RenewBookFromBranchResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnBookFromBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q23:Book" />
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnBookFromBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReturnBookFromBranchResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

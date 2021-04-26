@@ -110,6 +110,24 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetNoCopiesFromBranch", ReplyAction="http://tempuri.org/IService/GetNoCopiesFromBranchResponse")]
         System.Threading.Tasks.Task<int> GetNoCopiesFromBranchAsync(LibraryApp.DataModel.Branch branch, LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BorrowBookFromBranch", ReplyAction="http://tempuri.org/IService/BorrowBookFromBranchResponse")]
+        bool BorrowBookFromBranch(LibraryApp.DataModel.Book book, string branchName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BorrowBookFromBranch", ReplyAction="http://tempuri.org/IService/BorrowBookFromBranchResponse")]
+        System.Threading.Tasks.Task<bool> BorrowBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RenewBookFromBranch", ReplyAction="http://tempuri.org/IService/RenewBookFromBranchResponse")]
+        bool RenewBookFromBranch(LibraryApp.DataModel.Book book, string branchName, LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RenewBookFromBranch", ReplyAction="http://tempuri.org/IService/RenewBookFromBranchResponse")]
+        System.Threading.Tasks.Task<bool> RenewBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName, LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnBookFromBranch", ReplyAction="http://tempuri.org/IService/ReturnBookFromBranchResponse")]
+        bool ReturnBookFromBranch(LibraryApp.DataModel.Book book, string branchName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnBookFromBranch", ReplyAction="http://tempuri.org/IService/ReturnBookFromBranchResponse")]
+        System.Threading.Tasks.Task<bool> ReturnBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -265,6 +283,30 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<int> GetNoCopiesFromBranchAsync(LibraryApp.DataModel.Branch branch, LibraryApp.DataModel.Book book) {
             return base.Channel.GetNoCopiesFromBranchAsync(branch, book);
+        }
+        
+        public bool BorrowBookFromBranch(LibraryApp.DataModel.Book book, string branchName) {
+            return base.Channel.BorrowBookFromBranch(book, branchName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> BorrowBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName) {
+            return base.Channel.BorrowBookFromBranchAsync(book, branchName);
+        }
+        
+        public bool RenewBookFromBranch(LibraryApp.DataModel.Book book, string branchName, LibraryApp.DataModel.Client client) {
+            return base.Channel.RenewBookFromBranch(book, branchName, client);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RenewBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName, LibraryApp.DataModel.Client client) {
+            return base.Channel.RenewBookFromBranchAsync(book, branchName, client);
+        }
+        
+        public bool ReturnBookFromBranch(LibraryApp.DataModel.Book book, string branchName) {
+            return base.Channel.ReturnBookFromBranch(book, branchName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ReturnBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName) {
+            return base.Channel.ReturnBookFromBranchAsync(book, branchName);
         }
     }
 }
