@@ -95,14 +95,21 @@ namespace LibraryApp_DAL
 
         public int GetNoCopiesFromBranch(Branch branch, Book book)
         {
+            int copies = 0;
             var command = _connection.dbCommand("SELECT BookQuantity FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
             command.Parameters.AddWithValue("@bookId", book.ID);
             command.Parameters.AddWithValue("@branchId", branch.ID);
-            SqlDataReader dr = command.ExecuteReader();
-            dr.Read();
-            int copies = dr.GetInt32(0);
-            dr.Close();
-            command.Connection.Close();
+            Object result = command.ExecuteScalar();
+            
+            if (result!=null)
+            {
+                SqlDataReader dr = command.ExecuteReader();
+                dr.Read();
+                copies = dr.GetInt32(0);
+                dr.Close();
+                command.Connection.Close();
+            }
+           
             return copies;
 
         }
