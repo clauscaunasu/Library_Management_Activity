@@ -77,9 +77,16 @@ namespace LibraryApp.View
             throw new NotImplementedException();
         }
 
+        private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListViewItem lvi = (ListViewItem)sender;
+            BooksView.SelectedItem = lvi.DataContext;
+        }
+
         private void ButtonBorrow_OnClick(object sender, RoutedEventArgs e)
         {
-            var borrowBookPage = new BorrowBook();
+            var selectedBook = BooksView.SelectedItem as Book;
+            var borrowBookPage = new BorrowBook(selectedBook);
             borrowBookPage.Show();
         }
 

@@ -268,4 +268,22 @@ public partial class Service : IService
         return branchXBookRep.GetNoCopiesFromBranch(branch, book);
     }
 
+    public bool BorrowBookFromBranch(Book book, string branchName)
+    {
+        var branchXBookRep = GetBranchXBookRepository();
+        return branchXBookRep.BorrowBookFromBranch(book, branchName);
+    }
+
+    public bool RenewBookFromBranch(Book book, string branchName, Client client)
+    {
+        var branchXBookRep = GetBranchXBookRepository();
+        return branchXBookRep.RenewBookFromBranch(book, branchName, client);
+    }
+
+    public bool ReturnBookFromBranch(Book book, string branchName)
+    {
+        var branchXBookRep = GetBranchXBookRepository();
+        return branchXBookRep.ReturnBookFromBranch(book, branchName);
+    }
+
 }

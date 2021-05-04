@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
@@ -21,11 +22,15 @@ namespace LibraryApp.View
     /// </summary>
     public partial class BorrowBook : Window
     {
+        private List<Branch> branches;
+        private Book _book;
         private ServiceClient _serviceClient = new ServiceClient();
-        public BorrowBook()
+        public BorrowBook(Book book)
         {
             InitializeComponent();
-           // LoadingData();
+            branches = _serviceClient.ViewBranches();
+            SelectBranchComboBox.ItemsSource = branches;
+            _book = book;
         }
 
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
@@ -33,18 +38,28 @@ namespace LibraryApp.View
             this.Close();
         }
 
-        /*private void LoadingData()
+        private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var branchesNames = _serviceClient.BranchListLoader();
-            foreach (var name in branchesNames)
+            ListViewItem lvi = (ListViewItem)sender;
+            SelectBranchComboBox.SelectedItem = lvi.DataContext;
+        }
+
+        private void BorrowBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
+
+            var isSuccessful = _serviceClient.BorrowBookFromBranch(_book, selectedBranch.Name);
+
+            if (isSuccessful)
             {
-                Console.WriteLine(name);
-                BranchList.Items.Add(name);
+                MessageBox.Show("Book borrowed successfully!");
+                this.Close();
             }
-        }*/
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
+            else
+            {
+                MessageBox.Show("Something went wrong, please try again");
+                this.Close();
+            }
         }
     }
 }
