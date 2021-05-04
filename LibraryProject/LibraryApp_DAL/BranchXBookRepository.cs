@@ -11,14 +11,14 @@ namespace LibraryApp_DAL
 {
     public class BranchXBookRepository : IBranchXBookRepository
     {
-        private readonly DConectivity _connection;
+        private readonly DConnectivity _connection;
         private List<Branch> _listOfBranches = new List<Branch>();
         private List<Book> _listOfBooks = new List<Book>();
         private readonly BranchRepository _branchRepository;
         private readonly BookRepository _bookRepository;
 
 
-        public BranchXBookRepository(DConectivity connection)
+        public BranchXBookRepository(DConnectivity connection)
         {
             this._connection = connection;
             _branchRepository = new BranchRepository(connection);
@@ -36,7 +36,7 @@ namespace LibraryApp_DAL
                 }
             }
 
-            var command = _connection.dbCommand("SELECT * FROM Book WHERE Title=@title AND UniqueCode=@isbn AND Author=@author AND Editure=@editure");
+            var command = _connection.DbCommand("SELECT * FROM Book WHERE Title=@title AND UniqueCode=@isbn AND Author=@author AND Editure=@editure");
             command.Parameters.AddWithValue("@title", book.Title);
             command.Parameters.AddWithValue("@isbn", book.UniqueCode);
             command.Parameters.AddWithValue("@author", book.Author);
@@ -48,14 +48,14 @@ namespace LibraryApp_DAL
                 _listOfBooks = _bookRepository.GetBooks();
                 book.ID = _listOfBooks[_listOfBooks.Count - 1].ID;
             }
-            var command2 = _connection.dbCommand("SELECT * FROM BranchXBook WHERE LibraryID=@branchId AND BookId=@bookId");
+            var command2 = _connection.DbCommand("SELECT * FROM BranchXBook WHERE LibraryID=@branchId AND BookId=@bookId");
             command2.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
             command2.Parameters.AddWithValue("@bookId", book.ID);
             Object result2 = command2.ExecuteScalar();
             if (result2==null)
             {
-                command = _connection.dbCommand("INSERT INTO BranchXBook(BookId, LibraryID, BookQuantity)" +
-                                          " VALUES (@bookId, @branchId, @quantity)");
+                command = _connection.DbCommand("INSERT INTO BranchXBook(BookId, LibraryID, BookQuantity)" +
+                                                " VALUES (@bookId, @branchId, @quantity)");
 
                 command.Parameters.AddWithValue("@bookId", book.ID);
                 command.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
@@ -63,7 +63,7 @@ namespace LibraryApp_DAL
             }
             else
             {
-                command = _connection.dbCommand("UPDATE BranchXBook SET BookQuantity=@quantity WHERE BookId=@bookId AND LibraryID=@branchId");
+                command = _connection.DbCommand("UPDATE BranchXBook SET BookQuantity=@quantity WHERE BookId=@bookId AND LibraryID=@branchId");
                 command.Parameters.AddWithValue("@bookId", book.ID);
                 command.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
                 command.Parameters.AddWithValue("@quantity", quantity);
@@ -85,7 +85,7 @@ namespace LibraryApp_DAL
                     _branchToAdd = currentBranch;
                 }
             }
-            var command = _connection.dbCommand("DELETE FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
+            var command = _connection.DbCommand("DELETE FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
 
             command.Parameters.AddWithValue("@bookId", book.ID);
             command.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
@@ -96,7 +96,7 @@ namespace LibraryApp_DAL
         public int GetNoCopiesFromBranch(Branch branch, Book book)
         {
             int copies = 0;
-            var command = _connection.dbCommand("SELECT BookQuantity FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
+            var command = _connection.DbCommand("SELECT BookQuantity FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
             command.Parameters.AddWithValue("@bookId", book.ID);
             command.Parameters.AddWithValue("@branchId", branch.ID);
             Object result = command.ExecuteScalar();
@@ -128,7 +128,7 @@ namespace LibraryApp_DAL
             }
             var currentQuantity = this.GetNoCopiesFromBranch(_branchToAdd, book);
 
-            var command = _connection.dbCommand("UPDATE BranchXBook SET BookQuantity=@quantity - 1 WHERE BookId=@bookId AND LibraryID=@branchId");
+            var command = _connection.DbCommand("UPDATE BranchXBook SET BookQuantity=@quantity - 1 WHERE BookId=@bookId AND LibraryID=@branchId");
             command.Parameters.AddWithValue("@bookId", book.ID);
             command.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
             command.Parameters.AddWithValue("@quantity", currentQuantity);
@@ -149,7 +149,7 @@ namespace LibraryApp_DAL
                 }
             }
 
-            var cmnd = _connection.dbCommand("SELECT ID FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
+            var cmnd = _connection.DbCommand("SELECT ID FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
             cmnd.Parameters.AddWithValue("@bookId", book.ID);
             cmnd.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
             SqlDataReader dr = cmnd.ExecuteReader();
@@ -158,7 +158,7 @@ namespace LibraryApp_DAL
             dr.Close();
             cmnd.Connection.Close();
 
-            var command = _connection.dbCommand("UPDATE LibraryFile SET ReturnDate=@timenow WHERE InventoryId=@inventoryid AND ClientId=@clientid");
+            var command = _connection.DbCommand("UPDATE LibraryFile SET ReturnDate=@timenow WHERE InventoryId=@inventoryid AND ClientId=@clientid");
             command.Parameters.AddWithValue("@inventoryid", idInventory);
             command.Parameters.AddWithValue("@clientid", client.ID);
             command.Parameters.AddWithValue("@timenow", DateTime.Now.Day + 7);
@@ -181,7 +181,7 @@ namespace LibraryApp_DAL
             }
 
             var currentQuantity = this.GetNoCopiesFromBranch(_branchToAdd, book);
-            var command = _connection.dbCommand("UPDATE BranchXBook SET BookQuantity=@quantity + 1 WHERE BookId=@bookId AND LibraryID=@branchId");
+            var command = _connection.DbCommand("UPDATE BranchXBook SET BookQuantity=@quantity + 1 WHERE BookId=@bookId AND LibraryID=@branchId");
             command.Parameters.AddWithValue("@bookId", book.ID);
             command.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
             command.Parameters.AddWithValue("@quantity", currentQuantity);

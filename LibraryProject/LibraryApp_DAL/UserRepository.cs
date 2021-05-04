@@ -102,22 +102,22 @@ namespace LibraryApp_DAL
 
         public Client GetClient(Client client)
         {
-            var command = _connection.dbCommand("SELECT * FROM Client WHERE ID=@id");
+            var command = _connection.DbCommand("SELECT * FROM Client WHERE ID=@id");
             command.Parameters.AddWithValue("@id", client.ID);
             var reader = command.ExecuteReader();
             var dt = new DataTable();
             dt.Load(reader);
-            _client.ID = Int32.Parse(dt.Rows[0]["ID"].ToString());
-            _client.FirstName = dt.Rows[0]["FirstName"].ToString();
-            _client.LastName = dt.Rows[0]["LastName"].ToString();
-            _client.Address = dt.Rows[0]["Address"].ToString();
-            _client.Telephone = dt.Rows[0]["Telephone"].ToString();
-            _client.Duty = dt.Rows[0]["Duty"].ToString();
-            _client.Username = dt.Rows[0]["Username"].ToString();
-            _client.Password = dt.Rows[0]["Password"].ToString();
-            _client.Desired = Parse(dt.Rows[0]["Desired"].ToString());
+            client.ID = Int32.Parse(dt.Rows[0]["ID"].ToString());
+            client.FirstName = dt.Rows[0]["FirstName"].ToString();
+            client.LastName = dt.Rows[0]["LastName"].ToString();
+            client.Address = dt.Rows[0]["Address"].ToString();
+            client.Telephone = dt.Rows[0]["Telephone"].ToString();
+            client.Duty = dt.Rows[0]["Duty"].ToString();
+            client.Username = dt.Rows[0]["Username"].ToString();
+            client.Password = dt.Rows[0]["Password"].ToString();
+            client.Desired = Parse(dt.Rows[0]["Desired"].ToString());
 
-            return _client;
+            return client;
         }
 
         private void ClientList(DataTable dt)

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BookRepository.cs" />
     <Compile Include="BranchRepository.cs" />
+    <Compile Include="BranchXBookRepository.cs" />
     <Compile Include="DConnectivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRepository.cs" />

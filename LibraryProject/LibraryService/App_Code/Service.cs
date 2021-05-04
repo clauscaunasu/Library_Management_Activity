@@ -28,7 +28,7 @@ public partial class Service : IService
 
     private IBranchXBookRepository GetBranchXBookRepository()
     {
-        return new BranchXBookRepository(new DConectivity());
+        return new BranchXBookRepository(new DConnectivity());
     }
 
     /*

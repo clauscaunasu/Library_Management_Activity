@@ -28,7 +28,6 @@
                       BorderBrush="#004a7c"
                       BorderThickness="1" 
                       Margin="10" 
-                      SelectionChanged="ComboBox_SelectionChanged"
                       DataContext=""/>
 
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">

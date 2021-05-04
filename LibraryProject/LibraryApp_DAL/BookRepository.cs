@@ -14,7 +14,7 @@ namespace LibraryApp_DAL
     public class BookRepository : IBookRepository
     {
         private readonly DConnectivity _connection;
-        private readonly List<Book> _listOfBooks = new List<Book>();
+        private List<Book> _listOfBooks = new List<Book>();
 
         public BookRepository(DConnectivity connection)
         {
@@ -30,8 +30,10 @@ namespace LibraryApp_DAL
 
         //    var command = _connection.dbCommand ("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
         //                              " VALUES (@title, @uniqueCode, @authors, @editure)");
+            /*
             var command = _connection.DbCommand ("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
                                       " VALUES (@title, @uniqueCode, @authors, @editure)");
+                                      */
 
         //    command.Parameters.AddWithValue("@title", book.Title);
         //    command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode); 
@@ -136,7 +138,7 @@ namespace LibraryApp_DAL
         public bool AddBook(Book book)
         {
             _listOfBooks = GetBooks();
-            var command = _connection.dbCommand("SELECT * FROM Book WHERE Title=@title AND UniqueCode=@uniqueCode AND Author=@authors AND Editure=@editure");
+            var command = _connection.DbCommand("SELECT * FROM Book WHERE Title=@title AND UniqueCode=@uniqueCode AND Author=@authors AND Editure=@editure");
             command.Parameters.AddWithValue("@title", book.Title);
             command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode);
             command.Parameters.AddWithValue("@authors", book.Author);
@@ -145,8 +147,8 @@ namespace LibraryApp_DAL
             if (result == null)
             {
 
-                command = _connection.dbCommand("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
-                                      " VALUES (@title, @uniqueCode, @authors, @editure)");
+                command = _connection.DbCommand("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
+                                                " VALUES (@title, @uniqueCode, @authors, @editure)");
 
                 command.Parameters.AddWithValue("@title", book.Title);
                 command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode);

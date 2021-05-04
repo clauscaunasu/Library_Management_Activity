@@ -55,7 +55,7 @@ namespace LibraryApp.View
                 _books = _serviceClient.BooksList();
                 BooksView.ItemsSource = null;
                 BooksView.ItemsSource = _books;
-                
+
             }
         }
 
@@ -112,7 +112,7 @@ namespace LibraryApp.View
 
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var lvi = (ListViewItem)sender;
+            var lvi = (ListViewItem) sender;
             BooksView.SelectedItem = lvi.DataContext;
         }
 
@@ -127,34 +127,37 @@ namespace LibraryApp.View
             var selectedBook = BooksView.SelectedItem as Book;
             var selectBranchPage = new ChooseBranch(selectedBook);
             selectBranchPage.Show();
-        private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)
-        {
-            var filterButton = (Filters)ComboBoxFilter.SelectedIndex;
-            if (filterButton < 0)
-            {
-                MessageBox.Show("Please select a filter");
-            }
-            else
-            {
-
-                var filter = new SearchFilter { Name = filterButton, Term = SearchTextBox.Text };
-                var results = searchEngine.Search(filter);
-                BooksView.ItemsSource = results;
-                BooksView.Items.Refresh();
-            }
         }
 
-        private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult messageBoxResult =
-                System.Windows.MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
-
-            if (messageBoxResult == MessageBoxResult.Yes)
+        private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)
             {
-                var main = new MainWindow();
-                this.Close();
-                main.Show();
+                var filterButton = (Filters) ComboBoxFilter.SelectedIndex;
+                if (filterButton < 0)
+                {
+                    MessageBox.Show("Please select a filter");
+                }
+                else
+                {
+
+                    var filter = new SearchFilter {Name = filterButton, Term = SearchTextBox.Text};
+                    var results = searchEngine.Search(filter);
+                    BooksView.ItemsSource = results;
+                    BooksView.Items.Refresh();
+                }
+            }
+
+            private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
+            {
+                MessageBoxResult messageBoxResult =
+                    System.Windows.MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    var main = new MainWindow();
+                    this.Close();
+                    main.Show();
+                }
             }
         }
     }
-}
+
