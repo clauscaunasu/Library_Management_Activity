@@ -83,6 +83,9 @@ public interface IService
 
     [OperationContract]
     bool ReturnBookFromBranch(Book book, string branchName);
+
+    [OperationContract]
+    List<Book> GetBooksFromBranch(string branchName);
     // TODO: Add your service operations here
 }
 

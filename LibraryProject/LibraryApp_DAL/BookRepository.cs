@@ -147,13 +147,14 @@ namespace LibraryApp_DAL
             if (result == null)
             {
 
-                command = _connection.DbCommand("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
-                                                " VALUES (@title, @uniqueCode, @authors, @editure)");
+                command = _connection.DbCommand("INSERT INTO Book(Title, UniqueCode, Author, Editure, Genre)" +
+                                                " VALUES (@title, @uniqueCode, @authors, @editure, @genre)");
 
                 command.Parameters.AddWithValue("@title", book.Title);
                 command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode);
                 command.Parameters.AddWithValue("@authors", book.Author);
                 command.Parameters.AddWithValue("@editure", book.Editure);
+                command.Parameters.AddWithValue("@genre", book.Genre);
             }
             else
             {

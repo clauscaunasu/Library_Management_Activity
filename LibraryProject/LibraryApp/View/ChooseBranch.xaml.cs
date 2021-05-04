@@ -21,10 +21,10 @@ namespace LibraryApp.View
     /// </summary>
     public partial class ChooseBranch : Window
     {
-        private List<Branch> branches;
+        private readonly List<Branch> branches;
         private int quantity = 0;
         private string quantityStr;
-        private Book _book;
+        private readonly Book _book;
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public ChooseBranch(Book book)
         {

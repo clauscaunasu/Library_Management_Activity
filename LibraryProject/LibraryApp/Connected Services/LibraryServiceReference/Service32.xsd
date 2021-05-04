@@ -269,4 +269,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetBooksFromBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBooksFromBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="GetBooksFromBranchResult" nillable="true" type="q24:ArrayOfBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

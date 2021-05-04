@@ -121,6 +121,12 @@
   <wsdl:message name="IService_ReturnBookFromBranch_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnBookFromBranchResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetBooksFromBranch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBooksFromBranch" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBooksFromBranch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBooksFromBranchResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="MemberRegister">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/MemberRegister" message="tns:IService_MemberRegister_InputMessage" />
@@ -197,6 +203,10 @@
     <wsdl:operation name="ReturnBookFromBranch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ReturnBookFromBranch" message="tns:IService_ReturnBookFromBranch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ReturnBookFromBranchResponse" message="tns:IService_ReturnBookFromBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBooksFromBranch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBooksFromBranch" message="tns:IService_GetBooksFromBranch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBooksFromBranchResponse" message="tns:IService_GetBooksFromBranch_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -365,6 +375,15 @@
     </wsdl:operation>
     <wsdl:operation name="ReturnBookFromBranch">
       <soap:operation soapAction="http://tempuri.org/IService/ReturnBookFromBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooksFromBranch">
+      <soap:operation soapAction="http://tempuri.org/IService/GetBooksFromBranch" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

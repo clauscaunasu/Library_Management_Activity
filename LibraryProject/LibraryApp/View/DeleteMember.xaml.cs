@@ -37,19 +37,27 @@ namespace LibraryApp.View
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
-            bool isDeleted = _serviceClient.DeleteMember(_client);
-            if (isDeleted)
-            {
-                MessageBox.Show("Member deleted successfully!");
-                var viewMembers = new ViewUsers();
-                this.Close();
-                viewMembers.Show();
-            }
+            var isDeleted = _serviceClient.DeleteMember(_client);
+            if (!isDeleted) return;
+            MessageBox.Show("Member deleted successfully!");
+            var viewMembers = new ViewUsers(_client);
+            this.Close();
+            viewMembers.Show();
         }
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

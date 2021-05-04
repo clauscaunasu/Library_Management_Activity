@@ -21,7 +21,7 @@ namespace LibraryApp.View
     /// </summary>
     public partial class MyProfilePage : Window
     {
-        private Client _client;
+        private readonly Client _client;
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public MyProfilePage(Client client)
         {
@@ -43,7 +43,7 @@ namespace LibraryApp.View
 
         private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            var viewUsers = new ViewUsers();
+            var viewUsers = new ViewUsers(_client);
             viewUsers.Show();
 
         }
@@ -60,6 +60,24 @@ namespace LibraryApp.View
         {
             var viewBranchesPage = new ViewBranches();
             viewBranchesPage.Show();
+        }
+
+        private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var messageBoxResult =
+                MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+
+            if (messageBoxResult != MessageBoxResult.Yes) return;
+            var main = new MainWindow();
+            this.Close();
+            main.Show();
+        }
+
+        private void ViewBooksBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var adminHome = new AdminHome(_client);
+            adminHome.Show();
+            this.Close();
         }
     }
 }

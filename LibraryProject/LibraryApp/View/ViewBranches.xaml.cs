@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +20,11 @@ namespace LibraryApp.View
     /// </summary>
     public partial class ViewBranches : Window
     {
-        private List<Branch> branches;
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public ViewBranches()
         {
             InitializeComponent();
-            branches = _serviceClient.ViewBranches();
+            var branches = _serviceClient.ViewBranches();
             BranchesView.ItemsSource = branches;
         }
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
@@ -65,7 +63,7 @@ namespace LibraryApp.View
         }
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ListViewItem lvi = (ListViewItem)sender;
+            var lvi = (ListViewItem)sender;
             BranchesView.SelectedItem = lvi.DataContext;
         }
 
@@ -74,6 +72,17 @@ namespace LibraryApp.View
             var selectedBranch = BranchesView.SelectedItem as Branch;
             var deleteBranchPage = new DeleteBranch(selectedBranch);
             deleteBranchPage.Show();
+        }
+
+        private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var messageBoxResult =
+                MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+
+            if (messageBoxResult != MessageBoxResult.Yes) return;
+            var main = new MainWindow();
+            this.Close();
+            main.Show();
         }
     }
 }

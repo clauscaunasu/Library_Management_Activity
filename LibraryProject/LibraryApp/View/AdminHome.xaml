@@ -22,7 +22,9 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="All Booked Up" Style="{StaticResource TitleStyle}"/>
+            <StackPanel>
+                <TextBlock Text="All Booked Up" Style="{StaticResource TitleStyle}"/>
+            </StackPanel>
             <StackPanel Grid.Row="1">
                 <Button x:Name="ProfileBtn" Content="My Profile" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
@@ -59,7 +61,23 @@
                 <ComboBoxItem>Title</ComboBoxItem>
                 <ComboBoxItem>Author</ComboBoxItem>
                 <ComboBoxItem>Genre</ComboBoxItem>
-                <ComboBoxItem>Branch</ComboBoxItem>
+                <ComboBoxItem><!--<Button x:Name="ButtonBranch" 
+                                      Click="ButtonBranch_OnClick"
+                                      Content="Branch" 
+                                      Background="White"
+                                      Foreground="Black"
+                                      HorizontalAlignment="Left"
+                                      Height="25"></Button>-->
+                    <ComboBox x:Name="BranchComboBox" Text="Branch"  >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <controls:SelectBranchControl Branch="{Binding}"  />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </ComboBoxItem>
             </ComboBox>
         </Grid>
         <Grid Grid.Column="2" Background="#e8f1f5">

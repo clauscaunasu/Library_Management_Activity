@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using LibraryApp.BusinessLogic.SearchFilters;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
@@ -10,15 +11,18 @@ namespace LibraryApp.View
     public partial class ViewUsers : Window
     {
         private readonly ServiceClient _serviceClient = new ServiceClient();
-        private List<Client> clients;
+        private readonly List<Client> clients;
+        private readonly SearchBranchByName searchBranch;
+        private readonly Client _client;
 
-        public ViewUsers()
+        public ViewUsers(Client client)
         {
             InitializeComponent();
-
             clients = _serviceClient.ClientList();
-
             UserView.ItemsSource = clients;
+            searchBranch = new SearchBranchByName(clients);
+            _client = client;
+
 
         }
 
@@ -60,10 +64,54 @@ namespace LibraryApp.View
             var selectedMember = UserView.SelectedItem as Client;
             var messageBoxResult =
                 MessageBox.Show("Are you sure", "Delete confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (messageBoxResult == MessageBoxResult.Yes)
-            {
-                var isDeleted = _serviceClient.DeleteMember(selectedMember);
-            }
+            if (messageBoxResult != MessageBoxResult.Yes) return;
+            var isDeleted = _serviceClient.DeleteMember(selectedMember);
+            clients.Remove(selectedMember);
+            UserView.Items.Refresh();
+        }
+
+        private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var myProfile = new MyProfilePage(_client);
+            this.Close();
+            myProfile.Show();
+        }
+        
+        private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void ViewBranchesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var messageBoxResult =
+                MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+
+            if (messageBoxResult != MessageBoxResult.Yes) return;
+            var main = new MainWindow();
+            this.Close();
+            main.Show();
+        }
+
+        private void ViewBookBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var homeAdmin = new AdminHome(_client);
+            this.Close();
+            homeAdmin.Show();
+        }
+
+ 
+
+        private void SearchBtn(object sender, RoutedEventArgs e)
+        {
+            var results = searchBranch.Search(TextBoxSearch.Text.ToLowerInvariant());
+            UserView.ItemsSource = results;
+            UserView.Items.Refresh();
         }
     }
 }

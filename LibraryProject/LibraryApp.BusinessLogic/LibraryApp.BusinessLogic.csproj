@@ -53,6 +53,7 @@
     <Compile Include="SearchFilters\SearchBookByGenre.cs" />
     <Compile Include="SearchFilters\SearchBookByTitle.cs" />
     <Compile Include="SearchEngine.cs" />
+    <Compile Include="SearchFilters\SearchBranchByName.cs" />
     <Compile Include="ValidatorExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

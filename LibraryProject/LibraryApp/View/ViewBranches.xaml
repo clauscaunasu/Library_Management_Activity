@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
+        xmlns:controls="clr-namespace:LibraryApp.Controls"
         mc:Ignorable="d"
        d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
         ResizeMode="NoResize">
@@ -43,7 +44,7 @@
                         Click="AddBookBtn_Click"/>
                 <Button x:Name="LogoutBtn" Content="Logout" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
-                        Click="AddBookBtn_Click"/>
+                        Click="LogoutBtn_OnClick"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Column="2" Background="#e8f1f5">
@@ -72,7 +73,7 @@
                             <DataTemplate>
                                 <Expander Background="#e8f1f5" Width="700">
                                     <Expander.Header>
-                                        <local:BranchControl Branch="{Binding}"/>
+                                        <controls:BranchControl Branch="{Binding}"/>
                                     </Expander.Header>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
                                         <Button Content="Update" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonUpdate_Click"/>

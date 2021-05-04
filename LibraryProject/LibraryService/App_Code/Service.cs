@@ -256,6 +256,12 @@ public partial class Service : IService
         return branchXBookRep.AddBookInBranch(book, branchName, quantity);
     }
 
+    public List<Book> GetBooksFromBranch(string branchName)
+    {
+        var branchXBookRepo = GetBranchXBookRepository();
+        return branchXBookRepo.GetBooksFromBranch(branchName);
+    }
+
     public bool DeleteBookFromBranch(Book book, string branchName)
     {
         var branchXBookRep = GetBranchXBookRepository();

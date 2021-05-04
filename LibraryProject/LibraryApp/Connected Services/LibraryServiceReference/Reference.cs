@@ -128,6 +128,12 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnBookFromBranch", ReplyAction="http://tempuri.org/IService/ReturnBookFromBranchResponse")]
         System.Threading.Tasks.Task<bool> ReturnBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBooksFromBranch", ReplyAction="http://tempuri.org/IService/GetBooksFromBranchResponse")]
+        System.Collections.Generic.List<LibraryApp.DataModel.Book> GetBooksFromBranch(string branchName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBooksFromBranch", ReplyAction="http://tempuri.org/IService/GetBooksFromBranchResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> GetBooksFromBranchAsync(string branchName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -307,6 +313,14 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<bool> ReturnBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName) {
             return base.Channel.ReturnBookFromBranchAsync(book, branchName);
+        }
+        
+        public System.Collections.Generic.List<LibraryApp.DataModel.Book> GetBooksFromBranch(string branchName) {
+            return base.Channel.GetBooksFromBranch(branchName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> GetBooksFromBranchAsync(string branchName) {
+            return base.Channel.GetBooksFromBranchAsync(branchName);
         }
     }
 }

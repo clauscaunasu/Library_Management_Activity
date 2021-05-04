@@ -9,23 +9,16 @@
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid Background="#004a7c" MouseDown="UIElement_OnMouseDown">
         <Grid Margin="10" Background="#e8f1f5" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.6*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
 
-            <Label Content="Member ID:" Style="{StaticResource SingleElementOnPageStyle}"/>
-            <TextBox Grid.Row="0" Grid.Column="1" 
-                  Style="{StaticResource TextBoxStyle}"
-                  Width="250"/>
+            <Label Content="Are you sure you want to delete?" Style="{StaticResource SingleElementOnPageStyle}"/>
 
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Delete" Style="{StaticResource MainActionBtnStyle}"  Click="Delete_Button_Click"/>
-                <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_Click" />
+                <Button Content="Delete" Style="{StaticResource MainActionBtnStyle}"  Click="ButtonDelete_Click" />
+                <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />
             </StackPanel>
         </Grid>
 

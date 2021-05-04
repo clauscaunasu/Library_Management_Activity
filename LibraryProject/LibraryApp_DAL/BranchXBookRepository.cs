@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
 
@@ -24,9 +21,37 @@ namespace LibraryApp_DAL
             _branchRepository = new BranchRepository(connection);
             _bookRepository = new BookRepository(connection);
         }
+
+        public List<Book> GetBooksFromBranch(string branchName)
+        {
+            var bookList = new List<Book>();
+            var command = _connection.DbCommand("SELECT * FROM Book INNER JOIN BranchXBook ON BranchXBook.BookID = Book.ID INNER JOIN Branch ON BranchXBook.LibraryID = Branch.ID WHERE Branch.Name = @BranchName");
+            command.Parameters.AddWithValue("@BranchName", branchName);
+            var reader = command.ExecuteReader();
+            var dt = new DataTable();
+            dt.Load(reader);
+            for (var i = 0; i < dt.Rows.Count; i++)
+            {
+                var book = new Book()
+                {
+                    ID = int.Parse(dt.Rows[i]["ID"].ToString()),
+                    UniqueCode = dt.Rows[i]["UniqueCode"].ToString(),
+                    Title = dt.Rows[i]["Title"].ToString(),
+                    Author = dt.Rows[i]["Author"].ToString(),
+                    Editure = dt.Rows[i]["Editure"].ToString(),
+                    Genre = dt.Rows[i]["Genre"].ToString(),
+
+                };
+
+                bookList.Add(book);
+            }
+
+            return bookList;
+        }
+        
         public bool AddBookInBranch(Book book, string branchName, int quantity)
         {
-            Branch _branchToAdd = new Branch();
+            var _branchToAdd = new Branch();
             _listOfBranches = _branchRepository.GetBranches();
             foreach(var currentBranch in _listOfBranches)
             {
@@ -41,7 +66,7 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@isbn", book.UniqueCode);
             command.Parameters.AddWithValue("@author", book.Author);
             command.Parameters.AddWithValue("@editure", book.Editure);
-            Object result = command.ExecuteScalar();
+            var result = command.ExecuteScalar();
             if(result==null)
             {
                 _bookRepository.AddBook(book);
@@ -51,7 +76,7 @@ namespace LibraryApp_DAL
             var command2 = _connection.DbCommand("SELECT * FROM BranchXBook WHERE LibraryID=@branchId AND BookId=@bookId");
             command2.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
             command2.Parameters.AddWithValue("@bookId", book.ID);
-            Object result2 = command2.ExecuteScalar();
+            var result2 = command2.ExecuteScalar();
             if (result2==null)
             {
                 command = _connection.DbCommand("INSERT INTO BranchXBook(BookId, LibraryID, BookQuantity)" +
@@ -76,7 +101,7 @@ namespace LibraryApp_DAL
 
         public bool DeleteBookFromBranch(Book book, string branchName)
         {
-            Branch _branchToAdd = new Branch();
+            var _branchToAdd = new Branch();
             _listOfBranches = _branchRepository.GetBranches();
             foreach (var currentBranch in _listOfBranches)
             {
@@ -95,15 +120,15 @@ namespace LibraryApp_DAL
 
         public int GetNoCopiesFromBranch(Branch branch, Book book)
         {
-            int copies = 0;
+            var copies = 0;
             var command = _connection.DbCommand("SELECT BookQuantity FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
             command.Parameters.AddWithValue("@bookId", book.ID);
             command.Parameters.AddWithValue("@branchId", branch.ID);
-            Object result = command.ExecuteScalar();
+            var result = command.ExecuteScalar();
             
             if (result!=null)
             {
-                SqlDataReader dr = command.ExecuteReader();
+                var dr = command.ExecuteReader();
                 dr.Read();
                 copies = dr.GetInt32(0);
                 dr.Close();
@@ -116,7 +141,7 @@ namespace LibraryApp_DAL
 
         public bool BorrowBookFromBranch(Book book, string branchName)
         {
-            Branch _branchToAdd = new Branch();
+            var _branchToAdd = new Branch();
             _listOfBranches = _branchRepository.GetBranches();
 
             foreach (var currentBranch in _listOfBranches)
@@ -138,23 +163,23 @@ namespace LibraryApp_DAL
 
         public bool RenewBookFromBranch(Book book, string branchName, Client client)
         {
-            Branch _branchToAdd = new Branch();
+            var branchToAdd = new Branch();
             _listOfBranches = _branchRepository.GetBranches();
 
             foreach (var currentBranch in _listOfBranches)
             {
                 if (branchName == currentBranch.Name)
                 {
-                    _branchToAdd = currentBranch;
+                    branchToAdd = currentBranch;
                 }
             }
 
             var cmnd = _connection.DbCommand("SELECT ID FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
             cmnd.Parameters.AddWithValue("@bookId", book.ID);
-            cmnd.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
-            SqlDataReader dr = cmnd.ExecuteReader();
+            cmnd.Parameters.AddWithValue("@branchId", branchToAdd.ID);
+            var dr = cmnd.ExecuteReader();
             dr.Read();
-            int idInventory = dr.GetInt32(0);
+            var idInventory = dr.GetInt32(0);
             dr.Close();
             cmnd.Connection.Close();
 
@@ -169,7 +194,7 @@ namespace LibraryApp_DAL
 
         public bool ReturnBookFromBranch(Book book, string branchName)
         {
-            Branch _branchToAdd = new Branch();
+            var _branchToAdd = new Branch();
             _listOfBranches = _branchRepository.GetBranches();
 
             foreach (var currentBranch in _listOfBranches)
