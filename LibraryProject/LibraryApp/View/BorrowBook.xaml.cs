@@ -28,7 +28,7 @@ namespace LibraryApp.View
         public BorrowBook(Book book)
         {
             InitializeComponent();
-            branches = _serviceClient.ViewBranches();
+            branches = _serviceClient.BranchesForBook(book);
             SelectBranchComboBox.ItemsSource = branches;
             _book = book;
         }

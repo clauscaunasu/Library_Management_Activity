@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LibraryApp.BusinessLogic;
+using LibraryApp.Controls;
 using LibraryApp.LibraryServiceReference;
 
 
@@ -27,6 +28,8 @@ namespace LibraryApp.View
 
         private Client client;
         private readonly SearchEngine searchEngine;
+        private List<Book> books = new List<Book>();
+        private readonly ServiceClient _serviceClient = new ServiceClient();
         public UserHome(Client client)
         {
             this.client = client;
@@ -34,10 +37,10 @@ namespace LibraryApp.View
             books = _serviceClient.BooksList();
             BooksView.ItemsSource = books;
             searchEngine = new SearchEngine(books);
+            
         }
 
-        private List<Book> books;
-        private readonly ServiceClient _serviceClient = new ServiceClient();
+ 
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {

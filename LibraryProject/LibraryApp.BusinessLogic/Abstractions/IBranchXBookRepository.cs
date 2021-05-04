@@ -16,5 +16,7 @@ namespace LibraryApp.BusinessLogic.Abstractions
         bool RenewBookFromBranch(Book book, string branchName, Client client);
         bool ReturnBookFromBranch(Book book, string branchName);
         List<Book> GetBooksFromBranch(string branchName);
+        List<Branch> BranchesForBook(Book book);
+        int GetQuantityOfBook(Book book);
     }
 }

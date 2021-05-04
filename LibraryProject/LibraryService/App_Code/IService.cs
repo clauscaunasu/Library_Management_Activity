@@ -86,6 +86,13 @@ public interface IService
 
     [OperationContract]
     List<Book> GetBooksFromBranch(string branchName);
+
+    [OperationContract]
+    List<Branch> BranchesForBook(Book book);
+
+    [OperationContract]
+    int GetQuantityOfBook(Book book);
+
     // TODO: Add your service operations here
 }
 

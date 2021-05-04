@@ -68,11 +68,16 @@
                                       Foreground="Black"
                                       HorizontalAlignment="Left"
                                       Height="25"></Button>-->
-                    <ComboBox x:Name="BranchComboBox" Text="Branch"  >
+                    <ComboBox x:Name="BranchComboBox">
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem2_MouseLeftButtonDown"/>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <controls:SelectBranchControl Branch="{Binding}"  />
+                                    <controls:SelectBranchControl Branch="{Binding}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>

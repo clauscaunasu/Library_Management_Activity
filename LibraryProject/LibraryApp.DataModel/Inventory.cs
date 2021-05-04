@@ -1,6 +1,6 @@
 ﻿namespace LibraryApp.DataModel
 {
-    class Inventory
+    public class Inventory
     {
         public int ID { get; set; }
         public int LibraryID { get; set; }

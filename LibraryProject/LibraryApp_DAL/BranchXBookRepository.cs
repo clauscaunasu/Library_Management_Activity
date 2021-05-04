@@ -161,6 +161,47 @@ namespace LibraryApp_DAL
             return command.ExecuteNonQuery() == 1;
         }
 
+        public List<Branch> BranchesForBook(Book book)
+        {
+            List<Branch> _branchesForBook = new List<Branch>();
+            var command = _connection.DbCommand(
+                "SELECT * FROM Branch INNER JOIN BranchXBook ON BranchXBook.LibraryID=Branch.ID INNER JOIN " +
+                "Book ON BranchXBook.BookId=Book.ID WHERE Book.Title=@title");
+            command.Parameters.AddWithValue("@title", book.Title);
+            var reader = command.ExecuteReader();
+            var dt = new DataTable();
+            dt.Load(reader);
+            for (var i = 0; i < dt.Rows.Count; i++)
+            {
+                var branch = new Branch()
+                {
+                    ID = int.Parse(dt.Rows[i]["ID"].ToString()),
+                    Name = dt.Rows[i]["Name"].ToString(),
+                    Address = dt.Rows[i]["Address"].ToString(),
+
+                };
+
+                _branchesForBook.Add(branch);
+            }
+
+            return _branchesForBook;
+
+        }
+
+        public int GetQuantityOfBook(Book book)
+        {
+            var command = _connection.DbCommand(
+                "SELECT SUM(BookQuantity) FROM BranchXBook INNER JOIN Branch ON BranchXBook.LibraryID=Branch.ID INNER JOIN " +
+                "Book ON BranchXBook.BookId=Book.ID WHERE Book.Title=@title");
+            command.Parameters.AddWithValue("@title", book.Title);
+            var reader = command.ExecuteReader();
+            reader.Read();
+            int quantity = reader.GetInt16(0);
+            command.Connection.Close();
+            return quantity;
+
+        }
+
         public bool RenewBookFromBranch(Book book, string branchName, Client client)
         {
             var branchToAdd = new Branch();

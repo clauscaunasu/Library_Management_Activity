@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
+        xmlns:controls="clr-namespace:LibraryApp.Controls"
         mc:Ignorable="d"
         Title="Delete book" Height="200" Width="450"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
@@ -19,17 +20,15 @@
             </Grid.RowDefinitions>
 
             <Label Content="Branch List" Style="{StaticResource SingleElementOnPageStyle}"/>
-            <ComboBox Name="SelectBranchComboBox" Grid.Row="0" Grid.Column="1" 
-                      SelectedItem="0" 
-                      VerticalAlignment="Center"
-                      HorizontalAlignment="Stretch"
-                      VerticalContentAlignment="Center"
-                      HorizontalContentAlignment="Left"
-                      BorderBrush="#004a7c"
-                      BorderThickness="1" 
-                      Margin="10" 
-                      DataContext=""/>
-
+            <ComboBox Grid.Row="0" Grid.Column="1" Name="SelectBranchComboBox" HorizontalAlignment="Center" Width="200" Height="25" Background="White" IsReadOnly="True" Text="Select branch" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <controls:SelectBranchControl Branch="{Binding}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="Borrow Book" Style="{StaticResource MainActionBtnStyle}" x:Name="BorrowBtn" Click="BorrowBtn_Click"/>
                 <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />

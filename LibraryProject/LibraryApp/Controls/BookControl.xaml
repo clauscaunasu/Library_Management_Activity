@@ -21,7 +21,8 @@
             <TextBlock x:Name="EditureTextBlock"
                        Text="Publisher" FontSize="15"
                        FontStyle="Italic"/>
-        </StackPanel>
+            
+            </StackPanel>
     </Grid>
     </Border>
 </UserControl>

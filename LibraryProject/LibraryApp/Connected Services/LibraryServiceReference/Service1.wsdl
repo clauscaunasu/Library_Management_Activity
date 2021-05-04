@@ -127,6 +127,18 @@
   <wsdl:message name="IService_GetBooksFromBranch_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBooksFromBranchResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_BranchesForBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:BranchesForBook" />
+  </wsdl:message>
+  <wsdl:message name="IService_BranchesForBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BranchesForBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuantityOfBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuantityOfBook" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetQuantityOfBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuantityOfBookResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="MemberRegister">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/MemberRegister" message="tns:IService_MemberRegister_InputMessage" />
@@ -207,6 +219,14 @@
     <wsdl:operation name="GetBooksFromBranch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBooksFromBranch" message="tns:IService_GetBooksFromBranch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBooksFromBranchResponse" message="tns:IService_GetBooksFromBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BranchesForBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BranchesForBook" message="tns:IService_BranchesForBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BranchesForBookResponse" message="tns:IService_BranchesForBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuantityOfBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetQuantityOfBook" message="tns:IService_GetQuantityOfBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetQuantityOfBookResponse" message="tns:IService_GetQuantityOfBook_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -384,6 +404,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetBooksFromBranch">
       <soap:operation soapAction="http://tempuri.org/IService/GetBooksFromBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BranchesForBook">
+      <soap:operation soapAction="http://tempuri.org/IService/BranchesForBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuantityOfBook">
+      <soap:operation soapAction="http://tempuri.org/IService/GetQuantityOfBook" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

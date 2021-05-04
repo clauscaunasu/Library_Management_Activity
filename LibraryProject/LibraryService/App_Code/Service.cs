@@ -292,4 +292,17 @@ public partial class Service : IService
         return branchXBookRep.ReturnBookFromBranch(book, branchName);
     }
 
+    public List<Branch> BranchesForBook(Book book)
+    {
+        var branchXBookRep = GetBranchXBookRepository();
+        return branchXBookRep.BranchesForBook(book);
+    }
+
+    public int GetQuantityOfBook(Book book)
+    {
+        var branchXBookRep = GetBranchXBookRepository();
+        return branchXBookRep.GetQuantityOfBook(book);
+
+    }
+
 }

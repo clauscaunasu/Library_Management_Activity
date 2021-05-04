@@ -134,6 +134,18 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBooksFromBranch", ReplyAction="http://tempuri.org/IService/GetBooksFromBranchResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> GetBooksFromBranchAsync(string branchName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BranchesForBook", ReplyAction="http://tempuri.org/IService/BranchesForBookResponse")]
+        System.Collections.Generic.List<LibraryApp.DataModel.Branch> BranchesForBook(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BranchesForBook", ReplyAction="http://tempuri.org/IService/BranchesForBookResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Branch>> BranchesForBookAsync(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetQuantityOfBook", ReplyAction="http://tempuri.org/IService/GetQuantityOfBookResponse")]
+        int GetQuantityOfBook(string title);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetQuantityOfBook", ReplyAction="http://tempuri.org/IService/GetQuantityOfBookResponse")]
+        System.Threading.Tasks.Task<int> GetQuantityOfBookAsync(string title);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -321,6 +333,22 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> GetBooksFromBranchAsync(string branchName) {
             return base.Channel.GetBooksFromBranchAsync(branchName);
+        }
+        
+        public System.Collections.Generic.List<LibraryApp.DataModel.Branch> BranchesForBook(LibraryApp.DataModel.Book book) {
+            return base.Channel.BranchesForBook(book);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Branch>> BranchesForBookAsync(LibraryApp.DataModel.Book book) {
+            return base.Channel.BranchesForBookAsync(book);
+        }
+        
+        public int GetQuantityOfBook(string title) {
+            return base.Channel.GetQuantityOfBook(title);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetQuantityOfBookAsync(string title) {
+            return base.Channel.GetQuantityOfBookAsync(title);
         }
     }
 }

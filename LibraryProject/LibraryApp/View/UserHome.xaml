@@ -76,19 +76,23 @@
             </StackPanel>
             <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
                 <StackPanel Grid.Row ="1" VerticalAlignment="Top" >
-                    <ListView x:Name="BooksView" >
+                    <ListView x:Name="BooksView">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Expander Background="#e8f1f5" Width="700">
                                     <Expander.Header>
-                                        <controls:BookControl Book="{Binding}"/>
+                                        <controls:BookControl Book="{Binding}" />
                                     </Expander.Header>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
 
                                         <Button Content="Borrow" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonBorrow_OnClick"/>
 
                                         <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#420000"/>
-
                                     </StackPanel>
                                 </Expander>
                             </DataTemplate>

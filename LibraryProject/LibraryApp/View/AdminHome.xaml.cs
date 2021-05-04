@@ -148,7 +148,7 @@ namespace LibraryApp.View
 
         private void ListViewItem2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var lvi = (ListViewItem)sender;
+            var lvi = (ComboBoxItem)sender;
             BranchComboBox.SelectedItem = lvi.DataContext;
         }
 
