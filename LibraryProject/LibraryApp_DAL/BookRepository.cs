@@ -13,10 +13,10 @@ namespace LibraryApp_DAL
 {
     public class BookRepository : IBookRepository
     {
-        private readonly DConectivity _connection;
-        private  List<Book> _listOfBooks = new List<Book>();
+        private readonly DConnectivity _connection;
+        private readonly List<Book> _listOfBooks = new List<Book>();
 
-        public BookRepository(DConectivity connection)
+        public BookRepository(DConnectivity connection)
         {
             this._connection = connection;
         }
@@ -30,6 +30,8 @@ namespace LibraryApp_DAL
 
         //    var command = _connection.dbCommand ("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
         //                              " VALUES (@title, @uniqueCode, @authors, @editure)");
+            var command = _connection.DbCommand ("INSERT INTO Book(Title, UniqueCode, Author, Editure)" +
+                                      " VALUES (@title, @uniqueCode, @authors, @editure)");
 
         //    command.Parameters.AddWithValue("@title", book.Title);
         //    command.Parameters.AddWithValue("@uniqueCode", book.UniqueCode); 
@@ -94,7 +96,7 @@ namespace LibraryApp_DAL
 
         public List<Book> GetBooks()
         {
-            var command = _connection.dbCommand("SELECT * FROM Book");
+            var command = _connection.DbCommand("SELECT * FROM Book");
             var reader = command.ExecuteReader();
             var dt = new DataTable();
             dt.Load(reader);
@@ -104,7 +106,7 @@ namespace LibraryApp_DAL
 
         public bool DeleteBook(Book book)
         {
-            var command = _connection.dbCommand("DELETE FROM Book WHERE ID=@ID");
+            var command = _connection.DbCommand("DELETE FROM Book WHERE ID=@ID");
             command.Parameters.AddWithValue("@ID", book.ID);
             return command.ExecuteNonQuery() == 1;
         }
@@ -112,14 +114,14 @@ namespace LibraryApp_DAL
         public Book GetBookById(int id)
         {
             var book = new Book();
-            var command = _connection.dbCommand("SELECT Count(1) FROM Book WHERE ID=@ID");
+            var command = _connection.DbCommand("SELECT Count(1) FROM Book WHERE ID=@ID");
             command.Parameters.AddWithValue("@ID", id);
             return book;
         }
 
         public bool UpdateBook(Book book)
         {
-            var command = _connection.dbCommand("UPDATE Book SET Title=@title, UniqueCode=@uniqueCode, Author=@authors" +
+            var command = _connection.DbCommand("UPDATE Book SET Title=@title, UniqueCode=@uniqueCode, Author=@authors" +
                 ", Editure=@editure WHERE ID=@ID"); 
 
             command.Parameters.AddWithValue("@ID",book.ID);

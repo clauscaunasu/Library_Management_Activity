@@ -18,9 +18,6 @@ using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
 {
-    /// <summary>
-    /// Interaction logic for RegisterUser.xaml
-    /// </summary>
     public partial class RegisterUser : Window
     {
         private ServiceClient _serviceClient = new ServiceClient();

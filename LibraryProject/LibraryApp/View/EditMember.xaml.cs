@@ -52,12 +52,11 @@ namespace LibraryApp.View
             _client.Telephone = NewTxtPhone.Text;
 
             bool isSaved = _serviceClient.EditMember(_client);
+            this.DialogResult = true;
             if (isSaved)
             {
                 MessageBox.Show("Member edited successfully!");
-                var usersPage = new ViewUsers();
                 this.Close();
-                usersPage.Show();
             }
         }
     }

@@ -48,14 +48,12 @@
                 <RowDefinition Height="0.27*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Expander Header="Filter" Style="{StaticResource ExpanderStyle}"  VerticalAlignment="Top" Foreground="Black"  Margin="20 20 0 0"  >
-                <StackPanel >
-                    <Button x:Name="TitleFilterBtn" Content="Title" Style="{StaticResource FilterActionBtn}" />
-                    <Button x:Name="AuthorFilterBtn" Content="Author" Style="{StaticResource FilterActionBtn}" />
-                    <Button x:Name="GenreFilterBtn" Content="Genre" Style="{StaticResource FilterActionBtn}" />
-                    <Button x:Name="BranchFilterBtn" Content="Branch" Style="{StaticResource FilterActionBtn}" />
-                </StackPanel>
-            </Expander>
+            <ComboBox x:Name="ComboBoxFilter" IsReadOnly="True" Text="Select filter" VerticalAlignment="Top" Margin="10 30 10 0 " IsEditable="True">
+                <ComboBoxItem>Title</ComboBoxItem>
+                <ComboBoxItem>Author</ComboBoxItem>
+                <ComboBoxItem>Genre</ComboBoxItem>
+                <ComboBoxItem>Branch</ComboBoxItem>
+            </ComboBox>
         </Grid>
         <Grid Grid.Column="2" Background="#e8f1f5">
             <Grid.RowDefinitions>
@@ -70,9 +68,10 @@
 
             <StackPanel Grid.Row="0" Orientation="Horizontal"  >
 
-                <TextBox Style="{StaticResource SearchBoxStyle}" VerticalAlignment="Top" Margin="5 20"/>
+                <TextBox x:Name="SearchTextBox" Style="{StaticResource SearchBoxStyle}" VerticalAlignment="Top" Margin="5 20"/>
                 <Button Content="Search" 
                         Style="{StaticResource SearchBtnStyle}"
+                        Click="ButtonSearch_OnClick"
                         />
             </StackPanel>
             <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">

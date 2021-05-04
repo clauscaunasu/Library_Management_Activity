@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,9 +45,14 @@
     <Compile Include="Abstractions\IBookRepository.cs" />
     <Compile Include="Abstractions\IBranchRepository.cs" />
     <Compile Include="Abstractions\IBranchXBookRepository.cs" />
+    <Compile Include="Abstractions\ISearchStrategy.cs" />
     <Compile Include="Abstractions\IUserRepository.cs" />
     <Compile Include="Ecrypter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchFilters\SearchBookByAuthor.cs" />
+    <Compile Include="SearchFilters\SearchBookByGenre.cs" />
+    <Compile Include="SearchFilters\SearchBookByTitle.cs" />
+    <Compile Include="SearchEngine.cs" />
     <Compile Include="ValidatorExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,5 +61,6 @@
       <Name>LibraryApp.DataModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

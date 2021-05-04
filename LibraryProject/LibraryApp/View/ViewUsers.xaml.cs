@@ -42,7 +42,17 @@ namespace LibraryApp.View
         {
             var selectedMember = UserView.SelectedItem as Client;
             var updatedMember = new EditMember(selectedMember);
-            updatedMember.Show();
+            updatedMember.Closed += UpdatedMember_Closed;
+            updatedMember.ShowDialog();
+            UserView.Items.Refresh();
+        }
+
+        private void UpdatedMember_Closed(object sender, System.EventArgs e)
+        {
+            if ((sender as Window)?.DialogResult == true)
+            {
+                UserView.ItemsSource = clients;
+            }
         }
 
         private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)

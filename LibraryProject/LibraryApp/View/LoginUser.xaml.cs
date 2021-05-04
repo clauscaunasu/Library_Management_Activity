@@ -14,6 +14,7 @@ namespace LibraryApp.View
         private readonly ServiceClient _serviceClient = new ServiceClient();
         private readonly Encrypter _enc = new Encrypter();
         private readonly Client _client = new Client();
+        
         public LoginUser()
         {
             InitializeComponent();
@@ -29,16 +30,16 @@ namespace LibraryApp.View
                 _client.Password = password;
                 if (_serviceClient.MemberLogin(_client) != null)
                 {
-                    if (_serviceClient.MemberLogin(_client).Duty == "Client")
+                    if (_serviceClient.MemberLogin(_client).Duty != "Client")
                     {
-                        var userHome = new UserHome(_serviceClient.MemberLogin(_client));
-                        userHome.Show();
+                        var adminHome = new AdminHome(_serviceClient.MemberLogin(_client));
+                        adminHome.Show();
                         this.Close();
                     }
                     else
                     {
-                        var adminHome = new AdminHome(_serviceClient.MemberLogin(_client));
-                        adminHome.Show();
+                        var userHome = new UserHome(_serviceClient.MemberLogin(_client));
+                        userHome.Show();
                         this.Close();
                     }
                 }
