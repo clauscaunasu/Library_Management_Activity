@@ -78,8 +78,8 @@ public interface IService
     [OperationContract]
     bool BorrowBookFromBranch(Book book, string branchName);
 
-    [OperationContract]
-    bool RenewBookFromBranch(Book book, string branchName, Client client);
+    //[OperationContract]
+    //bool RenewBookFromBranch(Book book, string branchName, Client client);
 
     [OperationContract]
     bool ReturnBookFromBranch(Book book, string branchName);
@@ -92,6 +92,24 @@ public interface IService
 
     [OperationContract]
     int GetQuantityOfBook(Book book);
+
+    [OperationContract]
+    List<LibraryFile> GetLibraryFiles();
+
+    [OperationContract]
+    bool AddLibraryFile(Client client, Book book, Branch branch);
+
+    [OperationContract]
+    List<Book> GetBorrowedBooks(Client client);
+
+    [OperationContract]
+    bool RenewDueDate(Client client, Book book);
+
+    [OperationContract]
+    bool ReturnBook(Client client, Book book);
+
+    [OperationContract]
+    bool IsReturned(Client client, Book book);
 
     // TODO: Add your service operations here
 }

@@ -31,6 +31,11 @@ public partial class Service : IService
         return new BranchXBookRepository(new DConnectivity());
     }
 
+    private ILibraryFileRepository GetLibraryFileRepository()
+    {
+        return new LibraryFileRepository(new DConnectivity());
+    }
+
     /*
         public List<string> GetBranches()
         {
@@ -280,11 +285,11 @@ public partial class Service : IService
         return branchXBookRep.BorrowBookFromBranch(book, branchName);
     }
 
-    public bool RenewBookFromBranch(Book book, string branchName, Client client)
-    {
-        var branchXBookRep = GetBranchXBookRepository();
-        return branchXBookRep.RenewBookFromBranch(book, branchName, client);
-    }
+    //public bool RenewBookFromBranch(Book book, string branchName, Client client)
+    //{
+    //    var branchXBookRep = GetBranchXBookRepository();
+    //    return branchXBookRep.RenewBookFromBranch(book, branchName, client);
+    //}
 
     public bool ReturnBookFromBranch(Book book, string branchName)
     {
@@ -305,4 +310,38 @@ public partial class Service : IService
 
     }
 
+    public List<LibraryFile> GetLibraryFiles()
+    {
+        var libraryFileRepository = GetLibraryFileRepository();
+        return libraryFileRepository.GetLibraryFiles();
+    }
+
+    public bool AddLibraryFile(Client client, Book book, Branch branch)
+    {
+        var libraryFileRepository = GetLibraryFileRepository();
+        return libraryFileRepository.AddLibraryFile(client, book, branch);
+    }
+
+    public List<Book> GetBorrowedBooks(Client client)
+    {
+        var libraryFileRepository = GetLibraryFileRepository();
+        return libraryFileRepository.GetBorrowedBooks(client);
+    }
+
+    public bool RenewDueDate(Client client, Book book)
+    {
+        var libraryFileRepository = GetLibraryFileRepository();
+        return libraryFileRepository.RenewDueDate(client, book);
+    }
+    public bool ReturnBook(Client client, Book book)
+    {
+        var libraryFileRepository = GetLibraryFileRepository();
+        return libraryFileRepository.ReturnBook(client, book);
+    }
+
+    public bool IsReturned(Client client, Book book)
+    {
+        var libraryFileRepository = GetLibraryFileRepository();
+        return libraryFileRepository.IsReturned(client, book);
+    }
 }

@@ -45,7 +45,7 @@ namespace LibraryApp_DAL
 
                 bookList.Add(book);
             }
-
+            reader.Close();
             return bookList;
         }
         
@@ -158,6 +158,8 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@branchId", _branchToAdd.ID);
             command.Parameters.AddWithValue("@quantity", currentQuantity);
 
+            
+
             return command.ExecuteNonQuery() == 1;
         }
 
@@ -183,7 +185,7 @@ namespace LibraryApp_DAL
 
                 _branchesForBook.Add(branch);
             }
-
+            reader.Close();
             return _branchesForBook;
 
         }
@@ -197,41 +199,42 @@ namespace LibraryApp_DAL
             var reader = command.ExecuteReader();
             reader.Read();
             int quantity = reader.GetInt16(0);
+            reader.Close();
             command.Connection.Close();
             return quantity;
 
         }
 
-        public bool RenewBookFromBranch(Book book, string branchName, Client client)
-        {
-            var branchToAdd = new Branch();
-            _listOfBranches = _branchRepository.GetBranches();
+        //public bool RenewBookFromBranch(Book book, string branchName, Client client)
+        //{
+        //    var branchToAdd = new Branch();
+        //    _listOfBranches = _branchRepository.GetBranches();
 
-            foreach (var currentBranch in _listOfBranches)
-            {
-                if (branchName == currentBranch.Name)
-                {
-                    branchToAdd = currentBranch;
-                }
-            }
+        //    foreach (var currentBranch in _listOfBranches)
+        //    {
+        //        if (branchName == currentBranch.Name)
+        //        {
+        //            branchToAdd = currentBranch;
+        //        }
+        //    }
 
-            var cmnd = _connection.DbCommand("SELECT ID FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
-            cmnd.Parameters.AddWithValue("@bookId", book.ID);
-            cmnd.Parameters.AddWithValue("@branchId", branchToAdd.ID);
-            var dr = cmnd.ExecuteReader();
-            dr.Read();
-            var idInventory = dr.GetInt32(0);
-            dr.Close();
-            cmnd.Connection.Close();
+        //    var cmnd = _connection.DbCommand("SELECT ID FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
+        //    cmnd.Parameters.AddWithValue("@bookId", book.ID);
+        //    cmnd.Parameters.AddWithValue("@branchId", branchToAdd.ID);
+        //    var dr = cmnd.ExecuteReader();
+        //    dr.Read();
+        //    var idInventory = dr.GetInt32(0);
+        //    dr.Close();
+        //    cmnd.Connection.Close();
 
-            var command = _connection.DbCommand("UPDATE LibraryFile SET ReturnDate=@timenow WHERE InventoryId=@inventoryid AND ClientId=@clientid");
-            command.Parameters.AddWithValue("@inventoryid", idInventory);
-            command.Parameters.AddWithValue("@clientid", client.ID);
-            command.Parameters.AddWithValue("@timenow", DateTime.Now.Day + 7);
+        //    var command = _connection.DbCommand("UPDATE LibraryFile SET ReturnDate=@timenow WHERE InventoryId=@inventoryid AND ClientId=@clientid");
+        //    command.Parameters.AddWithValue("@inventoryid", idInventory);
+        //    command.Parameters.AddWithValue("@clientid", client.ID);
+        //    command.Parameters.AddWithValue("@timenow", DateTime.Now.Day + 7);
 
-            return command.ExecuteNonQuery() == 1;
+        //    return command.ExecuteNonQuery() == 1;
 
-        }
+        //}
 
         public bool ReturnBookFromBranch(Book book, string branchName)
         {

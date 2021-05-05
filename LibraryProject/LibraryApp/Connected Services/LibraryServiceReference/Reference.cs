@@ -117,12 +117,6 @@ namespace LibraryApp.LibraryServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/BorrowBookFromBranch", ReplyAction="http://tempuri.org/IService/BorrowBookFromBranchResponse")]
         System.Threading.Tasks.Task<bool> BorrowBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RenewBookFromBranch", ReplyAction="http://tempuri.org/IService/RenewBookFromBranchResponse")]
-        bool RenewBookFromBranch(LibraryApp.DataModel.Book book, string branchName, LibraryApp.DataModel.Client client);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RenewBookFromBranch", ReplyAction="http://tempuri.org/IService/RenewBookFromBranchResponse")]
-        System.Threading.Tasks.Task<bool> RenewBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName, LibraryApp.DataModel.Client client);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnBookFromBranch", ReplyAction="http://tempuri.org/IService/ReturnBookFromBranchResponse")]
         bool ReturnBookFromBranch(LibraryApp.DataModel.Book book, string branchName);
         
@@ -142,10 +136,46 @@ namespace LibraryApp.LibraryServiceReference {
         System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Branch>> BranchesForBookAsync(LibraryApp.DataModel.Book book);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetQuantityOfBook", ReplyAction="http://tempuri.org/IService/GetQuantityOfBookResponse")]
-        int GetQuantityOfBook(string title);
+        int GetQuantityOfBook(LibraryApp.DataModel.Book book);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetQuantityOfBook", ReplyAction="http://tempuri.org/IService/GetQuantityOfBookResponse")]
-        System.Threading.Tasks.Task<int> GetQuantityOfBookAsync(string title);
+        System.Threading.Tasks.Task<int> GetQuantityOfBookAsync(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetLibraryFiles", ReplyAction="http://tempuri.org/IService/GetLibraryFilesResponse")]
+        System.Collections.Generic.List<LibraryApp.DataModel.LibraryFile> GetLibraryFiles();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetLibraryFiles", ReplyAction="http://tempuri.org/IService/GetLibraryFilesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.LibraryFile>> GetLibraryFilesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddLibraryFile", ReplyAction="http://tempuri.org/IService/AddLibraryFileResponse")]
+        bool AddLibraryFile(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book, LibraryApp.DataModel.Branch branch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddLibraryFile", ReplyAction="http://tempuri.org/IService/AddLibraryFileResponse")]
+        System.Threading.Tasks.Task<bool> AddLibraryFileAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book, LibraryApp.DataModel.Branch branch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBorrowedBooks", ReplyAction="http://tempuri.org/IService/GetBorrowedBooksResponse")]
+        System.Collections.Generic.List<LibraryApp.DataModel.Book> GetBorrowedBooks(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBorrowedBooks", ReplyAction="http://tempuri.org/IService/GetBorrowedBooksResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> GetBorrowedBooksAsync(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RenewDueDate", ReplyAction="http://tempuri.org/IService/RenewDueDateResponse")]
+        bool RenewDueDate(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RenewDueDate", ReplyAction="http://tempuri.org/IService/RenewDueDateResponse")]
+        System.Threading.Tasks.Task<bool> RenewDueDateAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnBook", ReplyAction="http://tempuri.org/IService/ReturnBookResponse")]
+        bool ReturnBook(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReturnBook", ReplyAction="http://tempuri.org/IService/ReturnBookResponse")]
+        System.Threading.Tasks.Task<bool> ReturnBookAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsReturned", ReplyAction="http://tempuri.org/IService/IsReturnedResponse")]
+        bool IsReturned(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsReturned", ReplyAction="http://tempuri.org/IService/IsReturnedResponse")]
+        System.Threading.Tasks.Task<bool> IsReturnedAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -311,14 +341,6 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.BorrowBookFromBranchAsync(book, branchName);
         }
         
-        public bool RenewBookFromBranch(LibraryApp.DataModel.Book book, string branchName, LibraryApp.DataModel.Client client) {
-            return base.Channel.RenewBookFromBranch(book, branchName, client);
-        }
-        
-        public System.Threading.Tasks.Task<bool> RenewBookFromBranchAsync(LibraryApp.DataModel.Book book, string branchName, LibraryApp.DataModel.Client client) {
-            return base.Channel.RenewBookFromBranchAsync(book, branchName, client);
-        }
-        
         public bool ReturnBookFromBranch(LibraryApp.DataModel.Book book, string branchName) {
             return base.Channel.ReturnBookFromBranch(book, branchName);
         }
@@ -343,12 +365,60 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.BranchesForBookAsync(book);
         }
         
-        public int GetQuantityOfBook(string title) {
-            return base.Channel.GetQuantityOfBook(title);
+        public int GetQuantityOfBook(LibraryApp.DataModel.Book book) {
+            return base.Channel.GetQuantityOfBook(book);
         }
         
-        public System.Threading.Tasks.Task<int> GetQuantityOfBookAsync(string title) {
-            return base.Channel.GetQuantityOfBookAsync(title);
+        public System.Threading.Tasks.Task<int> GetQuantityOfBookAsync(LibraryApp.DataModel.Book book) {
+            return base.Channel.GetQuantityOfBookAsync(book);
+        }
+        
+        public System.Collections.Generic.List<LibraryApp.DataModel.LibraryFile> GetLibraryFiles() {
+            return base.Channel.GetLibraryFiles();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.LibraryFile>> GetLibraryFilesAsync() {
+            return base.Channel.GetLibraryFilesAsync();
+        }
+        
+        public bool AddLibraryFile(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book, LibraryApp.DataModel.Branch branch) {
+            return base.Channel.AddLibraryFile(client, book, branch);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddLibraryFileAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book, LibraryApp.DataModel.Branch branch) {
+            return base.Channel.AddLibraryFileAsync(client, book, branch);
+        }
+        
+        public System.Collections.Generic.List<LibraryApp.DataModel.Book> GetBorrowedBooks(LibraryApp.DataModel.Client client) {
+            return base.Channel.GetBorrowedBooks(client);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> GetBorrowedBooksAsync(LibraryApp.DataModel.Client client) {
+            return base.Channel.GetBorrowedBooksAsync(client);
+        }
+        
+        public bool RenewDueDate(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book) {
+            return base.Channel.RenewDueDate(client, book);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RenewDueDateAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book) {
+            return base.Channel.RenewDueDateAsync(client, book);
+        }
+        
+        public bool ReturnBook(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book) {
+            return base.Channel.ReturnBook(client, book);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ReturnBookAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book) {
+            return base.Channel.ReturnBookAsync(client, book);
+        }
+        
+        public bool IsReturned(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book) {
+            return base.Channel.IsReturned(client, book);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsReturnedAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book) {
+            return base.Channel.IsReturnedAsync(client, book);
         }
     }
 }

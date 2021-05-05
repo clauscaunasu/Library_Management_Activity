@@ -310,6 +310,7 @@
     <None Include="LibraryApp.DataModel.Client1.datasource" />
     <None Include="LibraryApp.DataModel.Client2.datasource" />
     <None Include="LibraryApp.DataModel.Client3.datasource" />
+    <None Include="LibraryApp.DataModel.LibraryFile.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

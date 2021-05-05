@@ -109,12 +109,6 @@
   <wsdl:message name="IService_BorrowBookFromBranch_OutputMessage">
     <wsdl:part name="parameters" element="tns:BorrowBookFromBranchResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_RenewBookFromBranch_InputMessage">
-    <wsdl:part name="parameters" element="tns:RenewBookFromBranch" />
-  </wsdl:message>
-  <wsdl:message name="IService_RenewBookFromBranch_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RenewBookFromBranchResponse" />
-  </wsdl:message>
   <wsdl:message name="IService_ReturnBookFromBranch_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnBookFromBranch" />
   </wsdl:message>
@@ -138,6 +132,42 @@
   </wsdl:message>
   <wsdl:message name="IService_GetQuantityOfBook_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetQuantityOfBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLibraryFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLibraryFiles" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetLibraryFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLibraryFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddLibraryFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLibraryFile" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddLibraryFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLibraryFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBorrowedBooks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBorrowedBooks" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBorrowedBooks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBorrowedBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_RenewDueDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RenewDueDate" />
+  </wsdl:message>
+  <wsdl:message name="IService_RenewDueDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RenewDueDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ReturnBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBook" />
+  </wsdl:message>
+  <wsdl:message name="IService_ReturnBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsReturned_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsReturned" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsReturned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsReturnedResponse" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="MemberRegister">
@@ -208,10 +238,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/BorrowBookFromBranch" message="tns:IService_BorrowBookFromBranch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/BorrowBookFromBranchResponse" message="tns:IService_BorrowBookFromBranch_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RenewBookFromBranch">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/RenewBookFromBranch" message="tns:IService_RenewBookFromBranch_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/RenewBookFromBranchResponse" message="tns:IService_RenewBookFromBranch_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ReturnBookFromBranch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ReturnBookFromBranch" message="tns:IService_ReturnBookFromBranch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ReturnBookFromBranchResponse" message="tns:IService_ReturnBookFromBranch_OutputMessage" />
@@ -227,6 +253,30 @@
     <wsdl:operation name="GetQuantityOfBook">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetQuantityOfBook" message="tns:IService_GetQuantityOfBook_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetQuantityOfBookResponse" message="tns:IService_GetQuantityOfBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLibraryFiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetLibraryFiles" message="tns:IService_GetLibraryFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetLibraryFilesResponse" message="tns:IService_GetLibraryFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLibraryFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/AddLibraryFile" message="tns:IService_AddLibraryFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/AddLibraryFileResponse" message="tns:IService_AddLibraryFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowedBooks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBorrowedBooks" message="tns:IService_GetBorrowedBooks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBorrowedBooksResponse" message="tns:IService_GetBorrowedBooks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RenewDueDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/RenewDueDate" message="tns:IService_RenewDueDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/RenewDueDateResponse" message="tns:IService_RenewDueDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ReturnBook" message="tns:IService_ReturnBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ReturnBookResponse" message="tns:IService_ReturnBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsReturned">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/IsReturned" message="tns:IService_IsReturned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/IsReturnedResponse" message="tns:IService_IsReturned_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -384,15 +434,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RenewBookFromBranch">
-      <soap:operation soapAction="http://tempuri.org/IService/RenewBookFromBranch" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ReturnBookFromBranch">
       <soap:operation soapAction="http://tempuri.org/IService/ReturnBookFromBranch" style="document" />
       <wsdl:input>
@@ -422,6 +463,60 @@
     </wsdl:operation>
     <wsdl:operation name="GetQuantityOfBook">
       <soap:operation soapAction="http://tempuri.org/IService/GetQuantityOfBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLibraryFiles">
+      <soap:operation soapAction="http://tempuri.org/IService/GetLibraryFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLibraryFile">
+      <soap:operation soapAction="http://tempuri.org/IService/AddLibraryFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowedBooks">
+      <soap:operation soapAction="http://tempuri.org/IService/GetBorrowedBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenewDueDate">
+      <soap:operation soapAction="http://tempuri.org/IService/RenewDueDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBook">
+      <soap:operation soapAction="http://tempuri.org/IService/ReturnBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsReturned">
+      <soap:operation soapAction="http://tempuri.org/IService/IsReturned" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

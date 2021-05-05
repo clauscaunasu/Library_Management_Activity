@@ -51,4 +51,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfBranch" nillable="true" type="tns:ArrayOfBranch" />
+  <xs:complexType name="ArrayOfLibraryFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LibraryFile" nillable="true" type="tns:LibraryFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLibraryFile" nillable="true" type="tns:ArrayOfLibraryFile" />
+  <xs:complexType name="LibraryFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BorrowDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="InventoryId" type="xs:int" />
+      <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LibraryFile" nillable="true" type="tns:LibraryFile" />
 </xs:schema>

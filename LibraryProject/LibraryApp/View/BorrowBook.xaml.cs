@@ -24,13 +24,16 @@ namespace LibraryApp.View
     {
         private List<Branch> branches;
         private Book _book;
+        private List<Book> _borrowedBooks = new List<Book>();
+        private Client _client;
         private ServiceClient _serviceClient = new ServiceClient();
-        public BorrowBook(Book book)
+        public BorrowBook(Client client,Book book)
         {
             InitializeComponent();
             branches = _serviceClient.BranchesForBook(book);
             SelectBranchComboBox.ItemsSource = branches;
             _book = book;
+            _client = client;
         }
 
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
@@ -46,10 +49,20 @@ namespace LibraryApp.View
 
         private void BorrowBtn_Click(object sender, RoutedEventArgs e)
         {
+            bool isSuccessful = true;
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
 
-            var isSuccessful = _serviceClient.BorrowBookFromBranch(_book, selectedBranch.Name);
+            _borrowedBooks = _serviceClient.GetBorrowedBooks(_client);
 
+            if (_borrowedBooks.Count > 3)
+            {
+                isSuccessful = false;
+            }
+            else
+            {
+                isSuccessful = _serviceClient.AddLibraryFile(_client, _book, selectedBranch);
+            }
+            
             if (isSuccessful)
             {
                 MessageBox.Show("Book borrowed successfully!");

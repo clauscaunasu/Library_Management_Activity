@@ -90,6 +90,7 @@ namespace LibraryApp_DAL
                 book.Title = dt.Rows[i]["Title"].ToString(); 
                 book.Author = dt.Rows[i]["Author"].ToString(); 
                 book.Editure = dt.Rows[i]["Editure"].ToString();  
+                book.Genre = dt.Rows[i]["Genre"].ToString();
                 _listOfBooks.Add(book);
             }
 

@@ -238,26 +238,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RenewBookFromBranch">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q21:Book" />
-        <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q22:Client" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RenewBookFromBranchResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RenewBookFromBranchResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="ReturnBookFromBranch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q23:Book" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q21:Book" />
         <xs:element minOccurs="0" name="branchName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -279,28 +263,28 @@
   <xs:element name="GetBooksFromBranchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="GetBooksFromBranchResult" nillable="true" type="q24:ArrayOfBook" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="GetBooksFromBranchResult" nillable="true" type="q22:ArrayOfBook" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="BranchesForBook">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q25:Book" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q23:Book" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="BranchesForBookResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="BranchesForBookResult" nillable="true" type="q26:ArrayOfBranch" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="BranchesForBookResult" nillable="true" type="q24:ArrayOfBranch" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetQuantityOfBook">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q25:Book" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -308,6 +292,93 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetQuantityOfBookResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLibraryFiles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLibraryFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="GetLibraryFilesResult" nillable="true" type="q26:ArrayOfLibraryFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddLibraryFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q27:Client" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q28:Book" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="branch" nillable="true" type="q29:Branch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddLibraryFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddLibraryFileResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBorrowedBooks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q30:Client" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBorrowedBooksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="GetBorrowedBooksResult" nillable="true" type="q31:ArrayOfBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RenewDueDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q32:Client" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q33:Book" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RenewDueDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RenewDueDateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q34:Client" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q35:Book" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReturnBookResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsReturned">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q36:Client" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="book" nillable="true" type="q37:Book" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsReturnedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsReturnedResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

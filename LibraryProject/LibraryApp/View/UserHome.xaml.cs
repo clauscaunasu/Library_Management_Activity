@@ -77,7 +77,9 @@ namespace LibraryApp.View
 
         private void BorrowedBooksBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var borrowedPage = new ViewBorrowedBooks(client);
+            borrowedPage.Show();
+            this.Close();
         }
 
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -89,7 +91,7 @@ namespace LibraryApp.View
         private void ButtonBorrow_OnClick(object sender, RoutedEventArgs e)
         {
             var selectedBook = BooksView.SelectedItem as Book;
-            var borrowBookPage = new BorrowBook(selectedBook);
+            var borrowBookPage = new BorrowBook(client,selectedBook);
             borrowBookPage.Show();
         }
 
