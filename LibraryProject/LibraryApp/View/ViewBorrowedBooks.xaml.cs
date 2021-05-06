@@ -1,16 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
@@ -21,25 +13,17 @@ namespace LibraryApp.View
     /// </summary>
     public partial class ViewBorrowedBooks : Window
     {
-        private List<Book> _books = new List<Book>();
-        private Client _client;
-        private ServiceClient _serviceClient = new ServiceClient();
+        private readonly List<Book> _books;
+        private readonly Client _client;
+        private readonly ServiceClient _serviceClient = new ServiceClient();
         public ViewBorrowedBooks(Client client)
         {
             InitializeComponent();
             _client = client;
             _books = _serviceClient.GetBorrowedBooks(_client);
-            foreach (var b in _books)
-            {
-                if (!_serviceClient.IsReturned(_client,b))
-                {
-                    BooksView.Items.Add(b);
-                }
-            }
-            
-            
-            BooksView.Items.Refresh();
+            BooksView.ItemsSource = _books;
         }
+        
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -58,7 +42,7 @@ namespace LibraryApp.View
 
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult =
+            var messageBoxResult =
                 MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
 
             if (messageBoxResult == MessageBoxResult.Yes)

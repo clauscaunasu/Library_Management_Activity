@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Activities.Statements;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
@@ -34,6 +35,11 @@ public partial class Service : IService
     private ILibraryFileRepository GetLibraryFileRepository()
     {
         return new LibraryFileRepository(new DConnectivity());
+    }
+
+    private IReportRepository GetReportRepository()
+    {
+        return new ReportRepository(new DConnectivity());
     }
 
     /*
@@ -343,5 +349,17 @@ public partial class Service : IService
     {
         var libraryFileRepository = GetLibraryFileRepository();
         return libraryFileRepository.IsReturned(client, book);
+    }
+
+    public List<Book> GetBookHistory(Client client)
+    {
+        var libraryFileRepository = GetLibraryFileRepository();
+        return libraryFileRepository.GetBookHistory(client);
+    }
+
+    public List<Report> GetReports()
+    {
+        var reportRepository = GetReportRepository();
+        return reportRepository.GetReports();
     }
 }

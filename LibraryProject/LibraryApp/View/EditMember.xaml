@@ -31,7 +31,7 @@
             <Label Grid.Row="3" Content="Username" Style="{StaticResource LabelStyle}" />
             <TextBox Grid.Row="3" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtUsername"/>
             <Label Grid.Row="4" Content="Password" Style="{StaticResource LabelStyle}" />
-            <TextBox Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtPassword"/>
+            <PasswordBox Grid.Row="4" Grid.Column="1"  Style="{StaticResource PasswordBoxStyle}" x:Name="NewTxtPassword" />
             <Label Grid.Row="5" Content="Phone" Style="{StaticResource LabelStyle}" />
             <TextBox Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtPhone"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="2">

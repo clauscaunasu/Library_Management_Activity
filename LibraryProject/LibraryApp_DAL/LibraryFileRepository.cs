@@ -2,21 +2,19 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
+using LibraryApp.DataModel.Enums;
+using static System.Int16;
 
 namespace LibraryApp_DAL
 {
     public class LibraryFileRepository: ILibraryFileRepository
     {
         private readonly DConnectivity _connection;
-        private List<LibraryFile> _libraryFiles = new List<LibraryFile>();
-        private BranchXBookRepository inventoryRepository;
-        private List<Book> _books = new List<Book>();
+        private readonly List<LibraryFile> _libraryFiles = new List<LibraryFile>();
+        private readonly BranchXBookRepository inventoryRepository;
+        private readonly List<Book> _books = new List<Book>();
         private List<Branch> _branchesOfBook = new List<Branch>();
        
 
@@ -53,18 +51,16 @@ namespace LibraryApp_DAL
 
         public bool RenewDueDate(Client client, Book book)
         {
-            SqlCommand command;
-            SqlDataReader reader;
-            int inventoryId = 0;
+            var inventoryId = 0;
            
             
-            command = _connection.DbCommand(
+            var command = _connection.DbCommand(
                 "SELECT BranchXBook.ID FROM BranchXBook INNER JOIN Book ON Book.ID = BranchXBook.BookID INNER JOIN LibraryFile ON " +
                 "LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID WHERE Client.ID=@clientId AND Book.ID=@bookId");
             command.Parameters.AddWithValue("@clientId", client.ID);
             command.Parameters.AddWithValue("@bookId", book.ID);
 
-            reader = command.ExecuteReader();
+            var reader = command.ExecuteReader();
             reader.Read();
             inventoryId = reader.GetInt32(0);
             reader.Close();
@@ -75,7 +71,7 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@clientId", client.ID);
             reader = command.ExecuteReader();
             reader.Read();
-            DateTime dueD= reader.GetDateTime(0);
+            var dueD= reader.GetDateTime(0);
             var borrowD = reader.GetDateTime(1);
 
             if (DateTime.Compare(DateTime.Now, dueD) < 0 && (DateTime.Compare(dueD.AddDays(7), borrowD.AddDays(21)) < 0 || 
@@ -97,16 +93,14 @@ namespace LibraryApp_DAL
 
         public bool ReturnBook(Client client, Book book)
         {
-            SqlCommand command;
-            SqlDataReader reader;
             int inventoryId = 0;
 
-            command = _connection.DbCommand(
+            var command = _connection.DbCommand(
                 "SELECT BranchXBook.ID FROM BranchXBook INNER JOIN Book ON Book.ID = BranchXBook.BookID INNER JOIN LibraryFile ON " +
                 "LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID WHERE Client.ID=@clientId AND Book.ID=@bookId");
             command.Parameters.AddWithValue("@clientId", client.ID);
             command.Parameters.AddWithValue("@bookId", book.ID);
-            reader = command.ExecuteReader();
+            var reader = command.ExecuteReader();
             reader.Read();
             inventoryId = reader.GetInt32(0);
             reader.Close();
@@ -136,8 +130,7 @@ namespace LibraryApp_DAL
             var branchName = reader.GetString(0);
             reader.Close();
 
-            object obj = command.ExecuteScalar();
-            if (obj != null)
+            if (branchName != null)
             {
                 inventoryRepository.ReturnBookFromBranch(book, branchName);
 
@@ -147,7 +140,7 @@ namespace LibraryApp_DAL
                 command.Parameters.AddWithValue("@clientId", client.ID);
                 command.Parameters.AddWithValue("@inventoryId", inventoryId);
 
-                return command.ExecuteNonQuery() == 1;
+                return command.ExecuteNonQuery() != 0;
             }
 
             return false;
@@ -174,9 +167,9 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@clientId", client.ID);
             reader = command.ExecuteReader();
             reader.Read();
-            object returnDate = reader[0];
-            DateTime? dt=(returnDate == System.DBNull.Value) ? (DateTime?) null : Convert.ToDateTime(returnDate);
-            return dt!=null;
+            var returnDate = reader[0];
+            var dt=(returnDate == DBNull.Value) ? (DateTime?) null : Convert.ToDateTime(returnDate);
+            return dt != null;
         }
 
         public List<Book> GetBorrowedBooks(Client client)
@@ -195,20 +188,37 @@ namespace LibraryApp_DAL
             return _books;
         }
 
+        public List<Book> GetBookHistory(Client client)
+        {
+            var command =
+                _connection.DbCommand("SELECT * FROM Book INNER JOIN BranchXBook ON BranchXBook.BookID = Book.ID INNER JOIN" +
+                                      " LibraryFile ON LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID " +
+                                      "WHERE Client.ID = @clientId AND ReturnDate <> 0");
+            command.Parameters.AddWithValue("@clientId", client.ID);
+
+            var reader = command.ExecuteReader();
+            var dt = new DataTable();
+            dt.Load(reader);
+            ListOfBooks(dt);
+            reader.Close();
+            return _books;
+        }
+
         private List<Book> ListOfBooks(DataTable dt)
         {
             for (var i = 0; i < dt.Rows.Count; i++)
             {
-                var book = new Book();
-                book.ID = Int32.Parse(dt.Rows[i]["ID"].ToString());
-                book.UniqueCode = dt.Rows[i]["UniqueCode"].ToString();
-                book.Title = dt.Rows[i]["Title"].ToString();
-                book.Author = dt.Rows[i]["Author"].ToString();
-                book.Editure = dt.Rows[i]["Editure"].ToString();
-                book.Genre = dt.Rows[i]["Genre"].ToString();
+                var book = new Book
+                {
+                    ID = int.Parse(dt.Rows[i]["ID"].ToString()),
+                    UniqueCode = dt.Rows[i]["UniqueCode"].ToString(),
+                    Title = dt.Rows[i]["Title"].ToString(),
+                    Author = dt.Rows[i]["Author"].ToString(),
+                    Editure = dt.Rows[i]["Editure"].ToString(),
+                    Genre = (Genres) int.Parse(dt.Rows[i]["Genre"].ToString())
+                };
                 _books.Add(book);
             }
-
             return _books;
         }
 
@@ -227,13 +237,15 @@ namespace LibraryApp_DAL
         {
             for (var i = 0; i < dt.Rows.Count; i++)
             {
-                var libraryFile = new LibraryFile();
-                libraryFile.ID = Int32.Parse(dt.Rows[i]["ID"].ToString());
-                libraryFile.InventoryId = Int16.Parse((string) dt.Rows[i]["Inventory"]);
-                libraryFile.ClientId = Int16.Parse(dt.Rows[i]["ClientId"].ToString());
-                libraryFile.BorrowDate = DateTime.Parse(dt.Rows[i]["BorrowDate"].ToString());
-                libraryFile.DueDate = DateTime.Parse(dt.Rows[i]["DueDate"].ToString());
-                libraryFile.ReturnDate = DateTime.Parse(dt.Rows[i]["ReturnDate"].ToString());
+                var libraryFile = new LibraryFile
+                {
+                    ID = int.Parse(dt.Rows[i]["ID"].ToString()),
+                    InventoryId = Parse((string) dt.Rows[i]["Inventory"]),
+                    ClientId = Parse(dt.Rows[i]["ClientId"].ToString()),
+                    BorrowDate = DateTime.Parse(dt.Rows[i]["BorrowDate"].ToString()),
+                    DueDate = DateTime.Parse(dt.Rows[i]["DueDate"].ToString()),
+                    ReturnDate = DateTime.Parse(dt.Rows[i]["ReturnDate"].ToString())
+                };
                 _libraryFiles.Add(libraryFile);
             }
 

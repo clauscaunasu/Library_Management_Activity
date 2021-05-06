@@ -2,6 +2,7 @@
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.BusinessLogic.SearchFilters;
 using LibraryApp.DataModel;
+using Filters = LibraryApp.DataModel.Enums.Filters;
 
 namespace LibraryApp.BusinessLogic
 {

@@ -15,5 +15,6 @@ namespace LibraryApp.BusinessLogic.Abstractions
         bool RenewDueDate(Client client, Book book);
         bool ReturnBook(Client client, Book book);
         bool IsReturned(Client client, Book book);
+        List<Book> GetBookHistory(Client client);
     }
 }

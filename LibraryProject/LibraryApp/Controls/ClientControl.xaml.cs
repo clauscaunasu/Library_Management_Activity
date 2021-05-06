@@ -6,7 +6,7 @@ namespace LibraryApp.Controls
     /// <summary>
     /// Interaction logic for ClientControl.xaml
     /// </summary>
-    public partial class ClientControl : System.Windows.Controls.UserControl
+    public partial class ClientControl
     {
         public Client Client
         {

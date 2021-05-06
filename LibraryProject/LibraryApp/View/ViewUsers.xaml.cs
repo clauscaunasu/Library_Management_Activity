@@ -72,7 +72,7 @@ namespace LibraryApp.View
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            var myProfile = new MyProfilePage(_client);
+            var myProfile = new MyProfilePageAdmin(_client);
             this.Close();
             myProfile.Show();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
+using LibraryApp.DataModel.Enums;
 
 namespace LibraryApp_DAL
 {
@@ -39,8 +40,7 @@ namespace LibraryApp_DAL
                     Title = dt.Rows[i]["Title"].ToString(),
                     Author = dt.Rows[i]["Author"].ToString(),
                     Editure = dt.Rows[i]["Editure"].ToString(),
-                    Genre = dt.Rows[i]["Genre"].ToString(),
-
+                    Genre = (Genres)Int32.Parse(dt.Rows[i]["Genre"].ToString())
                 };
 
                 bookList.Add(book);
@@ -204,37 +204,6 @@ namespace LibraryApp_DAL
             return quantity;
 
         }
-
-        //public bool RenewBookFromBranch(Book book, string branchName, Client client)
-        //{
-        //    var branchToAdd = new Branch();
-        //    _listOfBranches = _branchRepository.GetBranches();
-
-        //    foreach (var currentBranch in _listOfBranches)
-        //    {
-        //        if (branchName == currentBranch.Name)
-        //        {
-        //            branchToAdd = currentBranch;
-        //        }
-        //    }
-
-        //    var cmnd = _connection.DbCommand("SELECT ID FROM BranchXBook WHERE BookId=@bookId AND LibraryID=@branchId");
-        //    cmnd.Parameters.AddWithValue("@bookId", book.ID);
-        //    cmnd.Parameters.AddWithValue("@branchId", branchToAdd.ID);
-        //    var dr = cmnd.ExecuteReader();
-        //    dr.Read();
-        //    var idInventory = dr.GetInt32(0);
-        //    dr.Close();
-        //    cmnd.Connection.Close();
-
-        //    var command = _connection.DbCommand("UPDATE LibraryFile SET ReturnDate=@timenow WHERE InventoryId=@inventoryid AND ClientId=@clientid");
-        //    command.Parameters.AddWithValue("@inventoryid", idInventory);
-        //    command.Parameters.AddWithValue("@clientid", client.ID);
-        //    command.Parameters.AddWithValue("@timenow", DateTime.Now.Day + 7);
-
-        //    return command.ExecuteNonQuery() == 1;
-
-        //}
 
         public bool ReturnBookFromBranch(Book book, string branchName)
         {

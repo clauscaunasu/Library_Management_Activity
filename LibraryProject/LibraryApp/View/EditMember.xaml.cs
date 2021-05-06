@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using LibraryApp.BusinessLogic;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
@@ -18,8 +8,9 @@ namespace LibraryApp.View
 {
     public partial class EditMember : Window
     {
-        private readonly Client _client = new Client();
+        private readonly Client _client;
         private readonly ServiceClient _serviceClient = new ServiceClient();
+        private readonly Encrypter encrypter;
         public EditMember(Client client)
         {
 
@@ -29,8 +20,9 @@ namespace LibraryApp.View
             NewTxtLastname.Text = client.LastName;
             NewTxtEmail.Text = client.Address;
             NewTxtUsername.Text = client.Username;
-            NewTxtPassword.Text = client.Password;
+            NewTxtPassword.Password = client.Password;
             NewTxtPhone.Text = client.Telephone;
+            encrypter = new Encrypter();
 
         }
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
@@ -48,10 +40,17 @@ namespace LibraryApp.View
             _client.LastName = NewTxtLastname.Text;
             _client.Address = NewTxtEmail.Text;
             _client.Username = NewTxtUsername.Text;
-            _client.Password = NewTxtUsername.Text;
+            if (_client.Password == NewTxtPassword.Password)
+            {
+            }
+            else
+            {
+                _client.Password = encrypter.Encrypt(NewTxtPassword.Password);
+            }
+
             _client.Telephone = NewTxtPhone.Text;
 
-            bool isSaved = _serviceClient.EditMember(_client);
+            var isSaved = _serviceClient.EditMember(_client);
             this.DialogResult = true;
             if (isSaved)
             {

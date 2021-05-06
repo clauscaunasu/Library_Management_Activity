@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using LibraryApp.DataModel.Annotations;
+using LibraryApp.DataModel.Enums;
 
 namespace LibraryApp.DataModel
 {
@@ -12,7 +13,7 @@ namespace LibraryApp.DataModel
         public string UniqueCode { get; set; }
         public string Author { get; set; }
 
-        public string Genre { get; set; }
+        public Genres Genre { get; set; }
 
         private string editure;
 

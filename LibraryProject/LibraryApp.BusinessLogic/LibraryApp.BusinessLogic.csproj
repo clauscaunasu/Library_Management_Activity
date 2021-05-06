@@ -46,6 +46,7 @@
     <Compile Include="Abstractions\IBranchRepository.cs" />
     <Compile Include="Abstractions\IBranchXBookRepository.cs" />
     <Compile Include="Abstractions\ILibraryFileRepository.cs" />
+    <Compile Include="Abstractions\IReportRepository.cs" />
     <Compile Include="Abstractions\ISearchStrategy.cs" />
     <Compile Include="Abstractions\IUserRepository.cs" />
     <Compile Include="Ecrypter.cs" />

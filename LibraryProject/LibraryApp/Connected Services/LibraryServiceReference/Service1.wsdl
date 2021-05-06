@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" />
+      <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel.Enums" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_MemberRegister_InputMessage">
@@ -169,6 +170,18 @@
   <wsdl:message name="IService_IsReturned_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsReturnedResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetBookHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookHistory" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBookHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReports" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="MemberRegister">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/MemberRegister" message="tns:IService_MemberRegister_InputMessage" />
@@ -277,6 +290,14 @@
     <wsdl:operation name="IsReturned">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/IsReturned" message="tns:IService_IsReturned_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/IsReturnedResponse" message="tns:IService_IsReturned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBookHistory" message="tns:IService_GetBookHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBookHistoryResponse" message="tns:IService_GetBookHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetReports" message="tns:IService_GetReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetReportsResponse" message="tns:IService_GetReports_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -517,6 +538,24 @@
     </wsdl:operation>
     <wsdl:operation name="IsReturned">
       <soap:operation soapAction="http://tempuri.org/IService/IsReturned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookHistory">
+      <soap:operation soapAction="http://tempuri.org/IService/GetBookHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReports">
+      <soap:operation soapAction="http://tempuri.org/IService/GetReports" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

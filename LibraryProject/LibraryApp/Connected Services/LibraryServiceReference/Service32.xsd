@@ -382,4 +382,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetBookHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="client" nillable="true" type="q38:Client" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="GetBookHistoryResult" nillable="true" type="q39:ArrayOfBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReports">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" minOccurs="0" name="GetReportsResult" nillable="true" type="q40:ArrayOfReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

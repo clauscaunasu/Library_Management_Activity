@@ -18,7 +18,7 @@ namespace LibraryApp.BusinessLogic.SearchFilters
 
         public IReadOnlyCollection<Client> Search(string term) 
         {
-            return _clients.Where(book => book.FirstName.Contains(term)).ToList().AsReadOnly();
+            return _clients.Where(Client => Client.FirstName.Contains(term)).ToList().AsReadOnly();
         }
     }
 }

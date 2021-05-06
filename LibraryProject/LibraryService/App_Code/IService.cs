@@ -111,6 +111,12 @@ public interface IService
     [OperationContract]
     bool IsReturned(Client client, Book book);
 
+    [OperationContract]
+    List<Book> GetBookHistory(Client client);
+
+    [OperationContract]
+    List<Report> GetReports();
+
     // TODO: Add your service operations here
 }
 

@@ -1,0 +1,96 @@
+﻿<Window x:Class="LibraryApp.View.BookHistoryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:LibraryApp.Controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+         d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
+             ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.35*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#005691">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock Text="All Booked Up" Style="{StaticResource TitleStyle}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <Button x:Name="ProfileBtn" Content="My Profile" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="MyProfileBtn_Click"/>
+                <Button x:Name="BookHistoryBtn" Content="Borrowed Books" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="BorrowedBooksBtn_OnClick"/>
+                <Button x:Name="SeeBooksBtn" Content="All Books" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="AllBooksBtn_OnClick"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                <Button x:Name="HelpBtn" Content="Help" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="HelpBtn_OnClick"/>
+                <Button x:Name="LogoutBtn" Content="Logout" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="LogoutBtn_OnClick"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Background="#e8f1f5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.27*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="2" Background="#e8f1f5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.27*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Margin="10 10" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
+                    ToolTip="Close" x:Name="BtnExit" Click="BtnExit_OnClick" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <materialDesign:PackIcon Kind="Close" Foreground="#005691" Width="30" Height="30"/>
+            </Button>
+            <Label Grid.Row="0" Content="Book History"
+                   FontSize="50"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"
+                   Foreground="#005691"/>
+            <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                <StackPanel VerticalAlignment="Top" Width="Auto">
+                    <ListView x:Name="BooksView">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <Expander Background="#e8f1f5" Width="700">
+                                    <Expander.Header >
+                                        <controls:BookControl Book="{Binding  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=.}"/>
+                                    </Expander.Header>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+
+                                        <Button Content="Renew" Style="{StaticResource OptionsBtn}"  Background="#27496d" Click="ButtonRenew_OnClick"/>
+
+                                        <Button Content="Return" Style="{StaticResource OptionsBtn}" Click="ButtonReturn_OnClick" />
+
+                                    </StackPanel>
+                                </Expander>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

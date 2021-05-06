@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LibraryApp.DataModel;
+using LibraryApp.DataModel.Enums;
 using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
@@ -21,11 +23,11 @@ namespace LibraryApp.View
     /// </summary>
     public partial class AddBook : Window
     {
-        private List<Branch> branches;
+        private readonly List<Branch> branches;
         private static int quantity = 0;
         private string quantityStr;
-        private Book _book = new Book();
-        private ServiceClient _serviceClient = new ServiceClient();
+        private readonly Book _book = new Book();
+        private readonly ServiceClient _serviceClient = new ServiceClient();
         public AddBook()
         {
             InitializeComponent();
@@ -34,15 +36,10 @@ namespace LibraryApp.View
             
         }
 
+
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            ListViewItem lvi = (ListViewItem)sender;
-            SelectBranchComboBox.SelectedItem = lvi.DataContext;
         }
 
         private void BtnAddBook_OnClick(object sender, RoutedEventArgs e)

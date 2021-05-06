@@ -19,14 +19,15 @@ namespace LibraryApp.View
     /// <summary>
     /// Interaction logic for MyProfilePage.xaml
     /// </summary>
-    public partial class MyProfilePage : Window
+    public partial class MyProfilePageAdmin : Window
     {
         private readonly Client _client;
         private readonly ServiceClient _serviceClient = new ServiceClient();
-        public MyProfilePage(Client client)
+        public MyProfilePageAdmin(Client client)
         {
-            this._client = client;
+            _client = client;
             InitializeComponent();
+            DataContext = client;
         }
 
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)

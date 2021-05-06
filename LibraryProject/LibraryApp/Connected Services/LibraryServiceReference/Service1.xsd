@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel.Enums" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel.Enums" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="Genres">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Action" />
+      <xs:enumeration value="Classic" />
+      <xs:enumeration value="Mystery" />
+      <xs:enumeration value="Fantasy" />
+      <xs:enumeration value="Fiction" />
+      <xs:enumeration value="Horror" />
+      <xs:enumeration value="Romance" />
+      <xs:enumeration value="Thriller" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Genres" nillable="true" type="tns:Genres" />
+</xs:schema>

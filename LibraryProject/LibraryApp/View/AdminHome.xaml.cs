@@ -58,8 +58,9 @@ namespace LibraryApp.View
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            var myProfilePage = new MyProfilePage(_client);
+            var myProfilePage = new MyProfilePageAdmin(_client);
             myProfilePage.Show();
+            this.Close();
         }
 
         private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
@@ -131,7 +132,7 @@ namespace LibraryApp.View
                 }
                 else if(filterButton < (Filters) 3)
                 {
-                    var filter = new SearchFilter {Name = filterButton, Term = SearchTextBox.Text};
+                    var filter = new SearchFilter {Name = (DataModel.Enums.Filters) filterButton, Term = SearchTextBox.Text};
                     var results = searchEngine.Search(filter);
                     BooksView.ItemsSource = results;
                     BooksView.Items.Refresh();
@@ -163,6 +164,12 @@ namespace LibraryApp.View
                 main.Show();
             }
 
+        private void Report_OnClick(object sender, RoutedEventArgs e)
+        {
+            var reportWindow = new ReportWindow(_client);
+            reportWindow.Show();
+            Close();
+        }
     }
     }
 

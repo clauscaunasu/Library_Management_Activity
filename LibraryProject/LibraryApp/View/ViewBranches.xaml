@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
         xmlns:controls="clr-namespace:LibraryApp.Controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
        d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
         ResizeMode="NoResize">
@@ -12,6 +13,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.35*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width=".20*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Background="#005691">
             <Grid.RowDefinitions>
@@ -47,19 +49,25 @@
                         Click="LogoutBtn_OnClick"/>
             </StackPanel>
         </Grid>
-        <Grid Grid.Column="2" Background="#e8f1f5">
+        <Grid Grid.Column="1" Background="#e8f1f5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.20*"/>
+                <RowDefinition Height=".20*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-0.192"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-1.146"/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
                 <Label Content="Branch ID: " Style="{StaticResource LabelStyle}"/>
                 <TextBox Style="{StaticResource SearchBoxStyle}" Margin="5 20"/>
                 <Button Content="Search" 
                         Style="{StaticResource SearchBtnStyle}"
-                        VerticalAlignment="Center"
-                />
+                        VerticalAlignment="Center"/>
             </StackPanel>
             <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
                 <StackPanel Grid.Row ="1" VerticalAlignment="Top" Width="Auto">
@@ -86,6 +94,12 @@
 
                 </StackPanel>
             </ScrollViewer>
+        </Grid>
+        <Grid Grid.Column="2" Background="#e8f1f5">
+            <Button Margin="10 10" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
+                    ToolTip="Close" x:Name="BtnExit" Click="BtnExit_OnClick" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <materialDesign:PackIcon Kind="Close" Foreground="#005691" Width="30" Height="30"/>
+            </Button>
         </Grid>
     </Grid>
 </Window>

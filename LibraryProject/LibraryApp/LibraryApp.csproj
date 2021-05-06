@@ -83,9 +83,13 @@
     <Compile Include="Controls\PersonalInfoControl.xaml.cs">
       <DependentUpon>PersonalInfoControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ReportControl.xaml.cs">
+      <DependentUpon>ReportControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SelectBranchControl.xaml.cs">
       <DependentUpon>SelectBranchControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EnumBindingSourceExtension.cs" />
     <Compile Include="View\AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
@@ -97,6 +101,9 @@
     </Compile>
     <Compile Include="Controls\BookControl.xaml.cs">
       <DependentUpon>BookControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BookHistoryView.xaml.cs">
+      <DependentUpon>BookHistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BorrowBook.xaml.cs">
       <DependentUpon>BorrowBook.xaml</DependentUpon>
@@ -113,9 +120,6 @@
     <Compile Include="View\DeleteBook.xaml.cs">
       <DependentUpon>DeleteBook.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DeleteMember.xaml.cs">
-      <DependentUpon>DeleteMember.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\EditMember.xaml.cs">
       <DependentUpon>EditMember.xaml</DependentUpon>
     </Compile>
@@ -125,14 +129,20 @@
     <Compile Include="View\LoginUser.xaml.cs">
       <DependentUpon>LoginUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyProfilePage.xaml.cs">
-      <DependentUpon>MyProfilePage.xaml</DependentUpon>
+    <Compile Include="View\MyProfilePageAdmin.xaml.cs">
+      <DependentUpon>MyProfilePageAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MyProfilePageUser.xaml.cs">
+      <DependentUpon>MyProfilePageUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RegisterUser.xaml.cs">
       <DependentUpon>RegisterUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RenewBook.xaml.cs">
       <DependentUpon>RenewBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ReturnBook.xaml.cs">
       <DependentUpon>ReturnBook.xaml</DependentUpon>
@@ -159,6 +169,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ReportControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SelectBranchControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,6 +193,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\BookHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\BorrowBook.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -196,10 +214,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DeleteBook.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\DeleteMember.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -232,7 +246,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\MyProfilePage.xaml">
+    <Page Include="View\MyProfilePageAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MyProfilePageUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -241,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RenewBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,6 +314,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Connected Services\LibraryServiceReference\Service1.wsdl" />
+    <None Include="Connected Services\LibraryServiceReference\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\LibraryServiceReference\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -311,6 +336,7 @@
     <None Include="LibraryApp.DataModel.Client2.datasource" />
     <None Include="LibraryApp.DataModel.Client3.datasource" />
     <None Include="LibraryApp.DataModel.LibraryFile.datasource" />
+    <None Include="LibraryApp.DataModel.Report.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -370,7 +396,9 @@
       <Name>LibraryApp_DAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\UserIcon.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

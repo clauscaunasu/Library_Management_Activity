@@ -1,0 +1,70 @@
+﻿<Window x:Class="LibraryApp.View.MyProfilePageUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:LibraryApp.Controls" 
+
+        xmlns:local="clr-namespace:LibraryApp.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+         d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
+             ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.35*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="80" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#005691">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="All Booked Up" Style="{StaticResource TitleStyle}"/>
+            <StackPanel Grid.Row="1">
+                <Button x:Name="ProfileBtn" Content="All books" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="AllBooksBtn_Click"/>
+                <Button x:Name="BookHistoryBtn" Content="Book History" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="BookHistoryBtn_OnClick"/>
+                <Button x:Name="BorrowedBooksBtn" Content="Borrowed Books" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="BorrowedBooksBtn_OnClick"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                <Button x:Name="HelpBtn" Content="Help" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="AddBookBtn_Click"/>
+                <Button x:Name="LogoutBtn" Content="Logout" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="LogoutBtn_OnClick"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Background="#e8f1f5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.27*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+        </Grid>
+        <Grid Grid.Column="1" Background="#e8f1f5">
+            <ScrollViewer x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <Image Source="../Image/UserIcon.jpg" Width="200" Margin="30" VerticalAlignment="Top" Stretch="Fill" OpacityMask="Black"/>
+                    <controls:PersonalInfoControl Client="{Binding}"/>
+                    <Button x:Name="EditBtn" Content="Edit"
+                            Style="{StaticResource OptionAdminBtnStyle}"
+                            Click="EditBtn_OnClick" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Column="2" Background="#e8f1f5">
+            <Button Margin="10 10" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
+                    ToolTip="Close" x:Name="BtnExit" Click="BtnExit_OnClick" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <materialDesign:PackIcon Kind="Close" Foreground="#005691" Width="30" Height="30"/>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

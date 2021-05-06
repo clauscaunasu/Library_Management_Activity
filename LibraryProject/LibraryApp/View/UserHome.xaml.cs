@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using LibraryApp.BusinessLogic;
 using LibraryApp.Controls;
 using LibraryApp.LibraryServiceReference;
+using Filters = LibraryApp.DataModel.Enums.Filters;
 
 
 namespace LibraryApp.View
@@ -44,12 +45,16 @@ namespace LibraryApp.View
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var myProfile = new MyProfilePageUser(client);
+            myProfile.Show();
+            this.Close();
         }
 
         private void BookHistoryBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var bookHistoryWindows = new BookHistoryView(client);
+            bookHistoryWindows.Show();
+            this.Close();
         }
 
         private void HelpBtn_OnClick(object sender, RoutedEventArgs e)
@@ -59,7 +64,7 @@ namespace LibraryApp.View
 
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult =
+            var messageBoxResult =
                 MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
 
             if (messageBoxResult == MessageBoxResult.Yes)
@@ -79,12 +84,12 @@ namespace LibraryApp.View
         {
             var borrowedPage = new ViewBorrowedBooks(client);
             borrowedPage.Show();
-            this.Close();
+            Close();
         }
 
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ListViewItem lvi = (ListViewItem)sender;
+            var lvi = (ListViewItem)sender;
             BooksView.SelectedItem = lvi.DataContext;
         }
 

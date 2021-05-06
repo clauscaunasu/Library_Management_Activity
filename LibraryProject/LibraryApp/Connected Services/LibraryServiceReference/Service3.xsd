@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel.Enums" />
   <xs:complexType name="Client">
     <xs:sequence>
       <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
@@ -30,7 +31,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Editure" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Genre" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel.Enums" minOccurs="0" name="Genre" type="q1:Genres" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UniqueCode" nillable="true" type="xs:string" />
@@ -68,4 +69,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LibraryFile" nillable="true" type="tns:LibraryFile" />
+  <xs:complexType name="ArrayOfReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Report" nillable="true" type="tns:Report" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReport" nillable="true" type="tns:ArrayOfReport" />
+  <xs:complexType name="Report">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BorrowDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BranchName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Report" nillable="true" type="tns:Report" />
 </xs:schema>

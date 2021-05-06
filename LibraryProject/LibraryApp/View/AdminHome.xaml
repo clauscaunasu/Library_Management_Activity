@@ -35,6 +35,9 @@
                 <Button x:Name="ViewMembersBtn" Content="View Members"
                         Style="{StaticResource OptionAdminBtnStyle}"
                         Click="ViewMembersBtn_OnClick"></Button>
+                <Button x:Name="Report" Content="Generate Report" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="Report_OnClick"/>
                 <Expander Header="Manage Branches" Style="{StaticResource ExpanderStyle}">
                     <StackPanel>
                         <Button x:Name="AddBranchBtn" Content="Add new branch" Style="{StaticResource SecondaryActionBtn}" Click="AddBranchBtn_Click"/>
@@ -61,13 +64,7 @@
                 <ComboBoxItem>Title</ComboBoxItem>
                 <ComboBoxItem>Author</ComboBoxItem>
                 <ComboBoxItem>Genre</ComboBoxItem>
-                <ComboBoxItem><!--<Button x:Name="ButtonBranch" 
-                                      Click="ButtonBranch_OnClick"
-                                      Content="Branch" 
-                                      Background="White"
-                                      Foreground="Black"
-                                      HorizontalAlignment="Left"
-                                      Height="25"></Button>-->
+                <ComboBoxItem>
                     <ComboBox x:Name="BranchComboBox">
                         <ComboBox.ItemContainerStyle>
                             <Style TargetType="ComboBoxItem">

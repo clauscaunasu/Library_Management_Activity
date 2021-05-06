@@ -176,6 +176,18 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsReturned", ReplyAction="http://tempuri.org/IService/IsReturnedResponse")]
         System.Threading.Tasks.Task<bool> IsReturnedAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBookHistory", ReplyAction="http://tempuri.org/IService/GetBookHistoryResponse")]
+        System.Collections.Generic.List<LibraryApp.DataModel.Book> GetBookHistory(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBookHistory", ReplyAction="http://tempuri.org/IService/GetBookHistoryResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> GetBookHistoryAsync(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetReports", ReplyAction="http://tempuri.org/IService/GetReportsResponse")]
+        System.Collections.Generic.List<LibraryApp.DataModel.Report> GetReports();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetReports", ReplyAction="http://tempuri.org/IService/GetReportsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Report>> GetReportsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -419,6 +431,22 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<bool> IsReturnedAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book) {
             return base.Channel.IsReturnedAsync(client, book);
+        }
+        
+        public System.Collections.Generic.List<LibraryApp.DataModel.Book> GetBookHistory(LibraryApp.DataModel.Client client) {
+            return base.Channel.GetBookHistory(client);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Book>> GetBookHistoryAsync(LibraryApp.DataModel.Client client) {
+            return base.Channel.GetBookHistoryAsync(client);
+        }
+        
+        public System.Collections.Generic.List<LibraryApp.DataModel.Report> GetReports() {
+            return base.Channel.GetReports();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Report>> GetReportsAsync() {
+            return base.Channel.GetReportsAsync();
         }
     }
 }

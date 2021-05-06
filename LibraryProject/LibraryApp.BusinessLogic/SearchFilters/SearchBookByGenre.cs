@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
@@ -14,7 +15,8 @@ namespace LibraryApp.BusinessLogic.SearchFilters
         }
         public IReadOnlyCollection<Book> Search(string term)
         {
-            return _booksList.Where(book => book.Genre.Contains(term)).ToList().AsReadOnly();
+            /*return _booksList.Where(book => book.Genre.Contains(term)).ToList().AsReadOnly();*/
+            return (IReadOnlyCollection<Book>) _booksList;
         }
     }
 }
