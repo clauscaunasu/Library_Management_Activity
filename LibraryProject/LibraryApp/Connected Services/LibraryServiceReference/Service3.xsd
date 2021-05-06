@@ -64,7 +64,7 @@
       <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="InventoryId" type="xs:int" />
-      <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReturnDate" nillable="true" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LibraryFile" nillable="true" type="tns:LibraryFile" />

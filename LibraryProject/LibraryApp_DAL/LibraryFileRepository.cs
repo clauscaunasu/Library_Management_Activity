@@ -184,7 +184,7 @@ namespace LibraryApp_DAL
             var command =
                 _connection.DbCommand("SELECT * FROM Book INNER JOIN BranchXBook ON BranchXBook.BookID = Book.ID INNER JOIN" +
                                       " LibraryFile ON LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID " +
-                                      "WHERE Client.ID = @clientId");
+                                      "WHERE Client.ID = @clientId AND ReturnDate IS NULL");
             command.Parameters.AddWithValue("@clientId", client.ID);
 
             var reader = command.ExecuteReader();
