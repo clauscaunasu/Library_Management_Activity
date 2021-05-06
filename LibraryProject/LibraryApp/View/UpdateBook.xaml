@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp.View"
+        xmlns:libraryApp="clr-namespace:LibraryApp"
+        xmlns:local21="clr-namespace:LibraryApp.DataModel.Enums;assembly=LibraryApp.DataModel"
         mc:Ignorable="d"
-        Title="Update book" Height="350" Width="400"
+        Title="Update book" Height="400" Width="400"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid MouseDown="UIElement_OnMouseDown">
         <Grid Background="#004a7c" >
@@ -20,6 +22,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Content="Editure" Style="{StaticResource LabelStyle}"/>
                 <TextBox Grid.Column="1"   TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" x:Name="NewEditure" />
@@ -29,7 +32,11 @@
                 <TextBox Grid.Row="3" Grid.Column="1"  TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}" x:Name="NewAuthors"/>
                 <Label Grid.Row="2" Content="ISBN" Style="{StaticResource LabelStyle}"/>
                 <TextBox Grid.Row="2" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewUniqueCode" />
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2"
+                <Label Grid.Row="4" Grid.Column="0" Content="Genres" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Row="4" Grid.Column="1" Name="GenresComboBox" HorizontalAlignment="Center" Width="230"  
+                          Text="Select genre"
+                          ItemsSource="{Binding Source={libraryApp:EnumBindingSource {x:Type local21:Genres}}}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5" Grid.ColumnSpan="2"
                             Grid.Column="0">
                     <Button Content="Update Book" Style="{StaticResource MainActionBtnStyle}" Click="ButtonSave_OnClick"  />
                     <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />

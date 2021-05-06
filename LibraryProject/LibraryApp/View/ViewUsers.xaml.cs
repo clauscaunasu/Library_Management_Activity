@@ -12,7 +12,7 @@ namespace LibraryApp.View
     {
         private readonly ServiceClient _serviceClient = new ServiceClient();
         private readonly List<Client> clients;
-        private readonly SearchBranchByName searchBranch;
+        private readonly SearchClientByName searchBranch;
         private readonly Client _client;
 
         public ViewUsers(Client client)
@@ -20,7 +20,7 @@ namespace LibraryApp.View
             InitializeComponent();
             clients = _serviceClient.ClientList();
             UserView.ItemsSource = clients;
-            searchBranch = new SearchBranchByName(clients);
+            searchBranch = new SearchClientByName(clients);
             _client = client;
 
 

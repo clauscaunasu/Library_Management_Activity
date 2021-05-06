@@ -22,7 +22,7 @@ namespace LibraryApp.Controls
         {
             if (d is ClientControl clientControl)
             {
-                clientControl.NameTextBlock.Text = (e.NewValue as Client)?.FirstName;
+                clientControl.NameTextBlock.Text = (e.NewValue as Client)?.Username;
                 clientControl.EmailTextBlock.Text = (e.NewValue as Client)?.Address;
                 clientControl.PhoneTextBlock.Text = (e.NewValue as Client)?.Telephone;
             }

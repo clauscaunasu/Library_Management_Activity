@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LibraryApp.DataModel;
+using LibraryApp.DataModel.Enums;
 using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.View
@@ -21,17 +22,18 @@ namespace LibraryApp.View
     /// </summary>
     public partial class UpdateBook : Window
     {
-        private readonly Book _book = new Book();
+        private readonly Book _book;
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public UpdateBook(Book book)
         {
-            
+
             _book = book;
             InitializeComponent();
             NewTitle.Text = book.Title;
             NewAuthors.Text = book.Author;
             NewEditure.Text = book.Editure;
             NewUniqueCode.Text = book.UniqueCode;
+            GenresComboBox.SelectedIndex = (int)book.Genre;
 
         }
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
@@ -49,6 +51,7 @@ namespace LibraryApp.View
             _book.UniqueCode = NewUniqueCode.Text;
             _book.Editure = NewEditure.Text;
             _book.Author = NewAuthors.Text;
+            _book.Genre = (Genres) GenresComboBox.SelectedIndex;
             var isSaved = _serviceClient.EditBook(_book);
             this.DialogResult = true;
             if (isSaved)

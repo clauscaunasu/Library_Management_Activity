@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using LibraryApp.DataModel;
+using LibraryApp.DataModel.Enums;
 using LibraryApp.LibraryServiceReference;
 
 namespace LibraryApp.Controls
@@ -17,7 +18,7 @@ namespace LibraryApp.Controls
 
         public static readonly DependencyProperty BookProperty = 
             DependencyProperty.Register("Book", typeof(Book),typeof(BookControl),new PropertyMetadata(new Book()
-                {Title = "Title",UniqueCode = "ISBN",Author = "Author",Editure = "Publisher"},SetText));
+                {Title = "Title",UniqueCode = "ISBN",Author = "Author",Editure = "Publisher", Genre = Genres.Action},SetText));
 
 
 
@@ -30,6 +31,9 @@ namespace LibraryApp.Controls
                 control.IsbnTextBlock.Text = (e.NewValue as Book)?.UniqueCode;
                 control.AuthorTextBlock.Text = (e.NewValue as Book)?.Author;
                 control.EditureTextBlock.Text = (e.NewValue as Book)?.Editure;
+                var genres = (e.NewValue as Book)?.Genre;
+                if (genres != null)
+                    control.GenreTextBlock.Text = ((Genres)genres).ToString();
 
 
             }

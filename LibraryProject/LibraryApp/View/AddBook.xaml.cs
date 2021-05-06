@@ -1,37 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using LibraryApp.DataModel;
 using LibraryApp.DataModel.Enums;
 using LibraryApp.LibraryServiceReference;
+using static System.Int16;
 
 namespace LibraryApp.View
 {
-    /// <summary>
-    /// Interaction logic for AddBook.xaml
-    /// </summary>
+
     public partial class AddBook : Window
     {
-        private readonly List<Branch> branches;
-        private static int quantity = 0;
+        private static int _quantity;
         private string quantityStr;
         private readonly Book _book = new Book();
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public AddBook()
         {
             InitializeComponent();
-            branches = _serviceClient.ViewBranches();
+            var branches = _serviceClient.ViewBranches();
             SelectBranchComboBox.ItemsSource = branches;
             
         }
@@ -45,13 +30,13 @@ namespace LibraryApp.View
         private void BtnAddBook_OnClick(object sender, RoutedEventArgs e)
         {
             quantityStr = TxtCopies.Text;
-            quantity += Int16.Parse(quantityStr);
+            _quantity += Parse(quantityStr);
             _book.Title = TxtTitle.Text;
             _book.Author = TxtAuthors.Text;
             _book.Editure = TxtEditure.Text;
             _book.UniqueCode = TxtIsbn.Text;
-            var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
-            var isSuccessful = _serviceClient.AddBookInBranch(_book, selectedBranch.Name, quantity);
+            _book.Genre = (Genres) GenresComboBox.SelectedIndex;
+            var isSuccessful = SelectBranchComboBox.SelectedItem is Branch selectedBranch && _serviceClient.AddBookInBranch(_book, selectedBranch.Name, _quantity);
             this.DialogResult = true;
             if(isSuccessful)
             {

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
+using LibraryApp.DataModel.Enums;
 
 namespace LibraryApp.BusinessLogic.SearchFilters
 {
@@ -15,8 +16,8 @@ namespace LibraryApp.BusinessLogic.SearchFilters
         }
         public IReadOnlyCollection<Book> Search(string term)
         {
-            /*return _booksList.Where(book => book.Genre.Contains(term)).ToList().AsReadOnly();*/
-            return (IReadOnlyCollection<Book>) _booksList;
+            var genre = (Genres) Enum.Parse(typeof(Genres), term);
+            return _booksList.Where(book => book.Genre == genre).ToList().AsReadOnly();
         }
     }
 }
