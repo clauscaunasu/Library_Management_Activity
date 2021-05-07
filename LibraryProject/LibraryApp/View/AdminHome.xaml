@@ -122,11 +122,10 @@
 
                                         <Button Content="Update" Style="{StaticResource OptionsBtn}" Click="ButtonUpdate_OnClick" />
 
-                                        <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#70416d"/>
+                                        <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonMore_OnClick"/>
 
                                         <Button Content="Add in branch" Style="{StaticResource OptionsBtn}" Background="#a2c8a2" Click="ButtonAddInBranch_Click" Width="130"/>
 
-                                        <Button Content="History" Style="{StaticResource OptionsBtn}" Background="#420000" />
                                     </StackPanel>
                                 </Expander>
                             </DataTemplate>

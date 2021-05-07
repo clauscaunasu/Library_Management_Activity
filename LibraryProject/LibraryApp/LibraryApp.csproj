@@ -80,6 +80,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\MoreControl.xaml.cs">
+      <DependentUpon>MoreControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PersonalInfoControl.xaml.cs">
       <DependentUpon>PersonalInfoControl.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,9 @@
     <Compile Include="View\LoginUser.xaml.cs">
       <DependentUpon>LoginUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MoreWindow.xaml.cs">
+      <DependentUpon>MoreWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MyProfilePageAdmin.xaml.cs">
       <DependentUpon>MyProfilePageAdmin.xaml</DependentUpon>
     </Compile>
@@ -165,6 +171,10 @@
     <Compile Include="View\ViewUsers.xaml.cs">
       <DependentUpon>ViewUsers.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\MoreControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PersonalInfoControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -246,6 +256,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\MoreWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MyProfilePageAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -314,9 +328,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Connected Services\LibraryServiceReference\Service1.wsdl" />
-    <None Include="Connected Services\LibraryServiceReference\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\LibraryServiceReference\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -336,6 +347,7 @@
     <None Include="LibraryApp.DataModel.Client2.datasource" />
     <None Include="LibraryApp.DataModel.Client3.datasource" />
     <None Include="LibraryApp.DataModel.LibraryFile.datasource" />
+    <None Include="LibraryApp.DataModel.MoreInformation.datasource" />
     <None Include="LibraryApp.DataModel.Report.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

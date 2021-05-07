@@ -172,6 +172,13 @@ namespace LibraryApp.View
             reportWindow.Show();
             Close();
         }
+
+        private void ButtonMore_OnClick(object sender, RoutedEventArgs e)
+        {
+            var selectedBook = BooksView.SelectedItem as Book;
+            var morePage = new MoreWindow(selectedBook);
+            morePage.Show();
+        }
     }
     }
 

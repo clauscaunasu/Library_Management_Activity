@@ -188,6 +188,12 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetReports", ReplyAction="http://tempuri.org/IService/GetReportsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Report>> GetReportsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMoreInformation", ReplyAction="http://tempuri.org/IService/GetMoreInformationResponse")]
+        System.Collections.Generic.List<LibraryApp.DataModel.MoreInformation> GetMoreInformation(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMoreInformation", ReplyAction="http://tempuri.org/IService/GetMoreInformationResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.MoreInformation>> GetMoreInformationAsync(LibraryApp.DataModel.Book book);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -447,6 +453,14 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.Report>> GetReportsAsync() {
             return base.Channel.GetReportsAsync();
+        }
+        
+        public System.Collections.Generic.List<LibraryApp.DataModel.MoreInformation> GetMoreInformation(LibraryApp.DataModel.Book book) {
+            return base.Channel.GetMoreInformation(book);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.MoreInformation>> GetMoreInformationAsync(LibraryApp.DataModel.Book book) {
+            return base.Channel.GetMoreInformationAsync(book);
         }
     }
 }

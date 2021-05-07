@@ -92,7 +92,7 @@
 
                                         <Button Content="Borrow" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonBorrow_OnClick"/>
 
-                                        <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#420000"/>
+                                        <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#420000" Click="ButtonMore_OnClick"/>
                                     </StackPanel>
                                 </Expander>
                             </DataTemplate>

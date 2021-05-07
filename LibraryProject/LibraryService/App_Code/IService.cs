@@ -99,6 +99,9 @@ public interface IService
     [OperationContract]
     List<Report> GetReports();
 
+    [OperationContract]
+    List<MoreInformation> GetMoreInformation(Book book);
+
     // TODO: Add your service operations here
 }
 

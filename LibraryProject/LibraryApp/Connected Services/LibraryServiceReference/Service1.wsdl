@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel" />
-      <xsd:import schemaLocation="http://localhost:55459/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/LibraryApp.DataModel.Enums" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_MemberRegister_InputMessage">
@@ -182,6 +181,12 @@
   <wsdl:message name="IService_GetReports_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetReportsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetMoreInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoreInformation" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetMoreInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoreInformationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="MemberRegister">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/MemberRegister" message="tns:IService_MemberRegister_InputMessage" />
@@ -298,6 +303,10 @@
     <wsdl:operation name="GetReports">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetReports" message="tns:IService_GetReports_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetReportsResponse" message="tns:IService_GetReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoreInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetMoreInformation" message="tns:IService_GetMoreInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetMoreInformationResponse" message="tns:IService_GetMoreInformation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -556,6 +565,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetReports">
       <soap:operation soapAction="http://tempuri.org/IService/GetReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoreInformation">
+      <soap:operation soapAction="http://tempuri.org/IService/GetMoreInformation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

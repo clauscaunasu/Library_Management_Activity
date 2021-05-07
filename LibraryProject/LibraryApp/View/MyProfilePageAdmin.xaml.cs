@@ -1,4 +1,5 @@
-﻿using LibraryApp.DataModel;
+﻿using System;
+using LibraryApp.DataModel;
 using System.Windows;
 
 namespace LibraryApp.View
@@ -66,6 +67,21 @@ namespace LibraryApp.View
             var adminHome = new AdminHome(_client);
             adminHome.Show();
             this.Close();
+        }
+
+        private void EditBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var editWindow = new EditMember(_client);
+            editWindow.Closed += EditWindow_Closed;
+            editWindow.ShowDialog();
+        }
+
+        private void EditWindow_Closed(object sender, EventArgs e)
+        {
+            if ((sender as Window)?.DialogResult != true) return;
+            var userHome = new UserHome(_client);
+            userHome.Show();
+            Close();
         }
     }
 }
