@@ -10,7 +10,7 @@ namespace LibraryApp.View
     /// <summary>
     /// Interaction logic for BookHistoryView.xaml
     /// </summary>
-    public partial class BookHistoryView : Window
+    public partial class BookHistoryView
     {
         private readonly Client _client;
         private readonly ServiceClient _serviceClient = new ServiceClient();
@@ -24,7 +24,7 @@ namespace LibraryApp.View
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Close();
         }
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
@@ -58,12 +58,10 @@ namespace LibraryApp.View
             var messageBoxResult =
                 MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
 
-            if (messageBoxResult == MessageBoxResult.Yes)
-            {
-                var main = new MainWindow();
-                this.Close();
-                main.Show();
-            }
+            if (messageBoxResult != MessageBoxResult.Yes) return;
+            var main = new MainWindow();
+            this.Close();
+            main.Show();
         }
 
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -72,14 +70,5 @@ namespace LibraryApp.View
             BooksView.SelectedItem = lvi.DataContext;
         }
 
-        private void ButtonRenew_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ButtonReturn_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

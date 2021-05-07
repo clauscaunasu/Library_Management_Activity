@@ -13,7 +13,7 @@ namespace LibraryApp.DataModel
         public string UniqueCode { get; set; }
         public string Author { get; set; }
 
-        public Genres Genre { get; set; }
+        public string Genre { get; set; }
 
         private string editure;
 

@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
@@ -21,18 +10,20 @@ namespace LibraryApp.View
     /// </summary>
     public partial class UpdateBranch : Window
     {
-        private readonly Branch _branch = new Branch();
+        private readonly Branch _branch;
+        private readonly Client _client;
         private readonly ServiceClient _serviceClient = new ServiceClient();
-        public UpdateBranch(Branch branch)
+        public UpdateBranch(Branch branch, Client client)
         {
             InitializeComponent();
             _branch = branch;
             NewName.Text = branch.Name;
             NewAddress.Text = branch.Address;
+            _client = client;
         }
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -43,14 +34,12 @@ namespace LibraryApp.View
         {
             _branch.Name = NewName.Text;
             _branch.Address = NewAddress.Text;
-            bool isSaved = _serviceClient.EditBranch(_branch);
-            if(isSaved)
-            {
-                MessageBox.Show("Branch updated successfully!");
-                var viewBranchesP = new ViewBranches();
-                this.Close();
-                viewBranchesP.Show();
-            }
+            var isSaved = _serviceClient.EditBranch(_branch);
+            if (!isSaved) return;
+            MessageBox.Show("Branch updated successfully!");
+            var viewBranchesP = new ViewBranches(_client);
+            Close();
+            viewBranchesP.Show();
         }
     }
 }

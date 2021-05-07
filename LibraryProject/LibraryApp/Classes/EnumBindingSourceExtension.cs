@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Markup;
 
-namespace LibraryApp
+namespace LibraryApp.Classes
 {
     public class EnumBindingSourceExtension : MarkupExtension
     {

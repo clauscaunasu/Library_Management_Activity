@@ -100,7 +100,7 @@ namespace LibraryApp.View
 
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
         {
-            var branchPage = new AddBranch();
+            var branchPage = new AddBranch(_client);
             branchPage.Show();
         }
 
@@ -112,8 +112,9 @@ namespace LibraryApp.View
 
         private void ViewBranchesBtn_Click(object sender, RoutedEventArgs e)
         {
-            var viewBranchesPage = new ViewBranches();
+            var viewBranchesPage = new ViewBranches(_client);
             viewBranchesPage.Show();
+            Close();
         }
 
         private void ButtonAddInBranch_Click(object sender, RoutedEventArgs e)
@@ -124,26 +125,27 @@ namespace LibraryApp.View
         }
 
         private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)
+        {
+           filterButton = (Filters)ComboBoxFilter.SelectedIndex;
+            
+            if (filterButton < 0)
             {
-                var filterButton = (Filters) ComboBoxFilter.SelectedIndex;
-                if (filterButton < 0)
-                {
-                    MessageBox.Show("Please select a filter");
-                }
-                else if(filterButton < (Filters) 3)
-                {
-                    var filter = new SearchFilter {Name = (DataModel.Enums.Filters) filterButton, Term = SearchTextBox.Text};
-                    var results = searchEngine.Search(filter);
-                    BooksView.ItemsSource = results;
-                    BooksView.Items.Refresh();
-                }
-                else if (BranchComboBox.SelectedIndex > 0)
-                {
-                    var result = _serviceClient.GetBooksFromBranch(_branches[BranchComboBox.SelectedIndex].Name);
-                    BooksView.ItemsSource = result;
-                    BooksView.Items.Refresh();
-                }
+                MessageBox.Show("Please select a filter");
             }
+            else if(filterButton < (Filters) 3)
+            {
+                var filter = new SearchFilter {Name = (DataModel.Enums.Filters) filterButton, Term = SearchTextBox.Text};
+                var results = searchEngine.Search(filter);
+                BooksView.ItemsSource = results;
+                BooksView.Items.Refresh();
+            }
+            else if (BranchComboBox.SelectedIndex > 0)
+            {
+                var result = _serviceClient.GetBooksFromBranch(_branches[BranchComboBox.SelectedIndex].Name);
+                BooksView.ItemsSource = result;
+                BooksView.Items.Refresh();
+            }
+        }
 
 
 
@@ -154,15 +156,15 @@ namespace LibraryApp.View
         }
 
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
-            {
-                var messageBoxResult =
-                    MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+        {
+            var messageBoxResult =
+                MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
 
-                if (messageBoxResult != MessageBoxResult.Yes) return;
-                var main = new MainWindow();
-                this.Close();
-                main.Show();
-            }
+            if (messageBoxResult != MessageBoxResult.Yes) return;
+            var main = new MainWindow();
+            this.Close();
+            main.Show();
+        }
 
         private void Report_OnClick(object sender, RoutedEventArgs e)
         {

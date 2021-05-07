@@ -38,30 +38,16 @@ namespace LibraryApp.View
 
         private void CancelBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            this.Close();
-        }
-
-        private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            ListViewItem lvi = (ListViewItem)sender;
-            SelectBranchComboBox.SelectedItem = lvi.DataContext;
+            Close();
         }
 
         private void BorrowBtn_Click(object sender, RoutedEventArgs e)
         {
-            bool isSuccessful = true;
             var selectedBranch = SelectBranchComboBox.SelectedItem as Branch;
 
             _borrowedBooks = _serviceClient.GetBorrowedBooks(_client);
 
-            if (_borrowedBooks.Count > 3)
-            {
-                isSuccessful = false;
-            }
-            else
-            {
-                isSuccessful = _serviceClient.AddLibraryFile(_client, _book, selectedBranch);
-            }
+            var isSuccessful = _borrowedBooks.Count <= 3 && _serviceClient.AddLibraryFile(_client, _book, selectedBranch);
             
             if (isSuccessful)
             {

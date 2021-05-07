@@ -78,11 +78,7 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate >
                             <DataTemplate>
-                                <Expander Background="#e8f1f5" Width="700">
-                                    <Expander.Header >
-                                        <controls:ReportControl Report="{Binding  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=.}"/>
-                                    </Expander.Header>
-                                </Expander>
+                                <controls:ReportControl Report="{Binding  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=.}" Width="700"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

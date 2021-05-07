@@ -20,9 +20,9 @@ namespace LibraryApp.View
 {
     public partial class RegisterUser : Window
     {
-        private ServiceClient _serviceClient = new ServiceClient();
-        private Encrypter enc = new Encrypter();
-        private  Client client = new Client();
+        private readonly ServiceClient _serviceClient = new ServiceClient();
+        private readonly Encrypter enc = new Encrypter();
+        private readonly Client client = new Client();
          
 
         public RegisterUser()
@@ -32,9 +32,6 @@ namespace LibraryApp.View
 
         private void BtnRegister_OnClick(object sender, RoutedEventArgs e)
         {
-            /*var result = _serviceClient.Register(TxtFirstname.Text, TxtLastname.Text, TxtAddress.Text, TxtPhone.Text,
-                TxtUsername.Text, enc.Encrypt(TxtPassword.Password));
-            MessageBox.Show(result ? "success" : "failed");*/
 
             client.FirstName = TxtFirstname.Text;
             client.LastName = TxtLastname.Text;

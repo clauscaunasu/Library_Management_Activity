@@ -1,7 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using LibraryApp.LibraryServiceReference;
-using MaterialDesignThemes.Wpf;
 
 
 namespace LibraryApp.View
@@ -9,7 +7,6 @@ namespace LibraryApp.View
 
     public partial class MainWindow : Window
     {
-        private ServiceClient _serviceClient = new ServiceClient();
         public MainWindow()
         {
             InitializeComponent();

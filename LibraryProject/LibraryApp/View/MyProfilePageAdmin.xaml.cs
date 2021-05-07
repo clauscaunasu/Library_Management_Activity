@@ -1,18 +1,5 @@
 ﻿using LibraryApp.DataModel;
-using LibraryApp.LibraryServiceReference;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LibraryApp.View
 {
@@ -22,7 +9,7 @@ namespace LibraryApp.View
     public partial class MyProfilePageAdmin : Window
     {
         private readonly Client _client;
-        private readonly ServiceClient _serviceClient = new ServiceClient();
+
         public MyProfilePageAdmin(Client client)
         {
             _client = client;
@@ -52,14 +39,14 @@ namespace LibraryApp.View
 
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
         {
-            var branchPage = new AddBranch();
+            var branchPage = new AddBranch(_client);
             branchPage.Show();
         }
 
 
         private void ViewBranchesBtn_Click(object sender, RoutedEventArgs e)
         {
-            var viewBranchesPage = new ViewBranches();
+            var viewBranchesPage = new ViewBranches(_client);
             viewBranchesPage.Show();
         }
 

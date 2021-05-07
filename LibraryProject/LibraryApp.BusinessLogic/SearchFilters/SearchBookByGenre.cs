@@ -16,8 +16,7 @@ namespace LibraryApp.BusinessLogic.SearchFilters
         }
         public IReadOnlyCollection<Book> Search(string term)
         {
-            var genre = (Genres) Enum.Parse(typeof(Genres), term);
-            return _booksList.Where(book => book.Genre == genre).ToList().AsReadOnly();
+            return _booksList.Where(book => book.Genre.ToLower().Contains(term)).ToList().AsReadOnly();
         }
     }
 }

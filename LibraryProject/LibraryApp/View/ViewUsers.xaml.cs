@@ -79,12 +79,15 @@ namespace LibraryApp.View
         
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            var addBranchWindow = new AddBranch(_client);
+            addBranchWindow.Show();
         }
 
         private void ViewBranchesBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            var viewBranchesWindow = new ViewBranches(_client);
+            viewBranchesWindow.Show();
+            Close();
         }
 
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)

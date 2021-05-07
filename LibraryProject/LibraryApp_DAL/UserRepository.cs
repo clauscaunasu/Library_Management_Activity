@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using LibraryApp.BusinessLogic;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
 using static System.Boolean;
@@ -13,7 +12,7 @@ namespace LibraryApp_DAL
     {
         private readonly DConnectivity _connection;
         private readonly List<Client> _clients = new List<Client>();
-        private Encrypter encrypter = new Encrypter();
+
         public UserRepository(DConnectivity connection)
         {
             this._connection = connection;

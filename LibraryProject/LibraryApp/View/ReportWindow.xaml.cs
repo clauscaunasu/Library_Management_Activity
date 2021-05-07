@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
@@ -11,7 +12,7 @@ namespace LibraryApp.View
     /// </summary>
     public partial class ReportWindow : Window
     {
-        private Client _client;
+        private readonly Client _client;
         private readonly ServiceClient _serviceClient = new ServiceClient();
 
         public ReportWindow(Client client)
@@ -25,47 +26,66 @@ namespace LibraryApp.View
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var myProfileWindow = new MyProfilePageAdmin(_client);
+            myProfileWindow.Show();
+            Close();
         }
 
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var addBookWindow = new AddBook();
+            addBookWindow.Show();
         }
 
         private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var viewMembersWindow = new ViewUsers(_client);
+            viewMembersWindow.Show();
+            Close();
         }
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Close();
         }
 
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var messageBoxResult =
+                MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
+
+            if (messageBoxResult != MessageBoxResult.Yes) return;
+            var main = new MainWindow();
+            Close();
+            main.Show();
         }
 
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            var lvi = (ListViewItem)sender;
+            ReportsView.SelectedItem = lvi.DataContext;
         }
 
         private void Report_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var reportWindow = new ReportWindow(_client);
+            reportWindow.Show();
+            Close();
         }
 
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var addBranchWindow = new AddBranch(_client);
+            addBranchWindow.Show();
+            Close();
+
         }
 
         private void ViewBranchesBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var viewBranchesWindow = new ViewBranches(_client);
+            viewBranchesWindow.Show();
+            Close();
         }
     }
 }

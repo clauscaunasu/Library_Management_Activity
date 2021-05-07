@@ -11,10 +11,13 @@ namespace LibraryApp.View
     {
         private readonly ServiceClient _serviceClient = new ServiceClient();
         private readonly Branch _branch = new Branch();
+        private readonly Client _client;
 
-        public AddBranch()
+        public AddBranch(Client client)
         {
             InitializeComponent();
+            _client = client;
+            
         }
 
         private void BtnAddBranch_Click(object sender, RoutedEventArgs e)
@@ -26,7 +29,7 @@ namespace LibraryApp.View
             {
                 MessageBox.Show("Branch added successfully!");
                 this.Close();
-                var newBranchP = new ViewBranches();
+                var newBranchP = new ViewBranches(_client);
                 newBranchP.Show();
             }
 

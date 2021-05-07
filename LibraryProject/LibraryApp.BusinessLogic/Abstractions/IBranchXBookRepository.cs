@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using LibraryApp.DataModel;
 
 namespace LibraryApp.BusinessLogic.Abstractions
@@ -13,7 +9,6 @@ namespace LibraryApp.BusinessLogic.Abstractions
         bool DeleteBookFromBranch(Book book, string branchName);
         int GetNoCopiesFromBranch(Branch branch, Book book);
         bool BorrowBookFromBranch(Book book, string branchName);
-        //bool RenewBookFromBranch(Book book, string branchName, Client client);
         bool ReturnBookFromBranch(Book book, string branchName);
         List<Book> GetBooksFromBranch(string branchName);
         List<Branch> BranchesForBook(Book book);

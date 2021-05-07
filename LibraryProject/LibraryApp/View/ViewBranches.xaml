@@ -29,6 +29,9 @@
                 <Button x:Name="AddBookBtn" Content="Add New Book" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
                         Click="AddBookBtn_Click"/>
+                <Button x:Name="ViewBooks" Content="AllBooks"
+                        Style="{StaticResource OptionAdminBtnStyle}"
+                        Click="ViewBooks_OnClick"></Button>
                 <Button x:Name="ViewMembersBtn" Content="View Members"
                         Style="{StaticResource OptionAdminBtnStyle}"
                         Click="ViewMembersBtn_OnClick"></Button>

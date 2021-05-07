@@ -24,11 +24,6 @@ namespace LibraryApp.View
             this.Close();
         }
 
-        private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            var lvi = (ListViewItem)sender;
-            SelectBranchComboBox.SelectedItem = lvi.DataContext;
-        }
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {

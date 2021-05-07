@@ -1,20 +1,9 @@
 ﻿using LibraryApp.DataModel;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using LibraryApp.BusinessLogic;
-using LibraryApp.Controls;
 using LibraryApp.LibraryServiceReference;
 using Filters = LibraryApp.DataModel.Enums.Filters;
 
@@ -27,15 +16,14 @@ namespace LibraryApp.View
     public partial class UserHome : Window
     {
 
-        private Client client;
+        private readonly Client client;
         private readonly SearchEngine searchEngine;
-        private List<Book> books = new List<Book>();
         private readonly ServiceClient _serviceClient = new ServiceClient();
         public UserHome(Client client)
         {
             this.client = client;
             InitializeComponent();
-            books = _serviceClient.BooksList();
+            var books = _serviceClient.BooksList();
             BooksView.ItemsSource = books;
             searchEngine = new SearchEngine(books);
             

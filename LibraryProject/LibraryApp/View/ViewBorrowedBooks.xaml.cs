@@ -27,12 +27,16 @@ namespace LibraryApp.View
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var myProfileWindow = new MyProfilePageUser(_client);
+            myProfileWindow.Show();
+            Close();
         }
 
         private void BookHistoryBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var bookHistoryWindows = new BookHistoryView(_client);
+            bookHistoryWindows.Show();
+            Close();
         }
 
         private void HelpBtn_OnClick(object sender, RoutedEventArgs e)
@@ -45,12 +49,10 @@ namespace LibraryApp.View
             var messageBoxResult =
                 MessageBox.Show("Are you sure?", "Logout confirmation", MessageBoxButton.YesNo);
 
-            if (messageBoxResult == MessageBoxResult.Yes)
-            {
-                var main = new MainWindow();
-                this.Close();
-                main.Show();
-            }
+            if (messageBoxResult != MessageBoxResult.Yes) return;
+            var main = new MainWindow();
+            this.Close();
+            main.Show();
         }
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)
@@ -76,13 +78,7 @@ namespace LibraryApp.View
         {
             var selectedBook = BooksView.SelectedItem as Book;
             var isRenewed =_serviceClient.RenewDueDate(_client, selectedBook);
-            if (isRenewed)
-                MessageBox.Show("Book was successfully renewed with 7 days");
-            else
-            {
-                MessageBox.Show("No more renews are allowed!");
-            }
-
+            MessageBox.Show(isRenewed ? "Book was successfully renewed with 7 days" : "No more renews are allowed!");
         }
 
         private void ButtonReturn_OnClick(object sender, RoutedEventArgs e)

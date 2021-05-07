@@ -215,7 +215,7 @@ namespace LibraryApp_DAL
                     Title = dt.Rows[i]["Title"].ToString(),
                     Author = dt.Rows[i]["Author"].ToString(),
                     Editure = dt.Rows[i]["Editure"].ToString(),
-                    Genre = (Genres) int.Parse(dt.Rows[i]["Genre"].ToString())
+                    Genre =  dt.Rows[i]["Genre"].ToString()
                 };
                 _books.Add(book);
             }

@@ -72,20 +72,9 @@
                                 <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
                             </Style>
                         </ListView.ItemContainerStyle>
-                        <ListView.ItemTemplate >
+                        <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Expander Background="#e8f1f5" Width="700">
-                                    <Expander.Header >
-                                        <controls:BookControl Book="{Binding  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=.}"/>
-                                    </Expander.Header>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
-
-                                        <Button Content="Renew" Style="{StaticResource OptionsBtn}"  Background="#27496d" Click="ButtonRenew_OnClick"/>
-
-                                        <Button Content="Return" Style="{StaticResource OptionsBtn}" Click="ButtonReturn_OnClick" />
-
-                                    </StackPanel>
-                                </Expander>
+                                <controls:BookControl Book="{Binding  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=.}" Width="700"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

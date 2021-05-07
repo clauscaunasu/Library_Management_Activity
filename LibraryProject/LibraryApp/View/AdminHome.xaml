@@ -57,7 +57,7 @@
         </Grid>
         <Grid Grid.Column="1" Background="#e8f1f5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.27*"/>
+                <RowDefinition Height="0.40*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <ComboBox x:Name="ComboBoxFilter" IsReadOnly="True" Text="Select filter" VerticalAlignment="Top" Margin="10 30 10 0 " IsEditable="True">

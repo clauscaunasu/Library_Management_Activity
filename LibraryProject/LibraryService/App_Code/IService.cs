@@ -12,21 +12,6 @@ using LibraryApp.DataModel;
 public interface IService
 {
 
-	/*[OperationContract]
-	List<string> GetBranches();
-
-    [OperationContract]
-    bool LogIn(string username, string password);
-
-    [OperationContract]
-    bool Register(string firstName, string lastName, string address, string telephone, string username,string password);
-
-    [OperationContract]
-    List<string> BranchListLoader();
-
-    [OperationContract]
-    bool AddBook(string title, string isbn, string authors, string editure, string branch, int copies);*/
-
     [OperationContract]
     bool MemberRegister(Client client);
 
@@ -77,9 +62,6 @@ public interface IService
 
     [OperationContract]
     bool BorrowBookFromBranch(Book book, string branchName);
-
-    //[OperationContract]
-    //bool RenewBookFromBranch(Book book, string branchName, Client client);
 
     [OperationContract]
     bool ReturnBookFromBranch(Book book, string branchName);

@@ -35,7 +35,7 @@ namespace LibraryApp.View
             _book.Author = TxtAuthors.Text;
             _book.Editure = TxtEditure.Text;
             _book.UniqueCode = TxtIsbn.Text;
-            _book.Genre = (Genres) GenresComboBox.SelectedIndex;
+            _book.Genre = GenresComboBox.Text;
             var isSuccessful = SelectBranchComboBox.SelectedItem is Branch selectedBranch && _serviceClient.AddBookInBranch(_book, selectedBranch.Name, _quantity);
             this.DialogResult = true;
             if(isSuccessful)

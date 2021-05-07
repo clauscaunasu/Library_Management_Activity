@@ -1,5 +1,4 @@
 ﻿using LibraryApp.DataModel;
-using LibraryApp.LibraryServiceReference;
 using System.Windows;
 
 namespace LibraryApp.View
@@ -7,7 +6,7 @@ namespace LibraryApp.View
     public partial class MyProfilePageUser : Window
     {
         private readonly Client _client;
-        private readonly ServiceClient _serviceClient = new ServiceClient();
+
         public MyProfilePageUser(Client client)
         {
             _client = client;

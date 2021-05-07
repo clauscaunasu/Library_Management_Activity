@@ -8,9 +8,9 @@
         xmlns:local1="clr-namespace:LibraryApp.Controls"
         xmlns:local2="clr-namespace:LibraryApp.DataModel;assembly=LibraryApp.DataModel"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
-        xmlns:enums="clr-namespace:LibraryApp.DataModel.Enums"
         xmlns:local21="clr-namespace:LibraryApp.DataModel.Enums;assembly=LibraryApp.DataModel"
         xmlns:libraryApp="clr-namespace:LibraryApp"
+        xmlns:classes="clr-namespace:LibraryApp.Classes"
         mc:Ignorable="d"
         Title="Add new book" Height="500" Width="400"
          WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
@@ -57,7 +57,7 @@
             </ComboBox>
             <ComboBox Grid.Row="6" Grid.Column="1" Name="GenresComboBox" HorizontalAlignment="Center" Width="230"  
                        Text="Select genre"
-                      ItemsSource="{Binding Source={libraryApp:EnumBindingSource {x:Type local21:Genres}}}"/>
+                      ItemsSource="{Binding Source={classes:EnumBindingSource {x:Type local21:Genres}}}"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="7" Grid.ColumnSpan="2"
                         Grid.Column="0">
             <Button x:Name="BtnAddBook" Content="Add Book" Style="{StaticResource MainActionBtnStyle}" Click="BtnAddBook_OnClick" />

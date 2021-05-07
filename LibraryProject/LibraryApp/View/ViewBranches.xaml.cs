@@ -1,15 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using LibraryApp.DataModel;
 using LibraryApp.LibraryServiceReference;
 
@@ -21,11 +12,13 @@ namespace LibraryApp.View
     public partial class ViewBranches : Window
     {
         private readonly ServiceClient _serviceClient = new ServiceClient();
-        public ViewBranches()
+        private readonly Client _client;
+        public ViewBranches(Client client)
         {
             InitializeComponent();
             var branches = _serviceClient.ViewBranches();
             BranchesView.ItemsSource = branches;
+            _client = client;
         }
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -40,24 +33,28 @@ namespace LibraryApp.View
 
         private void MyProfileBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var myProfileWindow = new MyProfilePageAdmin(_client);
+            myProfileWindow.Show();
+            Close();
         }
 
         private void ViewMembersBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var viewMembersWindow = new ViewUsers(_client);
+            viewMembersWindow.Show();
+            Close();
         }
 
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
         {
-            var branchPage = new AddBranch();
+            var branchPage = new AddBranch(_client);
             branchPage.Show();
         }
 
         private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
         {
             var selectedBranch = BranchesView.SelectedItem as Branch;
-            var updateBranchPage = new UpdateBranch(selectedBranch);
+            var updateBranchPage = new UpdateBranch(selectedBranch, _client);
             updateBranchPage.Show();
 
         }
@@ -70,7 +67,7 @@ namespace LibraryApp.View
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             var selectedBranch = BranchesView.SelectedItem as Branch;
-            var deleteBranchPage = new DeleteBranch(selectedBranch);
+            var deleteBranchPage = new DeleteBranch(selectedBranch, _client);
             deleteBranchPage.Show();
         }
 
@@ -83,6 +80,13 @@ namespace LibraryApp.View
             var main = new MainWindow();
             this.Close();
             main.Show();
+        }
+
+        private void ViewBooks_OnClick(object sender, RoutedEventArgs e)
+        {
+            var viewBooksWindow = new AdminHome(_client);
+            viewBooksWindow.Show();
+            Close();
         }
     }
 }

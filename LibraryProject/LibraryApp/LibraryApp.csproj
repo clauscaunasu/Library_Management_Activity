@@ -89,7 +89,7 @@
     <Compile Include="Controls\SelectBranchControl.xaml.cs">
       <DependentUpon>SelectBranchControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EnumBindingSourceExtension.cs" />
+    <Compile Include="Classes\EnumBindingSourceExtension.cs" />
     <Compile Include="View\AddBook.xaml.cs">
       <DependentUpon>AddBook.xaml</DependentUpon>
     </Compile>
@@ -399,6 +399,7 @@
   <ItemGroup>
     <Resource Include="Image\UserIcon.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

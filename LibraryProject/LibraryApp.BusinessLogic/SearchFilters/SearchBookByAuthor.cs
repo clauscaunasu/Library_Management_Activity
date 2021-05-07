@@ -14,7 +14,7 @@ namespace LibraryApp.BusinessLogic.SearchFilters
         }
         public IReadOnlyCollection<Book> Search(string term)
         {
-            return _booksList.Where(book => book.Author.Contains(term)).ToList().AsReadOnly();
+            return _booksList.Where(book => book.Author.ToLower().Contains(term)).ToList().AsReadOnly();
         }
     }
 
