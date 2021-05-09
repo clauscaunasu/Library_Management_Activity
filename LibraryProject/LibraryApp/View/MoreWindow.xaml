@@ -1,0 +1,31 @@
+﻿<Window x:Class="LibraryApp.View.MoreWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryApp.View"
+        xmlns:controls="clr-namespace:LibraryApp.Controls"
+        mc:Ignorable="d"
+        Title="MoreWindow" Height="120" Width="320" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Border Background="Blue" BorderThickness="4" BorderBrush="#005691" MouseDown="UIElement_OnMouseDown">
+        <Grid Background="#e8f1f5" >
+            <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                <StackPanel Margin="10">
+                <ListView x:Name="InfoView">
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <controls:MoreControl MoreInformation="{Binding  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=.}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button VerticalAlignment="Bottom"
+                        Content="Close"
+                        Style="{StaticResource SearchBtnStyle}"
+                        Width="80"
+                        Height="30"
+                        Click="ButtonExit_OnClick"/>
+                </StackPanel>
+            </ScrollViewer>
+    </Grid>
+    </Border>
+</Window>

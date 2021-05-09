@@ -42,6 +42,10 @@ public partial class Service : IService
         return new ReportRepository(new DConnectivity());
     }
 
+    private IMoreInformationRepository getMoreInformationRepository()
+    {
+        return new MoreInformationRepository(new DConnectivity());
+    }
     public bool EditMember(Client client)
     {
         var userRepository = GetUserRepository();
@@ -216,5 +220,11 @@ public partial class Service : IService
     {
         var reportRepository = GetReportRepository();
         return reportRepository.GetReports();
+    }
+
+    public List<MoreInformation> GetMoreInformation(Book book)
+    {
+        var infoRep = getMoreInformationRepository();
+        return infoRep.GetMoreInformation(book);
     }
 }

@@ -84,4 +84,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Report" nillable="true" type="tns:Report" />
+  <xs:complexType name="ArrayOfMoreInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoreInformation" nillable="true" type="tns:MoreInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoreInformation" nillable="true" type="tns:ArrayOfMoreInformation" />
+  <xs:complexType name="MoreInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BranchName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuantityInBranch" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoreInformation" nillable="true" type="tns:MoreInformation" />
 </xs:schema>
