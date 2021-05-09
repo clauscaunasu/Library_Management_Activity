@@ -314,9 +314,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Connected Services\LibraryServiceReference\Service1.wsdl" />
-    <None Include="Connected Services\LibraryServiceReference\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\LibraryServiceReference\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
