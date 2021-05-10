@@ -42,7 +42,7 @@ public partial class Service : IService
         return new ReportRepository(new DConnectivity());
     }
 
-    private IMoreInformationRepository getMoreInformationRepository()
+    private IMoreInformationRepository GetMoreInformationRepository()
     {
         return new MoreInformationRepository(new DConnectivity());
     }
@@ -224,7 +224,7 @@ public partial class Service : IService
 
     public List<MoreInformation> GetMoreInformation(Book book)
     {
-        var infoRep = getMoreInformationRepository();
+        var infoRep = GetMoreInformationRepository();
         return infoRep.GetMoreInformation(book);
     }
 }

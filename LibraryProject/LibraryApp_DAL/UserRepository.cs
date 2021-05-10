@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
-using static System.Boolean;
 
 
 namespace LibraryApp_DAL
@@ -106,7 +104,7 @@ namespace LibraryApp_DAL
             var reader = command.ExecuteReader();
             var dt = new DataTable();
             dt.Load(reader);
-            client.ID = Int32.Parse(dt.Rows[0]["ID"].ToString());
+            client.ID = int.Parse(dt.Rows[0]["ID"].ToString());
             client.FirstName = dt.Rows[0]["FirstName"].ToString();
             client.LastName = dt.Rows[0]["LastName"].ToString();
             client.Address = dt.Rows[0]["Address"].ToString();
@@ -114,7 +112,7 @@ namespace LibraryApp_DAL
             client.Duty = dt.Rows[0]["Duty"].ToString();
             client.Username = dt.Rows[0]["Username"].ToString();
             client.Password = dt.Rows[0]["Password"].ToString();
-            client.Desired = Parse(dt.Rows[0]["Desired"].ToString());
+            client.Desired = bool.Parse(dt.Rows[0]["Desired"].ToString());
 
             return client;
         }
@@ -133,7 +131,7 @@ namespace LibraryApp_DAL
                     Duty = dt.Rows[i]["Duty"].ToString(),
                     Username = dt.Rows[i]["Username"].ToString(),
                     Password = dt.Rows[i]["Password"].ToString(),
-                    Desired = Parse(dt.Rows[i]["Desired"].ToString())
+                    Desired = bool.Parse(dt.Rows[i]["Desired"].ToString())
                 };
 
                 _clients.Add(client);

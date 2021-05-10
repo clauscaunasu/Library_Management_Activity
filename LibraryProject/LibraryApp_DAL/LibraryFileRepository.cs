@@ -15,7 +15,7 @@ namespace LibraryApp_DAL
         private readonly List<LibraryFile> _libraryFiles = new List<LibraryFile>();
         private readonly BranchXBookRepository inventoryRepository;
         private readonly List<Book> _books = new List<Book>();
-        private List<Branch> _branchesOfBook = new List<Branch>();
+        private readonly List<Branch> _branchesOfBook = new List<Branch>();
        
 
         public LibraryFileRepository(DConnectivity connection)
@@ -51,9 +51,6 @@ namespace LibraryApp_DAL
 
         public bool RenewDueDate(Client client, Book book)
         {
-            var inventoryId = 0;
-           
-            
             var command = _connection.DbCommand(
                 "SELECT BranchXBook.ID FROM BranchXBook INNER JOIN Book ON Book.ID = BranchXBook.BookID INNER JOIN LibraryFile ON " +
                 "LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID WHERE Client.ID=@clientId AND Book.ID=@bookId");
@@ -62,7 +59,7 @@ namespace LibraryApp_DAL
 
             var reader = command.ExecuteReader();
             reader.Read();
-            inventoryId = reader.GetInt32(0);
+            var inventoryId = reader.GetInt32(0);
             reader.Close();
             command = _connection.DbCommand(
                 "SELECT DueDate, BorrowDate From LibraryFile WHERE BranchXBookID=@inventoryId AND ClientID=@clientId");
@@ -93,8 +90,6 @@ namespace LibraryApp_DAL
 
         public bool ReturnBook(Client client, Book book)
         {
-            int inventoryId = 0;
-
             var command = _connection.DbCommand(
                 "SELECT BranchXBook.ID FROM BranchXBook INNER JOIN Book ON Book.ID = BranchXBook.BookID INNER JOIN LibraryFile ON " +
                 "LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID WHERE Client.ID=@clientId AND Book.ID=@bookId");
@@ -102,7 +97,7 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@bookId", book.ID);
             var reader = command.ExecuteReader();
             reader.Read();
-            inventoryId = reader.GetInt32(0);
+            var inventoryId = reader.GetInt32(0);
             reader.Close();
             //command = _connection.DbCommand(
             //    "SELECT DueDate, BorrowDate From LibraryFile WHERE BranchXBookID=@inventoryId AND ClientID=@clientId");
@@ -148,8 +143,6 @@ namespace LibraryApp_DAL
 
         public bool IsReturned(Client client, Book book)
         {
-            int inventoryId = 0;
-
             var command = _connection.DbCommand(
                 "SELECT BranchXBook.ID FROM BranchXBook INNER JOIN Book ON Book.ID = BranchXBook.BookID INNER JOIN LibraryFile ON " +
                 "LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID WHERE Client.ID=@clientId AND Book.ID=@bookId");
@@ -157,7 +150,7 @@ namespace LibraryApp_DAL
             command.Parameters.AddWithValue("@bookId", book.ID);
             var reader = command.ExecuteReader();
             reader.Read();
-            inventoryId = reader.GetInt32(0);
+            var inventoryId = reader.GetInt32(0);
             reader.Close();
             
             command = _connection.DbCommand(

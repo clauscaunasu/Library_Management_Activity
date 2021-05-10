@@ -18,15 +18,10 @@ namespace LibraryApp.BusinessLogic
         }
         public IReadOnlyCollection<Book> Search(SearchFilter filter)
         {
-            if (searchStrategies.ContainsKey(filter.Name))
-            {
-                var strategy = searchStrategies[filter.Name];
-                return strategy.Search(filter.Term);
-            }
-            else
-            {
-                return new List<Book>().AsReadOnly();
-            }
+            if (!searchStrategies.ContainsKey(filter.Name)) return new List<Book>().AsReadOnly();
+            var strategy = searchStrategies[filter.Name];
+            return strategy.Search(filter.Term);
+
         }
     }
 }
