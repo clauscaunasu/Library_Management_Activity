@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace LibraryApp_DAL
 {
@@ -18,12 +19,18 @@ namespace LibraryApp_DAL
 
         public bool AddBranch(Branch branch)
         {
-            var command = _connection.DbCommand("INSERT INTO Branch(Name, Address)" +
-                                     " VALUES (@name, @address)");
-            command.Parameters.AddWithValue("@name", branch.Name);
-            command.Parameters.AddWithValue("@address", branch.Address);
+            SqlCommand command;
+            if (branch != null)
+            {
+                command = _connection.DbCommand("INSERT INTO Branch(Name, Address)" +
+                                                " VALUES (@name, @address)");
+                command.Parameters.AddWithValue("@name", branch.Name);
+                command.Parameters.AddWithValue("@address", branch.Address);
 
-            return command.ExecuteNonQuery() == 1;
+                return command.ExecuteNonQuery() == 1;
+            }
+
+            return false;
         }
 
         public bool DeleteBranch(Branch branch)

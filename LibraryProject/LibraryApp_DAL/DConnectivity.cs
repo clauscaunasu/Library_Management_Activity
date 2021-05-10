@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel.Annotations;
-
+using Moq;
 
 namespace LibraryApp_DAL
 {
-    public class DConnectivity
+    public class DConnectivity:IDConnectivity
     {
         private readonly string _connection = "Server=DESKTOP-P607G92;Database=Library;Trusted_Connection=True;";
 
@@ -24,5 +25,9 @@ namespace LibraryApp_DAL
             return sqlCmd;
         }
 
+        public static implicit operator Mock<object>(DConnectivity v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
