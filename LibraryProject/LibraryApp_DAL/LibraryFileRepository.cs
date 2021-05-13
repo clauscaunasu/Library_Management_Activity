@@ -70,18 +70,7 @@ namespace LibraryApp_DAL
             reader.Read();
             var dueD= reader.GetDateTime(0);
             var borrowD = reader.GetDateTime(1);
-
-            if (DateTime.Compare(DateTime.Now, dueD) < 0 && (DateTime.Compare(dueD.AddDays(7), borrowD.AddDays(21)) < 0 || 
-                                                             (DateTime.Compare(dueD.AddDays(7), borrowD.AddDays(21)) == 0)))
-            {
-                dueD = dueD.AddDays(7);
-            }
-            else
-            {
-
-                return false;
-            }
-
+            dueD = dueD.AddDays(7);
             command = _connection.DbCommand(
                 "UPDATE LibraryFile SET DueDate=@dueD WHERE ClientId=@clientId AND BranchXBookID=@inventoryId");
             command.Parameters.AddWithValue("@dueD", dueD);
