@@ -24,8 +24,6 @@
                 <Button x:Name="ProfileBtn" Content="My Profile" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
                         Click="MyProfileBtn_Click"/>
-                <Button x:Name="B" Content="Buton pentru altceva" 
-                        Style="{StaticResource OptionAdminBtnStyle}" />
                 <Button x:Name="ViewBookBtn" Content="View Books"
                         Style="{StaticResource OptionAdminBtnStyle}"
                         Click="ViewBookBtn_OnClick"></Button>
@@ -89,12 +87,6 @@
 
                                         <Button Content="Update" Style="{StaticResource OptionsBtn}"
                                                 Click="ButtonUpdate_OnClick" />
-
-                                        <Button Content="More" Style="{StaticResource OptionsBtn}" Background="#70416d" />
-
-                                        <Button Content="History" Style="{StaticResource OptionsBtn}"
-
-                                                Background="#420000" />
                                     </StackPanel>
                                 </Expander>
                             </DataTemplate>

@@ -187,6 +187,18 @@
   <wsdl:message name="IService_GetMoreInformation_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMoreInformationResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_IsValidUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidUsername" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsValidUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsDesired_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsDesired" />
+  </wsdl:message>
+  <wsdl:message name="IService_IsDesired_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsDesiredResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="MemberRegister">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/MemberRegister" message="tns:IService_MemberRegister_InputMessage" />
@@ -307,6 +319,14 @@
     <wsdl:operation name="GetMoreInformation">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetMoreInformation" message="tns:IService_GetMoreInformation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetMoreInformationResponse" message="tns:IService_GetMoreInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/IsValidUsername" message="tns:IService_IsValidUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/IsValidUsernameResponse" message="tns:IService_IsValidUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsDesired">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/IsDesired" message="tns:IService_IsDesired_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/IsDesiredResponse" message="tns:IService_IsDesired_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -574,6 +594,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetMoreInformation">
       <soap:operation soapAction="http://tempuri.org/IService/GetMoreInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidUsername">
+      <soap:operation soapAction="http://tempuri.org/IService/IsValidUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsDesired">
+      <soap:operation soapAction="http://tempuri.org/IService/IsDesired" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

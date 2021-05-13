@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Globalization;
+using System.Linq;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
-using LibraryApp.DataModel.Enums;
 using static System.Int16;
 
 namespace LibraryApp_DAL
@@ -15,7 +15,7 @@ namespace LibraryApp_DAL
         private readonly List<LibraryFile> _libraryFiles = new List<LibraryFile>();
         private readonly BranchXBookRepository inventoryRepository;
         private readonly List<Book> _books = new List<Book>();
-        private List<Branch> _branchesOfBook = new List<Branch>();
+        private readonly List<Branch> _branchesOfBook = new List<Branch>();
        
 
         public LibraryFileRepository(DConnectivity connection)
@@ -51,9 +51,6 @@ namespace LibraryApp_DAL
 
         public bool RenewDueDate(Client client, Book book)
         {
-            var inventoryId = 0;
-           
-            
             var command = _connection.DbCommand(
                 "SELECT BranchXBook.ID FROM BranchXBook INNER JOIN Book ON Book.ID = BranchXBook.BookID INNER JOIN LibraryFile ON " +
                 "LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID WHERE Client.ID=@clientId AND Book.ID=@bookId");
@@ -62,7 +59,7 @@ namespace LibraryApp_DAL
 
             var reader = command.ExecuteReader();
             reader.Read();
-            inventoryId = reader.GetInt32(0);
+            var inventoryId = reader.GetInt32(0);
             reader.Close();
             command = _connection.DbCommand(
                 "SELECT DueDate, BorrowDate From LibraryFile WHERE BranchXBookID=@inventoryId AND ClientID=@clientId");
@@ -73,15 +70,7 @@ namespace LibraryApp_DAL
             reader.Read();
             var dueD= reader.GetDateTime(0);
             var borrowD = reader.GetDateTime(1);
-
-            if (DateTime.Compare(DateTime.Now, dueD) < 0 && (DateTime.Compare(dueD.AddDays(7), borrowD.AddDays(21)) < 0 || 
-                                                             (DateTime.Compare(dueD.AddDays(7), borrowD.AddDays(21)) == 0)))
-            {
-                dueD = dueD.AddDays(7);
-            }
-            else
-                return false;
-
+            dueD = dueD.AddDays(7);
             command = _connection.DbCommand(
                 "UPDATE LibraryFile SET DueDate=@dueD WHERE ClientId=@clientId AND BranchXBookID=@inventoryId");
             command.Parameters.AddWithValue("@dueD", dueD);
@@ -132,6 +121,13 @@ namespace LibraryApp_DAL
 
             if (branchName != null)
             {
+                if (client.Desired == false)
+                {
+                    command = _connection.DbCommand(
+                        "UPDATE Client SET Desired = 1 WHERE ID=@clientId");
+                    command.Parameters.AddWithValue("@clientId", client.ID);
+                    var rowsAffected = command.ExecuteNonQuery();
+                }
                 inventoryRepository.ReturnBookFromBranch(book, branchName);
 
                 command = _connection.DbCommand(
@@ -146,30 +142,61 @@ namespace LibraryApp_DAL
             return false;
         }
 
-        public bool IsReturned(Client client, Book book)
+        public bool IsReturned(Client client)
         {
-            int inventoryId = 0;
+            var allBookReturned = true;
+            var borrowedBooksList = GetBorrowedBooks(client);
+            foreach (var book in borrowedBooksList)
+            {
+                var command = _connection.DbCommand(
+                    "SELECT BranchXBook.ID FROM BranchXBook INNER JOIN Book ON Book.ID = BranchXBook.BookID INNER JOIN LibraryFile ON " +
+                    "LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID WHERE Client.ID=@clientId AND Book.ID=@bookId");
+                command.Parameters.AddWithValue("@clientId", client.ID);
+                command.Parameters.AddWithValue("@bookId", book.ID);
+                var reader = command.ExecuteReader();
+                reader.Read();
+                var inventoryId = reader.GetInt32(0);
+                reader.Close();
 
-            var command = _connection.DbCommand(
-                "SELECT BranchXBook.ID FROM BranchXBook INNER JOIN Book ON Book.ID = BranchXBook.BookID INNER JOIN LibraryFile ON " +
-                "LibraryFile.BranchXBookID = BranchXBook.ID INNER JOIN Client ON LibraryFile.ClientID = Client.ID WHERE Client.ID=@clientId AND Book.ID=@bookId");
-            command.Parameters.AddWithValue("@clientId", client.ID);
-            command.Parameters.AddWithValue("@bookId", book.ID);
-            var reader = command.ExecuteReader();
-            reader.Read();
-            inventoryId = reader.GetInt32(0);
-            reader.Close();
-            
-            command = _connection.DbCommand(
-                "SELECT ReturnDate FROM LibraryFile WHERE BranchXBookID=@inventoryId AND ClientID=@clientId");
+                
+                command = _connection.DbCommand(
+                    "SELECT DueDate, ReturnDate FROM LibraryFile WHERE BranchXBookID=@inventoryId AND ClientID=@clientId");
 
-            command.Parameters.AddWithValue("@inventoryId", inventoryId);
-            command.Parameters.AddWithValue("@clientId", client.ID);
-            reader = command.ExecuteReader();
-            reader.Read();
-            var returnDate = reader[0];
-            var dt=(returnDate == DBNull.Value) ? (DateTime?) null : Convert.ToDateTime(returnDate);
-            return dt != null;
+                command.Parameters.AddWithValue("@inventoryId", inventoryId);
+                command.Parameters.AddWithValue("@clientId", client.ID);
+                reader = command.ExecuteReader();
+                var dataTable = new DataTable();
+                dataTable.Load(reader);
+
+                for (var i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    var dueDate = (dataTable.Rows[i]["DueDate"].ToString());
+
+                    var returnDate = dataTable.Rows[i]["ReturnDate"];
+                    var dt = (returnDate == DBNull.Value) ? (DateTime?)null : Convert.ToDateTime(returnDate);
+                    if (DateTime.Compare(Convert.ToDateTime(dueDate), DateTime.Now) < 0 && dt == null)
+                    {
+                        allBookReturned = false;
+                        command = _connection.DbCommand("UPDATE CLIENT SET Desired = 0 WHERE ID = @id");
+                        command.Parameters.AddWithValue("@id", client.ID);
+                        var rowsAffected = command.ExecuteNonQuery();
+                        command.Connection.Close();
+                    }
+                }
+              
+
+                /*var filesList = GetLibraryFiles();
+                foreach (var file in filesList.Where(file => file.InventoryId == inventoryId && file.ClientId == client.ID && file.ReturnDate == null && DateTime.Compare(file.DueDate, DateTime.Now) < 0))
+                {
+                    allBookReturned = false;
+                    command = _connection.DbCommand("UPDATE CLIENT SET Desired = 0 WHERE ID = @id");
+                    command.Parameters.AddWithValue("@id", client.ID);
+                    var rowsAffected = command.ExecuteNonQuery();
+                    command.Connection.Close();
+                }#1#*/
+            }
+
+            return allBookReturned;
         }
 
         public List<Book> GetBorrowedBooks(Client client)
@@ -225,7 +252,7 @@ namespace LibraryApp_DAL
 
         public List<LibraryFile> GetLibraryFiles()
         {
-            var command = _connection.DbCommand("SELECT * FROM Book");
+            var command = _connection.DbCommand("SELECT * FROM LibraryFile");
             var reader = command.ExecuteReader();
             var dt = new DataTable();
             dt.Load(reader);
@@ -239,12 +266,12 @@ namespace LibraryApp_DAL
             {
                 var libraryFile = new LibraryFile
                 {
-                    ID = int.Parse(dt.Rows[i]["ID"].ToString()),
-                    InventoryId = Parse((string) dt.Rows[i]["Inventory"]),
-                    ClientId = Parse(dt.Rows[i]["ClientId"].ToString()),
-                    BorrowDate = DateTime.Parse(dt.Rows[i]["BorrowDate"].ToString()),
-                    DueDate = DateTime.Parse(dt.Rows[i]["DueDate"].ToString()),
-                    ReturnDate = DateTime.Parse(dt.Rows[i]["ReturnDate"].ToString())
+                    ID = Int32.Parse(dt.Rows[i]["ID"].ToString()),
+                    InventoryId = Int32.Parse(dt.Rows[i]["BranchXBookID"].ToString()),
+                    ClientId = Int32.Parse(dt.Rows[i]["ClientID"].ToString()),
+                    BorrowDate = DateTime.ParseExact(dt.Rows[i]["BorrowDate"].ToString(), "yyyy-MM-dd HH:mm:ss.FFF", CultureInfo.InvariantCulture),
+                    DueDate = DateTime.ParseExact(dt.Rows[i]["DueDate"].ToString(), "yyyy-MM-dd HH:mm:ss.FFF", CultureInfo.InvariantCulture),
+                    ReturnDate = DateTime.ParseExact(dt.Rows[i]["ReturnDate"].ToString(), "yyyy-MM-dd HH:mm:ss.FFF", CultureInfo.InvariantCulture)
                 };
                 _libraryFiles.Add(libraryFile);
             }

@@ -38,7 +38,7 @@ namespace LibraryApp_DAL
             var command = _connection.DbCommand("SELECT * FROM BranchXBook INNER JOIN Branch ON BranchXBook.LibraryID=Branch.ID" +
                 " AND Branch.ID=@ID");
             command.Parameters.AddWithValue("@ID", branch.ID);
-            Object result = command.ExecuteScalar();
+            var result = command.ExecuteScalar();
             if (result!=null)
             {
                 return false;

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using LibraryApp.BusinessLogic.Abstractions;
 using LibraryApp.DataModel;
-using LibraryApp.DataModel.Enums;
 
 namespace LibraryApp.BusinessLogic.SearchFilters
 {

@@ -51,7 +51,7 @@ namespace LibraryApp.View
 
             if (messageBoxResult != MessageBoxResult.Yes) return;
             var main = new MainWindow();
-            this.Close();
+            Close();
             main.Show();
         }
 
@@ -72,6 +72,7 @@ namespace LibraryApp.View
         {
             var userPage = new UserHome(_client);
             userPage.Show();
+            Close();
         }
 
         private void ButtonRenew_OnClick(object sender, RoutedEventArgs e)

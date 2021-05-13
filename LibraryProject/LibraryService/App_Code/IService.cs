@@ -91,7 +91,7 @@ public interface IService
     bool ReturnBook(Client client, Book book);
 
     [OperationContract]
-    bool IsReturned(Client client, Book book);
+    bool IsReturned(Client client);
 
     [OperationContract]
     List<Book> GetBookHistory(Client client);
@@ -101,6 +101,12 @@ public interface IService
 
     [OperationContract]
     List<MoreInformation> GetMoreInformation(Book book);
+
+    [OperationContract]
+    bool IsValidUsername(string username);
+
+    [OperationContract]
+    bool IsDesired(Client client);
 
     // TODO: Add your service operations here
 }

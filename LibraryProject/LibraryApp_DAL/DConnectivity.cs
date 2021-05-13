@@ -9,7 +9,7 @@ namespace LibraryApp_DAL
 {
     public class DConnectivity:IDConnectivity
     {
-        private readonly string _connection = "Server=DESKTOP-P607G92;Database=Library;Trusted_Connection=True;";
+        private readonly string _connection = "Server=DESKTOP-CG65E95;Database=Library;Trusted_Connection=True;";
 
         public SqlConnection DbConnection()
         {
@@ -25,9 +25,11 @@ namespace LibraryApp_DAL
             return sqlCmd;
         }
 
+
         public static implicit operator Mock<object>(DConnectivity v)
         {
             throw new NotImplementedException();
         }
+
     }
 }

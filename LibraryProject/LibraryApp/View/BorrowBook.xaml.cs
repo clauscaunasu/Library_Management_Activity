@@ -22,11 +22,11 @@ namespace LibraryApp.View
     /// </summary>
     public partial class BorrowBook : Window
     {
-        private List<Branch> branches;
-        private Book _book;
+        private readonly List<Branch> branches;
+        private readonly Book _book;
         private List<Book> _borrowedBooks = new List<Book>();
-        private Client _client;
-        private ServiceClient _serviceClient = new ServiceClient();
+        private readonly Client _client;
+        private readonly ServiceClient _serviceClient = new ServiceClient();
         public BorrowBook(Client client,Book book)
         {
             InitializeComponent();

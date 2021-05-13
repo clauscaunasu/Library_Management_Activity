@@ -26,7 +26,11 @@ namespace LibraryApp.View
             var books = _serviceClient.BooksList();
             BooksView.ItemsSource = books;
             searchEngine = new SearchEngine(books);
-            
+            if (!_serviceClient.IsDesired(client))
+            {
+                MessageBox.Show("Please return your borrowed book");
+            }
+
         }
 
  
@@ -83,9 +87,16 @@ namespace LibraryApp.View
 
         private void ButtonBorrow_OnClick(object sender, RoutedEventArgs e)
         {
-            var selectedBook = BooksView.SelectedItem as Book;
-            var borrowBookPage = new BorrowBook(client,selectedBook);
-            borrowBookPage.Show();
+            if (_serviceClient.IsDesired(client))
+            {
+                var selectedBook = BooksView.SelectedItem as Book;
+                var borrowBookPage = new BorrowBook(client, selectedBook);
+                borrowBookPage.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please return your borrowed book");
+            }
         }
 
         private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)

@@ -172,10 +172,10 @@ namespace LibraryApp.LibraryServiceReference {
         System.Threading.Tasks.Task<bool> ReturnBookAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsReturned", ReplyAction="http://tempuri.org/IService/IsReturnedResponse")]
-        bool IsReturned(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
+        bool IsReturned(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsReturned", ReplyAction="http://tempuri.org/IService/IsReturnedResponse")]
-        System.Threading.Tasks.Task<bool> IsReturnedAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book);
+        System.Threading.Tasks.Task<bool> IsReturnedAsync(LibraryApp.DataModel.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBookHistory", ReplyAction="http://tempuri.org/IService/GetBookHistoryResponse")]
         System.Collections.Generic.List<LibraryApp.DataModel.Book> GetBookHistory(LibraryApp.DataModel.Client client);
@@ -194,6 +194,18 @@ namespace LibraryApp.LibraryServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetMoreInformation", ReplyAction="http://tempuri.org/IService/GetMoreInformationResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.MoreInformation>> GetMoreInformationAsync(LibraryApp.DataModel.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsValidUsername", ReplyAction="http://tempuri.org/IService/IsValidUsernameResponse")]
+        bool IsValidUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsValidUsername", ReplyAction="http://tempuri.org/IService/IsValidUsernameResponse")]
+        System.Threading.Tasks.Task<bool> IsValidUsernameAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsDesired", ReplyAction="http://tempuri.org/IService/IsDesiredResponse")]
+        bool IsDesired(LibraryApp.DataModel.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IsDesired", ReplyAction="http://tempuri.org/IService/IsDesiredResponse")]
+        System.Threading.Tasks.Task<bool> IsDesiredAsync(LibraryApp.DataModel.Client client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -431,12 +443,12 @@ namespace LibraryApp.LibraryServiceReference {
             return base.Channel.ReturnBookAsync(client, book);
         }
         
-        public bool IsReturned(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book) {
-            return base.Channel.IsReturned(client, book);
+        public bool IsReturned(LibraryApp.DataModel.Client client) {
+            return base.Channel.IsReturned(client);
         }
         
-        public System.Threading.Tasks.Task<bool> IsReturnedAsync(LibraryApp.DataModel.Client client, LibraryApp.DataModel.Book book) {
-            return base.Channel.IsReturnedAsync(client, book);
+        public System.Threading.Tasks.Task<bool> IsReturnedAsync(LibraryApp.DataModel.Client client) {
+            return base.Channel.IsReturnedAsync(client);
         }
         
         public System.Collections.Generic.List<LibraryApp.DataModel.Book> GetBookHistory(LibraryApp.DataModel.Client client) {
@@ -461,6 +473,22 @@ namespace LibraryApp.LibraryServiceReference {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<LibraryApp.DataModel.MoreInformation>> GetMoreInformationAsync(LibraryApp.DataModel.Book book) {
             return base.Channel.GetMoreInformationAsync(book);
+        }
+        
+        public bool IsValidUsername(string username) {
+            return base.Channel.IsValidUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsValidUsernameAsync(string username) {
+            return base.Channel.IsValidUsernameAsync(username);
+        }
+        
+        public bool IsDesired(LibraryApp.DataModel.Client client) {
+            return base.Channel.IsDesired(client);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsDesiredAsync(LibraryApp.DataModel.Client client) {
+            return base.Channel.IsDesiredAsync(client);
         }
     }
 }

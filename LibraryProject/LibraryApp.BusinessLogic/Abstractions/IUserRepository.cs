@@ -21,5 +21,9 @@ namespace LibraryApp.BusinessLogic.Abstractions
         bool DeleteMember(Client client);
 
         Client GetClient(Client client);
+
+        bool IsValidUsername(string username);
+
+        bool IsDesired(Client client);
     }
 }
