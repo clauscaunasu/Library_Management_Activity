@@ -10,10 +10,12 @@ namespace LibraryApp_DAL
     {
         private readonly DConnectivity _connection;
         private readonly List<Client> _clients = new List<Client>();
+        private ILibraryFileRepository libraryFileRepository;
 
         public UserRepository(DConnectivity connection)
         {
             this._connection = connection;
+            libraryFileRepository = new LibraryFileRepository(connection);
         }
 
 
@@ -115,6 +117,32 @@ namespace LibraryApp_DAL
             client.Desired = bool.Parse(dt.Rows[0]["Desired"].ToString());
 
             return client;
+        }
+
+        public bool IsValidUsername(string username)
+        {
+            var command = _connection.DbCommand("SELECT * FROM Client WHERE Username=@username");
+            command.Parameters.AddWithValue("@username", username);
+            var reader = command.ExecuteReader();
+            var dt = new DataTable();
+            dt.Load(reader);
+            ClientList(dt);
+            return _clients.Count == 0;
+
+        }
+
+        public bool IsDesired(Client client)
+        {
+            if (libraryFileRepository.IsReturned(client))
+            {
+                client.Desired = true;
+            }
+            else
+            {
+                return client.Desired = false;
+            }
+
+            return client.Desired;
         }
 
         private void ClientList(DataTable dt)

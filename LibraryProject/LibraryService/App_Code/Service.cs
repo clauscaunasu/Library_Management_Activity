@@ -77,6 +77,19 @@ public partial class Service : IService
         var userRepository = GetUserRepository();
         return userRepository.GetClients();
     }
+
+    public bool IsValidUsername(string username)
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.IsValidUsername(username);
+    }
+
+    public bool IsDesired(Client client)
+    {
+        var userRepository = GetUserRepository();
+        return userRepository.IsDesired(client);
+    }
+
     public List<Book> BooksList()
     {
         var bookRepository = GetBookRepository();
@@ -204,10 +217,10 @@ public partial class Service : IService
         return libraryFileRepository.ReturnBook(client, book);
     }
 
-    public bool IsReturned(Client client, Book book)
+    public bool IsReturned(Client client)
     {
         var libraryFileRepository = GetLibraryFileRepository();
-        return libraryFileRepository.IsReturned(client, book);
+        return libraryFileRepository.IsReturned(client);
     }
 
     public List<Book> GetBookHistory(Client client)
