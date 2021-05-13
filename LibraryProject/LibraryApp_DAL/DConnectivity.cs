@@ -8,7 +8,7 @@ namespace LibraryApp_DAL
 {
     public class DConnectivity
     {
-        private readonly string _connection = "Server=DESKTOP-P607G92;Database=Library;Trusted_Connection=True;";
+        private readonly string _connection = "Server=DESKTOP-CG65E95;Database=Library;Trusted_Connection=True;";
 
         public SqlConnection DbConnection()
         {
@@ -23,6 +23,7 @@ namespace LibraryApp_DAL
             var sqlCmd = new SqlCommand(strProcedure, DbConnection()) {CommandType = CommandType.Text};
             return sqlCmd;
         }
+
 
     }
 }
