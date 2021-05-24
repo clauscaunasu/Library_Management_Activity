@@ -15,16 +15,38 @@ namespace LibraryApp.BusinessLogic.Tests
         [TestMethod]
         public void SearchBookAfterTitle_Returns_OnlyBooksThatContainsStringInTitle()
         {
-            var searchEngineMock = new Mock<SearchEngine>(FilteredBookList());
+            var searchEngine = new SearchEngine(BookList());
             var filter = new SearchFilter { Name = DataModel.Enums.Filters.Title, Term = "title" };
-            searchEngineMock.Setup(x => x.Search(filter)).Returns(FilteredBookList);
+            var result = searchEngine.Search(filter);
 
-            searchEngineMock.Object.Search(filter);
-
-            Assert.AreEqual(FilteredBookList().Count, 4);
+            
+            Assert.IsNotNull(result);
+            Assert.AreEqual(4, result.Count);
         }
 
-        private static List<Book> FilteredBookList()
+        [TestMethod]
+        public void SearchBookAfterTitle_Returns_Nothing()
+        {
+            var searchEngine = new SearchEngine(BookList());
+            var filter = new SearchFilter { Name = DataModel.Enums.Filters.Title, Term = "asddd" };
+            var result = searchEngine.Search(filter);
+
+            Assert.AreEqual(0, result.Count);
+        }
+
+        [TestMethod]
+        public void SearchBookAfterAuthor_Returns_OnlyBooksThatContainsStringInTitle()
+        {
+            var searchEngine = new SearchEngine(BookList());
+            var filter = new SearchFilter { Name = DataModel.Enums.Filters.Author, Term = "author" };
+
+            var result = searchEngine.Search(filter);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(5, result.Count);
+        }
+
+        private static List<Book> BookList()
         {
             var bookList = new List<Book>()
             {
@@ -60,7 +82,7 @@ namespace LibraryApp.BusinessLogic.Tests
                     Author = "Author4",
                     Editure = "Publisher4",
                     Genre = "Genre4",
-                    ID = 3,
+                    ID = 4,
                     Title = "Title4",
                     UniqueCode = "123"
                 },
@@ -69,7 +91,7 @@ namespace LibraryApp.BusinessLogic.Tests
                     Author = "Author5",
                     Editure = "Publisher5",
                     Genre = "Genre5",
-                    ID = 3,
+                    ID = 5,
                     Title = "Book1",
                     UniqueCode = "123"
                 }

@@ -31,7 +31,8 @@
                         Click="MyProfileBtn_Click"/>
                 <Button x:Name="AddBookBtn" Content="Add New Book" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
-                        Click="AddBookBtn_Click"/>
+                        Click="AddBookBtn_Click"
+                        AutomationProperties.AutomationId="AddBookButton"/>
                 <Button x:Name="ViewMembersBtn" Content="View Members"
                         Style="{StaticResource OptionAdminBtnStyle}"
                         Click="ViewMembersBtn_OnClick"></Button>
@@ -104,15 +105,15 @@
             </StackPanel>
             <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
                 <StackPanel VerticalAlignment="Top" Width="Auto">
-                    <ListView x:Name="BooksView">
+                    <ListView x:Name="BooksView" AutomationProperties.AutomationId="BookListViewID">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
                             </Style>
                         </ListView.ItemContainerStyle>
-                        <ListView.ItemTemplate >
+                        <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Expander Background="#e8f1f5" Width="700">
+                                <Expander Background="#e8f1f5" Width="700" AutomationProperties.AutomationId="ExpanderID">
                                     <Expander.Header >
                                         <controls:BookControl Book="{Binding  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Path=.}"/>
                                     </Expander.Header>
@@ -120,7 +121,7 @@
 
                                         <Button Content="Delete" Style="{StaticResource OptionsBtn}"  Background="#27496d" Click="ButtonDelete_OnClick"/>
 
-                                        <Button Content="Update" Style="{StaticResource OptionsBtn}" Click="ButtonUpdate_OnClick" />
+                                        <Button Content="Update" Style="{StaticResource OptionsBtn}" Click="ButtonUpdate_OnClick" AutomationProperties.AutomationId="UpdateBtnId" />
 
                                         <Button Content="More" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonMore_OnClick"/>
 

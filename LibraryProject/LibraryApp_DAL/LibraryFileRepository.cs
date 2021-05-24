@@ -15,8 +15,7 @@ namespace LibraryApp_DAL
         private readonly List<LibraryFile> _libraryFiles = new List<LibraryFile>();
         private readonly BranchXBookRepository inventoryRepository;
         private readonly List<Book> _books = new List<Book>();
-        private readonly List<Branch> _branchesOfBook = new List<Branch>();
-       
+
 
         public LibraryFileRepository(DConnectivity connection)
         {

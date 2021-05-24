@@ -26,20 +26,21 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Content="Editure" Style="{StaticResource LabelStyle}"/>
-                <TextBox Grid.Column="1"   TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" x:Name="NewEditure" />
+                <TextBox Grid.Column="1"   TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" x:Name="NewEditure" AutomationProperties.AutomationId="PublisherId" />
                 <Label Grid.Row="1" Content="Title" Style="{StaticResource LabelStyle}"/>
-                <TextBox Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTitle" />
+                <TextBox Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTitle" AutomationProperties.AutomationId="TitleId" />
                 <Label Grid.Row="3" Content="Author(s)" Style="{StaticResource LabelStyle}"/>
-                <TextBox Grid.Row="3" Grid.Column="1"  TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}" x:Name="NewAuthors"/>
+                <TextBox Grid.Row="3" Grid.Column="1"  TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}" x:Name="NewAuthors" AutomationProperties.AutomationId="AuthorId"/>
                 <Label Grid.Row="2" Content="ISBN" Style="{StaticResource LabelStyle}"/>
-                <TextBox Grid.Row="2" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewUniqueCode" />
+                <TextBox Grid.Row="2" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewUniqueCode" AutomationProperties.AutomationId="IsbnId" />
                 <Label Grid.Row="4" Grid.Column="0" Content="Genres" Style="{StaticResource LabelStyle}"/>
                 <ComboBox Grid.Row="4" Grid.Column="1" Name="GenresComboBox" HorizontalAlignment="Center" Width="230"  
                           Text="Select genre"
-                          ItemsSource="{Binding Source={classes:EnumBindingSource {x:Type local21:Genres}}}"/>
+                          ItemsSource="{Binding Source={classes:EnumBindingSource {x:Type local21:Genres}}}"
+                          AutomationProperties.AutomationId="GenresId"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5" Grid.ColumnSpan="2"
                             Grid.Column="0">
-                    <Button Content="Update Book" Style="{StaticResource MainActionBtnStyle}" Click="ButtonSave_OnClick"  />
+                    <Button Content="Update Book" Style="{StaticResource MainActionBtnStyle}" Click="ButtonSave_OnClick" AutomationProperties.AutomationId="SaveButton"  />
                     <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />
                 </StackPanel>
             </Grid>
