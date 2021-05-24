@@ -33,7 +33,8 @@
                                ToolTip="Login" 
                                x:Name="BtnLogin"
                                Click="BtnGoToLogin_OnClick" 
-                               Content="Login" />
+                               Content="Login"
+                               AutomationProperties.AutomationId="LoginButton"/>
                     </StackPanel>
                     <StackPanel Style="{StaticResource PrimaryStackPanel}">
                         <Button Style="{StaticResource GoToPageBtn}"

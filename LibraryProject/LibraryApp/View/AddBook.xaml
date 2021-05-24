@@ -33,20 +33,25 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
             <Label Grid.Row="0" Content="Title" Style="{StaticResource LabelStyle}"/>
-        <TextBox x:Name="TxtTitle" Grid.Row="0" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+        <TextBox x:Name="TxtTitle" Grid.Row="0" Grid.Column="1"  Style="{StaticResource TextBoxStyle}"
+                 AutomationProperties.AutomationId="TitleTextBox"/>
         <Label Grid.Row="2" Content="Author(s)" Style="{StaticResource LabelStyle}"/>
-        <TextBox x:Name="TxtAuthors" Grid.Row="2" Grid.Column="1"  TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}" />
+        <TextBox x:Name="TxtAuthors" Grid.Row="2" Grid.Column="1"  TextWrapping="Wrap"  Style="{StaticResource TextBoxStyle}"
+                 AutomationProperties.AutomationId="AuthorTextBox"/>
         <Label Grid.Row="1" Content="ISBN" Style="{StaticResource LabelStyle}"/>
-        <TextBox x:Name="TxtIsbn" Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+        <TextBox x:Name="TxtIsbn" Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}"
+                 AutomationProperties.AutomationId="IsbnTextBox"/>
         <Label Grid.Row="4" Content="Editure" Style="{StaticResource LabelStyle}"/>
-        <TextBox x:Name="TxtEditure" Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+        <TextBox x:Name="TxtEditure" Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBoxStyle}"
+                 AutomationProperties.AutomationId="PublisherTextBox"/>
         <Label Grid.Row="3" Content="Branch" Style="{StaticResource LabelStyle}"/>
             <Label Grid.Row="6" Grid.Column="0" Content="Genres" Style="{StaticResource LabelStyle}"/>
             <!--<TextBox x:Name="TxtBranch" Grid.Row="3" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />-->
             <Label Grid.Row="5" Grid.Column="0" Content="Copies" Style="{StaticResource LabelStyle}"/>
-        <TextBox x:Name="TxtCopies" Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+        <TextBox x:Name="TxtCopies" Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}"
+                 AutomationProperties.AutomationId="CopiesTextBox"/>
             <ComboBox Grid.Row="3" Grid.Column="1" Name="SelectBranchComboBox" HorizontalAlignment="Center" Width="230"  
-                      IsReadOnly="True" Text="Select branch">
+                      IsReadOnly="True" Text="Select branch" AutomationProperties.AutomationId="BranchComboBox">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -57,10 +62,12 @@
             </ComboBox>
             <ComboBox Grid.Row="6" Grid.Column="1" Name="GenresComboBox" HorizontalAlignment="Center" Width="230"  
                        Text="Select genre"
+                       AutomationProperties.AutomationId="GenreComboBox"
                       ItemsSource="{Binding Source={classes:EnumBindingSource {x:Type local21:Genres}}}"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="7" Grid.ColumnSpan="2"
                         Grid.Column="0">
-            <Button x:Name="BtnAddBook" Content="Add Book" Style="{StaticResource MainActionBtnStyle}" Click="BtnAddBook_OnClick" />
+            <Button x:Name="BtnAddBook" Content="Add Book" Style="{StaticResource MainActionBtnStyle}" Click="BtnAddBook_OnClick"
+                    AutomationProperties.AutomationId="SaveButton"/>
             <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />
         </StackPanel>
     </Grid>

@@ -65,7 +65,7 @@ namespace LibraryApp.View
             var messageBoxResult =
                 MessageBox.Show("Are you sure", "Delete confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (messageBoxResult != MessageBoxResult.Yes) return;
-            var isDeleted = _serviceClient.DeleteMember(selectedMember);
+            _serviceClient.DeleteMember(selectedMember);
             clients.Remove(selectedMember);
             UserView.Items.Refresh();
         }

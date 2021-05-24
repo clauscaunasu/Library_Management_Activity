@@ -10,7 +10,7 @@ namespace LibraryApp_DAL
     {
         private readonly DConnectivity _connection;
         private readonly List<Client> _clients = new List<Client>();
-        private ILibraryFileRepository libraryFileRepository;
+        private readonly ILibraryFileRepository libraryFileRepository;
 
         public UserRepository(DConnectivity connection)
         {
