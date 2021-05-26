@@ -39,16 +39,21 @@
                     <TextBlock Text="Login" Style="{StaticResource MainMessage}"/>
                     <StackPanel Style="{StaticResource PrimaryStackPanelLogin}">
                         <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground =" AliceBlue"/>
-                        <TextBox x:Name="TxtUsername"  Margin="10 0" materialDesign:HintAssist.Hint="Enter username" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
+                        <TextBox x:Name="TxtUsername"  Margin="10 0" 
+                                 AutomationProperties.AutomationId="UsernameTextBox"
+                                 materialDesign:HintAssist.Hint="Enter username" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                     </StackPanel>
                     <StackPanel Style="{StaticResource PrimaryStackPanelLogin}">
                         <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground =" AliceBlue"/>
-                        <PasswordBox x:Name="TxtPassword" Margin="10 0" materialDesign:HintAssist.Hint="******" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
+                        <PasswordBox x:Name="TxtPassword" Margin="10 0" 
+                                     AutomationProperties.AutomationId="PasswordTextBox"
+                                     materialDesign:HintAssist.Hint="******" Foreground="AliceBlue" Width="250" BorderBrush="AliceBlue" CaretBrush="AliceBlue" SelectionBrush="AliceBlue"/>
                     </StackPanel>
                     <StackPanel Margin="10" HorizontalAlignment="Center">
                         <Button Width="100" Height="40" Style="{StaticResource GoToPageBtn}"
                                 ToolTip="Login" 
                                 x:Name="BtnLogin" 
+                                AutomationProperties.AutomationId="LoginButton2"
                                 Click="BtnLogin_OnClick" 
                                 Content="Login"></Button>
 

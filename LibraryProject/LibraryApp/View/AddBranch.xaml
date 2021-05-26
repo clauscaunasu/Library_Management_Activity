@@ -20,12 +20,15 @@
                 
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Content="Name" Style="{StaticResource LabelStyle}"/>
-            <TextBox x:Name="TxtName" Grid.Row="0" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+            <TextBox x:Name="TxtName" Grid.Row="0" Grid.Column="1"  Style="{StaticResource TextBoxStyle}"
+                     AutomationProperties.AutomationId="BranchNameTextBox"/>
             <Label Grid.Row="1" Content="Address" Style="{StaticResource LabelStyle}"/>
-            <TextBox x:Name="TxtAddress" Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" />
+            <TextBox x:Name="TxtAddress" Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" 
+                     AutomationProperties.AutomationId="AddressTextBox"/>
            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2">
-                <Button x:Name="BtnAddBranch" Content="Add branch" Style="{StaticResource MainActionBtnStyle}" Click="BtnAddBranch_Click" />
+                <Button x:Name="BtnAddBranch" Content="Add branch" Style="{StaticResource MainActionBtnStyle}" Click="BtnAddBranch_Click" 
+                        AutomationProperties.AutomationId="AddBranchBtn"/>
                 <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />
             </StackPanel>
         </Grid>

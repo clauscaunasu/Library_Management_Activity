@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.DataModel", "Lib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp.BusinessLogic.Tests", "LibraryApp.BusinessLogic.Tests\LibraryApp.BusinessLogic.Tests.csproj", "{426861C3-5099-4C13-80EB-BF1DE0245F06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryAutomatedTests2", "LibraryAutomatedTests2\LibraryAutomatedTests2.csproj", "{621E62F1-0024-4D78-AF86-09BC0B347188}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{426861C3-5099-4C13-80EB-BF1DE0245F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{426861C3-5099-4C13-80EB-BF1DE0245F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{426861C3-5099-4C13-80EB-BF1DE0245F06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{621E62F1-0024-4D78-AF86-09BC0B347188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{621E62F1-0024-4D78-AF86-09BC0B347188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{621E62F1-0024-4D78-AF86-09BC0B347188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{621E62F1-0024-4D78-AF86-09BC0B347188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,12 +20,15 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Content="Name" Style="{StaticResource LabelStyle}"/>
-                <TextBox Grid.Column="1"   TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" x:Name="NewName" />
+                <TextBox Grid.Column="1"   TextWrapping="Wrap" Style="{StaticResource TextBoxStyle}" x:Name="NewName" 
+                         AutomationProperties.AutomationId="BranchNameTextBox"/>
                 <Label Grid.Row="1" Content="Address" Style="{StaticResource LabelStyle}"/>
-                <TextBox Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewAddress" />
+                <TextBox Grid.Row="1" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewAddress" 
+                         AutomationProperties.AutomationId="AddressTextBox"/>
                 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2">
-                    <Button Content="Update" Style="{StaticResource MainActionBtnStyle}" Click="ButtonSave_OnClick"  />
+                    <Button Content="Update" Style="{StaticResource MainActionBtnStyle}" Click="ButtonSave_OnClick" 
+                            AutomationProperties.AutomationId="UpdateBranchBtn"/>
                     <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_OnClick" />
                 </StackPanel>
             </Grid>

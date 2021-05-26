@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using LibraryApp.DataModel;
@@ -13,10 +15,11 @@ namespace LibraryApp.View
     {
         private readonly ServiceClient _serviceClient = new ServiceClient();
         private readonly Client _client;
+        private List<Branch> branches = new List<Branch>();
         public ViewBranches(Client client)
         {
             InitializeComponent();
-            var branches = _serviceClient.ViewBranches();
+            branches = _serviceClient.ViewBranches();
             BranchesView.ItemsSource = branches;
             _client = client;
         }
@@ -48,16 +51,34 @@ namespace LibraryApp.View
         private void AddBranchBtn_Click(object sender, RoutedEventArgs e)
         {
             var branchPage = new AddBranch(_client);
-            branchPage.Show();
+            branchPage.Closed += AddBranch_Close;
+            branchPage.ShowDialog();
+            BranchesView.Items.Refresh();
+
+        }
+
+        private void AddBranch_Close(object sender, EventArgs e)
+        {
+            if ((sender as Window)?.DialogResult == true)
+            {
+                branches = _serviceClient.ViewBranches();
+                BranchesView.ItemsSource = null;
+                BranchesView.ItemsSource = branches;
+
+            }
         }
 
         private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
         {
             var selectedBranch = BranchesView.SelectedItem as Branch;
             var updateBranchPage = new UpdateBranch(selectedBranch, _client);
-            updateBranchPage.Show();
+            updateBranchPage.Closed += AddBranch_Close;
+            updateBranchPage.ShowDialog();
+            BranchesView.Items.Refresh();
 
         }
+
+        
         private void ListViewItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var lvi = (ListViewItem)sender;
@@ -68,7 +89,9 @@ namespace LibraryApp.View
         {
             var selectedBranch = BranchesView.SelectedItem as Branch;
             var deleteBranchPage = new DeleteBranch(selectedBranch, _client);
-            deleteBranchPage.Show();
+            deleteBranchPage.Closed += AddBranch_Close;
+            deleteBranchPage.ShowDialog();
+            BranchesView.Items.Refresh();
         }
 
         private void LogoutBtn_OnClick(object sender, RoutedEventArgs e)

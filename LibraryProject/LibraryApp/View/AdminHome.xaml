@@ -8,8 +8,8 @@
              xmlns:controls="clr-namespace:LibraryApp.Controls"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
-             ResizeMode="NoResize">
+             d:DesignHeight="1920" d:DesignWidth="1080" WindowStartupLocation="CenterScreen" WindowStyle="None" WindowState="Maximized"
+             >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.35*"/>
@@ -38,10 +38,13 @@
                 <Button x:Name="Report" Content="Generate Report" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
                         Click="Report_OnClick"/>
-                <Expander Header="Manage Branches" Style="{StaticResource ExpanderStyle}">
+                <Expander Header="Manage Branches" Style="{StaticResource ExpanderStyle}"
+                          AutomationProperties.AutomationId="ExpanderBranch">
                     <StackPanel>
-                        <Button x:Name="AddBranchBtn" Content="Add new branch" Style="{StaticResource SecondaryActionBtn}" Click="AddBranchBtn_Click"/>
-                        <Button x:Name="ViewBranchesBtn" Content="View branches" Style="{StaticResource SecondaryActionBtn}" Click="ViewBranchesBtn_Click"/>
+                        <Button x:Name="AddBranchBtn" Content="Add new branch" Style="{StaticResource SecondaryActionBtn}" Click="AddBranchBtn_Click"
+                                AutomationProperties.AutomationId="AddBranchBtn"/>
+                        <Button x:Name="ViewBranchesBtn" Content="View branches" Style="{StaticResource SecondaryActionBtn}" Click="ViewBranchesBtn_Click"
+                                AutomationProperties.AutomationId="ViewBranchesBtn"/>
                     </StackPanel>
                 </Expander>
 

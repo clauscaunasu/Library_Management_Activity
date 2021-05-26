@@ -25,12 +25,13 @@ namespace LibraryApp.View
             _branch.Name = TxtName.Text;
             _branch.Address = TxtAddress.Text;
             var isAdded =  _serviceClient.AddBranch(_branch);
+            this.DialogResult = true;
             if (isAdded)
             {
                 MessageBox.Show("Branch added successfully!");
-                this.Close();
-                var newBranchP = new ViewBranches(_client);
-                newBranchP.Show();
+                Close();
+                //var newBranchP = new ViewBranches(_client);
+                //newBranchP.Show();
             }
 
 

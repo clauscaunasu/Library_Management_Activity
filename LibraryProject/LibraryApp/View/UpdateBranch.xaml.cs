@@ -35,11 +35,10 @@ namespace LibraryApp.View
             _branch.Name = NewName.Text;
             _branch.Address = NewAddress.Text;
             var isSaved = _serviceClient.EditBranch(_branch);
+            this.DialogResult = true;
             if (!isSaved) return;
             MessageBox.Show("Branch updated successfully!");
-            var viewBranchesP = new ViewBranches(_client);
-            Close();
-            viewBranchesP.Show();
+
         }
     }
 }

@@ -28,12 +28,11 @@ namespace LibraryApp.View
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             var isDeleted = _serviceClient.DeleteBranch(_branch);
+            this.DialogResult = true;
             if (isDeleted)
             {
                 MessageBox.Show("Branch deleted successfully!");
-                var viewBranchesP = new ViewBranches(_client);
-                this.Close();
-                viewBranchesP.Show();
+                
             }
             else
             {
