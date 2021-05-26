@@ -41,7 +41,8 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2">
             <materialDesign:PackIcon Kind="Cellphone" Foreground="#005691" HorizontalAlignment="Right" Height="38" Width="46" Margin="20"/>
             <TextBlock x:Name="PhoneTextBlock"
-                       Text="Phone Number" 
+                       Text="Phone Number"
+                       AutomationProperties.AutomationId="PhoneTextBox"
                        Style="{StaticResource PersonalInfoTextblock}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.ColumnSpan="2">

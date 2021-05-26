@@ -10,7 +10,7 @@ using SeleniumExtras.PageObjects;
 
 namespace LibraryAutomatedTests.WindowObjects
 {
-    class AdminHomeTest
+    internal class AdminHomeTest
     {
         private readonly WindowsDriver<WindowsElement> _driver;
         public AdminHomeTest(WindowsDriver<WindowsElement> driver)
@@ -42,6 +42,14 @@ namespace LibraryAutomatedTests.WindowObjects
             var updateBtn = _driver.FindElementByAccessibilityId("UpdateBtnId");
             updateBtn.Click();
             return new EditBookWindow(_driver);
+        }
+
+        public MyProfileWindow EditProfile()
+        {
+            _driver.SwitchTo().Window(_driver.WindowHandles.First());
+            var myProfileBtn = _driver.FindElementByAccessibilityId("MyProfileBtn");
+            myProfileBtn.Click();
+            return new MyProfileWindow(_driver);
         }
     }
 }

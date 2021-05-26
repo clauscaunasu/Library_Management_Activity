@@ -33,9 +33,11 @@
             <Label Grid.Row="4" Content="Password" Style="{StaticResource LabelStyle}" />
             <PasswordBox Grid.Row="4" Grid.Column="1"  Style="{StaticResource PasswordBoxStyle}" x:Name="NewTxtPassword" />
             <Label Grid.Row="5" Content="Phone" Style="{StaticResource LabelStyle}" />
-            <TextBox Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtPhone"/>
+            <TextBox Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBoxStyle}" x:Name="NewTxtPhone"
+                     AutomationProperties.AutomationId="PhoneTextBox"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="2">
-                <Button Content="Save Info" Style="{StaticResource MainActionBtnStyle}"  Click="Edit_Button_Click"/>
+                <Button Content="Save Info" Style="{StaticResource MainActionBtnStyle}"  Click="Edit_Button_Click"
+                        AutomationProperties.AutomationId="SaveButton"/>
                 <Button Content="Cancel"  Style="{StaticResource SecondaryActionBtnStyle}" x:Name="CancelBtn" Click="CancelBtn_Click" />
             </StackPanel>
         </Grid>

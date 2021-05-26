@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium.Appium;
+﻿using System.Linq;
 using OpenQA.Selenium.Appium.Windows;
-using OpenQA.Selenium.Support.PageObjects;
 
 
 namespace LibraryAutomatedTests.WindowObjects
@@ -22,6 +16,7 @@ namespace LibraryAutomatedTests.WindowObjects
         
         public LoginPage GoToLoginPage()
         {
+            _driver.SwitchTo().Window(_driver.WindowHandles.First());
             var loginBtn = _driver.FindElementByAccessibilityId("LoginButton");
             loginBtn.Click();
             return new LoginPage(_driver);

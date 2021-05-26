@@ -79,8 +79,10 @@
     <Compile Include="WindowObjects\AdminHomeTest.cs" />
     <Compile Include="WindowObjects\BranchWindow.cs" />
     <Compile Include="WindowObjects\EditBookWindow.cs" />
+    <Compile Include="WindowObjects\EditProfileWindow.cs" />
     <Compile Include="WindowObjects\LoginPage.cs" />
     <Compile Include="WindowObjects\MainWindowTest.cs" />
+    <Compile Include="WindowObjects\MyProfileWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

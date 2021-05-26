@@ -121,7 +121,7 @@ namespace LibraryApp.View
         {
             var selectedBook = BooksView.SelectedItem as Book;
             var selectBranchPage = new ChooseBranch(selectedBook);
-            selectBranchPage.Show();
+            selectBranchPage.ShowDialog();
         }
 
         private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)

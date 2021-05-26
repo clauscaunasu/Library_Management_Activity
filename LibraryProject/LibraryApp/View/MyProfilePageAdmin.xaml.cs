@@ -79,7 +79,7 @@ namespace LibraryApp.View
         private void EditWindow_Closed(object sender, EventArgs e)
         {
             if ((sender as Window)?.DialogResult != true) return;
-            var userHome = new UserHome(_client);
+            var userHome = new MyProfilePageAdmin(_client);
             userHome.Show();
             Close();
         }

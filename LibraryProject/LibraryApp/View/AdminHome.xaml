@@ -28,7 +28,8 @@
             <StackPanel Grid.Row="1">
                 <Button x:Name="ProfileBtn" Content="My Profile" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
-                        Click="MyProfileBtn_Click"/>
+                        Click="MyProfileBtn_Click"
+                        AutomationProperties.AutomationId="MyProfileBtn"/>
                 <Button x:Name="AddBookBtn" Content="Add New Book" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
                         Click="AddBookBtn_Click"

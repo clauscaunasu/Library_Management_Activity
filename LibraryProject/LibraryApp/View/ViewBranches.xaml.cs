@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using LibraryApp.DataModel;
@@ -22,9 +23,23 @@ namespace LibraryApp.View
         }
         private void AddBookBtn_Click(object sender, RoutedEventArgs e)
         {
-            var addBookPage = new AddBook();
-            addBookPage.Show();
+            var addBranch = new AddBranch(_client);
+            addBranch.Closed += AddBranchClose;
+            addBranch.ShowDialog();
+            BranchesView.Items.Refresh();
         }
+
+        private void AddBranchClose(object sender, EventArgs e)
+        {
+            if ((sender as Window)?.DialogResult == true)
+            {
+                var branches = _serviceClient.ViewBranches();
+                BranchesView.ItemsSource = null;
+                BranchesView.ItemsSource = branches;
+
+            }
+        }
+
 
         private void BtnExit_OnClick(object sender, RoutedEventArgs e)
         {

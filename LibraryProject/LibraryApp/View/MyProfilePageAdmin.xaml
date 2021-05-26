@@ -64,7 +64,8 @@
                     <controls:PersonalInfoControl Client="{Binding}"/>
                     <Button x:Name="EditBtn" Content="Edit"
                             Style="{StaticResource OptionAdminBtnStyle}"
-                            Click="EditBtn_OnClick" HorizontalAlignment="Center"/>
+                            Click="EditBtn_OnClick" HorizontalAlignment="Center"
+                            AutomationProperties.AutomationId="EditProfileBtn"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
